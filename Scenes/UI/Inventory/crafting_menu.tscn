@@ -23,28 +23,34 @@ scale = Vector2(6, 6)
 texture = ExtResource("1_ht6rx")
 
 [node name="CraftingSlot1" parent="." instance=ExtResource("2_hs25i")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 0
 offset_left = 228.0
 offset_top = 259.0
 offset_right = 244.0
 offset_bottom = 275.0
 scale = Vector2(1.5, 1.5)
+metadata/_edit_use_anchors_ = true
 
 [node name="CraftingSlot2" parent="." instance=ExtResource("2_hs25i")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 0
 offset_left = 420.0
 offset_top = 259.0
 offset_right = 436.0
 offset_bottom = 275.0
 scale = Vector2(1.5, 1.5)
+metadata/_edit_use_anchors_ = true
 
 [node name="Result" parent="." instance=ExtResource("2_hs25i")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 0
 offset_left = 612.0
 offset_top = 259.0
 offset_right = 628.0
 offset_bottom = 275.0
 scale = Vector2(1.5, 1.5)
+metadata/_edit_use_anchors_ = true
 
 [node name="Recipes" type="ScrollContainer" parent="."]
 layout_mode = 0

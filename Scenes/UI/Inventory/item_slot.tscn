@@ -23,9 +23,6 @@ metadata/_edit_use_anchors_ = true
 texture_filter = 1
 layout_mode = 2
 
-[node name="Button" type="TextureButton" parent="."]
-layout_mode = 2
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 1
@@ -67,5 +64,8 @@ custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 texture = ExtResource("3_q6gx5")
 expand_mode = 1
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

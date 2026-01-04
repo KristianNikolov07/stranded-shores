@@ -1,12 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://ri8mkxrx5357"]
 
 [ext_resource type="Script" uid="uid://rmu2kyj31hur" path="res://Scripts/UI/repair_menu.gd" id="1_8uoeh"]
-[ext_resource type="Texture2D" uid="uid://cijpl7aw7r1o2" path="res://Assets/Textures/UI/RepairBackground.png" id="1_hfshf"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_hjpn2"]
 [ext_resource type="PackedScene" uid="uid://b14v1jc5n78s2" path="res://Scenes/UI/Inventory/item_slot.tscn" id="2_5p5qb"]
+[ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="4_8uoeh"]
 
-[node name="RepairMenu" type="Control"]
-layout_mode = 3
+[node name="RepairMenu" type="PanelContainer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -21,47 +20,35 @@ grow_vertical = 2
 theme = ExtResource("1_hjpn2")
 script = ExtResource("1_8uoeh")
 
-[node name="Sprite2D" type="TextureRect" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 69
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 29
+
+[node name="Tool" parent="VBoxContainer/VBoxContainer" instance=ExtResource("2_5p5qb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Material" type="TextureRect" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -160.0
-offset_bottom = -320.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(6, 6)
-texture = ExtResource("1_hfshf")
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("4_8uoeh")
 
-[node name="Material" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.40100002
-anchor_top = 0.43
-anchor_right = 0.609
-anchor_bottom = 0.53400004
-offset_left = 0.0079956055
-offset_top = -0.11999512
-offset_right = 0.07199097
-offset_bottom = -0.056015015
-
-[node name="Tool" parent="." instance=ExtResource("2_5p5qb")]
-layout_mode = 1
-anchor_left = 0.3125
-anchor_top = 0.15104167
-anchor_right = 0.68975
-anchor_bottom = 0.339
-
-[node name="RepairButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 288.0
-offset_right = 144.0
-offset_bottom = 335.0
+[node name="RepairButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_font_sizes/font_size = 28
 disabled = true
 text = "Repair"
 
-[connection signal="pressed" from="RepairButton" to="." method="_on_repair_button_pressed"]
+[connection signal="gui_input" from="VBoxContainer/VBoxContainer/Tool" to="VBoxContainer/VBoxContainer/Tool" method="_on_gui_input"]
+[connection signal="pressed" from="VBoxContainer/RepairButton" to="." method="_on_repair_button_pressed"]
