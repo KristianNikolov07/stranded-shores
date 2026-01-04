@@ -47,7 +47,7 @@ func load_recipes() -> void:
 		var recipe = load("res://Resources/Recipes/" + file_name)
 		var crafting_recipe_ui = crafting_recipe_scene.instantiate()
 		crafting_recipe_ui.recipe = recipe
-		$Recipes/VBoxContainer.add_child(crafting_recipe_ui)
+		%Recipes.add_child(crafting_recipe_ui)
 		crafting_recipe_ui.recipe_selected.connect(select_recipe)
 
 
@@ -76,20 +76,20 @@ func select_recipe(recipe : Recipe) -> void:
 
 func update_ui() -> void:
 	if selected_recipe == null:
-		$CraftingSlot1.set_item(null)
-		$CraftingSlot2.set_item(null)
-		$Result.set_item(null)
-		$Craft.disabled = true
+		%CraftingSlot1.set_item(null)
+		%CraftingSlot2.set_item(null)
+		%Result.set_item(null)
+		%CraftButton.disabled = true
 	else:
-		$CraftingSlot1.set_item(selected_recipe.item1, selected_recipe.item1_amount, player.inventory.has_item(selected_recipe.item1.item_name, selected_recipe.item1_amount))
-		$CraftingSlot2.set_item(selected_recipe.item2, selected_recipe.item2_amount, player.inventory.has_item(selected_recipe.item2.item_name, selected_recipe.item2_amount))
-		$Result.set_item(selected_recipe.result)
+		%CraftingSlot1.set_item(selected_recipe.item1, selected_recipe.item1_amount, player.inventory.has_item(selected_recipe.item1.item_name, selected_recipe.item1_amount))
+		%CraftingSlot2.set_item(selected_recipe.item2, selected_recipe.item2_amount, player.inventory.has_item(selected_recipe.item2.item_name, selected_recipe.item2_amount))
+		%Result.set_item(selected_recipe.result)
 	
 		if player.inventory.has_item(selected_recipe.item1.item_name) and player.inventory.has_item(selected_recipe.item2.item_name):
-			$Craft.disabled = false
+			%CraftButton.disabled = false
 		else:
-			$Craft.disabled = true
-	for recipe in $Recipes/VBoxContainer.get_children():
+			%CraftButton.disabled = true
+	for recipe in %Recipes.get_children():
 		if recipe.recipe.requires_crafting_table():
 			if is_crafting_table:
 				if recipe.recipe.tool == selected_tool or recipe.recipe.tool == Recipe.CraftingTool.NONE:

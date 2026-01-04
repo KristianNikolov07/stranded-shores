@@ -1,37 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://daxxibw6axoih"]
+[gd_scene load_steps=3 format=3 uid="uid://daxxibw6axoih"]
 
-[ext_resource type="Texture2D" uid="uid://bul612thq7sc7" path="res://Assets/Textures/inventory/slot.png" id="1_b7ltr"]
 [ext_resource type="Script" uid="uid://lcqk52vqqku6" path="res://Scripts/UI/Inventory/crafting_slot.gd" id="1_oeowu"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_t5rlp"]
 
-[node name="CraftingSlot" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 16.0
-offset_bottom = 16.0
+[node name="CraftingSlot" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.06261111
+anchor_bottom = 0.111419745
+offset_right = -0.12799835
+offset_bottom = -0.19999695
 theme = ExtResource("1_t5rlp")
 script = ExtResource("1_oeowu")
+metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(36, 36)
-scale = Vector2(4, 4)
-texture = ExtResource("1_b7ltr")
-
-[node name="ItemTexture" type="Sprite2D" parent="."]
+[node name="ItemTexture" type="TextureRect" parent="."]
 z_index = 1
 texture_filter = 1
-position = Vector2(36, 36)
-scale = Vector2(4, 4)
+layout_mode = 2
 
 [node name="Amount" type="Label" parent="."]
 visible = false
 texture_filter = 1
-layout_mode = 0
-offset_left = 10.0
-offset_top = 52.0
-offset_right = 66.0
-offset_bottom = 66.0
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 16
 text = "1"
 horizontal_alignment = 2

@@ -1,65 +1,90 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg4fg688arahg"]
+[gd_scene load_steps=6 format=3 uid="uid://bg4fg688arahg"]
 
-[ext_resource type="Texture2D" uid="uid://dmcyy03gvmcn6" path="res://Assets/Textures/inventory/Crafting/crafting_recipe.png" id="1_dt6fa"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_3fm3v"]
 [ext_resource type="Script" uid="uid://wg3pna2lrlw3" path="res://Scripts/UI/Inventory/crafting_recipe_ui.gd" id="1_k1u3d"]
 [ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="3_3fm3v"]
+[ext_resource type="Texture2D" uid="uid://cvrlsbtwytbd7" path="res://Assets/Textures/UI/plus.png" id="4_sdq7x"]
+[ext_resource type="Texture2D" uid="uid://ceacgbygoxt43" path="res://Assets/Textures/UI/big_arrow.png" id="5_xnqce"]
 
-[node name="CraftingRecipeUI" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="CraftingRecipeUI" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.21180555
+anchor_bottom = 0.108024694
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3fm3v")
 script = ExtResource("1_k1u3d")
+metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(122, 35.000004)
-scale = Vector2(6.950001, 6.950001)
-texture = ExtResource("1_dt6fa")
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Item1" type="Sprite2D" parent="."]
+[node name="Item1" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(32.000004, 34)
-scale = Vector2(2.5, 2.5)
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
 texture = ExtResource("3_3fm3v")
 
-[node name="Item1Amount" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 17.0
-offset_top = 32.0
-offset_right = 57.0
-offset_bottom = 55.0
+[node name="Item1Amount" type="Label" parent="HBoxContainer/Item1"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
 text = "1"
 horizontal_alignment = 2
 
-[node name="Item2" type="Sprite2D" parent="."]
+[node name="Plus" type="TextureRect" parent="HBoxContainer"]
 texture_filter = 1
-position = Vector2(116.000015, 34)
-scale = Vector2(2.5, 2.5)
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("4_sdq7x")
+
+[node name="Item2" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
 texture = ExtResource("3_3fm3v")
 
-[node name="Item2Amount" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 100.0
-offset_top = 32.0
-offset_right = 140.0
-offset_bottom = 55.0
+[node name="Item2Amount" type="Label" parent="HBoxContainer/Item2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
 text = "1"
 horizontal_alignment = 2
 
-[node name="Result" type="Sprite2D" parent="."]
+[node name="Arrow" type="TextureRect" parent="HBoxContainer"]
 texture_filter = 1
-position = Vector2(207, 34)
-scale = Vector2(2.5, 2.5)
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("5_xnqce")
+
+[node name="Result" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
 texture = ExtResource("3_3fm3v")
 
 [node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_right = 244.0
-offset_bottom = 70.0
+layout_mode = 2
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
