@@ -9,6 +9,14 @@ const WORLD_FILE_NAME = "world.json"
 var config = ConfigFile.new()
 var json = JSON.new()
 
+func _ready() -> void:
+	get_window().close_requested.connect(_on_windows_close_requested)
+
+
+func _on_windows_close_requested():
+	save()
+	get_tree().quit()
+
 func save() -> void:
 	var player : Player = get_tree().get_first_node_in_group("Player")
 	if save_name != "":
@@ -47,6 +55,8 @@ func save() -> void:
 			world.Objects.append(object)
 		world_file.store_string(JSON.stringify(world))
 		world_file.close()
+		
+		print("Progress Saved")
 
 
 func delete(save_name_to_delete : String) -> void:
