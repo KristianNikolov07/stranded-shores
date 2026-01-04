@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx54gmymjr10i"]
+[gd_scene load_steps=10 format=3 uid="uid://cx54gmymjr10i"]
 
 [ext_resource type="Script" uid="uid://qkkgw8jqlml2" path="res://Scripts/UI/Inventory/crafting_menu.gd" id="1_4njxr"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_fyp3v"]
 [ext_resource type="PackedScene" uid="uid://daxxibw6axoih" path="res://Scenes/UI/Inventory/crafting_slot.tscn" id="2_hs25i"]
-[ext_resource type="PackedScene" uid="uid://e2riunx43o7p" path="res://Scenes/UI/Inventory/crafting_tool_slot.tscn" id="4_2fa18"]
+[ext_resource type="PackedScene" uid="uid://e2riunx43o7p" path="res://Scenes/UI/Inventory/crafting_tool_button.tscn" id="4_2fa18"]
 [ext_resource type="Texture2D" uid="uid://cvrlsbtwytbd7" path="res://Assets/Textures/UI/plus.png" id="4_g87qd"]
+[ext_resource type="Texture2D" uid="uid://d01mlsor7lh1k" path="res://Assets/Textures/Items/test_item.png" id="4_l8p2g"]
 [ext_resource type="Texture2D" uid="uid://ceacgbygoxt43" path="res://Assets/Textures/UI/big_arrow.png" id="5_l8p2g"]
+[ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="5_umd2w"]
+[ext_resource type="Texture2D" uid="uid://ufnd73b6q3fl" path="res://Assets/Textures/Items/Weapons/test_sword.png" id="6_k37wi"]
 
 [node name="CraftingMenu" type="PanelContainer"]
 texture_filter = 1
@@ -26,6 +29,28 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_constants/separation = 40
+
+[node name="Tools" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 5
+
+[node name="CraftingToolSlot" parent="HBoxContainer/VBoxContainer/Tools" instance=ExtResource("4_2fa18")]
+layout_mode = 2
+icon = ExtResource("4_l8p2g")
+tool = 1
+
+[node name="CraftingToolSlot2" parent="HBoxContainer/VBoxContainer/Tools" instance=ExtResource("4_2fa18")]
+layout_mode = 2
+icon = ExtResource("5_umd2w")
+tool = 2
+
+[node name="CraftingToolSlot3" parent="HBoxContainer/VBoxContainer/Tools" instance=ExtResource("4_2fa18")]
+layout_mode = 2
+icon = ExtResource("6_k37wi")
+tool = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -91,21 +116,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = -5
 
-[node name="Tools" type="HBoxContainer" parent="."]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 51
-
-[node name="CraftingToolSlot" parent="Tools" instance=ExtResource("4_2fa18")]
-layout_mode = 2
-tool = 1
-
-[node name="CraftingToolSlot2" parent="Tools" instance=ExtResource("4_2fa18")]
-layout_mode = 2
-tool = 2
-
-[node name="CraftingToolSlot3" parent="Tools" instance=ExtResource("4_2fa18")]
-layout_mode = 2
-tool = 3
-
+[connection signal="tool_selected" from="HBoxContainer/VBoxContainer/Tools/CraftingToolSlot" to="." method="select_tool"]
+[connection signal="tool_selected" from="HBoxContainer/VBoxContainer/Tools/CraftingToolSlot2" to="." method="select_tool"]
+[connection signal="tool_selected" from="HBoxContainer/VBoxContainer/Tools/CraftingToolSlot3" to="." method="select_tool"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/CraftButton" to="." method="_on_craft_pressed"]

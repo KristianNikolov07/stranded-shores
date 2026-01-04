@@ -30,6 +30,7 @@ texture = ExtResource("3_3fm3v")
 
 [node name="Item1Amount" type="Label" parent="HBoxContainer/Item1"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -58,6 +59,7 @@ texture = ExtResource("3_3fm3v")
 
 [node name="Item2Amount" type="Label" parent="HBoxContainer/Item2"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

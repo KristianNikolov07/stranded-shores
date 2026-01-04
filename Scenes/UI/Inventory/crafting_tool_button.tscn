@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://e2riunx43o7p"]
+
+[ext_resource type="Script" uid="uid://b1evd4mh5md78" path="res://Scripts/UI/Inventory/crafting_tool_button.gd" id="1_6f1f0"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_iblev"]
+
+[node name="CraftingToolButton" type="Button"]
+texture_filter = 1
+custom_minimum_size = Vector2(54, 54)
+anchors_preset = -1
+anchor_right = 0.047000002
+anchor_bottom = 0.083000004
+offset_right = -0.144001
+offset_bottom = 0.21599579
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("1_iblev")
+toggle_mode = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_6f1f0")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
