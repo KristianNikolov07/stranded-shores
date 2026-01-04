@@ -5,7 +5,7 @@ func _ready() -> void:
 
 
 func _on_world_name_text_changed(new_text: String) -> void:
-	if new_text.replace(" ", "") != "":
+	if new_text.replace(" ", "") != "" and SaveProgress.has_save_with_name(new_text.replace(" ", "")) == false:
 		$CenterContainer/VBoxContainer/CreateNewWorld.disabled = false
 	else:
 		$CenterContainer/VBoxContainer/CreateNewWorld.disabled = true

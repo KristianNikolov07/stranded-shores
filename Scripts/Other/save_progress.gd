@@ -73,6 +73,10 @@ func has_save() -> bool:
 	return DirAccess.dir_exists_absolute(SAVES_FOLDER + save_name)
 
 
+func has_save_with_name(_save_name : String) -> bool:
+	return DirAccess.dir_exists_absolute(SAVES_FOLDER + _save_name)
+
+
 func load_save() -> void:
 	var player : Player = get_tree().get_first_node_in_group("Player")
 	if !DirAccess.dir_exists_absolute(SAVES_FOLDER + save_name):
