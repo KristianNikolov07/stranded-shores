@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c717mvl3cjmpf"]
 
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/Other/icon.svg" id="1_8642y"]
+[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="1_8642y"]
 [ext_resource type="Script" uid="uid://d3001nb6tmga0" path="res://Scripts/Classes/Structure.gd" id="1_ook5j"]
 [ext_resource type="Script" uid="uid://bc1xhxp0j33cl" path="res://Scripts/Objects/crafting_table.gd" id="1_wephv"]
 

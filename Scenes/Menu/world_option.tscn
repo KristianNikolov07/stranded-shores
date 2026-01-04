@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbn5dohwkbou"]
 
-[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/Themes/main_theme.tres" id="1_d46mp"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_d46mp"]
 [ext_resource type="Script" uid="uid://dbrp21g882cav" path="res://Scripts/Menu/world_option.gd" id="1_yhtm6"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_uqpma"]

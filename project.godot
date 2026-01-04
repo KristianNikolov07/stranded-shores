@@ -14,7 +14,6 @@ config/name="Diploma Project"
 config/version="Dev.1.0"
 run/main_scene="uid://dwlyi2oj4yksl"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://Assets/Textures/Other/icon.svg"
 
 [autoload]
 

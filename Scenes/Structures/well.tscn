@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://7g3bjao3xxhu"]
 
 [ext_resource type="Script" uid="uid://d3001nb6tmga0" path="res://Scripts/Classes/Structure.gd" id="1_qjjw6"]
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/Other/icon.svg" id="2_f6nty"]
+[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="2_f6nty"]
 [ext_resource type="Script" uid="uid://5uxkgia8qf7" path="res://Scripts/Structures/well.gd" id="3_a42g1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6nty"]
