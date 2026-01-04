@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwlyi2oj4yksl"]
+[gd_scene load_steps=6 format=3 uid="uid://dwlyi2oj4yksl"]
 
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_ab7fb"]
 [ext_resource type="Script" uid="uid://b3tskrkc5usx" path="res://Scripts/Menu/main_menu.gd" id="1_bkwd7"]
-[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_vmek6"]
 [ext_resource type="PackedScene" uid="uid://dx25w13rsr5xr" path="res://Scenes/Menu/settings_menu.tscn" id="2_tself"]
 [ext_resource type="PackedScene" uid="uid://cosb80or2npy4" path="res://Scenes/Menu/world_select.tscn" id="3_7jtkx"]
+[ext_resource type="PackedScene" uid="uid://bjbbmrwcd6a0c" path="res://Scenes/Menu/mod_menu.tscn" id="5_gpijq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_vmek6")
+theme = ExtResource("1_ab7fb")
 script = ExtResource("1_bkwd7")
 
 [node name="MainButtons" type="VBoxContainer" parent="."]
@@ -65,6 +66,15 @@ offset_top = 128.0
 offset_right = 191.61597
 offset_bottom = 127.73596
 
+[node name="ModMenu" parent="." instance=ExtResource("5_gpijq")]
+visible = false
+layout_mode = 1
+anchor_left = 0.2543403
+anchor_top = 0.20524691
+anchor_right = 0.7453402
+anchor_bottom = 0.7822469
+metadata/_edit_use_anchors_ = true
+
 [node name="Version" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 3
@@ -85,3 +95,4 @@ horizontal_alignment = 2
 [connection signal="pressed" from="MainButtons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="closed" from="SettingsMenu" to="." method="_on_settings_menu_closed"]
 [connection signal="closed" from="WorldSelect" to="." method="_on_world_select_closed"]
+[connection signal="closed" from="ModMenu" to="." method="_on_mod_menu_closed"]

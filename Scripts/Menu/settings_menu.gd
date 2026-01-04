@@ -17,6 +17,10 @@ func _ready() -> void:
 	$CenterContainer/Settings/Language/Language.selected = lang
 	set_volume(volume)
 	$CenterContainer/Settings/Volume/HSlider.value = volume
+	
+	# Disable Mod Button if not in the menu
+	if get_tree().current_scene.name != "MainMenu":
+		$CenterContainer/Settings/Mods.disabled = true
 
 
 func _on_back_pressed() -> void:
@@ -50,4 +54,5 @@ func set_volume(volume : float):
 
 
 func _on_mods_pressed() -> void:
-	pass # Replace with function body.
+	hide()
+	get_node("../ModMenu").show()

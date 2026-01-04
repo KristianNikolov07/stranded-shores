@@ -61,7 +61,6 @@ size_flags_vertical = 4
 [node name="Mods" type="Button" parent="CenterContainer/Settings"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-disabled = true
 text = "Mods"
 
 [node name="Back" type="Button" parent="."]

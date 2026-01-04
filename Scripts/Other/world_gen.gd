@@ -27,8 +27,8 @@ func _ready() -> void:
 
 
 func generate_random_objects() -> void:
-	for x in range(Global.tilemap_size):
-		for y in range(Global.tilemap_size):
+	for x in range(Global.TILEMAP_SIZE):
+		for y in range(Global.TILEMAP_SIZE):
 			
 			# Attempt to place a tree
 			if tilemap.is_grass_tile(Vector2i(x, y)):

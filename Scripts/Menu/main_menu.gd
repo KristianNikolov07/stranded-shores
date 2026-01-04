@@ -25,3 +25,7 @@ func _on_settings_menu_closed() -> void:
 
 func _on_world_select_closed() -> void:
 	$MainButtons.show()
+
+
+func _on_mod_menu_closed() -> void:
+	$SettingsMenu.show()
