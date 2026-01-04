@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://e2riunx43o7p"]
 
 [ext_resource type="Script" uid="uid://b1evd4mh5md78" path="res://Scripts/UI/Inventory/crafting_tool_button.gd" id="1_6f1f0"]
-[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_iblev"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/Themes/main_theme.tres" id="1_iblev"]
 
 [node name="CraftingToolButton" type="Button"]
 texture_filter = 1

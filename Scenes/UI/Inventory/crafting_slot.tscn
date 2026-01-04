@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://daxxibw6axoih"]
 
 [ext_resource type="Script" uid="uid://lcqk52vqqku6" path="res://Scripts/UI/Inventory/crafting_slot.gd" id="1_oeowu"]
-[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_t5rlp"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/Themes/main_theme.tres" id="1_t5rlp"]
 
 [node name="CraftingSlot" type="PanelContainer"]
 anchors_preset = -1

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StructureItem" load_steps=4 format=3 uid="uid://dexo0fi08bjdt"]
 
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="1_1arfr"]
+[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/Other/icon.svg" id="1_1arfr"]
 [ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/StructureItem.gd" id="1_8lai2"]
 [ext_resource type="PackedScene" uid="uid://c1il72ic3cmny" path="res://Scenes/Structures/repair_station.tscn" id="3_guevu"]
 

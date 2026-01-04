@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://iuq4lp5j1m3b"]
 
 [ext_resource type="Script" uid="uid://d3001nb6tmga0" path="res://Scripts/Classes/Structure.gd" id="1_cv6oq"]
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="1_nufvf"]
+[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/Other/icon.svg" id="1_nufvf"]
 [ext_resource type="Script" uid="uid://d2kxwrhqxmsoo" path="res://Scripts/Structures/campfire.gd" id="1_vu2sp"]
-[ext_resource type="Texture2D" uid="uid://yneff87l8cnn" path="res://Assets/Textures/2d_lights_and_shadows_neutral_point_light.webp" id="2_o1yvi"]
+[ext_resource type="Texture2D" uid="uid://yneff87l8cnn" path="res://Assets/Textures/Other/2d_lights_and_shadows_neutral_point_light.webp" id="2_o1yvi"]
 
 [sub_resource type="Animation" id="Animation_cv6oq"]
 length = 0.001

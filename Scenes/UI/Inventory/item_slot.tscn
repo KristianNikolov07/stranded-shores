@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://b14v1jc5n78s2"]
 
-[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_ds26i"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/Themes/main_theme.tres" id="1_ds26i"]
 [ext_resource type="Script" uid="uid://buoumfl2vww4x" path="res://Scripts/UI/Inventory/item_slot.gd" id="1_nl11y"]
-[ext_resource type="Texture2D" uid="uid://6wcirt6ockc0" path="res://Assets/Textures/inventory/slot_selector.png" id="3_q6gx5"]
-[ext_resource type="Texture2D" uid="uid://d1ij53maubivp" path="res://Assets/Textures/inventory/durability_bg.png" id="4_47aue"]
-[ext_resource type="Texture2D" uid="uid://4pmfwnbegmio" path="res://Assets/Textures/inventory/durability.png" id="5_ds26i"]
+[ext_resource type="Texture2D" uid="uid://6wcirt6ockc0" path="res://Assets/Textures/UI/slot_selector.png" id="3_q6gx5"]
+[ext_resource type="Texture2D" uid="uid://d1ij53maubivp" path="res://Assets/Textures/UI/durability_bg.png" id="4_47aue"]
+[ext_resource type="Texture2D" uid="uid://4pmfwnbegmio" path="res://Assets/Textures/UI/durability.png" id="5_ds26i"]
 
 [node name="ItemSlot" type="PanelContainer"]
 custom_minimum_size = Vector2(72, 72)

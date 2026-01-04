@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cosb80or2npy4"]
 
-[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_3f3ot"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/Themes/main_theme.tres" id="1_3f3ot"]
 [ext_resource type="Script" uid="uid://w1gdiragrl2i" path="res://Scripts/Menu/world_select.gd" id="1_u1338"]
 [ext_resource type="PackedScene" uid="uid://c1rwvhccj8sbd" path="res://Scenes/Menu/create_new_world_menu.tscn" id="3_3uk8j"]
 

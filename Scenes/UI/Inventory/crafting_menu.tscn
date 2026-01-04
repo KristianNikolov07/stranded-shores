@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cx54gmymjr10i"]
 
 [ext_resource type="Script" uid="uid://qkkgw8jqlml2" path="res://Scripts/UI/Inventory/crafting_menu.gd" id="1_4njxr"]
-[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_fyp3v"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/Themes/main_theme.tres" id="1_fyp3v"]
 [ext_resource type="PackedScene" uid="uid://daxxibw6axoih" path="res://Scenes/UI/Inventory/crafting_slot.tscn" id="2_hs25i"]
 [ext_resource type="PackedScene" uid="uid://e2riunx43o7p" path="res://Scenes/UI/Inventory/crafting_tool_button.tscn" id="4_2fa18"]
 [ext_resource type="Texture2D" uid="uid://cvrlsbtwytbd7" path="res://Assets/Textures/UI/plus.png" id="4_g87qd"]
@@ -89,7 +89,6 @@ text = "Craft"
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = -5
 theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = -5

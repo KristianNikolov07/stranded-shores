@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ri8mkxrx5357"]
 
 [ext_resource type="Script" uid="uid://rmu2kyj31hur" path="res://Scripts/UI/repair_menu.gd" id="1_8uoeh"]
-[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_hjpn2"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/Themes/main_theme.tres" id="1_hjpn2"]
 [ext_resource type="PackedScene" uid="uid://b14v1jc5n78s2" path="res://Scenes/UI/Inventory/item_slot.tscn" id="2_5p5qb"]
 [ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="4_8uoeh"]
 

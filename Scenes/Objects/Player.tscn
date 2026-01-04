@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://xqjghw70oxkf"]
 
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="1_ajy74"]
-[ext_resource type="Script" uid="uid://ds284ijxir0f7" path="res://Scripts/player.gd" id="1_t86h6"]
-[ext_resource type="Script" uid="uid://pxkbysso4esr" path="res://Scripts/CameraLimiter.gd" id="3_5f5w1"]
+[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/Other/icon.svg" id="1_ajy74"]
+[ext_resource type="Script" uid="uid://ds284ijxir0f7" path="res://Scripts/Other/player.gd" id="1_t86h6"]
+[ext_resource type="Script" uid="uid://pxkbysso4esr" path="res://Scripts/Other/CameraLimiter.gd" id="3_5f5w1"]
 [ext_resource type="PackedScene" uid="uid://br7sveoej6sjf" path="res://Scenes/UI/ui.tscn" id="4_r6m6p"]
-[ext_resource type="Script" uid="uid://cy6otwbqa0w1x" path="res://Scripts/hunger_and_thirst.gd" id="5_s8rx5"]
+[ext_resource type="Script" uid="uid://cy6otwbqa0w1x" path="res://Scripts/Other/hunger_and_thirst.gd" id="5_s8rx5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t86h6"]
 size = Vector2(128, 128)
