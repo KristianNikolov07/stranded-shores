@@ -164,6 +164,10 @@ Click={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Assets/Locales/translations.bg.translation", "res://Assets/Locales/translations.en.translation")
+
 [layer_names]
 
 2d_physics/layer_1="Water"

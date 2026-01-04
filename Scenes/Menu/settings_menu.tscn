@@ -31,7 +31,7 @@ theme_override_constants/separation = 45
 [node name="Label" type="Label" parent="CenterContainer/Settings/Language"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Language: "
+text = "LANGUAGE"
 
 [node name="Language" type="OptionButton" parent="CenterContainer/Settings/Language"]
 layout_mode = 2
@@ -51,7 +51,7 @@ theme_override_constants/separation = 45
 [node name="Label" type="Label" parent="CenterContainer/Settings/Volume"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Volume: "
+text = "VOLUME"
 
 [node name="HSlider" type="HSlider" parent="CenterContainer/Settings/Volume"]
 layout_mode = 2
@@ -61,7 +61,7 @@ size_flags_vertical = 4
 [node name="Mods" type="Button" parent="CenterContainer/Settings"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Mods"
+text = "MODS"
 
 [node name="Back" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 100)

@@ -37,9 +37,9 @@ func _on_language_selected(index: int) -> void:
 
 func set_language(lang : int):
 	if lang == 0:
-		pass
+		TranslationServer.set_locale("en")
 	elif lang == 1:
-		pass
+		TranslationServer.set_locale("bg")
 
 
 func _on_volume_changed(value : float) -> void:

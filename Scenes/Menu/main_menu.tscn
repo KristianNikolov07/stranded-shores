@@ -34,18 +34,17 @@ theme_override_constants/separation = 30
 [node name="Play" type="Button" parent="MainButtons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Play"
+text = "PLAY"
 
 [node name="Settings" type="Button" parent="MainButtons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Settings"
+text = "SETTINGS"
 
 [node name="Quit" type="Button" parent="MainButtons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Quit
-"
+text = "QUIT"
 
 [node name="SettingsMenu" parent="." instance=ExtResource("2_tself")]
 visible = false

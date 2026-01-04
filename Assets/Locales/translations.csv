@@ -1,0 +1,19 @@
+keys,en,bg
+PLAY,Play,Играй
+SETTINGS,Settings,Настройки
+QUIT,Quit,Затрвори
+CREATE_NEW_WORLD,Create New World,Създай Нов Свят
+WORLD_NAME,World Name,Име на Света
+CREATE,Create,Създай
+DELETE,Delete,Изтрий
+LANGUAGE,Language,Език
+VOLUME,Volume,Звук
+MODS,Mods,Модове
+ADD_MOD,Add Mod,Добави Мод
+ENABLE,Enable,Включи
+DISABLE,Disable,Изключи
+REMOVE,Remove,Премахни
+RESUME,Resume,Обратно към Играта
+SAVE_AND_QUIT,Save and Quit,Запази и Излез
+RESTART_WARNING_TITLE,Please Restart Your Game,Моля Рестартирайте Играта си
+RESTART_WARNING_MESSAGE,Please restart your game in order to apply all changes!,"Моля рестартирайте играта си, за да приложите всички промени!"

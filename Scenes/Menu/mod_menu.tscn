@@ -24,7 +24,7 @@ layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 64
-text = "Add Mod"
+text = "ADD_MOD"
 
 [node name="Back" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
@@ -63,7 +63,7 @@ size_flags_horizontal = 3
 theme_override_constants/separation = -5
 
 [node name="FileDialog" type="FileDialog" parent="."]
-title = "Select a Mod"
+title = "Open a File"
 initial_position = 1
 ok_button_text = "Select"
 file_mode = 0

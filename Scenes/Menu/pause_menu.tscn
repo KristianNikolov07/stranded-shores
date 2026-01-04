@@ -41,18 +41,17 @@ theme_override_constants/separation = 24
 [node name="Resume" type="Button" parent="Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Resume"
+text = "RESUME"
 
 [node name="Settings" type="Button" parent="Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Settings
-"
+text = "SETTINGS"
 
 [node name="Save and Quit" type="Button" parent="Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Save and Quit"
+text = "SAVE_AND_QUIT"
 
 [node name="SettingsMenu" parent="." instance=ExtResource("2_6pfc5")]
 visible = false

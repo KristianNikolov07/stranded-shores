@@ -25,9 +25,9 @@ func _on_toggle_mod_toggled(toggled_on: bool) -> void:
 	enabled_check_file.close()
 	
 	if toggled_on:
-		%ToggleMod.text = "Disable"
+		%ToggleMod.text = tr("DISABLE")
 	else:
-		%ToggleMod.text = "Enable"
+		%ToggleMod.text = tr("ENABLE")
 
 
 func _on_remove_mod_button_down() -> void:

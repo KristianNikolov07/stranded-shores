@@ -33,7 +33,7 @@ layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 48
-text = "Create New World"
+text = "CREATE_NEW_WORLD"
 
 [node name="Back" type="Button" parent="VBoxContainer/Buttons"]
 custom_minimum_size = Vector2(100, 100)

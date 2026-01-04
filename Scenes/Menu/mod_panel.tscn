@@ -43,13 +43,13 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 toggle_mode = true
-text = "Enable"
+text = "ENABLE"
 
 [node name="RemoveMod" type="Button" parent="MarginContainer/HBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Remove"
+text = "REMOVE"
 
 [node name="ProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/Buttons/RemoveMod"]
 self_modulate = Color(0.5294118, 0.08235294, 0.16470589, 0.38431373)

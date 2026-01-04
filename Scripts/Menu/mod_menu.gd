@@ -18,7 +18,7 @@ func list_mods() -> void:
 
 
 func _on_back_pressed() -> void:
-	OS.alert("Please restart your game in order to apply all changes!", "Please Restart Your Game")
+	OS.alert(tr("RESTART_WARNING_MESSAGE"), tr("RESTART_WARNING_TITLE"))
 	hide()
 	closed.emit()
 

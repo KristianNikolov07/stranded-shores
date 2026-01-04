@@ -39,12 +39,12 @@ theme_override_constants/separation = 54
 [node name="Play" type="Button" parent="MarginContainer/HBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
-text = "Play"
+text = "PLAY"
 
 [node name="Delete" type="Button" parent="MarginContainer/HBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
-text = "Delete"
+text = "DELETE"
 
 [node name="ProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/Buttons/Delete"]
 self_modulate = Color(0.5294118, 0.08235294, 0.16470589, 0.38431373)
