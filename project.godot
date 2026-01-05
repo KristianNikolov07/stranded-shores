@@ -47,6 +47,8 @@ Player=""
 Tilemap=""
 Persistant=""
 Objectives=""
+PassiveEntities=""
+Enemies=""
 
 [gui]
 

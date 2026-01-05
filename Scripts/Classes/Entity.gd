@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var max_hp = 100
 @export var speed = 50
 @export var loot_table : Array[Loot]
+@export var can_despawn = true
+@export var despawn_distance = 1000
 
 var dropped_item_scene = preload("res://Scenes/Objects/dropped_item.tscn")
 var hp : int
@@ -12,6 +14,12 @@ var hp : int
 
 func _ready() -> void:
 	hp = max_hp
+
+
+func _process(_delta: float) -> void:
+	var player : Player = get_tree().get_first_node_in_group("Player")
+	if player.global_position.distance_to(global_position) > despawn_distance:
+		queue_free()
 
 
 func damage(dmg : int) -> void:

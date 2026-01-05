@@ -652,7 +652,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_wsjvh")
 }
 
-[node name="EntitySpawning" type="Node" parent="."]
+[node name="EntitySpawning" type="Node" parent="." groups=["Enemies", "PassiveEntities"]]
 script = ExtResource("6_hss3q")
 passiveEntityes = Array[PackedScene]([ExtResource("7_x7m6j")])
 enemies = Array[PackedScene]([ExtResource("8_kdqb4")])

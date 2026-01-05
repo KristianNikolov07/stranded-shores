@@ -1,5 +1,8 @@
 extends Node
 
+const PASSIVE_ENTITY_CAP = 20
+const ENEMY_CAP = 20
+
 @export var passiveEntityes : Array[PackedScene]
 @export var enemies : Array[PackedScene]
 @export var min_distance_from_player : float
@@ -26,9 +29,9 @@ func check_position(pos : Vector2) -> bool:
 
 func _on_spawn_attempt_timeout() -> void:
 	var entity_scene : PackedScene
-	if day_night_cycle.is_night:
+	if day_night_cycle.is_night and get_tree().get_nodes_in_group("Enemies").size() < ENEMY_CAP:
 		entity_scene = enemies.pick_random()
-	else:
+	elif day_night_cycle.is_night == false and get_tree().get_nodes_in_group("PassiveEntities").size() < PASSIVE_ENTITY_CAP:
 		entity_scene = passiveEntityes.pick_random()
 	
 	for i in range(spawn_amount):
