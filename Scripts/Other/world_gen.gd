@@ -69,6 +69,5 @@ func choose_spawn_point() -> void:
 	for child in spawn_points_node.get_children():
 		if i == rand:
 			player.global_position = child.global_position
-		else:
-			child.queue_free()
+			player.respawn_point = child.global_position
 		i += 1

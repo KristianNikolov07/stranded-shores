@@ -16,6 +16,7 @@ extends CharacterBody2D
 var is_running = false
 var repair_menu : Control
 var chest_menu : Area2D
+var respawn_point : Vector2
 
 @onready var speed = base_speed
 @onready var stamina = max_stamina
@@ -142,7 +143,7 @@ func set_hp(_hp : int) -> void:
 
 func respawn() -> void:
 	inventory.drop_inventory()
-	global_position = get_node("../SpawnPoints").get_child(0).global_position
+	global_position = respawn_point
 	set_hp(max_hp)
 	speed = base_speed
 	stamina = max_stamina

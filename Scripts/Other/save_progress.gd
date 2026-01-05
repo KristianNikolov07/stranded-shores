@@ -31,6 +31,7 @@ func save() -> void:
 		config.set_value("stats", "stamina", player.stamina)
 		config.set_value("stats", "speed", player.speed)
 		config.set_value("stats", "position", player.global_position)
+		config.set_value("stats", "respawn_point", player.respawn_point)
 		config.set_value("stats", "hunger", player.hunger_and_thirst.hunger)
 		config.set_value("stats", "thirst", player.hunger_and_thirst.thirst)
 		config.set_value("inventory", "inventory", player.inventory.items)
@@ -91,6 +92,7 @@ func load_save() -> void:
 		player.stamina = config.get_value("stats", "stamina", player.max_stamina)
 		player.speed = config.get_value("stats", "speed", player.base_speed)
 		player.global_position = config.get_value("stats", "position", player.global_position)
+		player.respawn_point = config.get_value("stats", "respawn_point", Vector2(5176, 2016))
 		player.hunger_and_thirst.set_hunger(config.get_value("stats", "hunger", 0))
 		player.hunger_and_thirst.set_thirst(config.get_value("stats", "thirst", 0))
 		if config.has_section_key("inventory", "inventory"):
