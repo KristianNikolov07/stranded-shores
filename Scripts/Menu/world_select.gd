@@ -9,6 +9,13 @@ func _ready() -> void:
 	get_worlds()
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		if visible:
+			_on_back_pressed()
+			accept_event()
+
+
 func get_worlds() -> void:
 	for world in SaveProgress.get_saves():
 		var world_option = world_option_scene.instantiate()

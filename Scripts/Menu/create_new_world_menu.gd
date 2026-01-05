@@ -4,6 +4,12 @@ func _ready() -> void:
 	hide()
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		if visible:
+			_on_back_pressed()
+			accept_event()
+
 func _on_world_name_text_changed(new_text: String) -> void:
 	if new_text.replace(" ", "") != "" and SaveProgress.has_save_with_name(new_text.replace(" ", "")) == false:
 		$CenterContainer/VBoxContainer/CreateNewWorld.disabled = false

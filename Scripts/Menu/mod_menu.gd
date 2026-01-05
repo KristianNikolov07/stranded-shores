@@ -8,6 +8,13 @@ func _ready() -> void:
 	list_mods()
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		if visible:
+			_on_back_pressed()
+			accept_event()
+
+
 func list_mods() -> void:
 	for child in %ModList.get_children():
 		child.queue_free()

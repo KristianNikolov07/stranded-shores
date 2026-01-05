@@ -21,6 +21,12 @@ func _ready() -> void:
 		%Mods.disabled = true
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		if visible:
+			_on_back_pressed()
+			accept_event()
+
 func _on_back_pressed() -> void:
 	hide()
 	closed.emit()

@@ -18,6 +18,7 @@ func _input(event: InputEvent) -> void:
 			player.can_move = true
 			player.inventory.opened_storage = null
 			hide()
+			accept_event()
 
 
 func set_inv_size(new_size : int) -> void:

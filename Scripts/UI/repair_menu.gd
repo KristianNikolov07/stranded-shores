@@ -13,6 +13,7 @@ func _input(event: InputEvent) -> void:
 		hide()
 		reset()
 		player.can_move = true
+		accept_event()
 
 
 func set_tool(_tool : Tool):

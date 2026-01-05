@@ -20,10 +20,12 @@ func _input(event: InputEvent) -> void:
 		else:
 			player.can_move = true
 			hide()
+			accept_event()
 	elif event.is_action_pressed("esc"):
 		if visible:
 			player.can_move = true
 			hide()
+			accept_event()
 
 
 func open_menu(_is_crafting_table = false) -> void:

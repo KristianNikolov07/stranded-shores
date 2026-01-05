@@ -12,6 +12,13 @@ func _ready() -> void:
 	load_controls()
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		if visible:
+			_on_back_pressed()
+			accept_event()
+
+
 func _on_back_pressed() -> void:
 	save_controls()
 	hide()
