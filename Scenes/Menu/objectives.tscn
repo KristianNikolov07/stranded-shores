@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://coic25r1tt4j3"]
+
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_ea0lq"]
+[ext_resource type="Script" uid="uid://ciubymmxgug54" path="res://Scripts/Other/objectives.gd" id="2_guf5f"]
+
+[node name="Objectives" type="VBoxContainer" groups=["Objectives"]]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 76.0
+grow_horizontal = 0
+theme = ExtResource("1_ea0lq")
+script = ExtResource("2_guf5f")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.6392157, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "NEXT OBJECTIVE:"
+horizontal_alignment = 2
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Collect 10 sticks and 10 rocks"
+horizontal_alignment = 2

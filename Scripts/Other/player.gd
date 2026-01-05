@@ -45,9 +45,16 @@ func _process(_delta: float) -> void:
 			speed += speed / running_speed_gain
 			if speed > max_running_speed:
 				speed = max_running_speed
+			
+			# Sprinting Objective
+			get_tree().get_first_node_in_group("Objectives").complete_objective("sprint")
 		else:
 			is_running = false
 			speed = base_speed
+		
+		# Movement Objective
+		if velocity != Vector2.ZERO:
+			get_tree().get_first_node_in_group("Objectives").complete_objective("movement")
 		
 		move_and_slide()
 	

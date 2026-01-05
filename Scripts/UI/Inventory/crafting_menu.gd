@@ -29,6 +29,10 @@ func _input(event: InputEvent) -> void:
 
 
 func open_menu(_is_crafting_table = false) -> void:
+	# Objective
+	get_tree().get_first_node_in_group("Objectives").complete_objective("open crafting menu")
+	
+	
 	if player.can_move:
 		player.can_move = false
 		selected_recipe = null

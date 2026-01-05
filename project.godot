@@ -46,6 +46,7 @@ WorldBounds=""
 Player=""
 Tilemap=""
 Persistant=""
+Objectives=""
 
 [gui]
 

@@ -19,6 +19,7 @@ func _on_windows_close_requested():
 
 func save() -> void:
 	var player : Player = get_tree().get_first_node_in_group("Player")
+	var objectives = get_tree().get_first_node_in_group("Objectives")
 	if save_name != "":
 		print("Saving game...")
 		if !DirAccess.dir_exists_absolute(SAVES_FOLDER + save_name):
@@ -36,6 +37,7 @@ func save() -> void:
 		config.set_value("inventory", "armor", player.inventory.armor)
 		config.set_value("inventory", "backpack_item", player.inventory.backpack_item)
 		config.set_value("inventory", "backpack", player.inventory.backpack.items)
+		config.set_value("objectives", "current_objective", objectives.current_objective)
 		
 		config.save(SAVES_FOLDER + save_name + "/" + PLAYER_STATS_FILE_NAME)
 		
@@ -79,6 +81,7 @@ func has_save_with_name(_save_name : String) -> bool:
 
 func load_save() -> void:
 	var player : Player = get_tree().get_first_node_in_group("Player")
+	var objectives = get_tree().get_first_node_in_group("Objectives")
 	if !DirAccess.dir_exists_absolute(SAVES_FOLDER + save_name):
 		DirAccess.make_dir_recursive_absolute(SAVES_FOLDER + save_name)
 	
@@ -102,6 +105,8 @@ func load_save() -> void:
 			player.inventory.backpack.set_items(config.get_value("inventory", "backpack"))
 		else:
 			player.inventory.backpack.set_items([])
+		if config.has_section("objectives"):
+			objectives.set_objective(config.get_value("objectives", "current_objective", "movement"))
 	
 	# World
 	var save_file = FileAccess.open(SAVES_FOLDER + save_name + "/" + WORLD_FILE_NAME, FileAccess.READ)

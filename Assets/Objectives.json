@@ -1,0 +1,62 @@
+{
+	"movement":{
+		"description": "Use WASD to move",
+		"next_objective": "sprint",
+	},
+	"sprint":{
+		"description": "Use SHIFT to sprint",
+		"next_objective": "sticks and rocks",
+	},
+	"sticks and rocks":{
+		"description": "Collect 10 sticks and 10 rocks",
+		"next_objective": "open crafting menu",
+	},
+	"open crafting menu":{
+		"description": "Use C to open the crafting menu",
+		"next_objective": "craft basic axe",
+	},
+	"craft basic axe":{
+		"description": "Craft a basic axe",
+		"next_objective": "gather wood",
+	},
+	"gather wood":{
+		"description": "Collect 10 wood",
+		"next_objective": "workbench",
+	},
+	"workbench":{
+		"description": "Craft a workbench",
+		"next_objective": "water",
+	},
+	"water":{
+		"description": "Craft a waterskin and use it to collect water",
+		"next_objective": "food"
+	},
+	"food":{
+		"description": "Obtain 10 cooked food",
+		"next_objective": "mining"
+	},
+	"mining":{
+		"description": "Mine 10 big rocks",
+		"next_objective": "explore"
+	},
+	"explore":{
+		"description": "Explore the outer islands",
+		"next_objective": "iron"
+	},
+	"iron":{
+		"description": "Mine 10 iron",
+		"next_objective": "clean water"
+	},
+	"clean water":{
+		"description": "Obtain clean water",
+		"next_objective": "forest"
+	},
+	"forest":{
+		"description": "Explore the forest",
+		"next_objective": "tree boss"
+	},
+	"forest":{
+		"description": "Defeat the big tree",
+		"next_objective": ""
+	},
+}
