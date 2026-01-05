@@ -19,6 +19,10 @@ func _ready() -> void:
 	# Disable Mod Button if not in the menu
 	if get_tree().current_scene.name != "MainMenu":
 		%Mods.disabled = true
+	
+	# Web
+	if OS.get_name() == "Web":
+		%Mods.disabled = true
 
 
 func _input(event: InputEvent) -> void:

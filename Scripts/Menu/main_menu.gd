@@ -4,6 +4,10 @@ func _ready() -> void:
 	SaveProgress.save_name = "" # So it doesn't try to save the game while in the main menu
 	
 	$Version.text = ProjectSettings.get_setting("application/config/version")
+	
+	# Web
+	if OS.get_name() == "Web":
+		$MainButtons/Quit.hide()
 
 func _on_play_pressed() -> void:
 	$MainButtons.hide()

@@ -56,7 +56,7 @@
 		"next_objective": "tree boss"
 	},
 	"tree boss":{
-		"description": "TREE_BOSS_OBJECTIVE_DESCRIPTIONS",
+		"description": "TREE_BOSS_OBJECTIVE_DESCRIPTION",
 		"next_objective": ""
 	},
 }
