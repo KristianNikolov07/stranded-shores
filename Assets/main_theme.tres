@@ -37,6 +37,17 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3ebs"]
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.4, 0.22352941, 0.19215687, 1)
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_j03tf"]
 color = Color(0.4, 0.22352941, 0.19215687, 1)
 thickness = 5
@@ -61,17 +72,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3ebs"]
-content_margin_top = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
-bg_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.4, 0.22352941, 0.19215687, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcvv8"]
 bg_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
@@ -104,6 +104,9 @@ Button/styles/focus = SubResource("StyleBoxEmpty_j03tf")
 Button/styles/hover = SubResource("StyleBoxFlat_xn4lo")
 Button/styles/normal = SubResource("StyleBoxFlat_tl586")
 Button/styles/pressed = SubResource("StyleBoxFlat_xwn2f")
+FileDialog/styles/embedded_border = SubResource("StyleBoxFlat_i3ebs")
+FileDialog/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_i3ebs")
+FileDialog/styles/panel = SubResource("StyleBoxFlat_i3ebs")
 HSeparator/styles/separator = SubResource("StyleBoxLine_j03tf")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_j03tf")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_65lvl")
