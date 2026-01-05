@@ -12,16 +12,16 @@ func _init() -> void:
 	has_unlimited_uses = true
 
 
-func fill():
+func fill() -> void:
 	water_amount = capacity
 
 
-func clean():
+func clean() -> void:
 	is_clean = true
 	thirst_modifier = thirst_modifier_when_clean
 
 
-func pollute():
+func pollute() -> void:
 	is_clean = false
 	thirst_modifier = thirst_modifier_when_polluted
 

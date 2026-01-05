@@ -6,7 +6,7 @@ extends Item
 @export var max_durability : int
 @export var durability : int
 
-func take_durability(_durability : int = 1):
+func take_durability(_durability : int = 1) -> void:
 	durability -= _durability
 	if durability < 0:
 		durability = 0

@@ -27,6 +27,7 @@ func _input(event: InputEvent) -> void:
 			_on_back_pressed()
 			accept_event()
 
+
 func _on_back_pressed() -> void:
 	hide()
 	closed.emit()

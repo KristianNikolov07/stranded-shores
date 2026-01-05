@@ -14,8 +14,8 @@ func _ready() -> void:
 	hp = max_hp
 
 
-func damage(damage : int) -> void:
-	hp -= damage
+func damage(dmg : int) -> void:
+	hp -= dmg
 	if hp <= 0:
 		call_deferred("kill")
 

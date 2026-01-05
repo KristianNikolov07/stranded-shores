@@ -18,12 +18,10 @@ func get_save_data() -> Dictionary:
 		"is_cooked": is_cooked,
 	}
 	data.merge(more_data)
-	print(data)
 	return data
 
 
 func load_save_data(data : Dictionary) -> void:
 	super.load_save_data(data)
 	if data.is_cooked:
-		print("cooked")
 		cook()

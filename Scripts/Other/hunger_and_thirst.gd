@@ -34,49 +34,49 @@ func _process(delta: float) -> void:
 	add_hunger(delta * hunger_per_second)
 
 
-func add_hunger(_hunger : float = 1):
+func add_hunger(_hunger : float = 1) -> void:
 	hunger += _hunger
 	if hunger > max_hunger:
 		hunger = max_hunger
 	hunger_bar.value = hunger
 
 
-func remove_hunger(_hunger : float):
+func remove_hunger(_hunger : float) -> void:
 	hunger -= _hunger
 	if hunger < 0:
 		hunger = 0
 	hunger_bar.value = hunger
 
 
-func set_hunger(_hunger : float):
+func set_hunger(_hunger : float) -> void:
 	hunger = _hunger
 	hunger_bar.value = hunger
 
 
-func set_hunger_per_second(time : float):
+func set_hunger_per_second(time : float) -> void:
 	hunger_per_second = time
 
 
-func add_thirst(_thirst : float = 1):
+func add_thirst(_thirst : float = 1) -> void:
 	thirst += _thirst
 	if thirst > max_thirst:
 		thirst = max_thirst
 	thirst_bar.value = thirst
 
 
-func remove_thirst(_thirst : float):
+func remove_thirst(_thirst : float) -> void:
 	thirst -= _thirst
 	if thirst < 0:
 		thirst = 0
 	thirst_bar.value = thirst
 
 
-func set_thirst(_thirst : float):
+func set_thirst(_thirst : float) -> void:
 	thirst = _thirst
 	thirst_bar.value = thirst
 
 
-func set_thirst_per_second(time : float):
+func set_thirst_per_second(time : float) -> void:
 	thirst_per_second = time
 
 

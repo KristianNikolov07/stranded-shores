@@ -25,7 +25,6 @@ func _input(event: InputEvent) -> void:
 			select_slot(inventory_size - 1)
 		else:
 			select_slot(selected_slot - 1)
-		print(selected_slot)
 	if event.is_action_released("NextItem"):
 		if selected_slot == inventory_size - 1:
 			select_slot(0)
@@ -265,7 +264,6 @@ func unequip_armor() -> void:
 func unequip_backpack() -> void:
 	if backpack_item != null and backpack.is_empty():
 		if add_item(backpack_item.duplicate()):
-			print("aaa")
 			set_backpack(null)
 
 
