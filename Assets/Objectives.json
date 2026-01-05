@@ -1,34 +1,34 @@
 {
 	"movement":{
-		"description": "Use CONTROL(Up), CONTROL(Left), CONTROL(Down) and CONTROL(Right) to move",
+		"description": "MOVEMENT_OBJECTIVE_DESCRIPTION",
 		"next_objective": "sprint",
 	},
 	"sprint":{
-		"description": "Use CONTROL(Sprint) to sprint",
+		"description": "SPRINT_OBJECTIVE_DESCRIPTION",
 		"next_objective": "sticks and rocks",
 	},
 	"sticks and rocks":{
-		"description": "Collect 10 sticks and 10 rocks",
+		"description": "STONES_AND_ROCKS_OBJECTIVE_DESCRIPTION",
 		"next_objective": "open crafting menu",
 	},
 	"open crafting menu":{
-		"description": "Use CONTROL(OpenCraftingUI) to open the crafting menu",
+		"description": "CRAFTING_MENU_OBJECTIVE_DESCRIPTION",
 		"next_objective": "craft basic axe",
 	},
 	"craft basic axe":{
-		"description": "Craft a basic axe",
+		"description": "CRAFT_BASIC_AXE_OBJECTIVE_DESCRIPTION",
 		"next_objective": "gather wood",
 	},
 	"gather wood":{
-		"description": "Collect 10 wood",
+		"description": "GATHER_WOOD_OBJECTIVE_DESCRIPTION",
 		"next_objective": "workbench",
 	},
 	"workbench":{
-		"description": "Craft a workbench",
+		"description": "WORKBENCH_OBJECTIVE_DESCRIPTION",
 		"next_objective": "water",
 	},
 	"water":{
-		"description": "Craft a waterskin and use it to collect water",
+		"description": "WATER_OBJECTIVE_DESCRIPTION",
 		"next_objective": "food"
 	},
 	"food":{

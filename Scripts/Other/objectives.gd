@@ -24,7 +24,7 @@ func set_objective(objective : String) -> void:
 
 
 func update_ui() -> void:
-	var description : String = objectives[current_objective]["description"]
+	var description : String = tr(objectives[current_objective]["description"])
 	var regex = RegEx.new()
 	regex.compile(r"(?<=CONTROL\()[^)]+(?=\))")
 	for action in regex.search_all(description):
