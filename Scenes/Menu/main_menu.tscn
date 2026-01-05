@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwlyi2oj4yksl"]
+[gd_scene load_steps=7 format=3 uid="uid://dwlyi2oj4yksl"]
 
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_ab7fb"]
 [ext_resource type="Script" uid="uid://b3tskrkc5usx" path="res://Scripts/Menu/main_menu.gd" id="1_bkwd7"]
 [ext_resource type="PackedScene" uid="uid://dx25w13rsr5xr" path="res://Scenes/Menu/settings_menu.tscn" id="2_tself"]
 [ext_resource type="PackedScene" uid="uid://cosb80or2npy4" path="res://Scenes/Menu/world_select.tscn" id="3_7jtkx"]
+[ext_resource type="PackedScene" uid="uid://bbdqopeogorpk" path="res://Scenes/Menu/controls_menu.tscn" id="4_gpijq"]
 [ext_resource type="PackedScene" uid="uid://bjbbmrwcd6a0c" path="res://Scenes/Menu/mod_menu.tscn" id="5_gpijq"]
 
 [node name="MainMenu" type="Control"]
@@ -55,7 +56,20 @@ anchor_right = 0.7534722
 anchor_bottom = 0.79207414
 grow_horizontal = 1
 grow_vertical = 1
-metadata/_edit_use_anchors_ = true
+
+[node name="ControlsMenu" parent="." instance=ExtResource("4_gpijq")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -260.0
+offset_right = 384.0
+offset_bottom = 260.0
 
 [node name="WorldSelect" parent="." instance=ExtResource("3_7jtkx")]
 visible = false
@@ -93,5 +107,6 @@ horizontal_alignment = 2
 [connection signal="pressed" from="MainButtons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainButtons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="closed" from="SettingsMenu" to="." method="_on_settings_menu_closed"]
+[connection signal="closed" from="ControlsMenu" to="SettingsMenu" method="_on_controls_menu_closed"]
 [connection signal="closed" from="WorldSelect" to="." method="_on_world_select_closed"]
 [connection signal="closed" from="ModMenu" to="." method="_on_mod_menu_closed"]

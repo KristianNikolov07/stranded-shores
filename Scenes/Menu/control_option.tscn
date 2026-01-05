@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c611d760p1h1c"]
+
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_75qh6"]
+[ext_resource type="Script" uid="uid://60ttacanawr7" path="res://Scripts/Menu/control_option.gd" id="2_e6lib"]
+
+[node name="ControlOption" type="HBoxContainer"]
+theme = ExtResource("1_75qh6")
+script = ExtResource("2_e6lib")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+text = "Action Name"
+
+[node name="RebindButton" type="Button" parent="."]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 36
+toggle_mode = true
+text = "Key"
+
+[connection signal="pressed" from="RebindButton" to="." method="_on_rebind_button_pressed"]

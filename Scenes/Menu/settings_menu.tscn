@@ -16,24 +16,32 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_poyrj")
 script = ExtResource("1_051s4")
+metadata/_edit_use_anchors_ = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Settings" type="VBoxContainer" parent="CenterContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="Settings" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Language" type="HBoxContainer" parent="CenterContainer/Settings"]
+[node name="Language" type="HBoxContainer" parent="CenterContainer/MarginContainer/Settings"]
 layout_mode = 2
 theme_override_constants/separation = 45
 
-[node name="Label" type="Label" parent="CenterContainer/Settings/Language"]
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/Settings/Language"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "LANGUAGE"
 
-[node name="Language" type="OptionButton" parent="CenterContainer/Settings/Language"]
+[node name="Language" type="OptionButton" parent="CenterContainer/MarginContainer/Settings/Language"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 25
@@ -44,21 +52,28 @@ popup/item_0/id = 0
 popup/item_1/text = "Български"
 popup/item_1/id = 1
 
-[node name="Volume" type="HBoxContainer" parent="CenterContainer/Settings"]
+[node name="Volume" type="HBoxContainer" parent="CenterContainer/MarginContainer/Settings"]
 layout_mode = 2
 theme_override_constants/separation = 45
 
-[node name="Label" type="Label" parent="CenterContainer/Settings/Volume"]
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/Settings/Volume"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "VOLUME"
 
-[node name="HSlider" type="HSlider" parent="CenterContainer/Settings/Volume"]
+[node name="VolumeSlider" type="HSlider" parent="CenterContainer/MarginContainer/Settings/Volume"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Mods" type="Button" parent="CenterContainer/Settings"]
+[node name="Controls" type="Button" parent="CenterContainer/MarginContainer/Settings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "CONTROLS"
+
+[node name="Mods" type="Button" parent="CenterContainer/MarginContainer/Settings"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "MODS"
@@ -71,7 +86,8 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 64
 text = "X"
 
-[connection signal="item_selected" from="CenterContainer/Settings/Language/Language" to="." method="_on_language_selected"]
-[connection signal="value_changed" from="CenterContainer/Settings/Volume/HSlider" to="." method="_on_volume_changed"]
-[connection signal="pressed" from="CenterContainer/Settings/Mods" to="." method="_on_mods_pressed"]
+[connection signal="item_selected" from="CenterContainer/MarginContainer/Settings/Language/Language" to="." method="_on_language_selected"]
+[connection signal="value_changed" from="CenterContainer/MarginContainer/Settings/Volume/VolumeSlider" to="." method="_on_volume_changed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/Settings/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/Settings/Mods" to="." method="_on_mods_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

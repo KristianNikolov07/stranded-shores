@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfru26xs7uhmj"]
+[gd_scene load_steps=5 format=3 uid="uid://bfru26xs7uhmj"]
 
 [ext_resource type="Script" uid="uid://dojtfgtjlrccf" path="res://Scripts/Menu/pause_menu.gd" id="1_i0al5"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_jnmi5"]
 [ext_resource type="PackedScene" uid="uid://dx25w13rsr5xr" path="res://Scenes/Menu/settings_menu.tscn" id="2_6pfc5"]
+[ext_resource type="PackedScene" uid="uid://bbdqopeogorpk" path="res://Scenes/Menu/controls_menu.tscn" id="4_mux1j"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -62,9 +63,23 @@ anchor_right = 0.75
 anchor_bottom = 0.79053074
 grow_horizontal = 1
 grow_vertical = 1
-metadata/_edit_use_anchors_ = true
+
+[node name="ControlsMenu" parent="." instance=ExtResource("4_mux1j")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -260.0
+offset_right = 376.0
+offset_bottom = 252.0
 
 [connection signal="pressed" from="Buttons/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/Save and Quit" to="." method="_on_save_and_quit_pressed"]
 [connection signal="closed" from="SettingsMenu" to="." method="_on_settings_menu_closed"]
+[connection signal="closed" from="ControlsMenu" to="SettingsMenu" method="_on_controls_menu_closed"]

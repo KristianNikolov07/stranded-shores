@@ -3,6 +3,7 @@ extends Node
 const TILE_SIZE = 16
 const TILEMAP_SCALE = 4
 const TILEMAP_SIZE = 256
+const SETTINGS_FILE_PATH = "user://settings.ini"
 const MODS_FOLDER = "user://mods"
 const MODS_ENABLE_CHECK_FILE_NAME = "enabled"
 

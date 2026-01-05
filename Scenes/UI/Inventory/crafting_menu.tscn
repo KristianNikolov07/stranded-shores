@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d01mlsor7lh1k" path="res://Assets/Textures/Items/test_item.png" id="4_l8p2g"]
 [ext_resource type="Texture2D" uid="uid://ceacgbygoxt43" path="res://Assets/Textures/UI/big_arrow.png" id="5_l8p2g"]
 [ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="5_umd2w"]
-[ext_resource type="Texture2D" uid="uid://ufnd73b6q3fl" path="res://Assets/Textures/Items/Weapons/test_sword.png" id="6_k37wi"]
+[ext_resource type="Texture2D" uid="uid://db18ovrssm1ga" path="res://Assets/Textures/Items/Weapons/test_sword.png" id="6_k37wi"]
 
 [node name="CraftingMenu" type="PanelContainer"]
 texture_filter = 1
