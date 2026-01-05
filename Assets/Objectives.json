@@ -32,31 +32,31 @@
 		"next_objective": "food"
 	},
 	"food":{
-		"description": "Obtain 10 cooked food",
+		"description": "FOOD_OBJECTIVE_DESCRIPTION",
 		"next_objective": "mining"
 	},
 	"mining":{
-		"description": "Mine 10 big rocks",
+		"description": "MININIG_OBJECTIVE_DESCRIPTION",
 		"next_objective": "explore"
 	},
 	"explore":{
-		"description": "Explore the outer islands",
+		"description": "EXPLORE_OBJECTIVE_DESCRIPTION",
 		"next_objective": "iron"
 	},
 	"iron":{
-		"description": "Mine 10 iron",
+		"description": "IRON_OBJECTIVE_DESCRIPTION",
 		"next_objective": "clean water"
 	},
 	"clean water":{
-		"description": "Obtain clean water",
+		"description": "CLEAN_WATER_OBJECTIVE_DESCRIPTION",
 		"next_objective": "forest"
 	},
 	"forest":{
-		"description": "Explore the forest",
+		"description": "FOREST_OBJECTIVE_DESCRIPTION",
 		"next_objective": "tree boss"
 	},
 	"tree boss":{
-		"description": "Defeat the big tree",
+		"description": "TREE_BOSS_OBJECTIVE_DESCRIPTIONS",
 		"next_objective": ""
 	},
 }

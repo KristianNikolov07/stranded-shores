@@ -26,4 +26,11 @@ CRAFTING_MENU_OBJECTIVE_DESCRIPTION,"Use CONTROL(OpenCraftingUI) to open the cra
 CRAFT_BASIC_AXE_OBJECTIVE_DESCRIPTION,"Craft a basic axe","Изработете основен брадва"
 GATHER_WOOD_OBJECTIVE_DESCRIPTION,"Collect 10 wood","Съберете 10 дърва"
 WORKBENCH_OBJECTIVE_DESCRIPTION,"Craft a workbench","Изработете работна маса"
-WATER_OBJECTIVE_DESCRIPTION,"Craft a waterskin and use it to collect water",""
+WATER_OBJECTIVE_DESCRIPTION,"Craft a waterskin and use it to collect water","Изработете мех за вода и го използвайте, за да съберете вода"
+FOOD_OBJECTIVE_DESCRIPTION,"Obtain 10 cooked food","Осигурете си 10 сготвени храни"
+MINING_OBJECTIVE_DESCRIPTION,"Mine 10 big rocks","Добийте 10 големи скали"
+EXPLORE_OBJECTIVE_DESCRIPTION,"Explore the outer islands","Изследвайте външните острови"
+IRON_OBJECTIVE_DESCRIPTION,"Mine 10 iron",Изкопайте 10 желязо
+CLEAN_WATER_OBJECTIVE_DESCRIPTION,"Obtain clean water","Осигурете си чиста вода"
+FOREST_OBJECTIVE_DESCRIPTION,"Explore the forest","Изследвайте гората"
+TREE_BOSS_OBJECTIVE_DESCRIPTION,"Defeat the Big Tree","Победете Голямото Дърво"
