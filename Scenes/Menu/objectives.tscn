@@ -19,7 +19,7 @@ script = ExtResource("2_guf5f")
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.6392157, 0, 1)
 theme_override_font_sizes/font_size = 28
-text = "NEXT OBJECTIVE:"
+text = "NEXT_OBJECTIVE"
 horizontal_alignment = 2
 
 [node name="Description" type="Label" parent="."]

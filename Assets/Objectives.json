@@ -55,7 +55,7 @@
 		"description": "Explore the forest",
 		"next_objective": "tree boss"
 	},
-	"forest":{
+	"tree boss":{
 		"description": "Defeat the big tree",
 		"next_objective": ""
 	},

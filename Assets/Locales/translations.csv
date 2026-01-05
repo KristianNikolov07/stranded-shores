@@ -1,20 +1,29 @@
 keys,en,bg
-PLAY,Play,Играй
-SETTINGS,Settings,Настройки
-QUIT,Quit,Затрвори
+PLAY,PLAY,ИГРАЙ
+SETTINGS,SETTINGS,НАСТРОЙКИ
+QUIT,QUIT,ЗАТВОРИ
 CREATE_NEW_WORLD,Create New World,Създай Нов Свят
 WORLD_NAME,World Name,Име на Света
-CREATE,Create,Създай
-DELETE,Delete,Изтрий
-LANGUAGE,Language,Език
-VOLUME,Volume,Звук
-MODS,Mods,Модове
+CREATE,CREATE,СЪЗДАЙ
+DELETE,DELETE,ИЗТРИЙ
+LANGUAGE,LANGUAGE: ,ЕЗИК: 
+VOLUME,VOLUME: ,ЗВУК: 
+MODS,MODS,МОДОВЕ
 ADD_MOD,Add Mod,Добави Мод
-ENABLE,Enable,Включи
-DISABLE,Disable,Изключи
-REMOVE,Remove,Премахни
+ENABLE,ЕNABLE,ВКЛЮЧИ
+DISABLE,DISABLE,ИЗКЛЮЧИ
+REMOVE,REMOVE,ПРЕМАХНИ
 RESUME,Resume,Обратно към Играта
 SAVE_AND_QUIT,Save and Quit,Запази и Излез
 RESTART_WARNING_TITLE,Please Restart Your Game,Моля Рестартирайте Играта си
 RESTART_WARNING_MESSAGE,Please restart your game in order to apply all changes!,"Моля рестартирайте играта си, за да приложите всички промени!"
-CONTROLS,Controls,Контроли
+CONTROLS,CONTROLS,КОНТРОЛИ
+NEXT_OBJECTIVE,"NEXT OBJECTIVE:","СЛЕДВАЩА ЦЕЛ:"
+MOVEMENT_OBJECTIVE_DESCRIPTION,"Use CONTROL(Up), CONTROL(Left), CONTROL(Down) and CONTROL(Right) to move","Използвайте CONTROL(Up), CONTROL(Left), CONTROL(Down) и CONTROL(Right), за да се движите"
+SPRINT_OBJECTIVE_DESCRIPTION,"Use CONTROL(Sprint) to sprint","Използвайте CONTROL(Sprint), за да тичате"
+STONES_AND_ROCKS_OBJECTIVE_DESCRIPTION,"Collect 10 sticks and 10 rocks","Съберете 10 пръчки и 10 камъка"
+CRAFTING_MENU_OBJECTIVE_DESCRIPTION,"Use CONTROL(OpenCraftingUI) to open the crafting menu","Използвайте CONTROL(OpenCraftingUI), за да отворите менюто за изработка"
+CRAFT_BASIC_AXE_OBJECTIVE_DESCRIPTION,"Craft a basic axe","Изработете основен брадва"
+GATHER_WOOD_OBJECTIVE_DESCRIPTION,"Collect 10 wood","Съберете 10 дърва"
+WORKBENCH_OBJECTIVE_DESCRIPTION,"Craft a workbench","Изработете работна маса"
+WATER_OBJECTIVE_DESCRIPTION,"Craft a waterskin and use it to collect water",""
