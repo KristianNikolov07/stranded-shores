@@ -1,10 +1,10 @@
 {
 	"movement":{
-		"description": "Use WASD to move",
+		"description": "Use CONTROL(Up), CONTROL(Left), CONTROL(Down) and CONTROL(Right) to move",
 		"next_objective": "sprint",
 	},
 	"sprint":{
-		"description": "Use SHIFT to sprint",
+		"description": "Use CONTROL(Sprint) to sprint",
 		"next_objective": "sticks and rocks",
 	},
 	"sticks and rocks":{
@@ -12,7 +12,7 @@
 		"next_objective": "open crafting menu",
 	},
 	"open crafting menu":{
-		"description": "Use C to open the crafting menu",
+		"description": "Use CONTROL(OpenCraftingUI) to open the crafting menu",
 		"next_objective": "craft basic axe",
 	},
 	"craft basic axe":{
