@@ -43,6 +43,7 @@ func _process(_delta: float) -> void:
 		# Running
 		if Input.is_action_pressed("Sprint") and stamina > 0 and $HungerAndThirst.can_sprint() and !is_in_water():
 			is_running = true
+			@warning_ignore("integer_division")
 			speed += speed / running_speed_gain
 			if speed > max_running_speed:
 				speed = max_running_speed
@@ -105,16 +106,16 @@ func _input(event: InputEvent) -> void:
 			$InteractionRange.get_overlapping_bodies()[0].interact(get_node("."))
 
 
-func damage(damage : int, is_hunger_or_thirst = false) -> void:
+func damage(dmg : int, is_hunger_or_thirst = false) -> void:
 	if inventory.armor != null and !is_hunger_or_thirst:
 		if inventory.armor.durability > 0:
-			hp -= damage - inventory.armor.defence
+			hp -= dmg - inventory.armor.defence
 			inventory.armor.take_durability()
 			inventory.visualize_inventory()
 		else:
-			hp -= damage
+			hp -= dmg
 	else:
-		hp -= damage
+		hp -= dmg
 		
 	hp_bar.value = hp
 	if hp <= 0:
