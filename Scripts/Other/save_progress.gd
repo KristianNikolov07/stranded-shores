@@ -45,8 +45,20 @@ func save() -> void:
 		# World
 		var world_file = FileAccess.open(SAVES_FOLDER + save_name + "/" + WORLD_FILE_NAME, FileAccess.WRITE)
 		var world = {
+			"time_of_day": "",
+			"time_till_time_change": null,
 			"Objects":[]
 		}
+		
+		# Time of day
+		var day_night_cycle = get_tree().current_scene.find_child("DayNightCycle")
+		if day_night_cycle.is_night:
+			world.time_of_day = "night"
+		else:
+			world.time_of_day = "day"
+		world.time_till_time_change = day_night_cycle.get_node("Timer").time_left
+		
+		# Objects
 		for node in get_tree().get_nodes_in_group("Persistant"):
 			var object = {
 				"scene" = node.scene_file_path,
@@ -113,6 +125,17 @@ func load_save() -> void:
 	# World
 	var save_file = FileAccess.open(SAVES_FOLDER + save_name + "/" + WORLD_FILE_NAME, FileAccess.READ)
 	var world = JSON.parse_string(save_file.get_as_text())
+	
+	# Time of Day
+	var day_night_cycle = get_tree().current_scene.find_child("DayNightCycle")
+	if world.time_of_day == "night":
+		day_night_cycle.set_to_night(true)
+	else:
+		day_night_cycle.set_to_day(true)
+	if world.time_till_time_change != null:
+		day_night_cycle.get_node("Timer").stop()
+		day_night_cycle.get_node("Timer").start(world.time_till_time_change)
+	
 	if world.Objects != null:
 		for node in get_tree().get_nodes_in_group("Persistant"):
 			node.queue_free()

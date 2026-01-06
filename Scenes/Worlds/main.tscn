@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=4 uid="uid://c0ywgb5q0iqsg"]
 
-[ext_resource type="Texture2D" uid="uid://1puk0n6t2htn" path="res://Assets/Textures/tilemap.png" id="2_bu3mo"]
+[ext_resource type="Texture2D" uid="uid://dc3pvaas4ps8r" path="res://Assets/Textures/tilemap.png" id="2_bu3mo"]
 [ext_resource type="Script" uid="uid://cctr251x3yfn2" path="res://Scripts/Other/tilemap.gd" id="2_kdqb4"]
 [ext_resource type="PackedScene" uid="uid://xqjghw70oxkf" path="res://Scenes/Objects/Player.tscn" id="2_msvm5"]
 [ext_resource type="PackedScene" uid="uid://mt76hyi6jq2q" path="res://Scenes/Worlds/debug.tscn" id="3_rt6fk"]
@@ -645,6 +645,7 @@ script = ExtResource("5_ctrak")
 
 [node name="Timer" type="Timer" parent="DayNightCycle"]
 wait_time = 600.0
+one_shot = true
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DayNightCycle"]
@@ -664,5 +665,4 @@ wait_time = 10.0
 autostart = true
 
 [connection signal="timeout" from="DayNightCycle/Timer" to="DayNightCycle" method="_on_timer_timeout"]
-[connection signal="animation_finished" from="DayNightCycle/AnimationPlayer" to="DayNightCycle" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="EntitySpawning/SpawnAttempt" to="EntitySpawning" method="_on_spawn_attempt_timeout"]
