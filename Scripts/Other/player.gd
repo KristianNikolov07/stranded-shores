@@ -88,20 +88,6 @@ func _process(_delta: float) -> void:
 		set_collision_mask_value(1, false)
 	else:
 		set_collision_mask_value(1, true)
-	
-	# Animations
-	if velocity == Vector2.ZERO:
-		$Sprite2D.play("idle")
-	elif is_running == false:
-		$Sprite2D.play("walking")
-	else:
-		$Sprite2D.play("running")
-		
-	if velocity.x < 0:
-		print("Left")
-		$Sprite2D.flip_h = true
-	elif velocity.x > 0:
-		$Sprite2D.flip_h = false
 
 
 func _input(event: InputEvent) -> void:
