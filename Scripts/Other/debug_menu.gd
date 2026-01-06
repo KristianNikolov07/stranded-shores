@@ -87,14 +87,12 @@ func _on_load_pressed() -> void:
 
 
 func _on_spawn_test_entity_pressed() -> void:
-	var player : Player = get_tree().get_first_node_in_group("Player")
 	var entity : Entity = test_entity_scene.instantiate()
 	entity.global_position = player.global_position
 	player.get_parent().add_child(entity)
 
 
 func _on_spawn_test_enemy_pressed() -> void:
-	var player : Player = get_tree().get_first_node_in_group("Player")
 	var enemy : Enemy = test_enemy_scene.instantiate()
 	enemy.global_position = player.global_position
 	player.get_parent().add_child(enemy)

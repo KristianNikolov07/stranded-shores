@@ -34,10 +34,11 @@ func save_controls() -> void:
 
 func load_controls() -> void:
 	config.load(Global.SETTINGS_FILE_PATH)
-	for action in config.get_section_keys("Controls"):
-		if InputMap.has_action(action):
-			InputMap.action_erase_events(action)
-			InputMap.action_add_event(action, config.get_value("Controls", action))
+	if config.has_section("Controls"):
+		for action in config.get_section_keys("Controls"):
+			if InputMap.has_action(action):
+				InputMap.action_erase_events(action)
+				InputMap.action_add_event(action, config.get_value("Controls", action))
 
 
 func list_controls() -> void:
