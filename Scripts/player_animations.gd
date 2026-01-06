@@ -20,7 +20,6 @@ func _process(_delta: float) -> void:
 	
 	# Rotation
 	if player.velocity.x < 0:
-		print("Left")
 		sprite.flip_h = true
 	elif player.velocity.x > 0:
 		sprite.flip_h = false

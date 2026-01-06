@@ -7,6 +7,18 @@ var test_enemy_scene = preload("res://Scenes/Entity/Enemies/test_enemy.tscn")
 
 func _ready() -> void:
 	$Debug.hide()
+	if "debug" in OS.get_cmdline_args():
+		$PassiveEntityCount.show()
+		$EnemyCount.show()
+	else:
+		$PassiveEntityCount.hide()
+		$EnemyCount.hide()
+
+
+func _process(_delta: float) -> void:
+	if "debug" in OS.get_cmdline_args():
+		$PassiveEntityCount.text = "Passive Entities: " + str(get_tree().get_nodes_in_group("PassiveEntities").size())
+		$EnemyCount.text = "Enemies: " + str(get_tree().get_nodes_in_group("Enemies").size())
 
 
 func _input(event: InputEvent) -> void:

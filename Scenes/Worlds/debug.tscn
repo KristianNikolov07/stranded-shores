@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://mt76hyi6jq2q"]
 
-[ext_resource type="Script" uid="uid://bycdhw62lo3qv" path="res://Scripts/debug_menu.gd" id="1_c8q1c"]
+[ext_resource type="Script" uid="uid://bycdhw62lo3qv" path="res://Scripts/Other/debug_menu.gd" id="1_c8q1c"]
 
 [node name="Debug" type="CanvasLayer"]
 script = ExtResource("1_c8q1c")
@@ -102,6 +102,38 @@ text = "Spawn Test Enemy"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Time Change"
+
+[node name="PassiveEntityCount" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.425
+anchor_right = 1.0
+anchor_bottom = 0.432
+offset_left = -144.0
+offset_top = -11.399994
+offset_right = -16.0
+offset_bottom = 7.0639954
+grow_horizontal = 0
+grow_vertical = 2
+text = "Passive Entities: "
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="EnemyCount" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.425
+anchor_right = 1.0
+anchor_bottom = 0.432
+offset_left = -144.0
+offset_top = 20.600006
+offset_right = -16.0
+offset_bottom = 39.063995
+grow_horizontal = 0
+grow_vertical = 2
+text = "Enemies: "
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/ListInventory" to="." method="list_items"]
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/AddTestItem" to="." method="_on_add_test_item_pressed"]
