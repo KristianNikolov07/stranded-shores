@@ -18,10 +18,11 @@ func _input(event: InputEvent) -> void:
 func list_mods() -> void:
 	for child in %ModList.get_children():
 		child.queue_free()
-	for mod : String in DirAccess.get_directories_at(Global.MODS_FOLDER):
-		var mod_panel = mod_panel_scene.instantiate()
-		mod_panel.mod_path = Global.MODS_FOLDER + "/" + mod
-		%ModList.add_child(mod_panel)
+	if DirAccess.dir_exists_absolute(Global.MODS_FOLDER):
+		for mod : String in DirAccess.get_directories_at(Global.MODS_FOLDER):
+			var mod_panel = mod_panel_scene.instantiate()
+			mod_panel.mod_path = Global.MODS_FOLDER + "/" + mod
+			%ModList.add_child(mod_panel)
 
 
 func _on_back_pressed() -> void:
