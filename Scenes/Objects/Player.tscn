@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://xqjghw70oxkf"]
 
-[ext_resource type="Texture2D" uid="uid://dv7p1fdfpp3dv" path="res://Assets/Textures/icon.svg" id="1_ajy74"]
+[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="1_ajy74"]
 [ext_resource type="Script" uid="uid://ds284ijxir0f7" path="res://Scripts/Other/player.gd" id="1_t86h6"]
 [ext_resource type="Texture2D" uid="uid://dr60j0t3upeb4" path="res://Assets/Textures/Player.png" id="2_k46cm"]
 [ext_resource type="Script" uid="uid://pxkbysso4esr" path="res://Scripts/Other/CameraLimiter.gd" id="3_5f5w1"]
@@ -100,6 +100,21 @@ states/walking/node = SubResource("AnimationNodeAnimation_w3k6v")
 states/walking/position = Vector2(348, 158)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kgsvj"), "idle", "walking", SubResource("AnimationNodeStateMachineTransition_d83tg"), "idle", "running", SubResource("AnimationNodeStateMachineTransition_oej56"), "running", "idle", SubResource("AnimationNodeStateMachineTransition_ff814"), "running", "walking", SubResource("AnimationNodeStateMachineTransition_n7c1o"), "walking", "running", SubResource("AnimationNodeStateMachineTransition_12acn"), "walking", "idle", SubResource("AnimationNodeStateMachineTransition_8ydoy")]
 
+[sub_resource type="Animation" id="Animation_kgsvj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_w3k6v"]
 resource_name = "idle"
 length = 0.6
@@ -117,8 +132,10 @@ tracks/0/keys = {
 "values": [0, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_kgsvj"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_oej56"]
+resource_name = "running"
+length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -126,10 +143,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [5, 6, 7, 6]
 }
 
 [sub_resource type="Animation" id="Animation_d83tg"]
@@ -147,23 +164,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [5, 6, 7, 4]
-}
-
-[sub_resource type="Animation" id="Animation_oej56"]
-resource_name = "running"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [5, 6, 7, 6]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ff814"]

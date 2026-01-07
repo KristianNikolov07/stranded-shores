@@ -18,7 +18,7 @@ func check_position(pos : Vector2) -> bool:
 	var spawn_check : Area2D = spawn_check_scene.instantiate()
 	spawn_check.global_position = pos
 	get_tree().current_scene.add_child(spawn_check)
-	await get_tree().create_timer(0.001).timeout
+	await get_tree().physics_frame
 	if spawn_check.get_overlapping_bodies().is_empty():
 		spawn_check.queue_free()
 		return true

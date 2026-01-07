@@ -31,20 +31,20 @@ metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(24, -72)
+position = Vector2(2, -36)
 scale = Vector2(4, 4)
 texture = ExtResource("1_b0kcf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(22, -36)
 shape = SubResource("RectangleShape2D_b0kcf")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(24, -72)
+position = Vector2(2, -36)
 show_rect = false
 enable_node_path = NodePath("")
 
 [node name="EntityCollision" type="StaticBody2D" parent="."]
+position = Vector2(-22, 36)
 collision_layer = 128
 collision_mask = 64
 
@@ -53,4 +53,5 @@ position = Vector2(22, -36)
 shape = SubResource("CircleShape2D_ebggc")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-22, 36)
 occluder = SubResource("OccluderPolygon2D_ebggc")
