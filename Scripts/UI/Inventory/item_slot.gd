@@ -20,6 +20,7 @@ var selected = false
 func set_item(_item : Item) -> void:
 	item = _item
 	if _item != null:
+		$Outline.hide()
 		$Item.texture = item.texture
 		if item.amount > 1:
 			$MarginContainer/Amount.text = str(item.amount)
@@ -37,6 +38,7 @@ func set_item(_item : Item) -> void:
 		else:
 			$MarginContainer/Durability.hide() 
 	else:
+		$Outline.show()
 		$Item.texture = null
 		$MarginContainer/Amount.hide()
 		$MarginContainer/Durability.hide() 
