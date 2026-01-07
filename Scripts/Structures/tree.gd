@@ -28,13 +28,11 @@ func grow_apples() -> void:
 func remove_apples() -> void:
 	has_apples = false
 	$Sprite2D.texture = tree_texture
-	if can_grow_apples:
-		$AppleTimer.start(randf_range(MIN_APPLE_GROW_SECS, MAX_APPLE_GROW_SECS))
-	
 
 
 func _on_apple_timer_timeout() -> void:
 	grow_apples()
+	$AppleTimer.start(randf_range(MIN_APPLE_GROW_SECS, MAX_APPLE_GROW_SECS))
 
 
 func get_save_data() -> Dictionary:

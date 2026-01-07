@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bonc006vbgjtv"]
+[gd_scene load_steps=14 format=3 uid="uid://bonc006vbgjtv"]
 
 [ext_resource type="Texture2D" uid="uid://xbjj7uhpoylb" path="res://Assets/Textures/Objects/tree.png" id="1_b0kcf"]
 [ext_resource type="Script" uid="uid://rc8dgaqqsmbd" path="res://Scripts/Structures/tree.gd" id="1_jdkqx"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_jdkqx"]
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="3_uk51g"]
 [ext_resource type="Texture2D" uid="uid://dss0mkidf88jq" path="res://Assets/Textures/Objects/apple_tree.png" id="3_vaht6"]
+[ext_resource type="Resource" uid="uid://c1iu4l3m78d8v" path="res://Resources/Items/Structures/sapling.tres" id="6_3kn26"]
 [ext_resource type="Script" uid="uid://dk2527oj5c3g3" path="res://Scripts/Structures/tree_interaction.gd" id="6_vaht6"]
 
 [sub_resource type="Resource" id="Resource_vaht6"]
@@ -12,6 +13,13 @@ script = ExtResource("2_jdkqx")
 item = ExtResource("3_uk51g")
 amount = 3
 chance = 100
+metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
+
+[sub_resource type="Resource" id="Resource_n4m1q"]
+script = ExtResource("2_jdkqx")
+item = ExtResource("6_3kn26")
+amount = 1
+chance = 50
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0kcf"]
@@ -33,7 +41,7 @@ collision_mask = 546
 script = ExtResource("1_jdkqx")
 tree_texture = ExtResource("1_b0kcf")
 apple_tree_texture = ExtResource("3_vaht6")
-drops = Array[ExtResource("2_jdkqx")]([SubResource("Resource_vaht6")])
+drops = Array[ExtResource("2_jdkqx")]([SubResource("Resource_vaht6"), SubResource("Resource_n4m1q")])
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -64,7 +72,6 @@ position = Vector2(-22, 36)
 occluder = SubResource("OccluderPolygon2D_ebggc")
 
 [node name="AppleTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="InteractionArea" type="Area2D" parent="."]
 collision_layer = 8

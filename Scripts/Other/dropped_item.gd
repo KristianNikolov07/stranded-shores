@@ -27,12 +27,13 @@ func get_save_data() -> Dictionary:
 
 
 func load_save_data(data : Dictionary) -> void:
-	item = load(data.item.path).duplicate()
-	
-	item.load_save_data(data.item.data)
-	can_despawn = data.can_despawn
-	if can_despawn:
-		$DespawnTimer.wait_time = data.despawn_time_left
+	if data.item.path != null:
+		item = load(data.item.path).duplicate()
+		
+		item.load_save_data(data.item.data)
+		can_despawn = data.can_despawn
+		if can_despawn:
+			$DespawnTimer.wait_time = data.despawn_time_left
 
 
 func _on_despawn_timer_timeout() -> void:
