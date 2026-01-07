@@ -5,7 +5,11 @@
 	},
 	"sprint":{
 		"description": "SPRINT_OBJECTIVE_DESCRIPTION",
-		"next_objective": "sticks and rocks",
+		"next_objective": "interact",
+	},
+	"interact":{
+		"description": "INTERACT_OBJECTIVE_DESCRIPTION",
+		"next_objective": "sticks and rocks"
 	},
 	"sticks and rocks":{
 		"description": "STONES_AND_ROCKS_OBJECTIVE_DESCRIPTION",
@@ -37,10 +41,6 @@
 	},
 	"mining":{
 		"description": "MININIG_OBJECTIVE_DESCRIPTION",
-		"next_objective": "explore"
-	},
-	"explore":{
-		"description": "EXPLORE_OBJECTIVE_DESCRIPTION",
 		"next_objective": "iron"
 	},
 	"iron":{
@@ -49,6 +49,10 @@
 	},
 	"clean water":{
 		"description": "CLEAN_WATER_OBJECTIVE_DESCRIPTION",
+		"next_objective": "explore"
+	},
+	"explore":{
+		"description": "EXPLORE_OBJECTIVE_DESCRIPTION",
 		"next_objective": "forest"
 	},
 	"forest":{

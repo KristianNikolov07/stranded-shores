@@ -101,8 +101,12 @@ func _input(event: InputEvent) -> void:
 	#Interactions
 	elif event.is_action_pressed("Interact"):
 		if $InteractionRange.get_overlapping_areas().size() > 0:
+			# Objective
+			get_tree().get_first_node_in_group("Objectives").complete_objective("interact")
 			$InteractionRange.get_overlapping_areas()[0].interact(get_node("."))
 		elif $InteractionRange.get_overlapping_bodies().size() > 0:
+			# Objective
+			get_tree().get_first_node_in_group("Objectives").complete_objective("interact")
 			$InteractionRange.get_overlapping_bodies()[0].interact(get_node("."))
 
 
