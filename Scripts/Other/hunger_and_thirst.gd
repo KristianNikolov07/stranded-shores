@@ -18,8 +18,8 @@ extends Node
 @export var thirst_hp_regeneration_threshold : float = 8
 
 @onready var player : Player = get_parent()
-@onready var hunger_bar : ProgressBar = get_node("../UI/Stats/Hunger")
-@onready var thirst_bar : ProgressBar = get_node("../UI/Stats/Thirst")
+@onready var hunger_bar : TextureProgressBar = get_node("../UI/Stats/Hunger")
+@onready var thirst_bar : TextureProgressBar = get_node("../UI/Stats/Thirst")
 
 func _ready() -> void:
 	hunger_bar.max_value = max_hunger

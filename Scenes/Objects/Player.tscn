@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://xqjghw70oxkf"]
+[gd_scene load_steps=31 format=3 uid="uid://xqjghw70oxkf"]
 
 [ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="1_ajy74"]
 [ext_resource type="Script" uid="uid://ds284ijxir0f7" path="res://Scripts/Other/player.gd" id="1_t86h6"]
 [ext_resource type="Texture2D" uid="uid://dr60j0t3upeb4" path="res://Assets/Textures/Player.png" id="2_k46cm"]
 [ext_resource type="Script" uid="uid://pxkbysso4esr" path="res://Scripts/Other/CameraLimiter.gd" id="3_5f5w1"]
 [ext_resource type="PackedScene" uid="uid://br7sveoej6sjf" path="res://Scenes/UI/ui.tscn" id="4_r6m6p"]
+[ext_resource type="Texture2D" uid="uid://dnyupa8g2qbxa" path="res://Assets/Textures/UI/progress_bar.png" id="4_w3k6v"]
 [ext_resource type="Script" uid="uid://cy6otwbqa0w1x" path="res://Scripts/Other/hunger_and_thirst.gd" id="5_s8rx5"]
 [ext_resource type="Script" uid="uid://dhie3qxe0hb7i" path="res://Scripts/player_animations.gd" id="7_vsrq0"]
 
@@ -205,12 +206,16 @@ collision_mask = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
 shape = SubResource("RectangleShape2D_r6m6p")
 
-[node name="Stamina" type="ProgressBar" parent="."]
+[node name="Stamina" type="TextureProgressBar" parent="."]
 offset_left = -64.0
-offset_top = -112.0
+offset_top = -96.66666
 offset_right = 64.0
 offset_bottom = -85.0
-show_percentage = false
+nine_patch_stretch = true
+texture_under = ExtResource("4_w3k6v")
+texture_progress = ExtResource("4_w3k6v")
+tint_under = Color(3.3691526e-07, 0.33380455, 0.36672413, 1)
+tint_progress = Color(0, 0.91764706, 1, 1)
 
 [node name="UI" parent="." instance=ExtResource("4_r6m6p")]
 

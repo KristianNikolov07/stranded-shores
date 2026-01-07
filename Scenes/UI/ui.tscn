@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://br7sveoej6sjf"]
+[gd_scene load_steps=9 format=3 uid="uid://br7sveoej6sjf"]
 
 [ext_resource type="PackedScene" uid="uid://b835m5mv6qhyh" path="res://Scenes/UI/Inventory/inventory.tscn" id="1_ahcct"]
 [ext_resource type="PackedScene" uid="uid://cx54gmymjr10i" path="res://Scenes/UI/Inventory/crafting_menu.tscn" id="2_de23q"]
 [ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Item.gd" id="2_duuxe"]
 [ext_resource type="PackedScene" uid="uid://clkeesixpv71" path="res://Scenes/UI/Inventory/storage.tscn" id="3_c7mb3"]
+[ext_resource type="Texture2D" uid="uid://dnyupa8g2qbxa" path="res://Assets/Textures/UI/progress_bar.png" id="5_duuxe"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="5_jfwrg"]
 [ext_resource type="PackedScene" uid="uid://coic25r1tt4j3" path="res://Scenes/Menu/objectives.tscn" id="7_duuxe"]
 [ext_resource type="PackedScene" uid="uid://bfru26xs7uhmj" path="res://Scenes/Menu/pause_menu.tscn" id="9_mbl0m"]
 
@@ -30,19 +32,93 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -176.0
+offset_left = -184.0
 offset_top = -89.0
+offset_right = -8.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("5_jfwrg")
 
-[node name="HP" type="ProgressBar" parent="Stats"]
+[node name="HP" type="TextureProgressBar" parent="Stats"]
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
+step = 0.1
+nine_patch_stretch = true
+texture_under = ExtResource("5_duuxe")
+texture_progress = ExtResource("5_duuxe")
+tint_under = Color(1.3897754e-06, 0.32097825, 1.4439226e-07, 1)
+tint_progress = Color(1.0636896e-05, 0.85273457, 3.85046e-07, 1)
 
-[node name="Thirst" type="ProgressBar" parent="Stats"]
-layout_mode = 2
+[node name="Label" type="Label" parent="Stats/HP"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -11.166667
+offset_right = 26.0
+offset_bottom = 11.166667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "HEALTH"
+horizontal_alignment = 1
 
-[node name="Hunger" type="ProgressBar" parent="Stats"]
+[node name="Thirst" type="TextureProgressBar" parent="Stats"]
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
+step = 0.1
+nine_patch_stretch = true
+texture_under = ExtResource("5_duuxe")
+texture_progress = ExtResource("5_duuxe")
+tint_under = Color(4.2114408e-07, 0, 0.30071336, 1)
+tint_progress = Color(0.33960533, 0.5426321, 1, 1)
+
+[node name="Label" type="Label" parent="Stats/Thirst"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -11.166668
+offset_right = 26.0
+offset_bottom = 11.166668
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "THIRST"
+horizontal_alignment = 1
+
+[node name="Hunger" type="TextureProgressBar" parent="Stats"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+step = 0.1
+nine_patch_stretch = true
+texture_under = ExtResource("5_duuxe")
+texture_progress = ExtResource("5_duuxe")
+tint_under = Color(0.29803923, 0, 0, 1)
+tint_progress = Color(0.8235294, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Stats/Hunger"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -11.166667
+offset_right = 26.0
+offset_bottom = 11.166667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "HUNGER"
+horizontal_alignment = 1
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_mbl0m")]
 visible = false
