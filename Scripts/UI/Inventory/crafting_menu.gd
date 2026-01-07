@@ -62,6 +62,10 @@ func craft(recipe : Recipe) -> void:
 		player.inventory.remove_item(recipe.item1.item_name, recipe.item1_amount)
 		player.inventory.remove_item(recipe.item2.item_name, recipe.item2_amount)
 		
+		# Basic Axe Objective
+		if recipe.result.item_name == "Basic Axe":
+			get_tree().get_first_node_in_group("Objectives").complete_objective("craft basic axe")
+		
 		if !player.inventory.add_item(recipe.result.duplicate()):
 			var dropped_item = dropped_item_scene.instantiate()
 			dropped_item.item = recipe.result

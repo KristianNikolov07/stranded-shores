@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="1_dsxss"]
 [ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_uvtjs"]
 [ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="2_rqskv"]
-[ext_resource type="Resource" uid="uid://eipvauonrs78" path="res://Resources/Items/Tools/axe.tres" id="3_g1171"]
+[ext_resource type="Resource" uid="uid://eipvauonrs78" path="res://Resources/Items/Tools/basic_axe.tres" id="3_g1171"]
 
 [resource]
 script = ExtResource("1_uvtjs")

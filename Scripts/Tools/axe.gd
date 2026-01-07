@@ -4,6 +4,8 @@ signal hit
 
 @export var damage = 10
 
+var type : Tool.Type
+
 func use() -> void:
 	look_at(get_global_mouse_position())
 	$Area2D/CollisionShape2D.disabled = false
@@ -16,7 +18,7 @@ func use() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("damage_with_axe"):
-		body.damage_with_axe(damage)
+	if body.has_method("damage"):
+		body.damage(damage, type)
 		hit.emit()
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)

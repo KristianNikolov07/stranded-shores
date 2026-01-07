@@ -6,8 +6,8 @@ extends StaticBody2D
 
 var dropped_item_scene = preload("res://Scenes/Objects/dropped_item.tscn")
 
-func damage_with_axe(damage : int) -> void:
-	hp -= damage
+func damage(dmg : int) -> void:
+	hp -= dmg
 	if hp <= 0:
 		destroy()
 

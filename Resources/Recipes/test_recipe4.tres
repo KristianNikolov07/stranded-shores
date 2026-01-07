@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://dij4313ok1l42" path="res://Resources/Items/test_item.tres" id="1_ewrs4"]
 [ext_resource type="Resource" uid="uid://c0w2p0r52nist" path="res://Resources/Items/Consumables/test_consumable.tres" id="2_6vmyp"]
-[ext_resource type="Resource" uid="uid://eipvauonrs78" path="res://Resources/Items/Tools/axe.tres" id="3_wlsp1"]
+[ext_resource type="Resource" uid="uid://eipvauonrs78" path="res://Resources/Items/Tools/basic_axe.tres" id="3_wlsp1"]
 [ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="4_p13mb"]
 
 [resource]

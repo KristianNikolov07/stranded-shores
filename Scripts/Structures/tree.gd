@@ -46,9 +46,9 @@ func get_save_data() -> Dictionary:
 
 
 func load_save_data(data : Dictionary) -> void:
-	if data.can_grow_apples != null:
+	if data.has("can_grow_apples"):
 		can_grow_apples = data.can_grow_apples
-	if data.has_apples != null:
+	if data.has("has_apples"):
 		if data.has_apples:
 			grow_apples()
 		else:
