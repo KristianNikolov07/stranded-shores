@@ -1,10 +1,10 @@
 class_name Structure
 extends StaticBody2D
 
+const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
+
 @export var hp : int = 50
 @export var drops : Array[Loot]
-
-var dropped_item_scene = preload("res://Scenes/Objects/dropped_item.tscn")
 
 func damage(dmg : int) -> void:
 	hp -= dmg
@@ -16,7 +16,7 @@ func destroy() -> void:
 	for loot in drops:
 		var rand = randi_range(1, 100)
 		if rand < loot.chance:
-			var dropped_item = dropped_item_scene.instantiate()
+			var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 			dropped_item.global_position = global_position
 			dropped_item.item = loot.item
 			dropped_item.item.amount = loot.amount

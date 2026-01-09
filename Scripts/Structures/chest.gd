@@ -12,7 +12,7 @@ func open() -> void:
 func destroy() -> void:
 	for item : Item in $CanvasLayer/Storage.items:
 		if item != null:
-			var dropped_item = dropped_item_scene.instantiate()
+			var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 			dropped_item.global_position = global_position
 			dropped_item.item = item
 			dropped_item.item.amount = item.amount

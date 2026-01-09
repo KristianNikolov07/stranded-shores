@@ -2,8 +2,8 @@ extends PanelContainer
 
 signal closed
 
-const control_option_scene = preload("res://Scenes/Menu/control_option.tscn")
-const blacklist = ["esc", "Debug", "Click"]
+const CONTROL_OPTION_SCENE = preload("res://Scenes/Menu/control_option.tscn")
+const BLACKLIST = ["esc", "Debug", "Click"]
 
 var config = ConfigFile.new()
 
@@ -28,7 +28,7 @@ func _on_back_pressed() -> void:
 func save_controls() -> void:
 	config.load(Global.SETTINGS_FILE_PATH)
 	for action in InputMap.get_actions():
-		if !action.begins_with("ui_") and action not in blacklist and InputMap.action_get_events(action).size() > 0:
+		if !action.begins_with("ui_") and action not in BLACKLIST and InputMap.action_get_events(action).size() > 0:
 			config.set_value("Controls", action, InputMap.action_get_events(action)[0])
 	config.save(Global.SETTINGS_FILE_PATH)
 
@@ -45,8 +45,8 @@ func list_controls() -> void:
 	for child in %Controls.get_children():
 		child.queue_free()
 	for action : StringName in InputMap.get_actions():
-		if InputMap.action_get_events(action).is_empty() == false and action.begins_with("ui_") == false and action not in blacklist:
-			var control_option = control_option_scene.instantiate()
+		if InputMap.action_get_events(action).is_empty() == false and action.begins_with("ui_") == false and action not in BLACKLIST:
+			var control_option = CONTROL_OPTION_SCENE.instantiate()
 			control_option.action = action
 			control_option.key = InputMap.action_get_events(action)[0].as_text()
 			%Controls.add_child(control_option)

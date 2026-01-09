@@ -1,12 +1,13 @@
 extends Control
 
+const ITEM_SLOT_SCENE = preload("res://Scenes/UI/Inventory/item_slot.tscn")
+const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
+
 @export var items : Array[Item]
 @export var inventory_size = 4
 @export var armor : Armor
 @export var backpack_item : Backpack
 
-var item_slot_scene = preload("res://Scenes/UI/Inventory/item_slot.tscn")
-var dropped_item_scene = preload("res://Scenes/Objects/dropped_item.tscn")
 var selected_slot = 0
 var opened_storage : Storage
 
@@ -179,7 +180,7 @@ func drop_item(slot : int, drop_all = false) -> void:
 		if items[slot] is Boat and player.is_in_water():
 			return
 			
-		var node = dropped_item_scene.instantiate()
+		var node = DROPPED_ITEM_SCENE.instantiate()
 		node.item = items[slot].duplicate()
 		if drop_all:
 			node.item.amount = items[slot].amount
@@ -271,7 +272,7 @@ func unequip_backpack() -> void:
 
 func drop_armor() -> void:
 	if armor != null:
-		var dropped_item = dropped_item_scene.instantiate()
+		var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 		dropped_item.item = armor
 		dropped_item.global_position = player.global_position
 		armor = null
@@ -280,7 +281,7 @@ func drop_armor() -> void:
 
 func drop_backpack_item() -> void:
 	if backpack_item != null:
-		var dropped_item = dropped_item_scene.instantiate()
+		var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 		dropped_item.item = backpack_item
 		dropped_item.global_position = player.global_position
 		backpack_item = null
@@ -299,7 +300,7 @@ func drop_inventory() -> void:
 # UI
 func initiate_inventory_UI():
 	for i in range(inventory_size):
-		var node = item_slot_scene.instantiate()
+		var node = ITEM_SLOT_SCENE.instantiate()
 		node.name = str(i)
 		$Inventory.add_child(node)
 	$"Inventory/0".select()

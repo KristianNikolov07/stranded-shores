@@ -1,6 +1,5 @@
 extends TileMapLayer
 
-
 func is_water_tile(pos : Vector2i) -> bool:
 	var data = get_cell_tile_data(pos)
 	if data:

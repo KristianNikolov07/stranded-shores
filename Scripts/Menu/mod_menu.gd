@@ -2,7 +2,7 @@ extends PanelContainer
 
 signal closed
 
-const mod_panel_scene = preload("res://Scenes/Menu/mod_panel.tscn")
+const MOD_PANEL_SCENE = preload("res://Scenes/Menu/mod_panel.tscn")
 
 func _ready() -> void:
 	list_mods()
@@ -20,7 +20,7 @@ func list_mods() -> void:
 		child.queue_free()
 	if DirAccess.dir_exists_absolute(Global.MODS_FOLDER):
 		for mod : String in DirAccess.get_directories_at(Global.MODS_FOLDER):
-			var mod_panel = mod_panel_scene.instantiate()
+			var mod_panel = MOD_PANEL_SCENE.instantiate()
 			mod_panel.mod_path = Global.MODS_FOLDER + "/" + mod
 			%ModList.add_child(mod_panel)
 

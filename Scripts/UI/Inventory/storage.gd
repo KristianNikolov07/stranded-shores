@@ -1,10 +1,10 @@
 class_name Storage
 extends GridContainer
 
-@export var items : Array[Item]
+const ITEM_SLOT_SCENE = preload("res://Scenes/UI/Inventory/item_slot.tscn")
+const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
-var item_slot_scene = preload("res://Scenes/UI/Inventory/item_slot.tscn")
-var dropped_item_scene = preload("res://Scenes/Objects/dropped_item.tscn")
+@export var items : Array[Item]
 
 @onready var player : Player = get_tree().get_first_node_in_group("Player")
 
@@ -113,7 +113,7 @@ func remove_item_from_storage(slot : int) -> void:
 func drop_all_items() -> void:
 	for i in range(items.size()):
 		if items[i] != null:
-			var dropped_item = dropped_item_scene.instantiate()
+			var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 			dropped_item.item = items[i].duplicate()
 			dropped_item.global_position = get_node("../../").global_position
 			remove_item_from_slot(i, items[i].amount)
@@ -125,7 +125,7 @@ func update_storage() -> void:
 		slot.queue_free()
 	
 	for i in range(items.size()):
-		var slot = item_slot_scene.instantiate()
+		var slot = ITEM_SLOT_SCENE.instantiate()
 		slot.set_item(items[i])
 		slot.id = i
 		slot.is_in_backpack = true

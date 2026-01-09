@@ -1,7 +1,8 @@
 extends Control
 
-var crafting_recipe_scene = preload("res://Scenes/UI/Inventory/crafting_recipe_ui.tscn")
-var dropped_item_scene = preload("res://Scenes/Objects/dropped_item.tscn")
+const CRAFTING_RECIPE_SCENE = preload("res://Scenes/UI/Inventory/crafting_recipe_ui.tscn")
+const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
+
 var selected_recipe : Recipe
 var is_crafting_table : bool = false
 var selected_tool : Recipe.CraftingTool = Recipe.CraftingTool.NONE
@@ -51,7 +52,7 @@ func load_recipes() -> void:
 	for file in DirAccess.get_files_at("res://Resources/Recipes"):
 		var file_name = file.replace(".remap", "")
 		var recipe = load("res://Resources/Recipes/" + file_name)
-		var crafting_recipe_ui = crafting_recipe_scene.instantiate()
+		var crafting_recipe_ui = CRAFTING_RECIPE_SCENE.instantiate()
 		crafting_recipe_ui.recipe = recipe
 		%Recipes.add_child(crafting_recipe_ui)
 		crafting_recipe_ui.recipe_selected.connect(select_recipe)
@@ -67,7 +68,7 @@ func craft(recipe : Recipe) -> void:
 			get_tree().get_first_node_in_group("Objectives").complete_objective("craft basic axe")
 		
 		if !player.inventory.add_item(recipe.result.duplicate()):
-			var dropped_item = dropped_item_scene.instantiate()
+			var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 			dropped_item.item = recipe.result
 			dropped_item.global_position = player.global_position
 			get_tree().current_scene.add_child(dropped_item)

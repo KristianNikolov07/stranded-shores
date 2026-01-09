@@ -2,7 +2,7 @@ extends Control
 
 signal closed
 
-const world_option_scene = preload("res://Scenes/Menu/world_option.tscn")
+const WORLD_OPTION_SCENE = preload("res://Scenes/Menu/world_option.tscn")
 
 func _ready() -> void:
 	hide()
@@ -18,7 +18,7 @@ func _input(event: InputEvent) -> void:
 
 func get_worlds() -> void:
 	for world in SaveProgress.get_saves():
-		var world_option = world_option_scene.instantiate()
+		var world_option = WORLD_OPTION_SCENE.instantiate()
 		world_option.world_name = world
 		$VBoxContainer/Worlds/MarginContainer/VBoxContainer.add_child(world_option)
 
