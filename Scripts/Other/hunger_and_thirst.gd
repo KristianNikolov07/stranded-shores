@@ -27,7 +27,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if player.is_running:
+	if player.is_running and player.velocity != Vector2.ZERO:
 		add_thirst(delta * thirst_per_second * thirst_per_second_running_multipliar)
 		add_hunger(delta * hunger_per_second * hunger_per_second_running_multipliar)
 	add_thirst(delta * thirst_per_second)

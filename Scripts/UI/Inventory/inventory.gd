@@ -58,7 +58,6 @@ func _input(event: InputEvent) -> void:
 
 
 func add_item(item : Item, bypass_backpack = false) -> bool:
-	
 	# Rocks and Sticks Objective
 	if item.item_name == "Rock":
 		if has_item("Stick", 10) and has_item("Rock", 9):
@@ -66,6 +65,7 @@ func add_item(item : Item, bypass_backpack = false) -> bool:
 	elif item.item_name == "Stick":
 		if has_item("Rock", 10) and has_item("Stick", 9):
 			get_tree().get_first_node_in_group("Objectives").complete_objective("sticks and rocks")
+	
 	
 	if backpack_item != null and bypass_backpack == false:
 		if backpack.add_item(item):
@@ -79,6 +79,7 @@ func add_item(item : Item, bypass_backpack = false) -> bool:
 					item.decrease_amount(item.amount - left_over)
 					visualize_inventory()
 					if left_over == 0:
+						reselect_slot()
 						return true
 	
 	for i in range(items.size()):
@@ -86,6 +87,7 @@ func add_item(item : Item, bypass_backpack = false) -> bool:
 			items[i] = item.duplicate()
 			items[i].amount = item.amount
 			visualize_inventory()
+			reselect_slot()
 			return true
 	
 	return false

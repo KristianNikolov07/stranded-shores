@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi86sca262sqb"]
+[gd_scene load_steps=5 format=3 uid="uid://dtk34s1bqom27"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_msvm5"]
 normal = Vector2(1, 0)
