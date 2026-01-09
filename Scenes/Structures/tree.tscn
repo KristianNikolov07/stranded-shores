@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bonc006vbgjtv"]
+[gd_scene load_steps=19 format=3 uid="uid://bonc006vbgjtv"]
 
 [ext_resource type="Texture2D" uid="uid://74nc4t2xywl" path="res://Assets/Textures/Objects/tree.png" id="1_b0kcf"]
 [ext_resource type="Script" uid="uid://rc8dgaqqsmbd" path="res://Scripts/Structures/tree.gd" id="1_jdkqx"]
@@ -22,6 +22,26 @@ amount = 1
 chance = 50
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4m1q"]
+atlas = ExtResource("1_b0kcf")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edxoy"]
+atlas = ExtResource("1_b0kcf")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eja1b"]
+atlas = ExtResource("1_b0kcf")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uohxl"]
+atlas = ExtResource("1_b0kcf")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kn26"]
+atlas = ExtResource("1_b0kcf")
+region = Rect2(0, 0, 16, 32)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0kcf"]
 size = Vector2(12, 56)
 
@@ -42,13 +62,14 @@ script = ExtResource("1_jdkqx")
 tree_texture = ExtResource("1_b0kcf")
 apple_tree_texture = ExtResource("3_vaht6")
 drops = Array[ExtResource("2_jdkqx")]([SubResource("Resource_vaht6"), SubResource("Resource_n4m1q")])
+broken_textures = Array[Texture]([SubResource("AtlasTexture_n4m1q"), SubResource("AtlasTexture_edxoy"), SubResource("AtlasTexture_eja1b"), SubResource("AtlasTexture_uohxl")])
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(2, -36)
 scale = Vector2(4, 4)
-texture = ExtResource("1_b0kcf")
+texture = SubResource("AtlasTexture_3kn26")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_b0kcf")

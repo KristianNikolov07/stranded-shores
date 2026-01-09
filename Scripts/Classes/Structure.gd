@@ -5,9 +5,13 @@ const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
 @export var hp : int = 50
 @export var drops : Array[Loot]
+@export var broken_textures : Array[Texture]
 
 func damage(dmg : int) -> void:
 	hp -= dmg
+	if broken_textures.is_empty() == false:
+		#TODO: Code the textures
+		pass
 	if hp <= 0:
 		destroy()
 
