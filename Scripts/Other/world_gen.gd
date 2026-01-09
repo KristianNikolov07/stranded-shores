@@ -33,7 +33,7 @@ func generate_random_objects() -> void:
 			# Attempt to place a tree
 			if tilemap.is_grass_tile(Vector2i(x, y)):
 				var tree = tree_scene.instantiate()
-				if await attempt_to_place(tree, tree_spawn_chance, Global.tilemap_coords_to_global_coords(Vector2(x, y))):
+				if attempt_to_place(tree, tree_spawn_chance, Global.tilemap_coords_to_global_coords(Vector2(x, y))):
 					continue
 				
 			# Attempt to place a rock
@@ -41,7 +41,7 @@ func generate_random_objects() -> void:
 				var rock = dropped_item_scene.instantiate()
 				rock.item = rock_item.duplicate()
 				rock.can_despawn = false
-				if await attempt_to_place(rock, rock_spawn_chance, Global.tilemap_coords_to_global_coords(Vector2(x, y))):
+				if attempt_to_place(rock, rock_spawn_chance, Global.tilemap_coords_to_global_coords(Vector2(x, y))):
 					continue
 			
 			# Attempt to place a stick
