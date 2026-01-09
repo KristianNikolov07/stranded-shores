@@ -14,6 +14,8 @@ config/name="Diploma Project"
 config/version="Dev.1.0"
 run/main_scene="uid://c17te1o2qtwsm"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/show_image=false
+config/icon="uid://cyj1jutt8uoyn"
 
 [autoload]
 
