@@ -20,7 +20,7 @@ func destroy() -> void:
 			dropped_item.global_position = global_position
 			dropped_item.item = loot.item
 			dropped_item.item.amount = loot.amount
-			get_tree().current_scene.add_child(dropped_item)
+			get_tree().current_scene.call_deferred("add_child", dropped_item)
 	queue_free()
 
 

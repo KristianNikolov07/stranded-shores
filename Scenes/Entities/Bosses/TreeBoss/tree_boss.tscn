@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwifqlhq0eowu"]
+
+[ext_resource type="Script" uid="uid://djc6tekkhbrq7" path="res://Scripts/Entities/Bosses/TreeBoss/tree_boss.gd" id="1_uglrb"]
+[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="2_fphqg"]
+[ext_resource type="Texture2D" uid="uid://dnyupa8g2qbxa" path="res://Assets/Textures/UI/progress_bar.png" id="3_0xnfy"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="4_p0v6x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxcfg"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1rdx"]
+size = Vector2(128, 128)
+
+[node name="TreeBoss" type="CharacterBody2D"]
+collision_layer = 2144
+collision_mask = 0
+script = ExtResource("1_uglrb")
+activate_distance = 10000.0
+max_hp = 1000
+can_despawn = false
+metadata/_custom_type_script = "uid://c3fbx4w04b6te"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8146973e-06, 3.8146973e-06)
+texture = ExtResource("2_fphqg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oxcfg")
+
+[node name="ContactDamage" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 274
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage"]
+position = Vector2(-1.9073486e-06, -1.9073486e-06)
+shape = SubResource("RectangleShape2D_l1rdx")
+
+[node name="ChangeStateTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Bossbar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -72.0
+offset_right = 384.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+nine_patch_stretch = true
+texture_under = ExtResource("3_0xnfy")
+texture_progress = ExtResource("3_0xnfy")
+tint_under = Color(0.2509804, 0, 0, 1)
+tint_progress = Color(0.76862746, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Bossbar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_p0v6x")
+theme_override_font_sizes/font_size = 36
+text = "BOSS HEALTH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShootFrom" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="ShootFrom"]
+position = Vector2(88, 0)
+
+[connection signal="body_entered" from="ContactDamage" to="." method="_on_contact_damage_body_entered"]
+[connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

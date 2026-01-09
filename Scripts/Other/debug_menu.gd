@@ -100,3 +100,9 @@ func _on_spawn_test_enemy_pressed() -> void:
 
 func _on_time_change_pressed() -> void:
 	$"../DayNightCycle"._on_timer_timeout()
+
+
+func _on_tree_boss_pressed() -> void:
+	var boss : Enemy = load("res://Scenes/Entities/Bosses/TreeBoss/tree_boss.tscn").instantiate()
+	boss.global_position = player.global_position
+	player.get_parent().add_child(boss)

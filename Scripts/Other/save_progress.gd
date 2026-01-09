@@ -113,8 +113,8 @@ func load_save() -> void:
 			player.inventory.set_items([])
 		if config.has_section_key("inventory", "armor"):
 			player.inventory.set_armor(config.get_value("inventory", "armor", null))
-		if config.has_section_key("inventory", "backpack_items"):
-			player.inventory.set_backpack(config.get_value("inventory", "backpack_items", null))
+		if config.has_section_key("inventory", "backpack_item"):
+			player.inventory.set_backpack(config.get_value("inventory", "backpack_item", null))
 		if config.has_section_key("inventory", "backpack"):
 			player.inventory.backpack.set_items(config.get_value("inventory", "backpack"))
 		else:

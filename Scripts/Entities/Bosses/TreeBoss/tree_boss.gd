@@ -1,0 +1,65 @@
+extends Enemy
+
+enum State{
+	SHOOTING,
+	WALKING
+}
+
+const TREE_PROJECTILES_SCENE = preload("res://Scenes/Entities/Bosses/TreeBoss/tree_projectile.tscn")
+const MIN_CHANGE_STATE_TIME = 10
+const MAX_CHANGE_STATE_TIME = 30
+const MIN_CHANGE_SHOOT_TIME = 1
+const MAX_CHANGE_SHOOT_TIME = 5
+
+var current_state = State.WALKING
+
+func _ready() -> void:
+	super._ready()
+	$ChangeStateTimer.start(randf_range(MIN_CHANGE_STATE_TIME, MAX_CHANGE_STATE_TIME))
+	$CanvasLayer/Bossbar.max_value = max_hp
+	$CanvasLayer/Bossbar.value = max_hp
+
+
+func _physics_process(_delta) -> void:
+	if current_state == State.WALKING:
+		move_toward_to_player()
+
+
+func _on_contact_damage_body_entered(body: Node2D) -> void:
+	print(body)
+	if body.has_method("destroy"):
+		body.destroy()
+
+
+func damage(_dmg : int) -> void:
+	super.damage(_dmg)
+	$CanvasLayer/Bossbar.value = hp
+
+
+func _on_change_state_timer_timeout() -> void:
+	if current_state == State.SHOOTING:
+		change_state(State.WALKING)
+	else:
+		change_state(State.SHOOTING)
+	$ChangeStateTimer.start(randf_range(MIN_CHANGE_STATE_TIME, MAX_CHANGE_STATE_TIME))
+
+
+func change_state(state : State) -> void:
+	current_state = state
+	if state == State.SHOOTING:
+		$ShootTimer.start(randf_range(MIN_CHANGE_SHOOT_TIME, MAX_CHANGE_SHOOT_TIME))
+	else:
+		$ShootTimer.stop()
+
+
+func shoot_tree(target : Vector2):
+	$ShootFrom.look_at(target)
+	var tree = TREE_PROJECTILES_SCENE.instantiate()
+	tree.global_position = $ShootFrom/Marker2D.global_position
+	tree.target = target
+	get_tree().current_scene.add_child(tree)
+
+
+func _on_shoot_timer_timeout() -> void:
+	shoot_tree(get_tree().get_first_node_in_group("Player").global_position)
+	$ShootTimer.start(randf_range(MIN_CHANGE_SHOOT_TIME, MAX_CHANGE_SHOOT_TIME))
