@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cad00mippid7o"]
+[gd_scene load_steps=8 format=3 uid="uid://cad00mippid7o"]
 
 [ext_resource type="Script" uid="uid://ce7gvw826mwe1" path="res://Scripts/Tools/axe.gd" id="1_ik4le"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_x0kss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxmbi"]
-size = Vector2(138, 20)
+size = Vector2(76.21021, 43.999992)
 
 [sub_resource type="Animation" id="Animation_7dk8h"]
 length = 0.001
@@ -42,7 +43,11 @@ _data = {
 &"hit": SubResource("Animation_ik4le")
 }
 
-[node name="Axe" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_65s7t"]
+atlas = ExtResource("2_x0kss")
+region = Rect2(32, 0, 16, 16)
+
+[node name="BasicAxe" type="Node2D"]
 script = ExtResource("1_ik4le")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -51,7 +56,7 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(191.99998, 0)
+position = Vector2(220.66916, 25.789764)
 shape = SubResource("RectangleShape2D_yxmbi")
 disabled = true
 
@@ -59,5 +64,12 @@ disabled = true
 libraries = {
 &"": SubResource("AnimationLibrary_7dk8h")
 }
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(200.42049, 4.86158)
+rotation = 0.7853982
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_65s7t")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

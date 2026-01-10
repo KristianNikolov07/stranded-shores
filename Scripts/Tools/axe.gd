@@ -4,15 +4,26 @@ signal hit
 
 @export var damage = 10
 
+func _ready() -> void:
+	hide()
+
+
 func use() -> void:
+	show()
 	look_at(get_global_mouse_position())
 	$Area2D/CollisionShape2D.disabled = false
 	if get_global_mouse_position().x < global_position.x:
 		$Area2D/AnimationPlayer.play_backwards("hit")
+		$Area2D/Sprite2D.flip_v = true
+		$Area2D/Sprite2D.rotation_degrees = -45
 	else:
 		$Area2D/AnimationPlayer.play("hit")
+		$Area2D/Sprite2D.flip_v = false
+		$Area2D/Sprite2D.rotation_degrees = 45
+		
 	await $Area2D/AnimationPlayer.animation_finished
 	$Area2D/CollisionShape2D.disabled = true
+	hide()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -20,3 +31,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.damage(damage)
 		hit.emit()
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
+		hide()
