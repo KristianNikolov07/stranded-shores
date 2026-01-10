@@ -106,3 +106,11 @@ func _on_tree_boss_pressed() -> void:
 	var boss : Enemy = load("res://Scenes/Entities/Bosses/TreeBoss/tree_boss.tscn").instantiate()
 	boss.global_position = player.global_position
 	player.get_parent().add_child(boss)
+
+
+func _on_give_bow_pressed() -> void:
+	var bow = load("res://Resources/Items/Tools/bow.tres")
+	player.inventory.add_item(bow.duplicate())
+	var arrow = load("res://Resources/Items/arrow.tres")
+	for i in range(10):
+		player.inventory.add_item(arrow.duplicate())

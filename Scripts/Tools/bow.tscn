@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://xl7usnmh2x3i"]
+
+[ext_resource type="Script" uid="uid://cmugwrtdp38jw" path="res://Scenes/Tools/bow.gd" id="1_nvl7t"]
+
+[node name="Bow" type="Node2D"]
+script = ExtResource("1_nvl7t")
+
+[node name="ShootPoint" type="Marker2D" parent="."]
+position = Vector2(128, 0)

@@ -36,6 +36,7 @@ run/main_run_args="debug"
 
 folder_colors={
 "res://Assets/": "green",
+"res://Exports/": "gray",
 "res://Resources/": "orange",
 "res://Scenes/": "yellow",
 "res://Scripts/": "blue",
@@ -181,7 +182,7 @@ locale/translations=PackedStringArray("res://Assets/Locales/translations.bg.tran
 2d_physics/layer_4="Intractables"
 2d_physics/layer_5="SolidStructures"
 2d_physics/layer_6="DamagableWithAxe"
-2d_physics/layer_7="NPC"
+2d_physics/layer_7="Entities"
 2d_physics/layer_8="EntityCollision"
 2d_physics/layer_9="Structures"
 2d_physics/layer_10="StructurePreview"

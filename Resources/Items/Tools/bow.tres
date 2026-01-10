@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=3 format=3 uid="uid://4xf4o78gtb1x"]
+
+[ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="1_m2q2g"]
+[ext_resource type="PackedScene" uid="uid://xl7usnmh2x3i" path="res://Scripts/Tools/bow.tscn" id="2_43g58"]
+
+[resource]
+script = ExtResource("1_m2q2g")
+tool_scene = ExtResource("2_43g58")
+max_durability = 50
+durability = 50
+item_name = "Bow"
+item_path = "res://Resources/Items/Tools/bow.tres"
+metadata/_custom_type_script = "uid://ccifyb4dk0sri"

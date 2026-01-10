@@ -108,6 +108,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Spawn Tree Boss"
 
+[node name="GiveBow" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Give Bow"
+
 [node name="PassiveEntityCount" type="Label" parent="."]
 anchors_preset = -1
 anchor_left = 1.0
@@ -153,3 +158,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/SpawnTestEnemy" to="." method="_on_spawn_test_enemy_pressed"]
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/Time Change" to="." method="_on_time_change_pressed"]
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/TreeBoss" to="." method="_on_tree_boss_pressed"]
+[connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/GiveBow" to="." method="_on_give_bow_pressed"]

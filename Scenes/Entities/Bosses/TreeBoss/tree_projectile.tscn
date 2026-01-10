@@ -14,8 +14,10 @@ size = Vector2(120, 16)
 collision_layer = 0
 collision_mask = 279
 script = ExtResource("1_m7l6w")
-speed = 10
+continue_after_target = false
+speed = 100
 damage = 5
+metadata/_custom_type_script = "uid://bp3o7yyqe72ax"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -29,3 +31,4 @@ position = Vector2(68, 0)
 shape = SubResource("RectangleShape2D_gdnha")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="target_reached" from="." to="." method="_on_target_reached"]

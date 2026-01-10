@@ -21,3 +21,8 @@ func global_coords_to_tilemap_coords(global_coords : Vector2) -> Vector2:
 	@warning_ignore("narrowing_conversion")
 	var y : int = global_coords.y / (TILE_SIZE * TILEMAP_SCALE)
 	return Vector2(x, y)
+
+
+func get_player() -> Player:
+	var player : Player = get_tree().current_scene.find_child("Player")
+	return player
