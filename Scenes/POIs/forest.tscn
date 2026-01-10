@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b303n5uyeksfc"]
+
+[ext_resource type="Script" uid="uid://c6kp2rykw2xor" path="res://Scripts/POIs/forest.gd" id="1_astk3"]
+
+[node name="Forest" type="Node2D"]
+script = ExtResource("1_astk3")
+radius = 20.0
+tree_spawn_chance = 50

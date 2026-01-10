@@ -22,6 +22,7 @@ func _ready() -> void:
 		SaveProgress.load_save()
 	else:
 		generate_random_objects()
+		get_parent().get_node("Forest").generate()
 		choose_spawn_point()
 		SaveProgress.save()
 
