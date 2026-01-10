@@ -12,6 +12,7 @@ size = Vector2(128, 128)
 size = Vector2(128, 128)
 
 [node name="TreeBoss" type="CharacterBody2D"]
+z_index = 4
 collision_layer = 2144
 collision_mask = 0
 script = ExtResource("1_uglrb")

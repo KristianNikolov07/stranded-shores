@@ -59,7 +59,7 @@ polygon = PackedVector2Array(16, -64, 28, -64, 28, -8, 16, -8)
 size = Vector2(12, 64)
 
 [node name="Tree" type="StaticBody2D" groups=["Persistant"]]
-z_index = 1
+z_index = 6
 collision_layer = 304
 collision_mask = 546
 script = ExtResource("1_jdkqx")

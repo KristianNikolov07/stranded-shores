@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnl6f57vr6u27"]
 
-[ext_resource type="Script" uid="uid://d14s0o2ayacsh" path="res://Scripts/Structures/sapling.gd" id="1_b40db"]
+[ext_resource type="Script" path="res://Scripts/Structures/sapling.gd" id="1_b40db"]
 [ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="2_b40db"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b40db"]
 size = Vector2(64, 64)
 
 [node name="Sapling" type="StaticBody2D"]
+z_index = 3
 collision_layer = 256
 collision_mask = 544
 script = ExtResource("1_b40db")
 min_grow_secs = 10
 max_grow_secs = 20
-hp = 20
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

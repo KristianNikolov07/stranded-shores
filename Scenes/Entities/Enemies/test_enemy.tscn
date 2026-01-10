@@ -10,6 +10,7 @@ radius = 56.666664
 size = Vector2(113.33333, 113.33333)
 
 [node name="TestEnemy" type="CharacterBody2D" groups=["Enemies"]]
+z_index = 4
 scale = Vector2(0.3, 0.3)
 collision_layer = 64
 collision_mask = 229
