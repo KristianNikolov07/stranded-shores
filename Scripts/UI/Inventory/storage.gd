@@ -6,7 +6,7 @@ const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
 @export var items : Array[Item]
 
-@onready var player : Player = get_tree().get_first_node_in_group("Player")
+@onready var player : Player = Global.get_player()
 
 func _ready() -> void:
 	hide()

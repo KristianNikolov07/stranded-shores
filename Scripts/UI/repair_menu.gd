@@ -2,7 +2,7 @@ extends Control
 
 var tool : Tool
 
-@onready var player : Player = get_tree().get_first_node_in_group("Player")
+@onready var player : Player = Global.get_player()
 
 func _ready() -> void:
 	hide()

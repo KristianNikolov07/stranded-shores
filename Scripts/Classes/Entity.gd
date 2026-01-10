@@ -10,14 +10,14 @@ extends CharacterBody2D
 var dropped_item_scene = preload("res://Scenes/Objects/dropped_item.tscn")
 var hp : int
 
-@onready var main_scene = get_tree().get_first_node_in_group("Player").get_parent()
+@onready var main_scene = get_tree().current_scene
 
 func _ready() -> void:
 	hp = max_hp
 
 
 func _process(_delta: float) -> void:
-	var player : Player = get_tree().get_first_node_in_group("Player")
+	var player : Player = Global.get_player()
 	if player.global_position.distance_to(global_position) > despawn_distance:
 		queue_free()
 

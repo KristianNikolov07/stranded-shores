@@ -1,6 +1,6 @@
 extends Structure
 
-@onready var player : Player = get_tree().get_first_node_in_group("Player")
+@onready var player : Player = Global.get_player()
 
 func open() -> void:
 	if player.can_move:

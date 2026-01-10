@@ -15,8 +15,9 @@ func _physics_process(_delta) -> void:
 
 
 func move_toward_to_player() -> void:
-	if global_position.distance_to(get_tree().get_first_node_in_group("Player").global_position) < activate_distance:
-		velocity = global_position.direction_to(get_tree().get_first_node_in_group("Player").global_position) * speed
+	var player : Player = Global.get_player()
+	if global_position.distance_to(player.global_position) < activate_distance:
+		velocity = global_position.direction_to(player.global_position) * speed
 		move_and_slide()
 
 

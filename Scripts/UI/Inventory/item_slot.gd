@@ -15,7 +15,7 @@ enum Type{
 var item
 var selected = false
 
-@onready var player : Player = get_tree().get_first_node_in_group("Player")
+@onready var player : Player = Global.get_player()
 
 func set_item(_item : Item) -> void:
 	item = _item
