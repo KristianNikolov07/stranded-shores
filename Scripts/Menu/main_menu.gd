@@ -9,6 +9,7 @@ func _ready() -> void:
 	if OS.get_name() == "Web":
 		$MainButtons/Quit.hide()
 
+
 func _on_play_pressed() -> void:
 	$MainButtons.hide()
 	$WorldSelect.show()

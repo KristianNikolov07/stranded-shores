@@ -7,6 +7,18 @@ const SETTINGS_FILE_PATH = "user://settings.ini"
 const MODS_FOLDER = "user://mods"
 const MODS_ENABLE_CHECK_FILE_NAME = "enabled"
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ToggleFullscreen"):
+		toggle_fullscreen()
+
+
+func toggle_fullscreen() -> void:
+	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+
 func tilemap_coords_to_global_coords(tilemap_coords : Vector2) -> Vector2:
 	@warning_ignore("integer_division")
 	var x = tilemap_coords.x * TILE_SIZE * TILEMAP_SCALE + TILE_SIZE / 2

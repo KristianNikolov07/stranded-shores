@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-var test_entity_scene = preload("res://Scenes/Entity/test_entity.tscn")
-var test_enemy_scene = preload("res://Scenes/Entity/Enemies/test_enemy.tscn")
+var test_entity_scene = preload("res://Scenes/Entities/test_entity.tscn")
+var test_enemy_scene = preload("res://Scenes/Entities/Enemies/test_enemy.tscn")
 
 @onready var player : Player = get_node("../Player")
 
