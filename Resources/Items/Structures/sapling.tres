@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="StructureItem" load_steps=5 format=3 uid="uid://c1iu4l3m78d8v"]
 
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="1_k471h"]
+[ext_resource type="Texture2D" uid="uid://da3k5xqrcn02p" path="res://Assets/Textures/icon.svg" id="1_k471h"]
 [ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/StructureItem.gd" id="1_kwxin"]
 [ext_resource type="PackedScene" uid="uid://cnl6f57vr6u27" path="res://Scenes/Structures/sapling.tscn" id="3_0n1su"]
-[ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="4_0n1su"]
+[ext_resource type="Texture2D" uid="uid://b1vbxn5yod07u" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="4_0n1su"]
 
 [resource]
 script = ExtResource("1_kwxin")
