@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bonc006vbgjtv"]
+[gd_scene load_steps=20 format=3 uid="uid://bonc006vbgjtv"]
 
 [ext_resource type="Texture2D" uid="uid://74nc4t2xywl" path="res://Assets/Textures/Objects/tree.png" id="1_b0kcf"]
 [ext_resource type="Script" uid="uid://rc8dgaqqsmbd" path="res://Scripts/Structures/tree.gd" id="1_jdkqx"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dss0mkidf88jq" path="res://Assets/Textures/Objects/apple_tree.png" id="3_vaht6"]
 [ext_resource type="Resource" uid="uid://c1iu4l3m78d8v" path="res://Resources/Items/Structures/sapling.tres" id="6_3kn26"]
 [ext_resource type="Script" path="res://Scripts/Structures/tree_interaction.gd" id="6_vaht6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsloy"]
+atlas = ExtResource("1_b0kcf")
+region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="Resource" id="Resource_vaht6"]
 script = ExtResource("2_jdkqx")
@@ -59,7 +63,7 @@ z_index = 1
 collision_layer = 304
 collision_mask = 546
 script = ExtResource("1_jdkqx")
-tree_texture = ExtResource("1_b0kcf")
+tree_texture = SubResource("AtlasTexture_dsloy")
 apple_tree_texture = ExtResource("3_vaht6")
 drops = Array[ExtResource("2_jdkqx")]([SubResource("Resource_vaht6"), SubResource("Resource_n4m1q")])
 broken_textures = Array[Texture]([SubResource("AtlasTexture_n4m1q"), SubResource("AtlasTexture_edxoy"), SubResource("AtlasTexture_eja1b"), SubResource("AtlasTexture_uohxl")])

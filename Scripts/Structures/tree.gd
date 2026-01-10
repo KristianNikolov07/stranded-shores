@@ -20,9 +20,16 @@ func _ready() -> void:
 			$AppleTimer.start(randf_range(MIN_APPLE_GROW_SECS, MAX_APPLE_GROW_SECS))
 
 
+func damage(dmg : int) -> void:
+	super.damage(dmg)
+	can_grow_apples = false
+	has_apples = false
+
+
 func grow_apples() -> void:
-	has_apples = true
-	$Sprite2D.texture = apple_tree_texture
+	if can_grow_apples:
+		has_apples = true
+		$Sprite2D.texture = apple_tree_texture
 
 
 func remove_apples() -> void:
