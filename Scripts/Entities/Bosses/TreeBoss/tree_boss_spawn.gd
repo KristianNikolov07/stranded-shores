@@ -3,6 +3,8 @@ extends StaticBody2D
 const TREE_BOSS_SCENE = preload("res://Scenes/Entities/Bosses/TreeBoss/tree_boss.tscn")
 
 func interact(_player : Player) -> void:
+	# Objective
+	get_tree().get_first_node_in_group("Objective").complete_objective("forest")
 	var tree_boss = TREE_BOSS_SCENE.instantiate()
 	tree_boss.global_position = global_position
 	get_tree().current_scene.add_child(tree_boss)

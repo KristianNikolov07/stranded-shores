@@ -42,6 +42,13 @@ func damage(_dmg : int) -> void:
 	$CanvasLayer/Bossbar.value = hp
 
 
+func kill() -> void:
+	# Objective
+	get_tree().get_first_node_in_group("Objectives").complete_objective("tree boss")
+	
+	super.kill()
+
+
 func _on_change_state_timer_timeout() -> void:
 	if current_state == State.SHOOTING:
 		change_state(State.WALKING)

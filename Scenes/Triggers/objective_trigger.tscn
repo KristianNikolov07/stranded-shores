@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://u1dne2n4iiwl"]
+
+[ext_resource type="Script" uid="uid://e5ctuys0u1bd" path="res://Scripts/Triggers/objective_trigger.gd" id="1_voq1s"]
+
+[node name="ObjectiveTrigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_voq1s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
