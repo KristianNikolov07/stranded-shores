@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://w2hhj7ovbr1l" path="res://Scripts/Other/world_gen.gd" id="4_a8pps"]
 [ext_resource type="Script" uid="uid://dgnvtib1al1jp" path="res://Scripts/Other/day_night_cycle.gd" id="5_ctrak"]
 [ext_resource type="Script" uid="uid://d13d48v0ahe3e" path="res://Scripts/Other/entity_spawning.gd" id="6_hss3q"]
-[ext_resource type="PackedScene" uid="uid://c46u1jvtkutml" path="res://Scenes/Entity/test_entity.tscn" id="7_x7m6j"]
-[ext_resource type="PackedScene" uid="uid://bfb848prm1c6i" path="res://Scenes/Entity/Enemies/test_enemy.tscn" id="8_kdqb4"]
+[ext_resource type="PackedScene" uid="uid://c46u1jvtkutml" path="res://Scenes/Entities/test_entity.tscn" id="7_x7m6j"]
+[ext_resource type="PackedScene" uid="uid://bfb848prm1c6i" path="res://Scenes/Entities/Enemies/test_enemy.tscn" id="8_kdqb4"]
 [ext_resource type="PackedScene" uid="uid://b303n5uyeksfc" path="res://Scenes/POIs/forest.tscn" id="10_lr86y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itmdd"]
