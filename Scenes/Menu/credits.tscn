@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ipwooukhmjtm"]
 
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_gwqnf"]
-[ext_resource type="Script" path="res://Scripts/Menu/credits.gd" id="2_i06gd"]
+[ext_resource type="Script" uid="uid://d25pfrl32n2g4" path="res://Scripts/Menu/credits.gd" id="2_i06gd"]
 
 [node name="Credits" type="PanelContainer"]
 anchors_preset = -1
@@ -15,6 +15,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
