@@ -20,13 +20,19 @@ func _ready() -> void:
 	$CanvasLayer/Bossbar.value = max_hp
 
 
+func _process(_delta: float) -> void:
+	var player : Player = Global.get_player()
+	if player.global_position.distance_to(global_position) > despawn_distance:
+		get_tree().current_scene.find_child("TreeBossSpawn").enable()
+		queue_free()
+
+
 func _physics_process(_delta) -> void:
 	if current_state == State.WALKING:
 		move_toward_to_player()
 
 
 func _on_contact_damage_body_entered(body: Node2D) -> void:
-	print(body)
 	if body.has_method("destroy"):
 		body.destroy()
 

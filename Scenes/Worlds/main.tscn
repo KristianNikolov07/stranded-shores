@@ -666,7 +666,7 @@ wait_time = 10.0
 autostart = true
 
 [node name="Forest" parent="." instance=ExtResource("10_lr86y")]
-position = Vector2(11104, 6704)
+position = Vector2(10288, 11640)
 
 [connection signal="timeout" from="DayNightCycle/Timer" to="DayNightCycle" method="_on_timer_timeout"]
 [connection signal="timeout" from="EntitySpawning/SpawnAttempt" to="EntitySpawning" method="_on_spawn_attempt_timeout"]
