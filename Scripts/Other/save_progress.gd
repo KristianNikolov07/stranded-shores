@@ -19,7 +19,7 @@ func _on_windows_close_requested():
 
 func save() -> void:
 	var player : Player = Global.get_player()
-	var objectives = get_tree().get_first_node_in_group("Objectives")
+	var objectives = player.objectives
 	if save_name != "":
 		print("Saving game...")
 		if !DirAccess.dir_exists_absolute(SAVES_FOLDER + save_name):
@@ -94,7 +94,7 @@ func has_save_with_name(_save_name : String) -> bool:
 
 func load_save() -> void:
 	var player : Player = Global.get_player()
-	var objectives = get_tree().get_first_node_in_group("Objectives")
+	var objectives = player.objectives
 	if !DirAccess.dir_exists_absolute(SAVES_FOLDER + save_name):
 		DirAccess.make_dir_recursive_absolute(SAVES_FOLDER + save_name)
 	

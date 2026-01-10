@@ -44,7 +44,7 @@ func damage(_dmg : int) -> void:
 
 func kill() -> void:
 	# Objective
-	get_tree().get_first_node_in_group("Objectives").complete_objective("tree boss")
+	Global.get_player().objectives.complete_objective("tree boss")
 	
 	super.kill()
 

@@ -25,6 +25,7 @@ var respawn_point : Vector2
 @onready var crafting = $UI/CraftingMenu
 @onready var hp_bar = $UI/Stats/HP
 @onready var hunger_and_thirst = $HungerAndThirst
+@onready var objectives = $UI/Objectives
 
 func _ready() -> void:
 	$Stamina.max_value = max_stamina
@@ -49,14 +50,14 @@ func _process(_delta: float) -> void:
 				speed = max_running_speed
 			
 			# Sprinting Objective
-			get_tree().get_first_node_in_group("Objectives").complete_objective("sprint")
+			objectives.complete_objective("sprint")
 		else:
 			is_running = false
 			speed = base_speed
 		
 		# Movement Objective
 		if velocity != Vector2.ZERO:
-			get_tree().get_first_node_in_group("Objectives").complete_objective("movement")
+			objectives.complete_objective("movement")
 		
 		move_and_slide()
 	
@@ -102,11 +103,11 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("Interact"):
 		if $InteractionRange.get_overlapping_areas().size() > 0:
 			# Objective
-			get_tree().get_first_node_in_group("Objectives").complete_objective("interact")
+			objectives.complete_objective("interact")
 			$InteractionRange.get_overlapping_areas()[0].interact(get_node("."))
 		elif $InteractionRange.get_overlapping_bodies().size() > 0:
 			# Objective
-			get_tree().get_first_node_in_group("Objectives").complete_objective("interact")
+			objectives.complete_objective("interact")
 			$InteractionRange.get_overlapping_bodies()[0].interact(get_node("."))
 
 

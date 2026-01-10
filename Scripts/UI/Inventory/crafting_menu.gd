@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 
 func open_menu(_is_crafting_table = false) -> void:
 	# Objective
-	get_tree().get_first_node_in_group("Objectives").complete_objective("open crafting menu")
+	player.objectives.complete_objective("open crafting menu")
 	
 	
 	if player.can_move:
@@ -65,7 +65,7 @@ func craft(recipe : Recipe) -> void:
 		
 		# Basic Axe Objective
 		if recipe.result.item_name == "Basic Axe":
-			get_tree().get_first_node_in_group("Objectives").complete_objective("craft basic axe")
+			player.objectives.complete_objective("craft basic axe")
 		
 		if !player.inventory.add_item(recipe.result.duplicate()):
 			var dropped_item = DROPPED_ITEM_SCENE.instantiate()
