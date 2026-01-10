@@ -5,7 +5,7 @@ const TREE_SCENE = preload("res://Scenes/Structures/tree.tscn")
 ## Radius in tilemap tile
 @export var radius : float 
 @export var inner_radius : float 
-@export_range(0, 100, 1) var tree_spawn_chance = 95
+@export_range(0, 100, 1) var tree_spawn_chance = 50
 
 func generate() -> void:
 	generate_trees()

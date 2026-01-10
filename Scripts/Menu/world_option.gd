@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 
 func _on_play_pressed() -> void:
 	SaveProgress.save_name = world_name
-	get_tree().change_scene_to_file("res://Scenes/Worlds/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menu/loading_screen.tscn")
 
 
 func _on_delete_button_up() -> void:

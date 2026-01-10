@@ -19,7 +19,7 @@ func _on_world_name_text_changed(new_text: String) -> void:
 
 func _on_create_new_world_pressed() -> void:
 	SaveProgress.save_name = $CenterContainer/VBoxContainer/WorldName.text
-	get_tree().change_scene_to_file("res://Scenes/Worlds/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menu/loading_screen.tscn")
 
 
 func _on_back_pressed() -> void:
