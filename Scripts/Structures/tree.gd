@@ -1,9 +1,9 @@
 extends Structure
 
-const CHANCE_TO_BE_ABLE_TO_GROW_APPLES = 50
+const CHANCE_TO_BE_ABLE_TO_GROW_APPLES = 25
 const CHANCE_TO_SPAWN_WITH_APPLES = 5
-const MIN_APPLE_GROW_SECS = 10
-const MAX_APPLE_GROW_SECS = 20
+const MIN_APPLE_GROW_SECS = 60
+const MAX_APPLE_GROW_SECS = 180
 
 @export var tree_texture : Texture
 @export var apple_tree_texture : Texture

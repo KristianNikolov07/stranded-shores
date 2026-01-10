@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_52qd5")
 hunger_modifier_when_cooked = 10.0
+can_be_cooked = false
 item_name = "Apple"
 max_amount = 10
 item_path = "res://Resources/Items/Food/apple.tres"
