@@ -14,7 +14,7 @@
    ![Export](https://github.com/KristianNikolov07/diploma-project/blob/main/READMEImages/BuildInstructions/Export.png)
 
 
-# How to mod
+## How to mod
 1. Download [Godot](https://godotengine.org/download) 4.5 or later.
 2. Clone the repo
 3. Open Godot, click on Import and select the `project.godot` file inside the repository folder.
