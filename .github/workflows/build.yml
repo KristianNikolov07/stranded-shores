@@ -2,53 +2,35 @@
 
 name: Build
 
-# Controls when the workflow will run
-on:
-  pull_request:
-    branches: [ "main" ]
+on: 
+  push:
+    tags:
+      - "v*.*.*"
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  export_game:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    permissions:
+      contents: write
+    
+    name: Export Game
     steps:
-      - uses: actions/checkout@v4
+    - name: checkout
+      uses: actions/checkout@v5
+  
+    - name: Export Games
+      id: export
+      uses: firebelley/godot-export@v7.0.0
+      with:
+        godot_executable_download_url: https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=linux.x86_64.zip&platform=linux.64
+        godot_export_templates_download_url: https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=export_templates.tpz&platform=templates
+        relative_project_path: ./
+        archive_output: true
 
-      - name: Download Godot
-        shell: bash
-        run: |
-          set -euxo pipefail
-          mkdir -p ~/.local/share/godot/bin
-          wget -O ~/.local/share/godot/bin/godot.zip "https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=linux.x86_64.zip&platform=linux.64"
-          unzip -o ~/.local/share/godot/bin/godot.zip -d ~/.local/share/godot/bin
-          # the extracted filename is usually Godot_vX.Y-stable_linux.x86_64
-          GODOT_EXE="$(find ~/.local/share/godot/bin -maxdepth 1 -type f -name 'Godot_v*-stable_linux.x86_64' | head -n 1)"
-          chmod +x "$GODOT_EXE"
-          echo "GODOT_EXE=$GODOT_EXE" >> $GITHUB_ENV
-
-      - name: Download export templates
-        shell: bash
-        run: |
-          set -euxo pipefail
-          mkdir -p /tmp/godot_templates
-          wget -O /tmp/templates.tpz "https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=export_templates.tpz&platform=templates"
-          unzip -o /tmp/templates.tpz -d /tmp/godot_templates
-          mkdir -p ~/.local/share/godot/export_templates/4.5.stable
-          # inside the tpz there's typically a "templates/" folder
-          mv /tmp/godot_templates/templates/* ~/.local/share/godot/export_templates/4.5.stable/
-
-      - name: Build the game
-        shell: bash
-        run: |
-          set -euxo pipefail
-          mkdir -p Exports/Web
-          "$GODOT_EXE" --headless --path . --export-release "Windows Desktop" "Exports/Stranded Shores.exe"
-          "$GODOT_EXE" --headless --path . --export-release "Linux" "Exports/Stranded Shores.x86_64"
-          "$GODOT_EXE" --headless --path . --export-release "Web" "Exports/Web/index.html"
+    - name: create release
+      uses: ncipollo/release-action@v1.18.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        generateReleaseNotes: true
+        tag: ${{ github.ref_name }}
+        artifacts: ${{ steps.export.outputs.archive_directory }}/*
