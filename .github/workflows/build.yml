@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Build
 
 # Controls when the workflow will run
 on:
@@ -24,12 +24,11 @@ jobs:
 
       - name: Download Godot
         run: |
-          mkdir ~/.local/share/godot
+          mkdir --parents ~/.local/share/godot
           wget -O ~/.local/share/godot/godot https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=linux.x86_64.zip&platform=linux.64
           wget -O ~/.local/share/godot/templates.zip https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=export_templates.tpz&platform=templates
           unzip ~/.local/share/godot/templates.zip
-          mkdir ~/.local/share/godot/export_templates
-          mkdir ~/.local/share/godot/export_templates/4.5.stable
+          mkdir --parents ~/.local/share/godot/export_templates/4.5.stable
           mv ~/.local/share/godot/templates/* ~/.local/share/godot/export_templates/4.5.stable/
 
       - name: Build the game
