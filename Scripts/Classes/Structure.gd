@@ -26,10 +26,10 @@ func damage(dmg : int) -> void:
 func destroy() -> void:
 	for loot in drops:
 		var rand = randi_range(1, 100)
-		if rand < loot.chance:
+		if rand <= loot.chance:
 			var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 			dropped_item.global_position = global_position
-			dropped_item.item = loot.item
+			dropped_item.item = loot.item.duplicate()
 			dropped_item.item.amount = loot.amount
 			get_tree().current_scene.call_deferred("add_child", dropped_item)
 	queue_free()

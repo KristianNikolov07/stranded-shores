@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="CraftingTool" load_steps=3 format=3 uid="uid://nfdyvo3u6riw"]
+[gd_resource type="Resource" script_class="CraftingTool" load_steps=4 format=3 uid="uid://nfdyvo3u6riw"]
 
 [ext_resource type="Script" uid="uid://dan4vamyiuxvr" path="res://Scripts/Classes/CraftingTool.gd" id="1_bwxw7"]
-[ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="2_afx4e"]
+[ext_resource type="Texture2D" uid="uid://cgugxs521djfo" path="res://Assets/Textures/Items/crafting_tools.png" id="2_afx4e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s81qs"]
+atlas = ExtResource("2_afx4e")
+region = Rect2(32, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_bwxw7")
-texture = ExtResource("2_afx4e")
+texture = SubResource("AtlasTexture_s81qs")
 tool_name = "Scissors"
 metadata/_custom_type_script = "uid://dan4vamyiuxvr"
