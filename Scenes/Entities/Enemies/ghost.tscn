@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://s5tjbjk7dyk0"]
+
+[ext_resource type="Script" uid="uid://c3fbx4w04b6te" path="res://Scripts/Classes/Entities/Enemy.gd" id="1_ndnvk"]
+[ext_resource type="Texture2D" uid="uid://bba8hrwso5iyd" path="res://Assets/Textures/Entities/Enemies/ghost.png" id="2_pycdw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndnvk"]
+size = Vector2(21, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pycdw"]
+size = Vector2(21, 32)
+
+[node name="Ghost" type="CharacterBody2D" groups=["Enemies"]]
+z_index = 5
+collision_layer = 2272
+collision_mask = 0
+script = ExtResource("1_ndnvk")
+dmg = 10
+activate_distance = 1000.0
+metadata/_custom_type_script = "uid://c3fbx4w04b6te"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.31764707)
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_pycdw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -4)
+shape = SubResource("RectangleShape2D_ndnvk")
+
+[node name="ContactDamage" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage"]
+position = Vector2(0.4999981, -4.000002)
+shape = SubResource("RectangleShape2D_pycdw")

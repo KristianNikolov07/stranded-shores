@@ -18,6 +18,10 @@ func move_toward_to_player() -> void:
 	var player : Player = Global.get_player()
 	if global_position.distance_to(player.global_position) < activate_distance:
 		velocity = global_position.direction_to(player.global_position) * speed
+		if velocity.x < 0:
+			$Sprite2D.flip_h = true
+		else:
+			$Sprite2D.flip_h = false
 		move_and_slide()
 
 

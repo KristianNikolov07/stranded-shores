@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfb848prm1c6i"]
 
 [ext_resource type="Script" uid="uid://c3fbx4w04b6te" path="res://Scripts/Classes/Entities/Enemy.gd" id="1_jys8g"]
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="2_fwba6"]
+[ext_resource type="Texture2D" uid="uid://da3k5xqrcn02p" path="res://Assets/Textures/icon.svg" id="2_fwba6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fwba6"]
 radius = 56.666664
@@ -28,10 +28,6 @@ texture = ExtResource("2_fwba6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.973643e-07, 1.9868214e-06)
 shape = SubResource("CircleShape2D_fwba6")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
-debug_enabled = true
 
 [node name="ContactDamage" type="Area2D" parent="."]
 collision_layer = 64
