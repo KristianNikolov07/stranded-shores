@@ -19,25 +19,36 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
       - name: Download Godot
+        shell: bash
         run: |
-          mkdir --parents ~/.local/share/godot
-          wget -O ~/.local/share/godot/godot https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=linux.x86_64.zip&platform=linux.64
+          set -euxo pipefail
+          mkdir -p ~/.local/share/godot/bin
+          wget -O ~/.local/share/godot/bin/godot.zip "https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=linux.x86_64.zip&platform=linux.64"
+          unzip -o ~/.local/share/godot/bin/godot.zip -d ~/.local/share/godot/bin
+          # the extracted filename is usually Godot_vX.Y-stable_linux.x86_64
+          GODOT_EXE="$(find ~/.local/share/godot/bin -maxdepth 1 -type f -name 'Godot_v*-stable_linux.x86_64' | head -n 1)"
+          chmod +x "$GODOT_EXE"
+          echo "GODOT_EXE=$GODOT_EXE" >> $GITHUB_ENV
 
-      - name: Download Release Templates
+      - name: Download export templates
+        shell: bash
         run: |
-          wget -O ~/.local/share/godot/templates.zip https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=export_templates.tpz&platform=templates
-          unzip ~/.local/share/godot/templates.zip
-          mkdir --parents ~/.local/share/godot/export_templates/4.5.stable
-          mv ~/.local/share/godot/templates/* ~/.local/share/godot/export_templates/4.5.stable/
+          set -euxo pipefail
+          mkdir -p /tmp/godot_templates
+          wget -O /tmp/templates.tpz "https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=export_templates.tpz&platform=templates"
+          unzip -o /tmp/templates.tpz -d /tmp/godot_templates
+          mkdir -p ~/.local/share/godot/export_templates/4.5.stable
+          # inside the tpz there's typically a "templates/" folder
+          mv /tmp/godot_templates/templates/* ~/.local/share/godot/export_templates/4.5.stable/
 
       - name: Build the game
+        shell: bash
         run: |
-          mkdir Exports
-          ~/.local/share/godot/godot --headless --path . --export-release "Windows Desktop" "Export/Stranded Shores.exe"
-          ~/.local/share/godot/godot --headless --path . --export-release "Linux" "Export/Stranded Shores.x86-64"
-          ~/.local/share/godot/godot --headless --path . --export-release "Web" "Export/Web/index.html"
-          
+          set -euxo pipefail
+          mkdir -p Exports/Web
+          "$GODOT_EXE" --headless --path . --export-release "Windows Desktop" "Exports/Stranded Shores.exe"
+          "$GODOT_EXE" --headless --path . --export-release "Linux" "Exports/Stranded Shores.x86_64"
+          "$GODOT_EXE" --headless --path . --export-release "Web" "Exports/Web/index.html"
