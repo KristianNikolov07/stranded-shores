@@ -36,6 +36,7 @@ run/main_run_args="debug"
 folder_colors={
 "res://Assets/": "green",
 "res://Exports/": "gray",
+"res://READMEImages/": "gray",
 "res://Resources/": "orange",
 "res://Scenes/": "yellow",
 "res://Scripts/": "blue",
