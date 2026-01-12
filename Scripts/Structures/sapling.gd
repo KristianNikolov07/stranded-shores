@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 func _on_grow_timer_timeout() -> void:
-	var tree = load("res://Scenes/Structures/tree.tscn").instantiate()
+	var tree = load("res://Scenes/Structures/tree.tscn").instantiate() # Unable to preload scene due to resource recursion
 	tree.global_position = global_position
 	get_tree().current_scene.add_child(tree)
 	queue_free()
