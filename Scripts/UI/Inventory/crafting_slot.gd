@@ -1,14 +1,9 @@
 extends Control
 
-@export var item : Item
-@export var amount : int
-
-func set_item(_item : Item, _amount : int = 1, avaliable = true) -> void:
-	item = _item
+func set_item(item : Item, amount : int = 1, avaliable = true) -> void:
 	if item != null:
 		$ItemTexture.texture = item.texture
 		
-		amount = _amount
 		if amount > 1:
 			$Amount.text = str(amount)
 			$Amount.show()
@@ -23,4 +18,10 @@ func set_item(_item : Item, _amount : int = 1, avaliable = true) -> void:
 			$Amount.self_modulate = Color(1, 1, 1, 0.5)
 	else:
 		$ItemTexture.texture = null
+		$Amount.hide()
+
+
+func set_tool(tool : CraftingTool):
+	if tool != null:
+		$ItemTexture.texture = tool.texture
 		$Amount.hide()

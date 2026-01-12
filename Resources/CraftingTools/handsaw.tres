@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CraftingTool" load_steps=3 format=3 uid="uid://dnyirqgk2r7cr"]
+
+[ext_resource type="Script" uid="uid://dan4vamyiuxvr" path="res://Scripts/Classes/CraftingTool.gd" id="1_25ipx"]
+[ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="2_crros"]
+
+[resource]
+script = ExtResource("1_25ipx")
+texture = ExtResource("2_crros")
+tool_name = "Handsaw"
+metadata/_custom_type_script = "uid://dan4vamyiuxvr"

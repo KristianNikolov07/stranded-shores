@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://br7sveoej6sjf"]
+[gd_scene load_steps=10 format=3 uid="uid://br7sveoej6sjf"]
 
 [ext_resource type="PackedScene" uid="uid://b835m5mv6qhyh" path="res://Scenes/UI/Inventory/inventory.tscn" id="1_ahcct"]
 [ext_resource type="PackedScene" uid="uid://cx54gmymjr10i" path="res://Scenes/UI/Inventory/crafting_menu.tscn" id="2_de23q"]
 [ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Item.gd" id="2_duuxe"]
 [ext_resource type="PackedScene" uid="uid://clkeesixpv71" path="res://Scenes/UI/Inventory/storage.tscn" id="3_c7mb3"]
+[ext_resource type="Resource" uid="uid://eivpgccu0q4x" path="res://Resources/Items/Structures/crafting_table.tres" id="3_mbl0m"]
 [ext_resource type="Texture2D" uid="uid://dnyupa8g2qbxa" path="res://Assets/Textures/UI/progress_bar.png" id="5_duuxe"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="5_jfwrg"]
 [ext_resource type="PackedScene" uid="uid://coic25r1tt4j3" path="res://Scenes/Menu/objectives.tscn" id="7_duuxe"]
@@ -12,7 +13,7 @@
 [node name="UI" type="CanvasLayer"]
 
 [node name="Inventory" parent="." instance=ExtResource("1_ahcct")]
-items = Array[ExtResource("2_duuxe")]([])
+items = Array[ExtResource("2_duuxe")]([ExtResource("3_mbl0m")])
 
 [node name="CraftingMenu" parent="." instance=ExtResource("2_de23q")]
 anchor_left = 0.18100001

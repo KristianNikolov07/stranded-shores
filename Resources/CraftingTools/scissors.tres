@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CraftingTool" load_steps=3 format=3 uid="uid://nfdyvo3u6riw"]
+
+[ext_resource type="Script" uid="uid://dan4vamyiuxvr" path="res://Scripts/Classes/CraftingTool.gd" id="1_bwxw7"]
+[ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="2_afx4e"]
+
+[resource]
+script = ExtResource("1_bwxw7")
+texture = ExtResource("2_afx4e")
+tool_name = "Scissors"
+metadata/_custom_type_script = "uid://dan4vamyiuxvr"

@@ -5,7 +5,7 @@ const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
 var selected_recipe : Recipe
 var is_crafting_table : bool = false
-var selected_tool : Recipe.CraftingTool = Recipe.CraftingTool.NONE
+var selected_tool : CraftingTool = null
 
 @onready var player : Player = get_node("../../")
 
@@ -75,7 +75,7 @@ func craft(recipe : Recipe) -> void:
 		update_ui()
 
 
-func select_tool(tool : Recipe.CraftingTool) -> void:
+func select_tool(tool : CraftingTool) -> void:
 	selected_tool = tool
 	update_ui()
 
@@ -93,17 +93,20 @@ func update_ui() -> void:
 		%CraftButton.disabled = true
 	else:
 		%CraftingSlot1.set_item(selected_recipe.item1, selected_recipe.item1_amount, player.inventory.has_item(selected_recipe.item1.item_name, selected_recipe.item1_amount))
-		%CraftingSlot2.set_item(selected_recipe.item2, selected_recipe.item2_amount, player.inventory.has_item(selected_recipe.item2.item_name, selected_recipe.item2_amount))
+		if selected_recipe.item2 != null:
+			%CraftingSlot2.set_item(selected_recipe.item2, selected_recipe.item2_amount, player.inventory.has_item(selected_recipe.item2.item_name, selected_recipe.item2_amount))
+		else:
+			%CraftingSlot2.set_tool(selected_recipe.tool)
 		%Result.set_item(selected_recipe.result)
-	
-		if player.inventory.has_item(selected_recipe.item1.item_name) and player.inventory.has_item(selected_recipe.item2.item_name):
+		
+		if player.inventory.has_item(selected_recipe.item1.item_name) and (selected_recipe.item2 == null or player.inventory.has_item(selected_recipe.item2.item_name)):
 			%CraftButton.disabled = false
 		else:
 			%CraftButton.disabled = true
 	for recipe in %Recipes.get_children():
 		if recipe.recipe.requires_crafting_table():
 			if is_crafting_table:
-				if recipe.recipe.tool == selected_tool or recipe.recipe.tool == Recipe.CraftingTool.NONE:
+				if recipe.recipe.tool == selected_tool or recipe.recipe.tool == null:
 					recipe.show()
 				else:
 					recipe.hide()

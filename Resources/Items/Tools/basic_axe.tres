@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="1_hnidr"]
 [ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="2_82lht"]
-[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="3_82lht"]
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="3_82lht"]
 [ext_resource type="PackedScene" uid="uid://cad00mippid7o" path="res://Scenes/Tools/basic_axe.tscn" id="3_ln5je"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82lht"]

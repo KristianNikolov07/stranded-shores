@@ -1,8 +1,12 @@
-extends Control
+extends Button
 
-signal tool_selected(tool : Recipe.CraftingTool)
+signal tool_selected(tool : CraftingTool)
 
-@export var tool : Recipe.CraftingTool
+@export var tool : CraftingTool
+
+func _ready() -> void:
+	icon = tool.texture
+
 
 func _on_pressed() -> void:
 	tool_selected.emit(tool)

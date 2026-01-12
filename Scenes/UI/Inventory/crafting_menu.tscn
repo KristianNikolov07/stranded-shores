@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cx54gmymjr10i"]
+[gd_scene load_steps=13 format=3 uid="uid://cx54gmymjr10i"]
 
 [ext_resource type="Script" uid="uid://qkkgw8jqlml2" path="res://Scripts/UI/Inventory/crafting_menu.gd" id="1_4njxr"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_fyp3v"]
@@ -6,9 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://e2riunx43o7p" path="res://Scenes/UI/Inventory/crafting_tool_button.tscn" id="4_2fa18"]
 [ext_resource type="Texture2D" uid="uid://cvrlsbtwytbd7" path="res://Assets/Textures/UI/plus.png" id="4_g87qd"]
 [ext_resource type="Texture2D" uid="uid://d01mlsor7lh1k" path="res://Assets/Textures/Items/test_item.png" id="4_l8p2g"]
+[ext_resource type="Resource" uid="uid://dcgmig5kdolf8" path="res://Resources/CraftingTools/hammer.tres" id="5_dvuwp"]
 [ext_resource type="Texture2D" uid="uid://ceacgbygoxt43" path="res://Assets/Textures/UI/big_arrow.png" id="5_l8p2g"]
 [ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="5_umd2w"]
 [ext_resource type="Texture2D" uid="uid://db18ovrssm1ga" path="res://Assets/Textures/Items/Weapons/test_sword.png" id="6_k37wi"]
+[ext_resource type="Resource" uid="uid://dnyirqgk2r7cr" path="res://Resources/CraftingTools/handsaw.tres" id="7_ywugm"]
+[ext_resource type="Resource" uid="uid://nfdyvo3u6riw" path="res://Resources/CraftingTools/scissors.tres" id="9_fdhci"]
 
 [node name="CraftingMenu" type="PanelContainer"]
 texture_filter = 1
@@ -40,17 +43,17 @@ theme_override_constants/separation = 5
 [node name="CraftingToolSlot" parent="HBoxContainer/VBoxContainer/Tools" instance=ExtResource("4_2fa18")]
 layout_mode = 2
 icon = ExtResource("4_l8p2g")
-tool = 1
+tool = ExtResource("5_dvuwp")
 
 [node name="CraftingToolSlot2" parent="HBoxContainer/VBoxContainer/Tools" instance=ExtResource("4_2fa18")]
 layout_mode = 2
 icon = ExtResource("5_umd2w")
-tool = 2
+tool = ExtResource("7_ywugm")
 
 [node name="CraftingToolSlot3" parent="HBoxContainer/VBoxContainer/Tools" instance=ExtResource("4_2fa18")]
 layout_mode = 2
 icon = ExtResource("6_k37wi")
-tool = 3
+tool = ExtResource("9_fdhci")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2

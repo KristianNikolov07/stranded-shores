@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://dskmm36waakeg"]
+
+[ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_cvr3r"]
+[ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="1_x5twx"]
+[ext_resource type="Resource" uid="uid://dcgmig5kdolf8" path="res://Resources/CraftingTools/hammer.tres" id="3_x5twx"]
+
+[resource]
+script = ExtResource("1_cvr3r")
+tool = ExtResource("3_x5twx")
+item1 = ExtResource("1_x5twx")
+result = ExtResource("1_x5twx")
+metadata/_custom_type_script = "uid://uxhvo65tknee"
