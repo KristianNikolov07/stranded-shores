@@ -1,16 +1,20 @@
-[gd_scene load_steps=20 format=3 uid="uid://bonc006vbgjtv"]
+[gd_scene load_steps=22 format=3 uid="uid://bonc006vbgjtv"]
 
-[ext_resource type="Texture2D" uid="uid://cv86v7er5ig60" path="res://Assets/Textures/Objects/tree.png" id="1_b0kcf"]
+[ext_resource type="Texture2D" uid="uid://xbjj7uhpoylb" path="res://Assets/Textures/Objects/tree.png" id="1_b0kcf"]
 [ext_resource type="Script" uid="uid://rc8dgaqqsmbd" path="res://Scripts/Structures/tree.gd" id="1_jdkqx"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_jdkqx"]
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="3_uk51g"]
-[ext_resource type="Texture2D" uid="uid://b7uqpygf0k3jw" path="res://Assets/Textures/Objects/apple_tree.png" id="3_vaht6"]
+[ext_resource type="Texture2D" uid="uid://dss0mkidf88jq" path="res://Assets/Textures/Objects/apple_tree.png" id="3_vaht6"]
 [ext_resource type="Resource" uid="uid://c1iu4l3m78d8v" path="res://Resources/Items/Structures/sapling.tres" id="6_3kn26"]
 [ext_resource type="Script" uid="uid://dk2527oj5c3g3" path="res://Scripts/Structures/tree_interaction.gd" id="6_vaht6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsloy"]
 atlas = ExtResource("1_b0kcf")
-region = Rect2(0, 0, 16, 32)
+region = Rect2(0, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yotnf"]
+atlas = ExtResource("3_vaht6")
+region = Rect2(0, 0, 16, 19)
 
 [sub_resource type="Resource" id="Resource_vaht6"]
 script = ExtResource("2_jdkqx")
@@ -28,23 +32,27 @@ metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4m1q"]
 atlas = ExtResource("1_b0kcf")
-region = Rect2(16, 0, 16, 32)
+region = Rect2(16, 19, 16, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_edxoy"]
 atlas = ExtResource("1_b0kcf")
-region = Rect2(32, 0, 16, 32)
+region = Rect2(32, 19, 16, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eja1b"]
 atlas = ExtResource("1_b0kcf")
-region = Rect2(48, 0, 16, 32)
+region = Rect2(48, 19, 16, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uohxl"]
 atlas = ExtResource("1_b0kcf")
-region = Rect2(64, 0, 16, 32)
+region = Rect2(64, 19, 16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af0pm"]
+atlas = ExtResource("1_b0kcf")
+region = Rect2(0, 19, 16, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3kn26"]
 atlas = ExtResource("1_b0kcf")
-region = Rect2(0, 0, 16, 32)
+region = Rect2(0, 0, 16, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0kcf"]
 size = Vector2(12, 56)
@@ -59,19 +67,26 @@ polygon = PackedVector2Array(16, -64, 28, -64, 28, -8, 16, -8)
 size = Vector2(12, 64)
 
 [node name="Tree" type="StaticBody2D" groups=["Persistant"]]
-z_index = 6
 collision_layer = 304
 collision_mask = 546
 script = ExtResource("1_jdkqx")
 tree_texture = SubResource("AtlasTexture_dsloy")
-apple_tree_texture = ExtResource("3_vaht6")
+apple_tree_texture = SubResource("AtlasTexture_yotnf")
 drops = Array[ExtResource("2_jdkqx")]([SubResource("Resource_vaht6"), SubResource("Resource_n4m1q")])
 broken_textures = Array[Texture]([SubResource("AtlasTexture_n4m1q"), SubResource("AtlasTexture_edxoy"), SubResource("AtlasTexture_eja1b"), SubResource("AtlasTexture_uohxl")])
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
 texture_filter = 1
-position = Vector2(2, -36)
+position = Vector2(2, 6)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_af0pm")
+
+[node name="Top" type="Sprite2D" parent="."]
+z_index = 6
+texture_filter = 1
+position = Vector2(1, -58)
 scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_3kn26")
 

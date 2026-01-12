@@ -29,12 +29,12 @@ func damage(dmg : int) -> void:
 func grow_apples() -> void:
 	if can_grow_apples:
 		has_apples = true
-		$Sprite2D.texture = apple_tree_texture
+		$Top.texture = apple_tree_texture
 
 
 func remove_apples() -> void:
 	has_apples = false
-	$Sprite2D.texture = tree_texture
+	$Top.texture = tree_texture
 
 
 func _on_apple_timer_timeout() -> void:
