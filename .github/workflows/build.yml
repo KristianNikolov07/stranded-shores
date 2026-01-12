@@ -26,6 +26,9 @@ jobs:
         run: |
           mkdir --parents ~/.local/share/godot
           wget -O ~/.local/share/godot/godot https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=linux.x86_64.zip&platform=linux.64
+
+      - name: Download Release Templates
+        run: |
           wget -O ~/.local/share/godot/templates.zip https://downloads.godotengine.org/?version=4.5&flavor=stable&slug=export_templates.tpz&platform=templates
           unzip ~/.local/share/godot/templates.zip
           mkdir --parents ~/.local/share/godot/export_templates/4.5.stable
