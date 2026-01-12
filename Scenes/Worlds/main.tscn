@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://w2hhj7ovbr1l" path="res://Scripts/Other/world_gen.gd" id="4_a8pps"]
 [ext_resource type="Script" uid="uid://dgnvtib1al1jp" path="res://Scripts/Other/day_night_cycle.gd" id="5_ctrak"]
 [ext_resource type="Script" uid="uid://d13d48v0ahe3e" path="res://Scripts/Other/entity_spawning.gd" id="6_hss3q"]
-[ext_resource type="PackedScene" uid="uid://c46u1jvtkutml" path="res://Scenes/Entities/test_entity.tscn" id="7_x7m6j"]
+[ext_resource type="PackedScene" uid="uid://y7vcpunxm45x" path="res://Scenes/Entities/cow.tscn" id="8_lr86y"]
 [ext_resource type="PackedScene" uid="uid://s5tjbjk7dyk0" path="res://Scenes/Entities/Enemies/ghost.tscn" id="9_lr86y"]
 [ext_resource type="PackedScene" uid="uid://b303n5uyeksfc" path="res://Scenes/POIs/forest.tscn" id="10_lr86y"]
 
@@ -656,7 +656,7 @@ libraries = {
 
 [node name="EntitySpawning" type="Node" parent="." groups=["Enemies", "PassiveEntities"]]
 script = ExtResource("6_hss3q")
-passiveEntityes = Array[PackedScene]([ExtResource("7_x7m6j")])
+passiveEntityes = Array[PackedScene]([ExtResource("8_lr86y")])
 enemies = Array[PackedScene]([ExtResource("9_lr86y")])
 min_distance_from_player = 200.0
 max_distance_from_player = 350.0

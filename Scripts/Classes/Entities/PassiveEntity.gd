@@ -28,6 +28,10 @@ func _physics_process(_delta) -> void:
 		retarget()
 	else:
 		velocity = global_position.direction_to(target) * speed
+		if velocity.x < 0:
+			$Sprite2D.flip_h = true
+		else:
+			$Sprite2D.flip_h = false
 		move_and_slide()
 
 

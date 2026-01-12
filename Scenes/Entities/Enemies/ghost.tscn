@@ -10,7 +10,7 @@ size = Vector2(21, 32)
 size = Vector2(21, 32)
 
 [node name="Ghost" type="CharacterBody2D" groups=["Enemies"]]
-z_index = 5
+z_index = 4
 collision_layer = 2272
 collision_mask = 0
 script = ExtResource("1_ndnvk")

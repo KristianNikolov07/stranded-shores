@@ -1,0 +1,180 @@
+[gd_scene load_steps=19 format=3 uid="uid://y7vcpunxm45x"]
+
+[ext_resource type="Script" uid="uid://borj6l7sh0iy5" path="res://Scripts/Classes/Entities/PassiveEntity.gd" id="1_4bf5e"]
+[ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_2yaru"]
+[ext_resource type="Resource" uid="uid://skabqfhsljcg" path="res://Resources/Items/Food/meat.tres" id="3_h844i"]
+[ext_resource type="Texture2D" uid="uid://bb85hyt5kkxbw" path="res://Assets/Textures/Entities/caw.png" id="4_h844i"]
+[ext_resource type="Script" uid="uid://b56lnunx30ak3" path="res://Scripts/Entities/animations.gd" id="5_g5gbr"]
+
+[sub_resource type="Resource" id="Resource_g5gbr"]
+script = ExtResource("2_2yaru")
+item = ExtResource("3_h844i")
+chance = 100
+metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
+
+[sub_resource type="Resource" id="Resource_j3vjv"]
+script = ExtResource("2_2yaru")
+item = ExtResource("3_h844i")
+chance = 50
+metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h844i"]
+size = Vector2(43, 20)
+
+[sub_resource type="Animation" id="Animation_h844i"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_g5gbr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_j3vjv"]
+resource_name = "walking"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5gbr"]
+_data = {
+&"RESET": SubResource("Animation_g5gbr"),
+&"idle": SubResource("Animation_h844i"),
+&"walking": SubResource("Animation_j3vjv")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h844i"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g5gbr"]
+animation = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j3vjv"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x7ckd"]
+advance_mode = 2
+advance_condition = &"Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_21yad"]
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h844i"]
+states/idle/node = SubResource("AnimationNodeAnimation_h844i")
+states/idle/position = Vector2(424, 63)
+states/walking/node = SubResource("AnimationNodeAnimation_g5gbr")
+states/walking/position = Vector2(424, 162)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_j3vjv"), "idle", "walking", SubResource("AnimationNodeStateMachineTransition_x7ckd"), "walking", "idle", SubResource("AnimationNodeStateMachineTransition_21yad")]
+
+[node name="Cow" type="CharacterBody2D" groups=["PassiveEntities"]]
+z_index = 4
+collision_layer = 2144
+collision_mask = 213
+script = ExtResource("1_4bf5e")
+min_retarget_time = 3.0
+max_retarget_time = 5.0
+max_hp = 50
+speed = 25
+loot_table = Array[ExtResource("2_2yaru")]([SubResource("Resource_g5gbr"), SubResource("Resource_j3vjv")])
+metadata/_custom_type_script = "uid://borj6l7sh0iy5"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_h844i")
+flip_h = true
+hframes = 4
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 14)
+shape = SubResource("RectangleShape2D_h844i")
+
+[node name="RetargetTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="CollisionCheck" type="Node2D" parent="."]
+
+[node name="CollisionCheck" type="RayCast2D" parent="CollisionCheck"]
+position = Vector2(73.33333, 6.3578286e-06)
+exclude_parent = false
+target_position = Vector2(509.58084, 0)
+collision_mask = 209
+hit_from_inside = true
+
+[node name="CollisionCheck2" type="RayCast2D" parent="CollisionCheck"]
+position = Vector2(73.33333, -26.66666)
+exclude_parent = false
+target_position = Vector2(509.58084, 0)
+collision_mask = 209
+hit_from_inside = true
+
+[node name="CollisionCheck3" type="RayCast2D" parent="CollisionCheck"]
+position = Vector2(73.33333, 26.66667)
+exclude_parent = false
+target_position = Vector2(509.58084, 0)
+collision_mask = 209
+hit_from_inside = true
+
+[node name="CollisionCheck4" type="RayCast2D" parent="CollisionCheck"]
+position = Vector2(73.33333, 53.333336)
+exclude_parent = false
+target_position = Vector2(509.58084, 0)
+collision_mask = 209
+hit_from_inside = true
+
+[node name="CollisionCheck5" type="RayCast2D" parent="CollisionCheck"]
+position = Vector2(73.33333, -53.33333)
+exclude_parent = false
+target_position = Vector2(509.58084, 0)
+collision_mask = 209
+hit_from_inside = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g5gbr")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_h844i")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/Idle = true
+parameters/conditions/Walking = false
+script = ExtResource("5_g5gbr")
