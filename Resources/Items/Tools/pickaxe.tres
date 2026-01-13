@@ -1,15 +1,31 @@
-[gd_resource type="Resource" script_class="Tool" load_steps=4 format=3 uid="uid://big1u1t5xr3wc"]
+[gd_resource type="Resource" script_class="Tool" load_steps=8 format=3 uid="uid://big1u1t5xr3wc"]
 
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_jqo71"]
 [ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="1_ngvj2"]
 [ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="1_qicrg"]
 [ext_resource type="PackedScene" uid="uid://divbdht11o6bg" path="res://Scenes/Tools/pickaxe.tscn" id="2_n4kjq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf70o"]
+atlas = ExtResource("1_jqo71")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h58c1"]
+atlas = ExtResource("1_jqo71")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqo71"]
+atlas = ExtResource("1_jqo71")
+region = Rect2(176, 0, 16, 16)
+
 [resource]
 script = ExtResource("1_ngvj2")
 tool_scene = ExtResource("2_n4kjq")
-max_durability = 20
-durability = 20
+max_durability = 30
+durability = 30
 repair_item = ExtResource("1_qicrg")
+broken_texture = SubResource("AtlasTexture_jf70o")
+repaired_texture = SubResource("AtlasTexture_h58c1")
 item_name = "Pickaxe"
+texture = SubResource("AtlasTexture_jqo71")
 item_path = "res://Resources/Items/Tools/pickaxe.tres"
 metadata/_custom_type_script = "uid://ccifyb4dk0sri"
