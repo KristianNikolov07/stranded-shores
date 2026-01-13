@@ -6,13 +6,12 @@
 length = 80.0
 
 [node name="Pickaxe" type="Area2D"]
-position = Vector2(64, 0)
 collision_layer = 0
 collision_mask = 1024
 script = ExtResource("1_871j0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(64, 0)
+position = Vector2(68, 0)
 rotation = -1.5707964
 shape = SubResource("SeparationRayShape2D_tducb")
 disabled = true

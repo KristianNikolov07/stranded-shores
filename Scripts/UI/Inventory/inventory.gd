@@ -157,15 +157,16 @@ func select_slot(slot : int) -> void:
 		visualize_selected_slot()
 	
 	# Tools
-	if $Tool != null:
-		$Tool.queue_free()
+	if player.tool != null:
+		player.tool.queue_free()
+		player.tool = null
 	if items[slot] is Tool:
 		var tool : Tool = items[slot]
 		var tool_node = tool.tool_scene.instantiate()
-		tool_node.name = "Tool"
 		player.add_child(tool_node)
-		if player.get_node("Tool").has_signal("hit"):
-			player.get_node("Tool").hit.connect(decrease_durability)
+		player.tool = tool_node
+		if player.tool.has_signal("hit"):
+			player.tool.hit.connect(decrease_durability)
 	
 	# Structures
 	if items[slot] is StructureItem:

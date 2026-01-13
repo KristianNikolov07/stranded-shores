@@ -17,6 +17,7 @@ var is_running = false
 var repair_menu : Control
 var chest_menu : Area2D
 var respawn_point : Vector2
+var tool : Node2D = null
 
 @onready var speed = base_speed
 @onready var stamina = max_stamina
@@ -161,7 +162,8 @@ func attack(slot : int) -> void:
 	if can_move:
 		if inventory.items[slot] is Tool:
 			if inventory.items[slot].durability > 0:
-				$Tool.use()
+				if tool != null and tool.has_method("use"):
+					tool.use()
 
 
 func place(slot : int) -> void:

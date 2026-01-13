@@ -136,35 +136,35 @@ autostart = true
 position = Vector2(73.33333, 6.3578286e-06)
 exclude_parent = false
 target_position = Vector2(509.58084, 0)
-collision_mask = 209
+collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck2" type="RayCast2D" parent="CollisionCheck"]
 position = Vector2(73.33333, -26.66666)
 exclude_parent = false
 target_position = Vector2(509.58084, 0)
-collision_mask = 209
+collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck3" type="RayCast2D" parent="CollisionCheck"]
 position = Vector2(73.33333, 26.66667)
 exclude_parent = false
 target_position = Vector2(509.58084, 0)
-collision_mask = 209
+collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck4" type="RayCast2D" parent="CollisionCheck"]
 position = Vector2(73.33333, 53.333336)
 exclude_parent = false
 target_position = Vector2(509.58084, 0)
-collision_mask = 209
+collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck5" type="RayCast2D" parent="CollisionCheck"]
 position = Vector2(73.33333, -53.33333)
 exclude_parent = false
 target_position = Vector2(509.58084, 0)
-collision_mask = 209
+collision_mask = 213
 hit_from_inside = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
