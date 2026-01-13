@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c0ywgb5q0iqsg"]
+[gd_scene load_steps=29 format=4 uid="uid://c0ywgb5q0iqsg"]
 
 [ext_resource type="Texture2D" uid="uid://b2sxc2tyo0mfa" path="res://Assets/Textures/tilemap.png" id="2_bu3mo"]
 [ext_resource type="Script" uid="uid://cctr251x3yfn2" path="res://Scripts/Other/tilemap.gd" id="2_kdqb4"]
@@ -7,8 +7,13 @@
 [ext_resource type="Script" uid="uid://w2hhj7ovbr1l" path="res://Scripts/Other/world_gen.gd" id="4_a8pps"]
 [ext_resource type="Script" uid="uid://dgnvtib1al1jp" path="res://Scripts/Other/day_night_cycle.gd" id="5_ctrak"]
 [ext_resource type="Script" uid="uid://d13d48v0ahe3e" path="res://Scripts/Other/entity_spawning.gd" id="6_hss3q"]
+[ext_resource type="Script" uid="uid://dh42imrwqp3e" path="res://Scripts/Classes/SpawnChance.gd" id="6_uuto2"]
+[ext_resource type="PackedScene" uid="uid://bonc006vbgjtv" path="res://Scenes/Structures/tree.tscn" id="7_73d62"]
 [ext_resource type="PackedScene" uid="uid://y7vcpunxm45x" path="res://Scenes/Entities/cow.tscn" id="8_lr86y"]
+[ext_resource type="PackedScene" uid="uid://dxbjcmy6g3tgr" path="res://Scenes/Structures/big_rock.tscn" id="8_w5xs2"]
+[ext_resource type="PackedScene" uid="uid://g0gksnwxs5jw" path="res://Scenes/Structures/small_iron_ore.tscn" id="9_030in"]
 [ext_resource type="PackedScene" uid="uid://s5tjbjk7dyk0" path="res://Scenes/Entities/Enemies/ghost.tscn" id="9_lr86y"]
+[ext_resource type="PackedScene" uid="uid://vqr8ictumiry" path="res://Scenes/Structures/iron_ore.tscn" id="10_07p1v"]
 [ext_resource type="PackedScene" uid="uid://b303n5uyeksfc" path="res://Scenes/POIs/forest.tscn" id="10_lr86y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itmdd"]
@@ -536,6 +541,29 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ctrak"]
 distance = -24.0
 
+[sub_resource type="Resource" id="Resource_ygy3h"]
+script = ExtResource("6_uuto2")
+scene = ExtResource("7_73d62")
+change = 10
+metadata/_custom_type_script = "uid://dh42imrwqp3e"
+
+[sub_resource type="Resource" id="Resource_2iy86"]
+script = ExtResource("6_uuto2")
+scene = ExtResource("8_w5xs2")
+change = 5
+metadata/_custom_type_script = "uid://dh42imrwqp3e"
+
+[sub_resource type="Resource" id="Resource_7sbva"]
+script = ExtResource("6_uuto2")
+scene = ExtResource("9_030in")
+change = 2
+metadata/_custom_type_script = "uid://dh42imrwqp3e"
+
+[sub_resource type="Resource" id="Resource_e4h82"]
+script = ExtResource("6_uuto2")
+scene = ExtResource("10_07p1v")
+metadata/_custom_type_script = "uid://dh42imrwqp3e"
+
 [sub_resource type="Animation" id="Animation_hss3q"]
 length = 0.001
 tracks/0/type = "value"
@@ -609,6 +637,7 @@ shape = SubResource("WorldBoundaryShape2D_ctrak")
 
 [node name="WorldGen" type="Node" parent="."]
 script = ExtResource("4_a8pps")
+structures = Array[ExtResource("6_uuto2")]([SubResource("Resource_ygy3h"), SubResource("Resource_2iy86"), SubResource("Resource_7sbva"), SubResource("Resource_e4h82")])
 
 [node name="SpawnPoints" type="Node" parent="."]
 
