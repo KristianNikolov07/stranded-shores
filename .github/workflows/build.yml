@@ -7,12 +7,22 @@ on:
     tags:
       - "v*.*.*"
   workflow_dispatch:
+env:
+  ITCH_USERNAME: kris-nikolov
+  ITCH_GAME_ID: stranded-shores
 
 jobs:
   export_game:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    strategy:
+      fail-fast: true
+      matrix:
+        channel:
+          - windows
+          - linux
+          - webgl
     
     name: Export Game
     steps:
@@ -35,3 +45,15 @@ jobs:
         generateReleaseNotes: true
         tag: ${{ github.ref_name }}
         artifacts: ${{ steps.export.outputs.archive_directory }}/*
+    - uses: actions/download-artifact@v2.0.8
+      with:
+        name: ${{ matrix.channel }}
+        path: build/${{ matrix.channel }}
+    - uses: KikimoraGames/itch-publish@v0.0.3
+      with:
+        butlerApiKey: ${{secrets.BUTLER_API_KEY}}
+        gameData: ./build/${{ matrix.template }}
+        itchUsername: ${{env.ITCH_USERNAME}}
+        itchGameId: ${{ env.ITCH_GAME_ID }}
+        buildChannel: ${{ matrix.channel }}
+        buildNumber: ${{ github.ref_name }}
