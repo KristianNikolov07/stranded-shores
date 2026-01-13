@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://iuq4lp5j1m3b"]
+[gd_scene load_steps=10 format=3 uid="uid://iuq4lp5j1m3b"]
 
 [ext_resource type="Script" uid="uid://d3001nb6tmga0" path="res://Scripts/Classes/Structure.gd" id="1_cv6oq"]
 [ext_resource type="Script" uid="uid://d2kxwrhqxmsoo" path="res://Scripts/Structures/campfire.gd" id="1_vu2sp"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_m5n71"]
-[ext_resource type="Texture2D" uid="uid://cg5bjp5nxuixt" path="res://Assets/Textures/2d_lights_and_shadows_neutral_point_light.webp" id="2_o1yvi"]
+[ext_resource type="Texture2D" uid="uid://yneff87l8cnn" path="res://Assets/Textures/2d_lights_and_shadows_neutral_point_light.webp" id="2_o1yvi"]
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="3_h3ltd"]
 [ext_resource type="Texture2D" uid="uid://cebry366ijp05" path="res://Assets/Textures/Objects/fire1.png" id="4_m5n71"]
 
@@ -14,74 +14,13 @@ amount = 3
 chance = 100
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
-[sub_resource type="Animation" id="Animation_cv6oq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../PointLight2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3, 3)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../PointLight2D:energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_vu2sp"]
-resource_name = "glow"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../PointLight2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(3, 3), Vector2(5, 5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../PointLight2D:energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.1, 0.2]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cv6oq"]
-_data = {
-&"RESET": SubResource("Animation_cv6oq"),
-&"glow": SubResource("Animation_vu2sp")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cv6oq"]
 size = Vector2(52, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nufvf"]
 size = Vector2(104, 108)
 
-[node name="Campfire" type="StaticBody2D"]
+[node name="Campfire" type="StaticBody2D" groups=["Persistant"]]
 z_index = 3
 collision_layer = 256
 collision_mask = 544
@@ -96,16 +35,10 @@ texture = ExtResource("4_m5n71")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(3, 3)
-energy = 0.0
+color = Color(1, 0.627451, 0.039215688, 1)
+energy = 0.2
 shadow_enabled = true
 texture = ExtResource("2_o1yvi")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../InteractionArea")
-libraries = {
-&"": SubResource("AnimationLibrary_cv6oq")
-}
-autoplay = "glow"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 5)
