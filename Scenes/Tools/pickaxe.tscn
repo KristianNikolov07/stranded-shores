@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://nvg0th4sq3ly" path="res://Scripts/Tools/pickaxe.gd" id="1_871j0"]
 
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_tducb"]
-length = 80.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_871j0"]
+size = Vector2(6.9999995, 79)
 
 [node name="Pickaxe" type="Area2D"]
 collision_layer = 0
@@ -12,9 +12,9 @@ script = ExtResource("1_871j0")
 damage = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(68, 0)
+position = Vector2(97.5, -0.49999976)
 rotation = -1.5707964
-shape = SubResource("SeparationRayShape2D_tducb")
+shape = SubResource("RectangleShape2D_871j0")
 disabled = true
 
 [node name="Cooldown" type="Timer" parent="."]

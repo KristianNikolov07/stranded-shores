@@ -131,37 +131,38 @@ one_shot = true
 autostart = true
 
 [node name="CollisionCheck" type="Node2D" parent="."]
+rotation = 6.2831855
 
 [node name="CollisionCheck" type="RayCast2D" parent="CollisionCheck"]
-position = Vector2(73.33333, 6.3578286e-06)
+position = Vector2(28.333336, 0)
 exclude_parent = false
 target_position = Vector2(54.66667, -6.3578286e-06)
 collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck2" type="RayCast2D" parent="CollisionCheck"]
-position = Vector2(72, -24)
+position = Vector2(27.000008, -24.000008)
 exclude_parent = false
 target_position = Vector2(56, 0)
 collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck3" type="RayCast2D" parent="CollisionCheck"]
-position = Vector2(72, 24)
+position = Vector2(27.000008, 23.999994)
 exclude_parent = false
 target_position = Vector2(56, 0)
 collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck4" type="RayCast2D" parent="CollisionCheck"]
-position = Vector2(72, 48)
+position = Vector2(27.000008, 47.999996)
 exclude_parent = false
 target_position = Vector2(56, 0)
 collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck5" type="RayCast2D" parent="CollisionCheck"]
-position = Vector2(72, -48)
+position = Vector2(27.000008, -48.000008)
 exclude_parent = false
 target_position = Vector2(56, 0)
 collision_mask = 213

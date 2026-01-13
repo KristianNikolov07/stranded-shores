@@ -5,9 +5,13 @@ const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 const ROCK_ITEM = preload("res://Resources/Items/rock.tres")
 const STICK_ITEM = preload("res://Resources/Items/stick.tres")
 const BIG_ROCK_SCENE = preload("res://Scenes/Structures/big_rock.tscn")
+const SMALL_IRON_ORE_SCENE = preload("res://Scenes/Structures/small_iron_ore.tscn")
+const IRON_ORE_SCENE = preload("res://Scenes/Structures/iron_ore.tscn")
 
 @export_range(0, 100, 1) var tree_spawn_chance = 10
 @export_range(0, 100, 1) var big_rock_spawn_chance = 3
+@export_range(0, 100, 1) var small_iron_ore_spawn_chance = 2
+@export_range(0, 100, 1) var iron_ore_spawn_chance = 1
 @export_range(0, 100, 1) var rock_spawn_chance = 5
 @export_range(0, 100, 1) var stick_spawn_chance = 5
 
@@ -43,6 +47,18 @@ func generate_random_objects() -> void:
 			if tilemap.is_grass_tile(Vector2i(x, y)):
 				var big_rock = BIG_ROCK_SCENE.instantiate()
 				if attempt_to_place(big_rock, big_rock_spawn_chance, Global.tilemap_coords_to_global_coords(Vector2(x, y))):
+					continue
+			
+			# Attempt to place a small iron ore
+			if tilemap.is_grass_tile(Vector2i(x, y)):
+				var small_iron_ore = SMALL_IRON_ORE_SCENE.instantiate()
+				if attempt_to_place(small_iron_ore, small_iron_ore_spawn_chance, Global.tilemap_coords_to_global_coords(Vector2(x, y))):
+					continue
+			
+			# Attempt to place an iron ore
+			if tilemap.is_grass_tile(Vector2i(x, y)):
+				var iron_ore = IRON_ORE_SCENE.instantiate()
+				if attempt_to_place(iron_ore, iron_ore_spawn_chance, Global.tilemap_coords_to_global_coords(Vector2(x, y))):
 					continue
 				
 			# Attempt to place a rock

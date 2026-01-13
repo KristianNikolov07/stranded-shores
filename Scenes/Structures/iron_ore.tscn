@@ -1,0 +1,98 @@
+[gd_scene load_steps=19 format=3 uid="uid://vqr8ictumiry"]
+
+[ext_resource type="Script" uid="uid://d3001nb6tmga0" path="res://Scripts/Classes/Structure.gd" id="1_7vb16"]
+[ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_ef3ia"]
+[ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="3_3uty6"]
+[ext_resource type="Texture2D" uid="uid://cah4eabrcytye" path="res://Assets/Textures/Objects/rock.png" id="4_v8yo3"]
+
+[sub_resource type="Resource" id="Resource_qw88s"]
+script = ExtResource("2_ef3ia")
+item = ExtResource("3_3uty6")
+amount = 5
+chance = 100
+metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
+
+[sub_resource type="Resource" id="Resource_qsha1"]
+script = ExtResource("2_ef3ia")
+item = ExtResource("3_3uty6")
+chance = 25
+metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7vb16"]
+load_path = "res://.godot/imported/rock.png-d62f5420aae06ba1c4fcac67bce4aa67.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef3ia"]
+atlas = SubResource("CompressedTexture2D_7vb16")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3uty6"]
+load_path = "res://.godot/imported/rock.png-d62f5420aae06ba1c4fcac67bce4aa67.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8yo3"]
+atlas = SubResource("CompressedTexture2D_3uty6")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vlubg"]
+load_path = "res://.godot/imported/rock.png-d62f5420aae06ba1c4fcac67bce4aa67.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17h32"]
+atlas = SubResource("CompressedTexture2D_vlubg")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6h3ex"]
+load_path = "res://.godot/imported/rock.png-d62f5420aae06ba1c4fcac67bce4aa67.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luj2v"]
+atlas = SubResource("CompressedTexture2D_6h3ex")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vb16"]
+atlas = ExtResource("4_v8yo3")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkqk2"]
+size = Vector2(48, 60)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6jbqd"]
+polygon = PackedVector2Array(0, -2, 0, -34, 4, -34, 4, -42, 8, -42, 8, -50, 12, -50, 12, -54, 16, -54, 16, -58, 36, -58, 36, -54, 44, -54, 44, -50, 48, -50, 48, -6, 44, -6, 44, -2, 40, -2, 40, 2, 4, 2, 4, -2)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iou6s"]
+radius = 34.0147
+
+[node name="IronOre" type="StaticBody2D" groups=["Persistant"]]
+collision_layer = 1040
+collision_mask = 0
+script = ExtResource("1_7vb16")
+max_hp = 20
+drops = Array[ExtResource("2_ef3ia")]([SubResource("Resource_qw88s"), SubResource("Resource_qsha1")])
+broken_textures = Array[Texture]([SubResource("AtlasTexture_ef3ia"), SubResource("AtlasTexture_v8yo3"), SubResource("AtlasTexture_17h32"), SubResource("AtlasTexture_luj2v")])
+metadata/_custom_type_script = "uid://d3001nb6tmga0"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
+texture_filter = 1
+position = Vector2(2, 6)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_7vb16")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 8)
+shape = SubResource("RectangleShape2D_fkqk2")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(2, -36)
+show_rect = false
+enable_node_path = NodePath("")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-22, 36)
+occluder = SubResource("OccluderPolygon2D_6jbqd")
+
+[node name="EntityCollision" type="StaticBody2D" parent="."]
+position = Vector2(-22, 36)
+collision_layer = 128
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntityCollision"]
+position = Vector2(24, -26)
+shape = SubResource("CircleShape2D_iou6s")
