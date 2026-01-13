@@ -135,35 +135,35 @@ autostart = true
 [node name="CollisionCheck" type="RayCast2D" parent="CollisionCheck"]
 position = Vector2(73.33333, 6.3578286e-06)
 exclude_parent = false
-target_position = Vector2(509.58084, 0)
+target_position = Vector2(54.66667, -6.3578286e-06)
 collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck2" type="RayCast2D" parent="CollisionCheck"]
-position = Vector2(73.33333, -26.66666)
+position = Vector2(72, -24)
 exclude_parent = false
-target_position = Vector2(509.58084, 0)
+target_position = Vector2(56, 0)
 collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck3" type="RayCast2D" parent="CollisionCheck"]
-position = Vector2(73.33333, 26.66667)
+position = Vector2(72, 24)
 exclude_parent = false
-target_position = Vector2(509.58084, 0)
+target_position = Vector2(56, 0)
 collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck4" type="RayCast2D" parent="CollisionCheck"]
-position = Vector2(73.33333, 53.333336)
+position = Vector2(72, 48)
 exclude_parent = false
-target_position = Vector2(509.58084, 0)
+target_position = Vector2(56, 0)
 collision_mask = 213
 hit_from_inside = true
 
 [node name="CollisionCheck5" type="RayCast2D" parent="CollisionCheck"]
-position = Vector2(73.33333, -53.33333)
+position = Vector2(72, -48)
 exclude_parent = false
-target_position = Vector2(509.58084, 0)
+target_position = Vector2(56, 0)
 collision_mask = 213
 hit_from_inside = true
 

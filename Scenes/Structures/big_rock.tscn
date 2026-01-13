@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxbjcmy6g3tgr"]
+[gd_scene load_steps=18 format=3 uid="uid://dxbjcmy6g3tgr"]
 
 [ext_resource type="Script" uid="uid://d3001nb6tmga0" path="res://Scripts/Classes/Structure.gd" id="1_usbcx"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_6jbqd"]
@@ -18,6 +18,35 @@ item = ExtResource("3_5cn61")
 chance = 25
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cn61"]
+atlas = ExtResource("2_iou6s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qw88s"]
+load_path = "res://.godot/imported/rock.png-d62f5420aae06ba1c4fcac67bce4aa67.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsha1"]
+atlas = SubResource("CompressedTexture2D_qw88s")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0g4qg"]
+load_path = "res://.godot/imported/rock.png-d62f5420aae06ba1c4fcac67bce4aa67.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbgt5"]
+atlas = SubResource("CompressedTexture2D_0g4qg")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8xqxk"]
+load_path = "res://.godot/imported/rock.png-d62f5420aae06ba1c4fcac67bce4aa67.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_saub1"]
+atlas = SubResource("CompressedTexture2D_8xqxk")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jbqd"]
+atlas = ExtResource("2_iou6s")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkqk2"]
 size = Vector2(48, 60)
 
@@ -31,8 +60,9 @@ radius = 34.0147
 collision_layer = 1040
 collision_mask = 0
 script = ExtResource("1_usbcx")
-max_hp = 100
+max_hp = 15
 drops = Array[ExtResource("2_6jbqd")]([SubResource("Resource_qw88s"), SubResource("Resource_qsha1")])
+broken_textures = Array[Texture]([SubResource("AtlasTexture_5cn61"), SubResource("AtlasTexture_qsha1"), SubResource("AtlasTexture_sbgt5"), SubResource("AtlasTexture_saub1")])
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -40,7 +70,7 @@ z_index = 3
 texture_filter = 1
 position = Vector2(2, 6)
 scale = Vector2(4, 4)
-texture = ExtResource("2_iou6s")
+texture = SubResource("AtlasTexture_6jbqd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 8)
