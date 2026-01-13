@@ -556,12 +556,13 @@ metadata/_custom_type_script = "uid://dh42imrwqp3e"
 [sub_resource type="Resource" id="Resource_7sbva"]
 script = ExtResource("6_uuto2")
 scene = ExtResource("9_030in")
-change = 2
+change = 3
 metadata/_custom_type_script = "uid://dh42imrwqp3e"
 
 [sub_resource type="Resource" id="Resource_e4h82"]
 script = ExtResource("6_uuto2")
 scene = ExtResource("10_07p1v")
+change = 1
 metadata/_custom_type_script = "uid://dh42imrwqp3e"
 
 [sub_resource type="Animation" id="Animation_hss3q"]

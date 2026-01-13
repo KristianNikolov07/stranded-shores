@@ -1,12 +1,36 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwlyi2oj4yksl"]
+[gd_scene load_steps=13 format=3 uid="uid://dwlyi2oj4yksl"]
 
 [ext_resource type="Script" uid="uid://b3tskrkc5usx" path="res://Scripts/Menu/main_menu.gd" id="1_bkwd7"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_gpijq"]
 [ext_resource type="PackedScene" uid="uid://dx25w13rsr5xr" path="res://Scenes/Menu/settings_menu.tscn" id="2_tself"]
 [ext_resource type="PackedScene" uid="uid://cosb80or2npy4" path="res://Scenes/Menu/world_select.tscn" id="3_7jtkx"]
+[ext_resource type="Texture2D" uid="uid://b3wn3ofeq3jso" path="res://Assets/Textures/MainMenuBackground/1.jpg" id="3_nbh3q"]
+[ext_resource type="Texture2D" uid="uid://c3clmju5asm4d" path="res://Assets/Textures/MainMenuBackground/2.jpg" id="4_4qbh4"]
 [ext_resource type="PackedScene" uid="uid://bbdqopeogorpk" path="res://Scenes/Menu/controls_menu.tscn" id="4_gpijq"]
+[ext_resource type="Texture2D" uid="uid://c1mobl6e7e042" path="res://Assets/Textures/MainMenuBackground/3.jpg" id="5_3ko7u"]
 [ext_resource type="PackedScene" uid="uid://bjbbmrwcd6a0c" path="res://Scenes/Menu/mod_menu.tscn" id="5_gpijq"]
+[ext_resource type="Texture2D" uid="uid://bcm3u8rx2yjkb" path="res://Assets/Textures/MainMenuBackground/4.jpg" id="6_jqrnd"]
 [ext_resource type="PackedScene" uid="uid://ipwooukhmjtm" path="res://Scenes/Menu/credits.tscn" id="7_pn3xf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2sy2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nbh3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4qbh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3ko7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jqrnd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -17,6 +41,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_gpijq")
 script = ExtResource("1_bkwd7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.46618086, 0.4661808, 0.4661808, 1)
+position = Vector2(576, 324)
+scale = Vector2(0.6000001, 0.6)
+sprite_frames = SubResource("SpriteFrames_2sy2r")
+autoplay = "default"
+frame_progress = 0.57515067
 
 [node name="MainButtons" type="VBoxContainer" parent="."]
 layout_mode = 1
