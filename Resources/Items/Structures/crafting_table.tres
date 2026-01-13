@@ -9,7 +9,8 @@
 script = ExtResource("1_qi6am")
 structure_scene = ExtResource("3_q7nr1")
 preview_texture = ExtResource("1_r4ric")
-item_name = "Crafting Table"
+item_name = "Workbench"
 max_amount = 5
 texture = ExtResource("4_yka87")
+item_path = "res://Resources/Items/Structures/crafting_table.tres"
 metadata/_custom_type_script = "uid://c7tmhhhy6jhc7"

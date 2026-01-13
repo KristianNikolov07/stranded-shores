@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://cxe4x2dt7vndt"]
+
+[ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_df1ct"]
+[ext_resource type="Resource" uid="uid://eeregnlqd1ee" path="res://Resources/Items/wood.tres" id="1_lx6jw"]
+[ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="2_1672l"]
+[ext_resource type="Resource" uid="uid://eivpgccu0q4x" path="res://Resources/Items/Structures/crafting_table.tres" id="3_xsdso"]
+
+[resource]
+script = ExtResource("1_df1ct")
+item1 = ExtResource("1_lx6jw")
+item2 = ExtResource("2_1672l")
+result = ExtResource("3_xsdso")
+metadata/_custom_type_script = "uid://uxhvo65tknee"

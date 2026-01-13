@@ -182,9 +182,10 @@ func reselect_slot():
 func drop_item(slot : int, drop_all = false) -> void:
 	if items[slot] != null:
 		
+		# Prevent boats from being dropped when in water
 		if items[slot] is Boat and player.is_in_water():
 			return
-			
+		
 		var node = DROPPED_ITEM_SCENE.instantiate()
 		node.item = items[slot].duplicate()
 		if drop_all:
@@ -196,7 +197,7 @@ func drop_item(slot : int, drop_all = false) -> void:
 		else:
 			remove_item_from_slot(slot, 1)
 		
-		visualize_selected_slot()
+		reselect_slot()
 
 
 func decrease_durability() -> void:
