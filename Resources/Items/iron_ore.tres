@@ -10,7 +10,7 @@ region = Rect2(224, 0, 16, 16)
 [resource]
 script = ExtResource("1_ihv7k")
 item_name = "Iron Ore"
-max_amount = 5
+max_amount = 10
 texture = SubResource("AtlasTexture_qm0bs")
 item_path = "res://Resources/Items/iron_ore.tres"
 metadata/_custom_type_script = "uid://bapf8m2htmno7"

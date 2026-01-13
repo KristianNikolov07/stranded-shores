@@ -10,10 +10,12 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"):
-		hide()
-		reset()
-		player.can_move = true
-		accept_event()
+		if visible:
+			hide()
+			reset()
+			player.can_move = true
+			player.repair_menu = null
+			accept_event()
 
 
 func set_tool(_tool : Tool):

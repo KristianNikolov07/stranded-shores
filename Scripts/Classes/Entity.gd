@@ -21,11 +21,11 @@ func _process(_delta: float) -> void:
 
 func damage(dmg : int) -> void:
 	hp -= dmg
-	$Sprite2D.self_modulate = Color(1, 0, 0, 1)
+	$Sprite2D.self_modulate = Color(1, 0, 0, $Sprite2D.self_modulate.a)
 	if hp <= 0:
 		call_deferred("kill")
 	await get_tree().create_timer(0.2).timeout
-	$Sprite2D.self_modulate = Color(1, 1, 1, 1)
+	$Sprite2D.self_modulate = Color(1, 1, 1, $Sprite2D.self_modulate.a)
 
 
 func kill() -> void:
