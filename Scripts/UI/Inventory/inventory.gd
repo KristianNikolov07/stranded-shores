@@ -169,7 +169,7 @@ func select_slot(slot : int) -> void:
 	# Structures
 	if items[slot] is StructureItem:
 		player.get_node("StructurePreview").show()
-		player.get_node("StructurePreview/Sprite2D").texture = items[selected_slot].preview_texture
+		player.get_node("StructurePreview/TextureRect").texture = items[selected_slot].preview_texture
 	else:
 		player.get_node("StructurePreview").hide()
 

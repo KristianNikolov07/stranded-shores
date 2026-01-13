@@ -1,6 +1,5 @@
-[gd_scene load_steps=31 format=3 uid="uid://xqjghw70oxkf"]
+[gd_scene load_steps=30 format=3 uid="uid://xqjghw70oxkf"]
 
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="1_ajy74"]
 [ext_resource type="Script" uid="uid://ds284ijxir0f7" path="res://Scripts/Other/player.gd" id="1_t86h6"]
 [ext_resource type="Texture2D" uid="uid://dr60j0t3upeb4" path="res://Assets/Textures/Player.png" id="2_k46cm"]
 [ext_resource type="Script" uid="uid://pxkbysso4esr" path="res://Scripts/Other/CameraLimiter.gd" id="3_5f5w1"]
@@ -23,7 +22,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/path = NodePath("TextureRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -40,7 +39,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/path = NodePath("TextureRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -227,10 +226,13 @@ position = Vector2(213.33333, 0)
 collision_layer = 512
 collision_mask = 273
 
-[node name="Sprite2D" type="Sprite2D" parent="StructurePreview"]
-position = Vector2(3.0517578e-05, 0)
-scale = Vector2(1.6666667, 1.6666666)
-texture = ExtResource("1_ajy74")
+[node name="TextureRect" type="TextureRect" parent="StructurePreview"]
+offset_left = -106.66667
+offset_top = -106.66666
+offset_right = 21.077843
+offset_bottom = 21.07785
+scale = Vector2(1.67, 1.67)
+expand_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StructurePreview"]
 position = Vector2(2.2888184e-05, 0)
