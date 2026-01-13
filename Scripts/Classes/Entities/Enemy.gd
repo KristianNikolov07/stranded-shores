@@ -5,7 +5,6 @@ extends Entity
 @export var activate_distance : float
 
 func _ready() -> void:
-	super._ready()
 	if $ContactDamage != null:
 		$ContactDamage.body_entered.connect(_contact_damage_on_body_entered)
 

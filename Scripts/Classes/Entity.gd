@@ -8,12 +8,9 @@ extends CharacterBody2D
 @export var despawn_distance = 1000
 
 var dropped_item_scene = preload("res://Scenes/Objects/dropped_item.tscn")
-var hp : int
+var hp = max_hp
 
 @onready var main_scene = get_tree().current_scene
-
-func _ready() -> void:
-	hp = max_hp
 
 
 func _process(_delta: float) -> void:
