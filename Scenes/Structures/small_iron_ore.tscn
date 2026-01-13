@@ -1,20 +1,27 @@
-[gd_scene load_steps=15 format=3 uid="uid://g0gksnwxs5jw"]
+[gd_scene load_steps=17 format=3 uid="uid://g0gksnwxs5jw"]
 
 [ext_resource type="Script" uid="uid://d3001nb6tmga0" path="res://Scripts/Classes/Structure.gd" id="1_prn5e"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_v2ket"]
 [ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="3_7ioqt"]
 [ext_resource type="Texture2D" uid="uid://cah4eabrcytye" path="res://Assets/Textures/Objects/rock.png" id="4_bd73c"]
+[ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="4_v2ket"]
 
-[sub_resource type="Resource" id="Resource_qw88s"]
+[sub_resource type="Resource" id="Resource_7ioqt"]
 script = ExtResource("2_v2ket")
 item = ExtResource("3_7ioqt")
 amount = 5
 chance = 100
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
-[sub_resource type="Resource" id="Resource_qsha1"]
+[sub_resource type="Resource" id="Resource_bd73c"]
 script = ExtResource("2_v2ket")
-item = ExtResource("3_7ioqt")
+item = ExtResource("4_v2ket")
+chance = 100
+metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
+
+[sub_resource type="Resource" id="Resource_5tmr7"]
+script = ExtResource("2_v2ket")
+item = ExtResource("4_v2ket")
 chance = 25
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
@@ -52,7 +59,7 @@ collision_layer = 1040
 collision_mask = 0
 script = ExtResource("1_prn5e")
 max_hp = 15
-drops = Array[ExtResource("2_v2ket")]([SubResource("Resource_qw88s"), SubResource("Resource_qsha1")])
+drops = Array[ExtResource("2_v2ket")]([SubResource("Resource_7ioqt"), SubResource("Resource_bd73c"), SubResource("Resource_5tmr7")])
 broken_textures = Array[Texture]([SubResource("AtlasTexture_5cn61"), SubResource("AtlasTexture_prn5e"), SubResource("AtlasTexture_v2ket"), SubResource("AtlasTexture_7ioqt")])
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 

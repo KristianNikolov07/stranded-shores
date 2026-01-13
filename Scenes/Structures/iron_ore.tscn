@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" uid="uid://d3001nb6tmga0" path="res://Scripts/Classes/Structure.gd" id="1_7vb16"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_ef3ia"]
-[ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="3_3uty6"]
+[ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="3_7vb16"]
 [ext_resource type="Texture2D" uid="uid://cah4eabrcytye" path="res://Assets/Textures/Objects/rock.png" id="4_v8yo3"]
 
 [sub_resource type="Resource" id="Resource_qw88s"]
 script = ExtResource("2_ef3ia")
-item = ExtResource("3_3uty6")
-amount = 5
+item = ExtResource("3_7vb16")
+amount = 2
 chance = 100
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
 [sub_resource type="Resource" id="Resource_qsha1"]
 script = ExtResource("2_ef3ia")
-item = ExtResource("3_3uty6")
+item = ExtResource("3_7vb16")
 chance = 25
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
