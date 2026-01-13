@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=8 format=3 uid="uid://bklyeehb8c22o"]
+
+[ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="1_h7d45"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_u6el3"]
+[ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="2_oavet"]
+[ext_resource type="PackedScene" uid="uid://brlk8pd5j05oc" path="res://Scenes/Tools/better_pickaxe.tscn" id="4_oavet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4li6h"]
+atlas = ExtResource("1_u6el3")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6el3"]
+atlas = ExtResource("1_u6el3")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oavet"]
+atlas = ExtResource("1_u6el3")
+region = Rect2(32, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_h7d45")
+tool_scene = ExtResource("4_oavet")
+max_durability = 50
+durability = 50
+repair_item = ExtResource("2_oavet")
+repair_amount = 25
+broken_texture = SubResource("AtlasTexture_4li6h")
+repaired_texture = SubResource("AtlasTexture_u6el3")
+item_name = "Better Pickaxe"
+texture = SubResource("AtlasTexture_oavet")
+item_path = "res://Resources/Items/Tools/better_pickaxe.tres"
+metadata/_custom_type_script = "uid://ccifyb4dk0sri"

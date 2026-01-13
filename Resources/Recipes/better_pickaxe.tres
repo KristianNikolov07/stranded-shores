@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://b4a76p0lb1b7i"]
+
+[ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_knnck"]
+[ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="1_y70qb"]
+[ext_resource type="Resource" uid="uid://c61hpn7cjlhoy" path="res://Resources/Items/better_pickaxe_top.tres" id="2_1q4ml"]
+[ext_resource type="Resource" uid="uid://bklyeehb8c22o" path="res://Resources/Items/Tools/better_pickaxe.tres" id="3_fhal8"]
+
+[resource]
+script = ExtResource("1_knnck")
+item1 = ExtResource("1_y70qb")
+item2 = ExtResource("2_1q4ml")
+result = ExtResource("3_fhal8")
+metadata/_custom_type_script = "uid://uxhvo65tknee"

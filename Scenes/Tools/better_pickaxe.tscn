@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://brlk8pd5j05oc"]
+
+[ext_resource type="Script" uid="uid://nvg0th4sq3ly" path="res://Scripts/Tools/pickaxe.gd" id="1_ig83i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_871j0"]
+size = Vector2(6.9999995, 79)
+
+[node name="BetterPickaxe" type="Area2D"]
+collision_layer = 0
+collision_mask = 1024
+script = ExtResource("1_ig83i")
+damage = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(97.5, -0.49999976)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_871j0")
+disabled = true
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

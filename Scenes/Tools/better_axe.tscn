@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbsov2av6do3a"]
+
+[ext_resource type="Script" uid="uid://ce7gvw826mwe1" path="res://Scripts/Tools/axe.gd" id="1_fn2n7"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_5d2ff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxmbi"]
+size = Vector2(76.21021, 43.999992)
+
+[sub_resource type="Animation" id="Animation_7dk8h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.5235988]
+}
+
+[sub_resource type="Animation" id="Animation_ik4le"]
+resource_name = "hit"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.5235988, 0.5235988]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7dk8h"]
+_data = {
+&"RESET": SubResource("Animation_7dk8h"),
+&"hit": SubResource("Animation_ik4le")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn2n7"]
+atlas = ExtResource("2_5d2ff")
+region = Rect2(0, 16, 16, 16)
+
+[node name="BetterAxe" type="Node2D"]
+script = ExtResource("1_fn2n7")
+damage = 25
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = -0.5235988
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(220.66916, 25.789764)
+shape = SubResource("RectangleShape2D_yxmbi")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_7dk8h")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(200.42049, 4.86158)
+rotation = 0.7853982
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_fn2n7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

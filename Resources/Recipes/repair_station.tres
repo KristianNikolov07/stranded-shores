@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://d37foj0pcc7nl"]
+
+[ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_dtyhw"]
+[ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="1_kum5y"]
+[ext_resource type="Resource" uid="uid://dexo0fi08bjdt" path="res://Resources/Items/Structures/repair_station.tres" id="2_clmrh"]
+[ext_resource type="Resource" uid="uid://dcgmig5kdolf8" path="res://Resources/CraftingTools/hammer.tres" id="4_j1bu3"]
+
+[resource]
+script = ExtResource("1_dtyhw")
+tool = ExtResource("4_j1bu3")
+item1 = ExtResource("1_kum5y")
+item1_amount = 20
+result = ExtResource("2_clmrh")
+metadata/_custom_type_script = "uid://uxhvo65tknee"

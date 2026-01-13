@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://oh1cw0gyirar"]
+
+[ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="1_8bthf"]
+[ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_88e1a"]
+[ext_resource type="Resource" uid="uid://dfiohhl1rue4d" path="res://Resources/Items/better_axe_top.tres" id="2_fl6xj"]
+[ext_resource type="Resource" uid="uid://blqkfaqo0wmgn" path="res://Resources/Items/Tools/better_axe.tres" id="3_hnvh2"]
+
+[resource]
+script = ExtResource("1_88e1a")
+item1 = ExtResource("1_8bthf")
+item2 = ExtResource("2_fl6xj")
+result = ExtResource("3_hnvh2")
+metadata/_custom_type_script = "uid://uxhvo65tknee"
