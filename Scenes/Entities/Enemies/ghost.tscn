@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bba8hrwso5iyd" path="res://Assets/Textures/Entities/Enemies/ghost.png" id="2_pycdw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndnvk"]
-size = Vector2(21, 32)
+size = Vector2(16, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pycdw"]
-size = Vector2(21, 32)
+size = Vector2(16, 19.999998)
 
 [node name="Ghost" type="CharacterBody2D" groups=["Enemies"]]
 z_index = 4
@@ -21,11 +21,11 @@ metadata/_custom_type_script = "uid://c3fbx4w04b6te"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.31764707)
 texture_filter = 1
-scale = Vector2(4, 4)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_pycdw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -4)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ndnvk")
 
 [node name="ContactDamage" type="Area2D" parent="."]
@@ -33,5 +33,5 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage"]
-position = Vector2(0.4999981, -4.000002)
+position = Vector2(0, 1.999999)
 shape = SubResource("RectangleShape2D_pycdw")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://borj6l7sh0iy5" path="res://Scripts/Classes/Entities/PassiveEntity.gd" id="1_4bf5e"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_2yaru"]
 [ext_resource type="Resource" uid="uid://skabqfhsljcg" path="res://Resources/Items/Food/meat.tres" id="3_h844i"]
-[ext_resource type="Texture2D" uid="uid://bb85hyt5kkxbw" path="res://Assets/Textures/Entities/caw.png" id="4_h844i"]
+[ext_resource type="Texture2D" uid="uid://b4wfcr2xl0srx" path="res://Assets/Textures/Entities/caw.png" id="4_h844i"]
 [ext_resource type="Script" uid="uid://b56lnunx30ak3" path="res://Scripts/Entities/animations.gd" id="5_g5gbr"]
 
 [sub_resource type="Resource" id="Resource_g5gbr"]
@@ -19,24 +19,7 @@ chance = 50
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h844i"]
-size = Vector2(43, 20)
-
-[sub_resource type="Animation" id="Animation_h844i"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
+size = Vector2(27, 14)
 
 [sub_resource type="Animation" id="Animation_g5gbr"]
 length = 0.001
@@ -51,6 +34,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_h844i"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_j3vjv"]
@@ -115,14 +115,14 @@ metadata/_custom_type_script = "uid://borj6l7sh0iy5"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(4, 4)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("4_h844i")
 flip_h = true
 hframes = 4
 vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, 14)
+position = Vector2(1.5, 8)
 shape = SubResource("RectangleShape2D_h844i")
 
 [node name="RetargetTimer" type="Timer" parent="."]

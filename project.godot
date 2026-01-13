@@ -29,7 +29,7 @@ window/stretch/mode="canvas_items"
 
 [editor]
 
-run/main_run_args="debug"
+run/main_run_args="debug -w"
 
 [file_customization]
 
