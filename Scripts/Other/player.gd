@@ -161,7 +161,7 @@ func attack(slot : int) -> void:
 	if can_move:
 		if inventory.items[slot] is Tool:
 			if inventory.items[slot].durability > 0:
-				$Tools.get_child(0).use()
+				$Tool.use()
 
 
 func place(slot : int) -> void:

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=8 format=3 uid="uid://b3a3gr08yo8n7"]
+
+[ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="1_axj6j"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_vgunq"]
+[ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="2_jvlrw"]
+[ext_resource type="PackedScene" uid="uid://fmgs47t5ur6h" path="res://Scenes/Tools/axe.tscn" id="4_jvlrw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se6ei"]
+atlas = ExtResource("1_vgunq")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beeld"]
+atlas = ExtResource("1_vgunq")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdvuk"]
+atlas = ExtResource("1_vgunq")
+region = Rect2(144, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_axj6j")
+tool_scene = ExtResource("4_jvlrw")
+max_durability = 50
+durability = 50
+repair_item = ExtResource("2_jvlrw")
+broken_texture = SubResource("AtlasTexture_se6ei")
+repaired_texture = SubResource("AtlasTexture_beeld")
+item_name = "Axe"
+texture = SubResource("AtlasTexture_rdvuk")
+item_path = "res://Resources/Items/Tools/axe.tres"
+metadata/_custom_type_script = "uid://ccifyb4dk0sri"

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://borj6l7sh0iy5" path="res://Scripts/Classes/Entities/PassiveEntity.gd" id="1_4bf5e"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_2yaru"]
 [ext_resource type="Resource" uid="uid://skabqfhsljcg" path="res://Resources/Items/Food/meat.tres" id="3_h844i"]
-[ext_resource type="Texture2D" uid="uid://b4wfcr2xl0srx" path="res://Assets/Textures/Entities/caw.png" id="4_h844i"]
+[ext_resource type="Texture2D" uid="uid://bb85hyt5kkxbw" path="res://Assets/Textures/Entities/caw.png" id="4_h844i"]
 [ext_resource type="Script" uid="uid://b56lnunx30ak3" path="res://Scripts/Entities/animations.gd" id="5_g5gbr"]
 
 [sub_resource type="Resource" id="Resource_g5gbr"]

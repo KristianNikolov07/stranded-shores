@@ -59,9 +59,9 @@ func load_recipes() -> void:
 
 
 func craft(recipe : Recipe) -> void:
-	if player.inventory.has_item(recipe.item1.item_name, recipe.item1_amount) and player.inventory.has_item(recipe.item2.item_name, recipe.item2_amount):
+	if player.inventory.has_item(recipe.item1.item_name, recipe.item1_amount):
 		player.inventory.remove_item(recipe.item1.item_name, recipe.item1_amount)
-		if recipe.item2 != null:
+		if recipe.item2 != null and player.inventory.has_item(recipe.item2.item_name, recipe.item2_amount):
 			player.inventory.remove_item(recipe.item2.item_name, recipe.item2_amount)
 		
 		# Basic Axe Objective
