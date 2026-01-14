@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://bvvecooncnbli"]
+
+[ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_adk3e"]
+[ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="1_ywnni"]
+[ext_resource type="Resource" uid="uid://6jbdk5uhbbxp" path="res://Resources/Items/sword_top.tres" id="2_tpf35"]
+[ext_resource type="Resource" uid="uid://dcgmig5kdolf8" path="res://Resources/CraftingTools/hammer.tres" id="4_t4rgn"]
+
+[resource]
+script = ExtResource("1_adk3e")
+tool = ExtResource("4_t4rgn")
+item1 = ExtResource("1_ywnni")
+item1_amount = 3
+result = ExtResource("2_tpf35")
+metadata/_custom_type_script = "uid://uxhvo65tknee"

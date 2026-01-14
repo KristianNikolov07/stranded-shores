@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://c0247c76w7lgu"]
+
+[ext_resource type="Resource" uid="uid://6v1x3ls83hld" path="res://Resources/Items/sword_handle.tres" id="1_ay6lf"]
+[ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_u18fg"]
+[ext_resource type="Resource" uid="uid://6jbdk5uhbbxp" path="res://Resources/Items/sword_top.tres" id="2_l2eqa"]
+[ext_resource type="Resource" uid="uid://3nmlfk6qpiv0" path="res://Resources/Items/Tools/sword.tres" id="3_g76mo"]
+
+[resource]
+script = ExtResource("1_u18fg")
+item1 = ExtResource("1_ay6lf")
+item2 = ExtResource("2_l2eqa")
+result = ExtResource("3_g76mo")
+metadata/_custom_type_script = "uid://uxhvo65tknee"

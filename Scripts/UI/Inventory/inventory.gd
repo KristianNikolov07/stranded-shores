@@ -205,6 +205,9 @@ func drop_item(slot : int, drop_all = false) -> void:
 func decrease_durability() -> void:
 	if items[selected_slot] is Tool:
 		items[selected_slot].take_durability()
+		if items[selected_slot].durability <= 0: # Make sure the tool stops being used after it breaks
+			if player.tool.has_method("stop_using"):
+				player.tool.stop_using()
 		visualize_inventory()
 
 

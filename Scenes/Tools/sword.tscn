@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3tnox2q8up5m"]
+
+[ext_resource type="Script" uid="uid://ddawtef3k1j6m" path="res://Scripts/Tools/sword.gd" id="1_3fxqd"]
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="1_4e8jt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fxqd"]
+atlas = ExtResource("1_4e8jt")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e8jt"]
+size = Vector2(104, 48)
+
+[node name="Sword" type="Area2D"]
+collision_layer = 0
+collision_mask = 2048
+script = ExtResource("1_3fxqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(208, 0)
+rotation = 0.7853982
+scale = Vector2(8, 8)
+texture = SubResource("AtlasTexture_3fxqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(228, 0)
+shape = SubResource("RectangleShape2D_4e8jt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

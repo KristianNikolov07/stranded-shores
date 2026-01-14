@@ -8,8 +8,7 @@ var is_used = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("Attack"):
-		$CollisionShape2D.disabled = true
-		is_used = false
+		stop_using()
 
 
 func use() -> void:
@@ -17,6 +16,11 @@ func use() -> void:
 	if $Cooldown.is_stopped():
 		$CollisionShape2D.disabled = false
 		is_used = true
+
+
+func stop_using() -> void:
+	$CollisionShape2D.disabled = true
+	is_used = false
 
 
 func _on_body_entered(body: Node2D) -> void:
