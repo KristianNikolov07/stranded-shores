@@ -1,10 +1,14 @@
-[gd_resource type="Resource" script_class="CraftingTool" load_steps=3 format=3 uid="uid://dcgmig5kdolf8"]
+[gd_resource type="Resource" script_class="CraftingTool" load_steps=4 format=3 uid="uid://dcgmig5kdolf8"]
 
 [ext_resource type="Script" uid="uid://dan4vamyiuxvr" path="res://Scripts/Classes/CraftingTool.gd" id="1_umxwa"]
-[ext_resource type="Texture2D" uid="uid://d01mlsor7lh1k" path="res://Assets/Textures/Items/test_item.png" id="2_o2jy3"]
+[ext_resource type="Texture2D" uid="uid://cgugxs521djfo" path="res://Assets/Textures/Items/crafting_tools.png" id="2_o2jy3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvdh4"]
+atlas = ExtResource("2_o2jy3")
+region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_umxwa")
-texture = ExtResource("2_o2jy3")
+texture = SubResource("AtlasTexture_dvdh4")
 tool_name = "Hammer"
 metadata/_custom_type_script = "uid://dan4vamyiuxvr"
