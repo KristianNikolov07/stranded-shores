@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Tool" load_steps=8 format=3 uid="uid://bklyeehb8c22o"]
 
 [ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="1_h7d45"]
-[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="1_u6el3"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_u6el3"]
 [ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="2_oavet"]
 [ext_resource type="PackedScene" uid="uid://brlk8pd5j05oc" path="res://Scenes/Tools/better_pickaxe.tscn" id="4_oavet"]
 
