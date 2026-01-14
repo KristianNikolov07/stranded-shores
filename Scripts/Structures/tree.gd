@@ -4,6 +4,7 @@ const CHANCE_TO_BE_ABLE_TO_GROW_APPLES = 25
 const CHANCE_TO_SPAWN_WITH_APPLES = 5
 const MIN_APPLE_GROW_SECS = 60
 const MAX_APPLE_GROW_SECS = 180
+const APPLE = preload("res://Resources/Items/Food/apple.tres")
 
 @export var tree_texture : Texture
 @export var apple_tree_texture : Texture
@@ -18,6 +19,12 @@ func _ready() -> void:
 			grow_apples()
 		else:
 			$AppleTimer.start(randf_range(MIN_APPLE_GROW_SECS, MAX_APPLE_GROW_SECS))
+
+
+func interact(player : Player) -> void:
+	if has_apples:
+		if player.inventory.add_item(APPLE.duplicate()):
+			remove_apples()
 
 
 func damage(dmg : int) -> void:

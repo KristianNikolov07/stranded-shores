@@ -1,31 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://iuq4lp5j1m3b"]
+[gd_scene load_steps=5 format=3 uid="uid://iuq4lp5j1m3b"]
 
-[ext_resource type="Script" uid="uid://d3001nb6tmga0" path="res://Scripts/Classes/Structure.gd" id="1_cv6oq"]
 [ext_resource type="Script" uid="uid://d2kxwrhqxmsoo" path="res://Scripts/Structures/campfire.gd" id="1_vu2sp"]
-[ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_m5n71"]
 [ext_resource type="Texture2D" uid="uid://yneff87l8cnn" path="res://Assets/Textures/2d_lights_and_shadows_neutral_point_light.webp" id="2_o1yvi"]
-[ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="3_h3ltd"]
 [ext_resource type="Texture2D" uid="uid://cebry366ijp05" path="res://Assets/Textures/Objects/fire1.png" id="4_m5n71"]
-
-[sub_resource type="Resource" id="Resource_0fkht"]
-script = ExtResource("2_m5n71")
-item = ExtResource("3_h3ltd")
-amount = 3
-chance = 100
-metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cv6oq"]
 size = Vector2(52, 54)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nufvf"]
-size = Vector2(104, 108)
-
 [node name="Campfire" type="StaticBody2D" groups=["Persistant"]]
 z_index = 3
-collision_layer = 256
-collision_mask = 544
-script = ExtResource("1_cv6oq")
-drops = Array[ExtResource("2_m5n71")]([SubResource("Resource_0fkht")])
+collision_layer = 296
+collision_mask = 0
+script = ExtResource("1_vu2sp")
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -43,13 +29,3 @@ texture = ExtResource("2_o1yvi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 5)
 shape = SubResource("RectangleShape2D_cv6oq")
-
-[node name="InteractionArea" type="Area2D" parent="."]
-scale = Vector2(0.5, 0.5)
-collision_layer = 8
-collision_mask = 10
-script = ExtResource("1_vu2sp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-4, 10)
-shape = SubResource("RectangleShape2D_nufvf")

@@ -2,6 +2,10 @@ extends Structure
 
 @onready var player : Player = Global.get_player()
 
+func interact(_player : Player):
+	open()
+
+
 func open() -> void:
 	if player.can_move:
 		$CanvasLayer/Storage.open()

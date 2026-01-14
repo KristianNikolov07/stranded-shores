@@ -1,12 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://bonc006vbgjtv"]
+[gd_scene load_steps=22 format=3 uid="uid://bonc006vbgjtv"]
 
-[ext_resource type="Texture2D" uid="uid://cv86v7er5ig60" path="res://Assets/Textures/Objects/tree.png" id="1_b0kcf"]
+[ext_resource type="Texture2D" uid="uid://xbjj7uhpoylb" path="res://Assets/Textures/Objects/tree.png" id="1_b0kcf"]
 [ext_resource type="Script" uid="uid://rc8dgaqqsmbd" path="res://Scripts/Structures/tree.gd" id="1_jdkqx"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_jdkqx"]
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="3_uk51g"]
-[ext_resource type="Texture2D" uid="uid://b7uqpygf0k3jw" path="res://Assets/Textures/Objects/apple_tree.png" id="3_vaht6"]
+[ext_resource type="Texture2D" uid="uid://dss0mkidf88jq" path="res://Assets/Textures/Objects/apple_tree.png" id="3_vaht6"]
 [ext_resource type="Resource" uid="uid://c1iu4l3m78d8v" path="res://Resources/Items/Structures/sapling.tres" id="6_3kn26"]
-[ext_resource type="Script" uid="uid://dk2527oj5c3g3" path="res://Scripts/Structures/tree_interaction.gd" id="6_vaht6"]
 [ext_resource type="Resource" uid="uid://eeregnlqd1ee" path="res://Resources/Items/wood.tres" id="7_n4m1q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsloy"]
@@ -69,12 +68,9 @@ radius = 26.305893
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ebggc"]
 polygon = PackedVector2Array(16, -64, 28, -64, 28, -8, 16, -8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk51g"]
-size = Vector2(12, 64)
-
 [node name="Tree" type="StaticBody2D" groups=["Persistant"]]
-collision_layer = 304
-collision_mask = 546
+collision_layer = 312
+collision_mask = 0
 script = ExtResource("1_jdkqx")
 tree_texture = SubResource("AtlasTexture_dsloy")
 apple_tree_texture = SubResource("AtlasTexture_yotnf")
@@ -118,13 +114,5 @@ position = Vector2(-22, 36)
 occluder = SubResource("OccluderPolygon2D_ebggc")
 
 [node name="AppleTimer" type="Timer" parent="."]
-
-[node name="InteractionArea" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 10
-script = ExtResource("6_vaht6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-shape = SubResource("RectangleShape2D_uk51g")
 
 [connection signal="timeout" from="AppleTimer" to="." method="_on_apple_timer_timeout"]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://jgu3rbyb7a1j"]
+[gd_scene load_steps=6 format=3 uid="uid://jgu3rbyb7a1j"]
 
 [ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="2_5ju8n"]
-[ext_resource type="Script" uid="uid://bl0m5fjo6mnik" path="res://Scripts/Structures/chest_interaction_area.gd" id="3_nwhr8"]
 [ext_resource type="Script" uid="uid://c0vxy1cawfm2n" path="res://Scripts/Structures/chest.gd" id="3_s6f8g"]
 [ext_resource type="PackedScene" uid="uid://clkeesixpv71" path="res://Scenes/UI/Inventory/storage.tscn" id="4_nwhr8"]
 [ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Item.gd" id="5_qfnb3"]
@@ -9,13 +8,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6f8g"]
 size = Vector2(64, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ju8n"]
-size = Vector2(64, 64)
-
 [node name="Chest" type="StaticBody2D" groups=["Persistant"]]
 z_index = 3
-collision_layer = 256
-collision_mask = 544
+collision_layer = 296
+collision_mask = 0
 script = ExtResource("3_s6f8g")
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
@@ -26,14 +22,6 @@ texture = ExtResource("2_5ju8n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_s6f8g")
-
-[node name="InteractionArea" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 10
-script = ExtResource("3_nwhr8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-shape = SubResource("RectangleShape2D_5ju8n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

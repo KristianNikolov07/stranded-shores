@@ -1,20 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://7g3bjao3xxhu"]
+[gd_scene load_steps=4 format=3 uid="uid://7g3bjao3xxhu"]
 
-[ext_resource type="Script" uid="uid://d3001nb6tmga0" path="res://Scripts/Classes/Structure.gd" id="1_qjjw6"]
 [ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="2_f6nty"]
 [ext_resource type="Script" uid="uid://5uxkgia8qf7" path="res://Scripts/Structures/well.gd" id="3_a42g1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6nty"]
 size = Vector2(80, 80)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a42g1"]
-size = Vector2(80, 80)
-
-[node name="Well" type="StaticBody2D"]
+[node name="Well" type="StaticBody2D" groups=["Persistant"]]
 z_index = 3
-collision_layer = 256
-collision_mask = 544
-script = ExtResource("1_qjjw6")
+collision_layer = 1288
+collision_mask = 0
+script = ExtResource("3_a42g1")
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,11 +20,3 @@ texture = ExtResource("2_f6nty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_f6nty")
-
-[node name="InteractionArea" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 10
-script = ExtResource("3_a42g1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-shape = SubResource("RectangleShape2D_a42g1")
