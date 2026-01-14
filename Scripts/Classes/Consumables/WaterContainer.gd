@@ -14,6 +14,9 @@ func _init() -> void:
 
 func fill() -> void:
 	water_amount = capacity
+	
+	# Water objective
+	Global.get_player().objectives.complete_objective("water")
 
 
 func clean() -> void:
