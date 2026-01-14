@@ -15,7 +15,7 @@ func set_item(item : Item, amount : int = 1, avaliable = true) -> void:
 			$Amount.self_modulate = Color(1, 1, 1, 1)
 		else:
 			$ItemTexture.self_modulate = Color(1, 1, 1, 0.5)
-			$Amount.self_modulate = Color(1, 1, 1, 0.5)
+			$Amount.self_modulate = Color(1, 0, 0, 1)
 	else:
 		$ItemTexture.texture = null
 		$Amount.hide()
@@ -24,4 +24,5 @@ func set_item(item : Item, amount : int = 1, avaliable = true) -> void:
 func set_tool(tool : CraftingTool):
 	if tool != null:
 		$ItemTexture.texture = tool.texture
+		$ItemTexture.self_modulate = Color(1, 1, 1, 1)
 		$Amount.hide()
