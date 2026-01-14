@@ -9,8 +9,7 @@ region = Rect2(80, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_52qd5")
-can_be_cooked = false
-hunger_modifier = 10.0
+hunger_modifier = 3.0
 item_name = "Apple"
 max_amount = 10
 texture = SubResource("AtlasTexture_ihy3c")

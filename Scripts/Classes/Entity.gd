@@ -34,7 +34,7 @@ func kill() -> void:
 		if rand < loot.chance:
 			var dropped_item = dropped_item_scene.instantiate()
 			dropped_item.global_position = global_position
-			dropped_item.item = loot.item
+			dropped_item.item = loot.item.duplicate()
 			dropped_item.item.amount = loot.amount
 			main_scene.add_child(dropped_item)
 	queue_free()

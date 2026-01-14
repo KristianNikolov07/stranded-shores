@@ -1,21 +1,17 @@
 [gd_resource type="Resource" script_class="Food" load_steps=5 format=3 uid="uid://skabqfhsljcg"]
 
 [ext_resource type="Script" uid="uid://dwh1bhdedho1q" path="res://Scripts/Classes/Consumables/Food.gd" id="1_11hrm"]
+[ext_resource type="Resource" uid="uid://r8korpea0lh7" path="res://Resources/Items/Food/cooked_meat.tres" id="1_p22sh"]
 [ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="2_6a3te"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6a3te"]
 atlas = ExtResource("2_6a3te")
 region = Rect2(96, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p22sh"]
-atlas = ExtResource("2_6a3te")
-region = Rect2(112, 0, 16, 16)
-
 [resource]
 script = ExtResource("1_11hrm")
-hunger_modifier_when_cooked = 20.0
-texture_when_cooked = SubResource("AtlasTexture_p22sh")
-hunger_modifier = 5.0
+cooked_version = ExtResource("1_p22sh")
+hunger_modifier = 1.0
 item_name = "Meat"
 max_amount = 32
 texture = SubResource("AtlasTexture_6a3te")
