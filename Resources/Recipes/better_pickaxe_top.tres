@@ -9,6 +9,6 @@
 script = ExtResource("1_qsuss")
 tool = ExtResource("4_11vok")
 item1 = ExtResource("1_00ydx")
-item1_amount = 10
+item1_amount = 7
 result = ExtResource("2_4fdf0")
 metadata/_custom_type_script = "uid://uxhvo65tknee"

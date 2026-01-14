@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=7 format=3 uid="uid://b0r1afaqwy8wo"]
+
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="1_fx6yw"]
+[ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="1_nw3h4"]
+[ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="2_monc5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l7je"]
+atlas = ExtResource("1_fx6yw")
+region = Rect2(160, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1l5m"]
+atlas = ExtResource("1_fx6yw")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0i7b7"]
+atlas = ExtResource("1_fx6yw")
+region = Rect2(144, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_nw3h4")
+max_durability = 50
+durability = 50
+repair_item = ExtResource("2_monc5")
+repair_amount = 25
+broken_texture = SubResource("AtlasTexture_5l7je")
+repaired_texture = SubResource("AtlasTexture_n1l5m")
+item_name = "Better Sword"
+texture = SubResource("AtlasTexture_0i7b7")
+item_path = "res://Resources/Items/Tools/better_sword.tres"
+metadata/_custom_type_script = "uid://ccifyb4dk0sri"

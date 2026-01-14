@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="1_ieuqa"]
 [ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="1_itr0w"]
-[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_yh76o"]
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="1_yh76o"]
 [ext_resource type="PackedScene" uid="uid://bbsov2av6do3a" path="res://Scenes/Tools/better_axe.tscn" id="4_rml16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rml16"]
