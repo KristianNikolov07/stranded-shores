@@ -69,8 +69,13 @@ func add_item(item : Item, bypass_backpack = false) -> bool:
 	
 	# Wood Objective
 	if item.item_name == "Wood":
-		if has_item("Wood", 9):
+		if has_item("Wood", 1):
 			player.objectives.complete_objective("gather wood")
+	
+	# Iron Objective
+	if item.item_name == "Iron Ore":
+		if has_item("Iron Ore", 9):
+			player.objectives.complete_objective("iron")
 	
 	
 	if backpack_item != null and bypass_backpack == false:

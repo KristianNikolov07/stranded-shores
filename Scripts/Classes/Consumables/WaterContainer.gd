@@ -22,6 +22,9 @@ func fill() -> void:
 func clean() -> void:
 	is_clean = true
 	thirst_modifier = thirst_modifier_when_clean
+	
+	# Clean Water Objective
+	Global.get_player().objectives.complete_objective("clean water")
 
 
 func pollute() -> void:
