@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c717mvl3cjmpf"]
+[gd_scene load_steps=5 format=3 uid="uid://c717mvl3cjmpf"]
 
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="1_8642y"]
 [ext_resource type="Script" uid="uid://bc1xhxp0j33cl" path="res://Scripts/Structures/crafting_table.gd" id="1_wephv"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_s6rio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ook5j"]
+atlas = ExtResource("2_s6rio")
+region = Rect2(240, 16, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ook5j"]
 size = Vector2(64, 64)
@@ -14,9 +18,9 @@ script = ExtResource("1_wephv")
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0, 1, 1, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_8642y")
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_ook5j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ook5j")
