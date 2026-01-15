@@ -30,7 +30,6 @@ func interact(player : Player) -> void:
 func damage(dmg : int) -> void:
 	super.damage(dmg)
 	can_grow_apples = false
-	has_apples = false
 
 
 func grow_apples() -> void:

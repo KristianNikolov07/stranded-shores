@@ -1,16 +1,23 @@
-[gd_resource type="Resource" script_class="StructureItem" load_steps=5 format=3 uid="uid://c1iu4l3m78d8v"]
+[gd_resource type="Resource" script_class="StructureItem" load_steps=6 format=3 uid="uid://c1iu4l3m78d8v"]
 
-[ext_resource type="Texture2D" uid="uid://da3k5xqrcn02p" path="res://Assets/Textures/icon.svg" id="1_k471h"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_0n1su"]
 [ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/StructureItem.gd" id="1_kwxin"]
 [ext_resource type="PackedScene" uid="uid://cnl6f57vr6u27" path="res://Scenes/Structures/sapling.tscn" id="3_0n1su"]
-[ext_resource type="Texture2D" uid="uid://b1vbxn5yod07u" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="4_0n1su"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukisv"]
+atlas = ExtResource("1_0n1su")
+region = Rect2(208, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k471h"]
+atlas = ExtResource("1_0n1su")
+region = Rect2(208, 16, 16, 16)
 
 [resource]
 script = ExtResource("1_kwxin")
 structure_scene = ExtResource("3_0n1su")
-preview_texture = ExtResource("1_k471h")
+preview_texture = SubResource("AtlasTexture_ukisv")
 item_name = "Sapling"
 max_amount = 30
-texture = ExtResource("4_0n1su")
+texture = SubResource("AtlasTexture_k471h")
 item_path = "res://Resources/Items/Structures/sapling.tres"
 metadata/_custom_type_script = "uid://c7tmhhhy6jhc7"
