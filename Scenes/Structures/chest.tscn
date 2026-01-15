@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://jgu3rbyb7a1j"]
+[gd_scene load_steps=7 format=3 uid="uid://jgu3rbyb7a1j"]
 
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="2_5ju8n"]
+[ext_resource type="Texture2D" uid="uid://baspsa2a43vbe" path="res://Assets/Textures/Objects/Chests.png" id="2_nwhr8"]
 [ext_resource type="Script" uid="uid://c0vxy1cawfm2n" path="res://Scripts/Structures/chest.gd" id="3_s6f8g"]
 [ext_resource type="PackedScene" uid="uid://clkeesixpv71" path="res://Scenes/UI/Inventory/storage.tscn" id="4_nwhr8"]
 [ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Item.gd" id="5_qfnb3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfnb3"]
+atlas = ExtResource("2_nwhr8")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6f8g"]
 size = Vector2(64, 64)
@@ -16,9 +20,9 @@ script = ExtResource("3_s6f8g")
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0, 1, 1, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_5ju8n")
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_qfnb3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_s6f8g")
