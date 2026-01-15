@@ -1,13 +1,22 @@
-[gd_resource type="Resource" script_class="StructureItem" load_steps=4 format=3 uid="uid://tnjmr4qn5tb3"]
+[gd_resource type="Resource" script_class="StructureItem" load_steps=6 format=3 uid="uid://tnjmr4qn5tb3"]
 
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="1_3ftel"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_3ftel"]
 [ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/StructureItem.gd" id="1_t6og0"]
 [ext_resource type="PackedScene" uid="uid://7g3bjao3xxhu" path="res://Scenes/Structures/well.tscn" id="3_3llc0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3llc0"]
+atlas = ExtResource("1_3ftel")
+region = Rect2(224, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqt1h"]
+atlas = ExtResource("1_3ftel")
+region = Rect2(224, 16, 16, 16)
 
 [resource]
 script = ExtResource("1_t6og0")
 structure_scene = ExtResource("3_3llc0")
-preview_texture = ExtResource("1_3ftel")
+preview_texture = SubResource("AtlasTexture_3llc0")
 item_name = "Well"
+texture = SubResource("AtlasTexture_nqt1h")
 item_path = "res://Resources/Items/Structures/well.tres"
 metadata/_custom_type_script = "uid://c7tmhhhy6jhc7"
