@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3tnox2q8up5m"]
+[gd_scene load_steps=6 format=3 uid="uid://cri3f4hl8d8qo"]
 
 [ext_resource type="Script" uid="uid://ddawtef3k1j6m" path="res://Scripts/Tools/sword.gd" id="1_3fxqd"]
-[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="1_4e8jt"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_4e8jt"]
+[ext_resource type="AudioStream" uid="uid://dgetefdrwahg8" path="res://Assets/Sounds/sword-hit.mp3" id="3_3u7bf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fxqd"]
 atlas = ExtResource("1_4e8jt")
@@ -25,5 +26,9 @@ texture = SubResource("AtlasTexture_3fxqd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(228, 0)
 shape = SubResource("RectangleShape2D_4e8jt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3u7bf")
+volume_db = -9.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

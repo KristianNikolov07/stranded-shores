@@ -12,13 +12,18 @@ const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 func damage(dmg : int) -> void:
 	hp -= dmg
 	
+	# Textures
 	if broken_textures.is_empty() == false and hp > 0:
 		@warning_ignore("integer_division")
 		var damage_percent = float(max_hp - hp) / hp
 		var texture_index = int(damage_percent * (broken_textures.size() - 1))
 		$Sprite2D.texture = broken_textures[min(broken_textures.size() - 1, texture_index)]
 		print(texture_index)
-		
+	
+	# Audio
+	if has_node("AudioStreamPlayer2D"):
+		$AudioStreamPlayer2D.play()
+	
 	if hp <= 0:
 		destroy()
 

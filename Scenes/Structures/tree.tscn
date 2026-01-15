@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bonc006vbgjtv"]
+[gd_scene load_steps=23 format=3 uid="uid://bonc006vbgjtv"]
 
 [ext_resource type="Texture2D" uid="uid://cv86v7er5ig60" path="res://Assets/Textures/Objects/tree.png" id="1_b0kcf"]
 [ext_resource type="Script" uid="uid://rc8dgaqqsmbd" path="res://Scripts/Structures/tree.gd" id="1_jdkqx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b7uqpygf0k3jw" path="res://Assets/Textures/Objects/apple_tree.png" id="3_vaht6"]
 [ext_resource type="Resource" uid="uid://c1iu4l3m78d8v" path="res://Resources/Items/Structures/sapling.tres" id="6_3kn26"]
 [ext_resource type="Resource" uid="uid://eeregnlqd1ee" path="res://Resources/Items/wood.tres" id="7_n4m1q"]
+[ext_resource type="AudioStream" uid="uid://37f7vyd6qhvg" path="res://Assets/Sounds/hit-tree.mp3" id="8_n4m1q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsloy"]
 atlas = ExtResource("1_b0kcf")
@@ -114,5 +115,9 @@ position = Vector2(-22, 36)
 occluder = SubResource("OccluderPolygon2D_ebggc")
 
 [node name="AppleTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_n4m1q")
+volume_db = -9.0
 
 [connection signal="timeout" from="AppleTimer" to="." method="_on_apple_timer_timeout"]
