@@ -1,4 +1,4 @@
-extends Area2D
+extends Structure
 
 func interact(player : Player) -> void:
 	$CanvasLayer/RepairMenu.show()
