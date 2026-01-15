@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://y7vcpunxm45x"]
+[gd_scene load_steps=22 format=3 uid="uid://y7vcpunxm45x"]
 
 [ext_resource type="Script" uid="uid://borj6l7sh0iy5" path="res://Scripts/Classes/Entities/PassiveEntity.gd" id="1_4bf5e"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_2yaru"]
 [ext_resource type="Resource" uid="uid://skabqfhsljcg" path="res://Resources/Items/Food/meat.tres" id="3_h844i"]
-[ext_resource type="Texture2D" uid="uid://b4wfcr2xl0srx" path="res://Assets/Textures/Entities/caw.png" id="4_h844i"]
+[ext_resource type="Texture2D" uid="uid://bb85hyt5kkxbw" path="res://Assets/Textures/Entities/caw.png" id="4_h844i"]
+[ext_resource type="Resource" uid="uid://cvf5jwa1bw1d5" path="res://Resources/Items/leather.tres" id="4_j3vjv"]
 [ext_resource type="Script" uid="uid://b56lnunx30ak3" path="res://Scripts/Entities/animations.gd" id="5_g5gbr"]
 
 [sub_resource type="Resource" id="Resource_g5gbr"]
@@ -16,6 +17,18 @@ metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 script = ExtResource("2_2yaru")
 item = ExtResource("3_h844i")
 chance = 50
+metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
+
+[sub_resource type="Resource" id="Resource_x7ckd"]
+script = ExtResource("2_2yaru")
+item = ExtResource("4_j3vjv")
+chance = 100
+metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
+
+[sub_resource type="Resource" id="Resource_21yad"]
+script = ExtResource("2_2yaru")
+item = ExtResource("4_j3vjv")
+chance = 25
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h844i"]
@@ -110,7 +123,7 @@ min_retarget_time = 3.0
 max_retarget_time = 5.0
 max_hp = 50
 speed = 25
-loot_table = Array[ExtResource("2_2yaru")]([SubResource("Resource_g5gbr"), SubResource("Resource_j3vjv")])
+loot_table = Array[ExtResource("2_2yaru")]([SubResource("Resource_g5gbr"), SubResource("Resource_j3vjv"), SubResource("Resource_x7ckd"), SubResource("Resource_21yad")])
 metadata/_custom_type_script = "uid://borj6l7sh0iy5"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
