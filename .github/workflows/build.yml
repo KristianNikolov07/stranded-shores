@@ -14,12 +14,12 @@ jobs:
     permissions:
       contents: write
     
-    name: Export Game
+    name: Export And Upload
     steps:
     - name: checkout
       uses: actions/checkout@v5
   
-    - name: Export Games
+    - name: Export
       id: export
       uses: firebelley/godot-export@v7.0.0
       with:
@@ -28,40 +28,10 @@ jobs:
         relative_project_path: ./
         archive_output: true
 
-    - name: create release
+    - name: Create Release
       uses: ncipollo/release-action@v1.18.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         generateReleaseNotes: true
         tag: ${{ github.ref_name }}
         artifacts: ${{ steps.export.outputs.archive_directory }}/*
-        
-    - name: Upload Windows
-      uses: KikimoraGames/itch-publish@v0.0.3
-      with:
-        butlerApiKey: ${{secrets.BUTLER_API_KEY}}
-        gameData:  ${{ steps.export.outputs.archive_directory }}/Windows.zip
-        itchUsername: ${{env.ITCH_USERNAME}}
-        itchGameId: ${{ env.ITCH_GAME_ID }}
-        buildChannel: "Windows"
-        buildNumber: ${{ github.ref_name }}
-
-    - name: Upload Linux
-      uses: KikimoraGames/itch-publish@v0.0.3
-      with:
-        butlerApiKey: ${{secrets.BUTLER_API_KEY}}
-        gameData:  ${{ steps.export.outputs.archive_directory }}/Linux.zip
-        itchUsername: ${{env.ITCH_USERNAME}}
-        itchGameId: ${{ env.ITCH_GAME_ID }}
-        buildChannel: "Linux"
-        buildNumber: ${{ github.ref_name }}
-
-    - name: Upload Web
-      uses: KikimoraGames/itch-publish@v0.0.3
-      with:
-        butlerApiKey: ${{secrets.BUTLER_API_KEY}}
-        gameData:  ${{ steps.export.outputs.archive_directory }}/Web.zip
-        itchUsername: ${{env.ITCH_USERNAME}}
-        itchGameId: ${{ env.ITCH_GAME_ID }}
-        buildChannel: "Web"
-        buildNumber: ${{ github.ref_name }}
