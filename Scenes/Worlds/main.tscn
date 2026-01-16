@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://c0ywgb5q0iqsg"]
+[gd_scene load_steps=31 format=4 uid="uid://c0ywgb5q0iqsg"]
 
 [ext_resource type="Texture2D" uid="uid://b2sxc2tyo0mfa" path="res://Assets/Textures/tilemap.png" id="2_bu3mo"]
 [ext_resource type="Script" uid="uid://cctr251x3yfn2" path="res://Scripts/Other/tilemap.gd" id="2_kdqb4"]
@@ -602,6 +602,18 @@ _data = {
 &"day-night-transition": SubResource("Animation_ctrak")
 }
 
+[sub_resource type="Resource" id="Resource_uuto2"]
+script = ExtResource("6_uuto2")
+scene = ExtResource("8_lr86y")
+change = 100
+metadata/_custom_type_script = "uid://dh42imrwqp3e"
+
+[sub_resource type="Resource" id="Resource_73d62"]
+script = ExtResource("6_uuto2")
+scene = ExtResource("9_lr86y")
+change = 25
+metadata/_custom_type_script = "uid://dh42imrwqp3e"
+
 [node name="Main" type="Node2D"]
 
 [node name="Tilemap" type="TileMapLayer" parent="." groups=["Tilemap"]]
@@ -686,8 +698,8 @@ libraries = {
 
 [node name="EntitySpawning" type="Node" parent="." groups=["Enemies", "PassiveEntities"]]
 script = ExtResource("6_hss3q")
-passiveEntityes = Array[PackedScene]([ExtResource("8_lr86y")])
-enemies = Array[PackedScene]([ExtResource("9_lr86y")])
+passiveEntityes = Array[ExtResource("6_uuto2")]([SubResource("Resource_uuto2")])
+enemies = Array[ExtResource("6_uuto2")]([SubResource("Resource_73d62")])
 min_distance_from_player = 200.0
 max_distance_from_player = 350.0
 

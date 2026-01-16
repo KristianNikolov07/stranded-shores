@@ -40,7 +40,7 @@
 		"next_objective": "mining"
 	},
 	"mining":{
-		"description": "MININIG_OBJECTIVE_DESCRIPTION",
+		"description": "MINING_OBJECTIVE_DESCRIPTION",
 		"next_objective": "iron"
 	},
 	"iron":{
