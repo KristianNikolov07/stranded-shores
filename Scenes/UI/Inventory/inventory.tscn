@@ -34,6 +34,7 @@ anchor_top = 0.78549385
 anchor_bottom = 0.8968766
 grow_horizontal = 1
 grow_vertical = 1
+type = 1
 
 [node name="Outline" parent="ArmorSlot" index="1"]
 texture = SubResource("AtlasTexture_4svce")
@@ -44,6 +45,7 @@ anchor_top = 0.8888889
 anchor_bottom = 1.0002717
 grow_horizontal = 1
 grow_vertical = 1
+type = 2
 
 [node name="Outline" parent="BackpackSlot" index="1"]
 texture = SubResource("AtlasTexture_gx7nd")

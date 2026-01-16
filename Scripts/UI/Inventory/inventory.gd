@@ -1,3 +1,4 @@
+class_name Inventory
 extends Control
 
 const ITEM_SLOT_SCENE = preload("res://Scenes/UI/Inventory/item_slot.tscn")
@@ -58,7 +59,7 @@ func _input(event: InputEvent) -> void:
 				backpack.open()
 
 
-func add_item(item : Item) -> bool:
+func add_item(item : Item, bypass_backpack : bool = false) -> bool:
 	# Rocks and Sticks Objective
 	if item.item_name == "Rock":
 		if has_item("Stick", 10) and has_item("Rock", 9):
@@ -96,7 +97,7 @@ func add_item(item : Item) -> bool:
 			reselect_slot()
 			return true
 	
-	if backpack_item != null:
+	if backpack_item != null and bypass_backpack == false:
 		if backpack.add_item(item):
 			return true
 	return false
@@ -280,7 +281,7 @@ func unequip_armor() -> void:
 
 func unequip_backpack() -> void:
 	if backpack_item != null and backpack.is_empty():
-		if add_item(backpack_item.duplicate()):
+		if add_item(backpack_item.duplicate(), true):
 			set_backpack(null)
 
 

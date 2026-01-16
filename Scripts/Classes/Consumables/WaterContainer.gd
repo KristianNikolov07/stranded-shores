@@ -13,7 +13,9 @@ func _init() -> void:
 
 
 func fill() -> void:
+	var player : Player = Global.get_player()
 	water_amount = capacity
+	player.inventory.visualize_inventory()
 	
 	# Water objective
 	Global.get_player().objectives.complete_objective("water")
@@ -36,4 +38,5 @@ func use(player : Player) -> void:
 	if water_amount > 0:
 		super.use(player)
 		water_amount -= 1
+		player.inventory.visualize_inventory()
 	

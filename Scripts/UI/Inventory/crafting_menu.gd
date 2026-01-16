@@ -72,6 +72,10 @@ func craft(recipe : Recipe) -> void:
 		if recipe.result.item_name == "Workbench":
 			player.objectives.complete_objective("workbench")
 		
+		# Backpack Objective
+		if recipe.result.item_name == "Backpack":
+			player.objectives.complete_objective("backpack")
+		
 		if !player.inventory.add_item(recipe.result.duplicate()):
 			var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 			dropped_item.item = recipe.result

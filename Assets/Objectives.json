@@ -29,7 +29,11 @@
 	},
 	"workbench":{
 		"description": "WORKBENCH_OBJECTIVE_DESCRIPTION",
-		"next_objective": "water",
+		"next_objective": "backpack",
+	},
+	"backpack":{
+		"description": "BACKPACK_OBJECTIVE_DESCRIPTION",
+		"next_objective": "water"
 	},
 	"water":{
 		"description": "WATER_OBJECTIVE_DESCRIPTION",

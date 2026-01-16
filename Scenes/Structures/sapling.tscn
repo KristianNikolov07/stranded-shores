@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnl6f57vr6u27"]
 
 [ext_resource type="Script" uid="uid://d14s0o2ayacsh" path="res://Scripts/Structures/sapling.gd" id="1_b40db"]
-[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_b40db"]
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="2_b40db"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7tjj"]
 atlas = ExtResource("2_b40db")
@@ -19,7 +19,7 @@ metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
+scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_d7tjj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

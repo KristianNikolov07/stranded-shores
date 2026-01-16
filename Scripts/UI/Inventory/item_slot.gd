@@ -19,6 +19,8 @@ var selected = false
 func set_item(item : Item) -> void:
 	if item != null:
 		$Outline.hide()
+		
+		# Item texture
 		$Item.texture = item.texture
 		if item.amount > 1:
 			$MarginContainer/Amount.text = str(item.amount)
@@ -26,6 +28,7 @@ func set_item(item : Item) -> void:
 		else:
 			$MarginContainer/Amount.hide()
 		
+		# Durability
 		if item is Tool or item is Armor:
 			$MarginContainer/Durability.max_value = item.max_durability
 			if item.durability == item.max_durability:
@@ -35,11 +38,21 @@ func set_item(item : Item) -> void:
 				$MarginContainer/Durability.show()
 		else:
 			$MarginContainer/Durability.hide() 
+		
+		# Water Amount
+		if item is WaterContainer:
+			$MarginContainer/Water.show()
+			$MarginContainer/Water.max_value = item.capacity
+			$MarginContainer/Water.value = item.water_amount
+		else:
+			$MarginContainer/Water.hide()
+	
 	else:
 		$Outline.show()
 		$Item.texture = null
 		$MarginContainer/Amount.hide()
 		$MarginContainer/Durability.hide() 
+		$MarginContainer/Water.hide()
 
 
 func select() -> void:
