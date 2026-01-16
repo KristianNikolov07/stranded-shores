@@ -12,14 +12,12 @@ enum Type{
 @export var id : int
 @export var can_be_clicked = true
 
-var item
 var selected = false
 
 @onready var player : Player = Global.get_player()
 
-func set_item(_item : Item) -> void:
-	item = _item
-	if _item != null:
+func set_item(item : Item) -> void:
+	if item != null:
 		$Outline.hide()
 		$Item.texture = item.texture
 		if item.amount > 1:
@@ -57,7 +55,7 @@ func deselect() -> void:
 func _on_button_pressed() -> void:
 	if can_be_clicked:
 		if player.repair_menu != null:
-			player.repair_menu.set_tool(item)
+			player.repair_menu.set_tool(player.inventory.items[id])
 		elif type == Type.ARMOR:
 			get_parent().unequip_armor()
 		elif type == Type.BACKPACK:
@@ -66,4 +64,4 @@ func _on_button_pressed() -> void:
 			if is_in_backpack:
 				get_parent().remove_item_from_storage(id)
 			else:
-				get_node("../../").move_item_to_storage(int(name))
+				get_node("../../").move_item_to_storage(id)

@@ -101,7 +101,7 @@ func remove_item_from_slot(slot : int, amount = 1) -> void:
 		items[slot].decrease_amount(amount)
 		if items[slot].amount <= 0:
 			items[slot] = null
-			update_storage()
+		update_storage()
 
 
 func remove_item_from_storage(slot : int) -> void:

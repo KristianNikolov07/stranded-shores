@@ -317,18 +317,18 @@ func drop_inventory() -> void:
 func initiate_inventory_UI():
 	for i in range(inventory_size):
 		var node = ITEM_SLOT_SCENE.instantiate()
-		node.name = str(i)
+		node.id = i
 		$Inventory.add_child(node)
-	$"Inventory/0".select()
+	$Inventory.get_child(0).select()
 
 func visualize_inventory():
 	for i in range(items.size()):
-		$Inventory.get_node(str(i)).set_item(items[i])
+		$Inventory.get_child(i).set_item(items[i])
 	$ArmorSlot.set_item(armor)
 	$BackpackSlot.set_item(backpack_item)
 
 
 func visualize_selected_slot():
-	for i in range($Inventory.get_child_count()):
-		$Inventory.get_node(str(i)).deselect()
-	$Inventory.get_node(str(selected_slot)).select()
+	for child in $Inventory.get_children():
+		child.deselect()
+	$Inventory.get_child(selected_slot).select()

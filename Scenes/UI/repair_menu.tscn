@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ri8mkxrx5357"]
+[gd_scene load_steps=4 format=3 uid="uid://ri8mkxrx5357"]
 
 [ext_resource type="Script" uid="uid://rmu2kyj31hur" path="res://Scripts/UI/repair_menu.gd" id="1_8uoeh"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_hjpn2"]
 [ext_resource type="PackedScene" uid="uid://b14v1jc5n78s2" path="res://Scenes/UI/Inventory/item_slot.tscn" id="2_5p5qb"]
-[ext_resource type="Texture2D" uid="uid://b1vbxn5yod07u" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="4_8uoeh"]
 
 [node name="RepairMenu" type="PanelContainer"]
 anchors_preset = 8
@@ -35,13 +34,13 @@ theme_override_constants/separation = 29
 [node name="Tool" parent="VBoxContainer/VBoxContainer" instance=ExtResource("2_5p5qb")]
 unique_name_in_owner = true
 layout_mode = 2
+can_be_clicked = false
 
 [node name="Material" type="TextureRect" parent="VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
-texture = ExtResource("4_8uoeh")
 
 [node name="RepairButton" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
