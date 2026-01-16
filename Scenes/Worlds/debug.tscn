@@ -93,11 +93,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Spawn Test Entity"
 
-[node name="SpawnTestEnemy" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Spawn Test Enemy"
-
 [node name="Time Change" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
@@ -113,38 +108,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Give Bow"
 
-[node name="PassiveEntityCount" type="Label" parent="."]
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.425
-anchor_right = 1.0
-anchor_bottom = 0.432
-offset_left = -144.0
-offset_top = -11.399994
-offset_right = -16.0
-offset_bottom = 7.0639954
-grow_horizontal = 0
-grow_vertical = 2
-text = "Passive Entities: "
-horizontal_alignment = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="EnemyCount" type="Label" parent="."]
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.425
-anchor_right = 1.0
-anchor_bottom = 0.432
-offset_left = -144.0
-offset_top = 20.600006
-offset_right = -16.0
-offset_bottom = 39.063995
-grow_horizontal = 0
-grow_vertical = 2
-text = "Enemies: "
-horizontal_alignment = 2
-metadata/_edit_use_anchors_ = true
-
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/ListInventory" to="." method="list_items"]
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/AddTestItem" to="." method="_on_add_test_item_pressed"]
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/RemoveTestItem" to="." method="_on_remove_test_item_pressed"]
@@ -155,7 +118,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/SpawnTestEntity" to="." method="_on_spawn_test_entity_pressed"]
-[connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/SpawnTestEnemy" to="." method="_on_spawn_test_enemy_pressed"]
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/Time Change" to="." method="_on_time_change_pressed"]
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/TreeBoss" to="." method="_on_tree_boss_pressed"]
 [connection signal="pressed" from="Debug/Panel/ScrollContainer/VBoxContainer/GiveBow" to="." method="_on_give_bow_pressed"]

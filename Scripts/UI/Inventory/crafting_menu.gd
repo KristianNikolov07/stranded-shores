@@ -108,13 +108,20 @@ func update_ui() -> void:
 			%CraftButton.disabled = false
 		else:
 			%CraftButton.disabled = true
+	
+	# Recipes
 	for recipe in %Recipes.get_children():
 		if recipe.recipe.requires_crafting_table():
 			if is_crafting_table:
-				if recipe.recipe.tool == selected_tool or recipe.recipe.tool == null:
+				if recipe.recipe.tool == selected_tool:
 					recipe.show()
 				else:
 					recipe.hide()
+			else:
+				recipe.hide()
+		else:
+			if selected_tool == null or is_crafting_table == false:
+				recipe.show()
 			else:
 				recipe.hide()
 	
@@ -128,3 +135,10 @@ func update_ui() -> void:
 
 func _on_craft_pressed() -> void:
 	craft(selected_recipe)
+
+
+func _on_crafting_tool_slot_tool_selected(tool: CraftingTool) -> void:
+	if selected_tool == tool:
+		select_tool(null)
+	else:
+		select_tool(tool)

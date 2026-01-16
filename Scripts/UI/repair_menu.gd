@@ -46,4 +46,5 @@ func _on_repair_button_pressed() -> void:
 	if player.inventory.has_item(tool.repair_item.item_name):
 		tool.repair()
 		player.inventory.remove_item(tool.repair_item.item_name)
+		player.inventory.visualize_inventory()
 		update_ui()

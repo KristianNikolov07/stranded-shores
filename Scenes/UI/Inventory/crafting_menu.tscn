@@ -4,12 +4,12 @@
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_fyp3v"]
 [ext_resource type="PackedScene" uid="uid://daxxibw6axoih" path="res://Scenes/UI/Inventory/crafting_slot.tscn" id="2_hs25i"]
 [ext_resource type="PackedScene" uid="uid://e2riunx43o7p" path="res://Scenes/UI/Inventory/crafting_tool_button.tscn" id="4_2fa18"]
-[ext_resource type="Texture2D" uid="uid://cvrlsbtwytbd7" path="res://Assets/Textures/UI/plus.png" id="4_g87qd"]
-[ext_resource type="Texture2D" uid="uid://d01mlsor7lh1k" path="res://Assets/Textures/Items/test_item.png" id="4_l8p2g"]
+[ext_resource type="Texture2D" uid="uid://bb0fp4f2xen18" path="res://Assets/Textures/UI/plus.png" id="4_g87qd"]
+[ext_resource type="Texture2D" uid="uid://c4b5akvqxuu0h" path="res://Assets/Textures/Items/test_item.png" id="4_l8p2g"]
 [ext_resource type="Resource" uid="uid://dcgmig5kdolf8" path="res://Resources/CraftingTools/hammer.tres" id="5_dvuwp"]
-[ext_resource type="Texture2D" uid="uid://ceacgbygoxt43" path="res://Assets/Textures/UI/big_arrow.png" id="5_l8p2g"]
-[ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="5_umd2w"]
-[ext_resource type="Texture2D" uid="uid://db18ovrssm1ga" path="res://Assets/Textures/Items/Weapons/test_sword.png" id="6_k37wi"]
+[ext_resource type="Texture2D" uid="uid://m3in4snxed4n" path="res://Assets/Textures/UI/big_arrow.png" id="5_l8p2g"]
+[ext_resource type="Texture2D" uid="uid://b1vbxn5yod07u" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="5_umd2w"]
+[ext_resource type="Texture2D" uid="uid://bxwr6gg0wme6t" path="res://Assets/Textures/Items/Weapons/test_sword.png" id="6_k37wi"]
 [ext_resource type="Resource" uid="uid://dnyirqgk2r7cr" path="res://Resources/CraftingTools/handsaw.tres" id="7_ywugm"]
 [ext_resource type="Resource" uid="uid://nfdyvo3u6riw" path="res://Resources/CraftingTools/scissors.tres" id="9_fdhci"]
 
@@ -119,7 +119,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = -5
 
-[connection signal="tool_selected" from="HBoxContainer/VBoxContainer/Tools/CraftingToolSlot" to="." method="select_tool"]
-[connection signal="tool_selected" from="HBoxContainer/VBoxContainer/Tools/CraftingToolSlot2" to="." method="select_tool"]
-[connection signal="tool_selected" from="HBoxContainer/VBoxContainer/Tools/CraftingToolSlot3" to="." method="select_tool"]
+[connection signal="tool_selected" from="HBoxContainer/VBoxContainer/Tools/CraftingToolSlot" to="." method="_on_crafting_tool_slot_tool_selected"]
+[connection signal="tool_selected" from="HBoxContainer/VBoxContainer/Tools/CraftingToolSlot2" to="." method="_on_crafting_tool_slot_tool_selected"]
+[connection signal="tool_selected" from="HBoxContainer/VBoxContainer/Tools/CraftingToolSlot3" to="." method="_on_crafting_tool_slot_tool_selected"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/CraftButton" to="." method="_on_craft_pressed"]

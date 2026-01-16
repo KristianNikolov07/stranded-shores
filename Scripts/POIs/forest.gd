@@ -9,8 +9,6 @@ const TREE_SCENE = preload("res://Scenes/Structures/tree.tscn")
 
 func generate() -> void:
 	generate_trees()
-	$ObjectiveTrigger/CollisionShape2D.shape.radius = radius * Global.TILE_SIZE * Global.TILEMAP_SCALE
-	print($ObjectiveTrigger/CollisionShape2D.shape.radius)
 
 
 func generate_trees() -> void:

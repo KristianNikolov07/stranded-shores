@@ -1,18 +1,11 @@
 extends CanvasLayer
 
 var test_entity_scene = preload("res://Scenes/Entities/test_entity.tscn")
-var test_enemy_scene = preload("res://Scenes/Entities/Enemies/test_enemy.tscn")
 
 @onready var player : Player = get_node("../Player")
 
 func _ready() -> void:
 	$Debug.hide()
-	if "debug" in OS.get_cmdline_args():
-		$PassiveEntityCount.show()
-		$EnemyCount.show()
-	else:
-		$PassiveEntityCount.hide()
-		$EnemyCount.hide()
 
 
 func _process(_delta: float) -> void:
@@ -90,12 +83,6 @@ func _on_spawn_test_entity_pressed() -> void:
 	var entity : Entity = test_entity_scene.instantiate()
 	entity.global_position = player.global_position
 	player.get_parent().add_child(entity)
-
-
-func _on_spawn_test_enemy_pressed() -> void:
-	var enemy : Enemy = test_enemy_scene.instantiate()
-	enemy.global_position = player.global_position
-	player.get_parent().add_child(enemy)
 
 
 func _on_time_change_pressed() -> void:

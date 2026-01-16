@@ -58,7 +58,7 @@ func _input(event: InputEvent) -> void:
 				backpack.open()
 
 
-func add_item(item : Item, bypass_backpack = false) -> bool:
+func add_item(item : Item) -> bool:
 	# Rocks and Sticks Objective
 	if item.item_name == "Rock":
 		if has_item("Stick", 10) and has_item("Rock", 9):
@@ -76,11 +76,6 @@ func add_item(item : Item, bypass_backpack = false) -> bool:
 	if item.item_name == "Iron Ore":
 		if has_item("Iron Ore", 9):
 			player.objectives.complete_objective("iron")
-	
-	
-	if backpack_item != null and bypass_backpack == false:
-		if backpack.add_item(item):
-			return true
 	
 	if has_item(item.item_name):
 		for i in range(items.size()):
@@ -101,6 +96,9 @@ func add_item(item : Item, bypass_backpack = false) -> bool:
 			reselect_slot()
 			return true
 	
+	if backpack_item != null:
+		if backpack.add_item(item):
+			return true
 	return false
 
 

@@ -106,7 +106,7 @@ func remove_item_from_slot(slot : int, amount = 1) -> void:
 
 func remove_item_from_storage(slot : int) -> void:
 	if items[slot] != null:
-		if player.inventory.add_item(items[slot], true):
+		if player.inventory.add_item(items[slot]):
 			remove_item_from_slot(slot, items[slot].amount)
 
 
