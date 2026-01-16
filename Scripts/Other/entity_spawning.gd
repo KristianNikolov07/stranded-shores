@@ -27,28 +27,32 @@ func check_position(pos : Vector2) -> bool:
 		return false
 
 
-func _on_spawn_attempt_timeout() -> void:
-	var entity_spawn : SpawnChance
+func spawn() -> void:
+	var entities : Array[SpawnChance]
 	if day_night_cycle.is_night and get_tree().get_nodes_in_group("Enemies").size() < ENEMY_CAP:
-		entity_spawn = enemies.pick_random()
+		entities = enemies
 	elif day_night_cycle.is_night == false and get_tree().get_nodes_in_group("PassiveEntities").size() < PASSIVE_ENTITY_CAP:
-		entity_spawn = passiveEntityes.pick_random()
+		entities = passiveEntityes
 	
-	if entity_spawn != null:
-		for i in range(spawn_amount):
-			if entity_spawn.roll_chance():
-				
-				# Choose Position
-				var distance : Vector2
-				distance.x = randf_range(min_distance_from_player, max_distance_from_player)
-				distance.y = randf_range(min_distance_from_player, max_distance_from_player)
-				if randi_range(0, 1) == 0:
-					distance.x = -distance.x
-				if randi_range(0, 1) == 0:
-					distance.y = -distance.y
-				var position : Vector2 = player.global_position + distance
-				
-				if await check_position(position):
-					var entity = entity_spawn.scene.instantiate()
-					entity.global_position = position
-					get_parent().add_child(entity)
+	for entity_spawn in entities:
+		if entity_spawn != null:
+			for i in range(spawn_amount):
+				if entity_spawn.roll_chance():
+					
+					# Choose Position
+					var distance : Vector2
+					distance.x = randf_range(min_distance_from_player, max_distance_from_player)
+					distance.y = randf_range(min_distance_from_player, max_distance_from_player)
+					if randi_range(0, 1) == 0:
+						distance.x = -distance.x
+					if randi_range(0, 1) == 0:
+						distance.y = -distance.y
+					var position : Vector2 = player.global_position + distance
+					
+					if await check_position(position):
+						var entity = entity_spawn.scene.instantiate()
+						entity.global_position = position
+						get_parent().add_child(entity)
+
+func _on_spawn_attempt_timeout() -> void:
+	spawn()

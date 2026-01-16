@@ -1,7 +1,7 @@
 class_name Enemy
 extends Entity
 
-@export var dmg : int
+@export var contact_damage : int
 @export var activate_distance : float
 
 func _ready() -> void:
@@ -26,4 +26,4 @@ func move_toward_to_player() -> void:
 
 func _contact_damage_on_body_entered(body) -> void:
 	if body is Player:
-		body.damage(dmg)
+		body.damage(contact_damage)

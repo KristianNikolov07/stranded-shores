@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_fx6yw"]
 [ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="1_nw3h4"]
 [ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="2_monc5"]
-[ext_resource type="PackedScene" path="res://Scenes/Tools/better_sword.tscn" id="4_monc5"]
+[ext_resource type="PackedScene" uid="uid://c8ojupjtvm5se" path="res://Scenes/Tools/better_sword.tscn" id="4_monc5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5l7je"]
 atlas = ExtResource("1_fx6yw")
@@ -20,10 +20,10 @@ region = Rect2(144, 16, 16, 16)
 [resource]
 script = ExtResource("1_nw3h4")
 tool_scene = ExtResource("4_monc5")
-max_durability = 50
-durability = 50
+max_durability = 200
+durability = 200
 repair_item = ExtResource("2_monc5")
-repair_amount = 25
+repair_amount = 50
 broken_texture = SubResource("AtlasTexture_5l7je")
 repaired_texture = SubResource("AtlasTexture_n1l5m")
 item_name = "Better Sword"

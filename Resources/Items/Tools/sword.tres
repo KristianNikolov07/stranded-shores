@@ -20,10 +20,8 @@ region = Rect2(80, 16, 16, 16)
 [resource]
 script = ExtResource("1_axhcr")
 tool_scene = ExtResource("4_dfjpa")
-max_durability = 50
-durability = 50
 repair_item = ExtResource("2_325b8")
-repair_amount = 20
+repair_amount = 50
 broken_texture = SubResource("AtlasTexture_njvhh")
 repaired_texture = SubResource("AtlasTexture_50cqm")
 item_name = "Sword"

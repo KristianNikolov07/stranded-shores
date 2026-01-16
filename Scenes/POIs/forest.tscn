@@ -1,14 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b303n5uyeksfc"]
+[gd_scene load_steps=5 format=3 uid="uid://b303n5uyeksfc"]
 
 [ext_resource type="Script" uid="uid://c6kp2rykw2xor" path="res://Scripts/POIs/forest.gd" id="1_astk3"]
 [ext_resource type="Script" uid="uid://c0ir7q8od6i12" path="res://Scripts/Entities/Bosses/TreeBoss/tree_boss_spawn.gd" id="2_6q1n4"]
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="2_e1o73"]
-[ext_resource type="PackedScene" uid="uid://u1dne2n4iiwl" path="res://Scenes/Triggers/objective_trigger.tscn" id="4_w3is4"]
+[ext_resource type="Texture2D" uid="uid://da3k5xqrcn02p" path="res://Assets/Textures/icon.svg" id="2_e1o73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1o73"]
 size = Vector2(128, 128)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_w3is4"]
 
 [node name="Forest" type="Node2D"]
 script = ExtResource("1_astk3")
@@ -26,9 +23,3 @@ texture = ExtResource("2_e1o73")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TreeBossSpawn"]
 shape = SubResource("RectangleShape2D_e1o73")
-
-[node name="ObjectiveTrigger" parent="." instance=ExtResource("4_w3is4")]
-objective_name = "explore"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveTrigger"]
-shape = SubResource("CircleShape2D_w3is4")

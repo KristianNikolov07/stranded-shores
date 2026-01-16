@@ -102,14 +102,14 @@ func _input(event: InputEvent) -> void:
 	
 	#Interactions
 	elif event.is_action_pressed("Interact"):
-		if $InteractionRange.get_overlapping_areas().size() > 0:
+		for object in $InteractionRange.get_overlapping_areas():
 			# Objective
 			objectives.complete_objective("interact")
-			$InteractionRange.get_overlapping_areas()[0].interact(get_node("."))
-		elif $InteractionRange.get_overlapping_bodies().size() > 0:
+			object.interact(self)
+		for object in $InteractionRange.get_overlapping_bodies():
 			# Objective
 			objectives.complete_objective("interact")
-			$InteractionRange.get_overlapping_bodies()[0].interact(get_node("."))
+			object.interact(self)
 
 
 func damage(dmg : int, is_hunger_or_thirst = false) -> void:

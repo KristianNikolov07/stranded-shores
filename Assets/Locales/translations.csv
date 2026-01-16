@@ -31,8 +31,7 @@ WORKBENCH_OBJECTIVE_DESCRIPTION,"Craft a workbench","Изработете раб
 WATER_OBJECTIVE_DESCRIPTION,"Craft a waterskin and use it to collect water","Изработете мех за вода и го използвайте, за да съберете вода"
 FOOD_OBJECTIVE_DESCRIPTION,"Obtain cooked food","Сготвате храна"
 MINING_OBJECTIVE_DESCRIPTION,"Mine a big rock","Изкопайте голяма скала"
-EXPLORE_OBJECTIVE_DESCRIPTION,"Explore the island","Изследвайте острова"
+EXPLORE_OBJECTIVE_DESCRIPTION,"Find and explore the forest","Намерете и изследвайте гората"
 IRON_OBJECTIVE_DESCRIPTION,"Mine 10 iron",Изкопайте 10 желязо
 CLEAN_WATER_OBJECTIVE_DESCRIPTION,"Obtain clean water","Осигурете си чиста вода"
-FOREST_OBJECTIVE_DESCRIPTION,"Explore the forest","Изследвайте гората"
 TREE_BOSS_OBJECTIVE_DESCRIPTION,"Defeat the Big Tree","Победете Голямото Дърво"

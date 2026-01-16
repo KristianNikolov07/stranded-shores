@@ -16,8 +16,9 @@ z_index = 4
 collision_layer = 2144
 collision_mask = 0
 script = ExtResource("1_uglrb")
+contact_damage = 10
 activate_distance = 10000.0
-max_hp = 1000
+max_hp = 5000
 can_despawn = false
 metadata/_custom_type_script = "uid://c3fbx4w04b6te"
 

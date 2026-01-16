@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1il72ic3cmny"]
+[gd_scene load_steps=6 format=3 uid="uid://c1il72ic3cmny"]
 
 [ext_resource type="Script" uid="uid://b43nvi8lu3ply" path="res://Scripts/Structures/repair_station.gd" id="1_fehe7"]
 [ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_vjtcn"]
+[ext_resource type="PackedScene" uid="uid://ri8mkxrx5357" path="res://Scenes/UI/repair_menu.tscn" id="3_upv2i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_upv2i"]
 atlas = ExtResource("2_vjtcn")
@@ -24,3 +25,7 @@ texture = SubResource("AtlasTexture_upv2i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_utwj6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RepairMenu" parent="CanvasLayer" instance=ExtResource("3_upv2i")]

@@ -20,10 +20,8 @@ region = Rect2(32, 16, 16, 16)
 [resource]
 script = ExtResource("1_h7d45")
 tool_scene = ExtResource("4_oavet")
-max_durability = 50
-durability = 50
 repair_item = ExtResource("2_oavet")
-repair_amount = 25
+repair_amount = 50
 broken_texture = SubResource("AtlasTexture_4li6h")
 repaired_texture = SubResource("AtlasTexture_u6el3")
 item_name = "Better Pickaxe"

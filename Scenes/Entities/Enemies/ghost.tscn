@@ -14,7 +14,7 @@ z_index = 4
 collision_layer = 2272
 collision_mask = 0
 script = ExtResource("1_ndnvk")
-dmg = 10
+contact_damage = 5
 activate_distance = 1000.0
 metadata/_custom_type_script = "uid://c3fbx4w04b6te"
 

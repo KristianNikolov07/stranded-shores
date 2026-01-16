@@ -53,10 +53,6 @@
 	},
 	"explore":{
 		"description": "EXPLORE_OBJECTIVE_DESCRIPTION",
-		"next_objective": "forest"
-	},
-	"forest":{
-		"description": "FOREST_OBJECTIVE_DESCRIPTION",
 		"next_objective": "tree boss"
 	},
 	"tree boss":{
