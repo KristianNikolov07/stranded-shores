@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c8ojupjtvm5se"]
 
 [ext_resource type="Script" uid="uid://ddawtef3k1j6m" path="res://Scripts/Tools/sword.gd" id="1_ba0y4"]
-[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_rfpca"]
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="2_rfpca"]
 [ext_resource type="AudioStream" uid="uid://dgetefdrwahg8" path="res://Assets/Sounds/sword-hit.mp3" id="3_rfpca"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ba0y4"]

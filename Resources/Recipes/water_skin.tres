@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_rj2sd"]
 [ext_resource type="Resource" uid="uid://cvf5jwa1bw1d5" path="res://Resources/Items/leather.tres" id="1_u3int"]
-[ext_resource type="Resource" path="res://Resources/Items/Water/waterskin.tres" id="2_c2qjs"]
+[ext_resource type="Resource" uid="uid://ckhhgkagwo2vc" path="res://Resources/Items/Water/waterskin.tres" id="2_c2qjs"]
 [ext_resource type="Resource" uid="uid://nfdyvo3u6riw" path="res://Resources/CraftingTools/scissors.tres" id="4_kauyh"]
 
 [resource]

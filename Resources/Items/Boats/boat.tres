@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_5d53y")
 item_name = "Boat"
-max_amount = 1
+item_path = null
 metadata/_custom_type_script = "uid://mi3rnc3ykr0w"

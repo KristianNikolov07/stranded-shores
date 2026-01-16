@@ -26,7 +26,7 @@ func use() -> void:
 
 func stop_using() -> void:
 	hide()
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
 
 
 func _on_body_entered(body: Node2D) -> void:

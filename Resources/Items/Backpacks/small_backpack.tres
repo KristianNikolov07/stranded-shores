@@ -6,5 +6,5 @@
 script = ExtResource("1_xn8l2")
 size = 5
 item_name = "Small Backpack"
-max_amount = 1
+item_path = null
 metadata/_custom_type_script = "uid://c0lywttvuiocp"

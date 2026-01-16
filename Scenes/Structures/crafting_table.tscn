@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c717mvl3cjmpf"]
 
 [ext_resource type="Script" uid="uid://bc1xhxp0j33cl" path="res://Scripts/Structures/crafting_table.gd" id="1_wephv"]
-[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_s6rio"]
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="2_s6rio"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ook5j"]
 atlas = ExtResource("2_s6rio")

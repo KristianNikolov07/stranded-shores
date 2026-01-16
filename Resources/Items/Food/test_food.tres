@@ -1,13 +1,10 @@
-[gd_resource type="Resource" script_class="Food" load_steps=4 format=3 uid="uid://trigjcvqvruf"]
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://trigjcvqvruf"]
 
 [ext_resource type="Script" uid="uid://dwh1bhdedho1q" path="res://Scripts/Classes/Consumables/Food.gd" id="1_elxbw"]
 [ext_resource type="Texture2D" uid="uid://d01mlsor7lh1k" path="res://Assets/Textures/Items/test_item.png" id="2_ne8w3"]
-[ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="3_qesvj"]
 
 [resource]
 script = ExtResource("1_elxbw")
-hunger_modifier_when_cooked = 10.0
-texture_when_cooked = ExtResource("3_qesvj")
 hunger_modifier = 1.0
 item_name = "Test Food"
 max_amount = 10

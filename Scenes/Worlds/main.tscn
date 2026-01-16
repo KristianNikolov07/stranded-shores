@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=4 uid="uid://c0ywgb5q0iqsg"]
 
-[ext_resource type="Texture2D" uid="uid://b2sxc2tyo0mfa" path="res://Assets/Textures/tilemap.png" id="2_bu3mo"]
+[ext_resource type="Texture2D" uid="uid://cpl4qu23vmwn6" path="res://Assets/Textures/tilemap.png" id="2_bu3mo"]
 [ext_resource type="Script" uid="uid://cctr251x3yfn2" path="res://Scripts/Other/tilemap.gd" id="2_kdqb4"]
 [ext_resource type="PackedScene" uid="uid://xqjghw70oxkf" path="res://Scenes/Objects/Player.tscn" id="2_msvm5"]
 [ext_resource type="PackedScene" uid="uid://mt76hyi6jq2q" path="res://Scenes/Worlds/debug.tscn" id="3_rt6fk"]
@@ -687,7 +687,7 @@ blend_mode = 1
 script = ExtResource("5_ctrak")
 
 [node name="Timer" type="Timer" parent="DayNightCycle"]
-wait_time = 600.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 

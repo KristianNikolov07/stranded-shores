@@ -8,4 +8,5 @@ script = ExtResource("1_q5txo")
 item_name = "test item"
 max_amount = 10
 texture = ExtResource("2_dpxiy")
+item_path = null
 metadata/_custom_type_script = "uid://bapf8m2htmno7"

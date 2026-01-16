@@ -15,12 +15,10 @@ script = ExtResource("1_1k5q3")
 
 [node name="ItemTexture" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(32, 32)
 scale = Vector2(4, 4)
 texture = ExtResource("1_5cnki")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_pn71l")
 
 [node name="DespawnTimer" type="Timer" parent="."]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6kp2rykw2xor" path="res://Scripts/POIs/forest.gd" id="1_astk3"]
 [ext_resource type="Script" uid="uid://c0ir7q8od6i12" path="res://Scripts/Entities/Bosses/TreeBoss/tree_boss_spawn.gd" id="2_6q1n4"]
-[ext_resource type="Texture2D" uid="uid://da3k5xqrcn02p" path="res://Assets/Textures/icon.svg" id="2_e1o73"]
+[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="2_e1o73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1o73"]
 size = Vector2(128, 128)

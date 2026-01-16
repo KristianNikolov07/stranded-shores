@@ -9,6 +9,6 @@ defence = 5
 max_durability = 100
 durability = 100
 item_name = "Test Armor"
-max_amount = 1
 texture = ExtResource("2_ffh6q")
+item_path = null
 metadata/_custom_type_script = "uid://wutefwu0vnf7"

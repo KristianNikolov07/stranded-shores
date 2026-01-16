@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-var test_entity_scene = preload("res://Scenes/Entities/test_entity.tscn")
-
 @onready var player : Player = get_node("../Player")
 
 func _ready() -> void:
@@ -53,14 +51,6 @@ func _on_add_test_consumable_pressed() -> void:
 		print("Unable to add a test consumable")
 
 
-func _on_add_basic_sword_pressed() -> void:
-	var sword = load("res://Resources/Items/Tools/test_weapon.tres")
-	if player.inventory.add_item(sword.duplicate()) == true:
-		print("Successfully added a test sword")
-	else:
-		print("Unable to add a test sword")
-
-
 func _on_damage_player_pressed() -> void:
 	player.damage(10)
 
@@ -77,12 +67,6 @@ func _on_save_pressed() -> void:
 func _on_load_pressed() -> void:
 	SaveProgress.save_name = "Test"
 	SaveProgress.load()
-
-
-func _on_spawn_test_entity_pressed() -> void:
-	var entity : Entity = test_entity_scene.instantiate()
-	entity.global_position = player.global_position
-	player.get_parent().add_child(entity)
 
 
 func _on_time_change_pressed() -> void:
