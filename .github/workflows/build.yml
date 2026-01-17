@@ -37,9 +37,20 @@ jobs:
         artifacts: ${{ steps.export.outputs.archive_directory }}/*
         
     - name: Upload to Itch.io
+      env:
+        BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
       run: |
-        wget -nv https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
-        7z -x "butler-linux-amd64.zip
-        butler-linux-amd64/butler push ${{ steps.export.outputs.archive_directory }}/Windows.zip kris-nikolov/stranded-shores:windows
-        butler-linux-amd64/butler push ${{ steps.export.outputs.archive_directory }}/Linux.zip kris-nikolov/stranded-shores:linux
-        butler-linux-amd64/butler push ${{ steps.export.outputs.archive_directory }}/Web.zip kris-nikolov/stranded-shores:web
+        set -euo pipefail
+    
+        sudo apt-get update
+        sudo apt-get install -y unzip
+    
+        curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
+        unzip -q butler.zip
+    
+        chmod +x butler-linux-amd64/butler
+    
+        butler-linux-amd64/butler push "${{ steps.export.outputs.archive_directory }}/Windows.zip" kris-nikolov/stranded-shores:windows
+        butler-linux-amd64/butler push "${{ steps.export.outputs.archive_directory }}/Linux.zip"   kris-nikolov/stranded-shores:linux
+        butler-linux-amd64/butler push "${{ steps.export.outputs.archive_directory }}/Web.zip"     kris-nikolov/stranded-shores:web
+
