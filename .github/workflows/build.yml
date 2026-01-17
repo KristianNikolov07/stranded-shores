@@ -35,3 +35,11 @@ jobs:
         generateReleaseNotes: true
         tag: ${{ github.ref_name }}
         artifacts: ${{ steps.export.outputs.archive_directory }}/*
+        
+    - name: Upload to Itch.io
+      run: |
+        "wget -nv https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default"
+        "7z -x "butler-linux-amd64.zip"
+        "butler-linux-amd64/butler push ${{ steps.export.outputs.archive_directory }}/Windows.zip kris-nikolov/stranded-shores:windows"
+        "butler-linux-amd64/butler push ${{ steps.export.outputs.archive_directory }}/Linux.zip kris-nikolov/stranded-shores:linux"
+        "butler-linux-amd64/butler push ${{ steps.export.outputs.archive_directory }}/Web.zip kris-nikolov/stranded-shores:web"
