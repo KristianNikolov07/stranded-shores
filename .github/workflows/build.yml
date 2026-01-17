@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      ITCH_NAME: "kris-nikolov/stranded-shores"
     
     name: Export And Upload
     steps:
@@ -48,7 +50,7 @@ jobs:
         
         chmod +x butler
     
-        ./butler push "${{ steps.export.outputs.archive_directory }}/Windows.zip" kris-nikolov/stranded-shores:windows --userversion ${{ github.ref_name }}
-        ./butler push "${{ steps.export.outputs.archive_directory }}/Linux.zip"   kris-nikolov/stranded-shores:linux   --userversion ${{ github.ref_name }}
-        ./butler push "${{ steps.export.outputs.archive_directory }}/Web.zip"     kris-nikolov/stranded-shores:web     --userversion ${{ github.ref_name }}
+        ./butler push "${{ steps.export.outputs.archive_directory }}/Windows.zip" ${ITCH_NAME}:windows --userversion ${{ github.ref_name }}
+        ./butler push "${{ steps.export.outputs.archive_directory }}/Linux.zip"   ${ITCH_NAME}:linux   --userversion ${{ github.ref_name }}
+        ./butler push "${{ steps.export.outputs.archive_directory }}/Web.zip"     ${ITCH_NAME}:web     --userversion ${{ github.ref_name }}
 
