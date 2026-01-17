@@ -47,7 +47,9 @@ jobs:
     
         curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
         unzip butler.zip
-    
+        
+        ls -la
+        
         chmod +x butler-linux-amd64/butler
     
         butler-linux-amd64/butler push "${{ steps.export.outputs.archive_directory }}/Windows.zip" kris-nikolov/stranded-shores:windows
