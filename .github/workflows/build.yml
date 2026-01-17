@@ -46,7 +46,7 @@ jobs:
         sudo apt-get install -y unzip
     
         curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
-        unzip -q butler.zip
+        unzip butler.zip
     
         chmod +x butler-linux-amd64/butler
     
