@@ -50,7 +50,7 @@ jobs:
         
         chmod +x butler
     
-        butler push "${{ steps.export.outputs.archive_directory }}/Windows.zip" kris-nikolov/stranded-shores:windows
-        butler push "${{ steps.export.outputs.archive_directory }}/Linux.zip"   kris-nikolov/stranded-shores:linux
-        butler push "${{ steps.export.outputs.archive_directory }}/Web.zip"     kris-nikolov/stranded-shores:web
+        ./butler push "${{ steps.export.outputs.archive_directory }}/Windows.zip" kris-nikolov/stranded-shores:windows
+        ./butler push "${{ steps.export.outputs.archive_directory }}/Linux.zip"   kris-nikolov/stranded-shores:linux
+        ./butler push "${{ steps.export.outputs.archive_directory }}/Web.zip"     kris-nikolov/stranded-shores:web
 
