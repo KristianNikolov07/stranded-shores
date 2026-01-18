@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dsdybbf1e57am"]
+
+[ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Item.gd" id="1_lprsg"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_4hvdu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhb8g"]
+atlas = ExtResource("2_4hvdu")
+region = Rect2(96, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_lprsg")
+item_name = "Arrow Tip"
+max_amount = 100
+texture = SubResource("AtlasTexture_vhb8g")
+item_path = "res://Resources/Items/arrow_tip.tres"
+metadata/_custom_type_script = "uid://bapf8m2htmno7"

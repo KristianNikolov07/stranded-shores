@@ -2,7 +2,7 @@ class_name Enemy
 extends Entity
 
 @export var contact_damage : int
-@export var activate_distance : float
+@export var activate_distance : float = 1000
 
 func _ready() -> void:
 	if $ContactDamage != null:

@@ -6,12 +6,6 @@ func _ready() -> void:
 	$Debug.hide()
 
 
-func _process(_delta: float) -> void:
-	if "debug" in OS.get_cmdline_args():
-		$PassiveEntityCount.text = "Passive Entities: " + str(get_tree().get_nodes_in_group("PassiveEntities").size())
-		$EnemyCount.text = "Enemies: " + str(get_tree().get_nodes_in_group("Enemies").size())
-
-
 func _input(event: InputEvent) -> void:
 	if "debug" in OS.get_cmdline_args():
 		if event.is_action_pressed("Debug"):

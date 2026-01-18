@@ -27,6 +27,10 @@ SaveProgress="*res://Scenes/Other/save_progress.tscn"
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
+[editor]
+
+run/main_run_args="debug"
+
 [file_customization]
 
 folder_colors={

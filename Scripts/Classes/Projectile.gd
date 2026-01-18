@@ -7,6 +7,7 @@ signal target_reached
 @export var continue_after_target = true
 @export var speed = 5
 @export var damage = 0
+@export var can_damage_structures = false
 
 var direction : Vector2
 
@@ -27,5 +28,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body : Node2D) -> void:
 	if body.has_method("damage"):
-		body.damage(damage)
+		if can_damage_structures or body is not Structure:
+			body.damage(damage)
 	queue_free()

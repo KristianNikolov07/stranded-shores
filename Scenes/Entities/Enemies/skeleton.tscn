@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://clnvfqe0v5ti1"]
+
+[ext_resource type="Script" uid="uid://c3fbx4w04b6te" path="res://Scripts/Classes/Entities/Enemy.gd" id="1_bj33v"]
+[ext_resource type="Texture2D" uid="uid://da3k5xqrcn02p" path="res://Assets/Textures/icon.svg" id="2_dl78v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dl78v"]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl78v"]
+size = Vector2(32, 32)
+
+[node name="Skeleton" type="CharacterBody2D"]
+collision_layer = 2272
+collision_mask = 197
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_bj33v")
+contact_damage = 10
+metadata/_custom_type_script = "uid://c3fbx4w04b6te"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_dl78v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dl78v")
+
+[node name="ContactDamage" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage"]
+position = Vector2(0, -4.7683716e-07)
+shape = SubResource("RectangleShape2D_dl78v")
