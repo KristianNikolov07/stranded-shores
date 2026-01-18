@@ -13,6 +13,7 @@ func use() -> void:
 	if player.inventory.has_item("Arrow"):
 		var arrow = ARROW_SCENE.instantiate()
 		arrow.global_position = $ShootPoint.global_position
+		arrow.projectile_owner = player
 		arrow.target = get_global_mouse_position()
 		get_tree().current_scene.add_child(arrow)
 		hit.emit()

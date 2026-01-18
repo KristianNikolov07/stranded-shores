@@ -10,6 +10,7 @@ signal target_reached
 @export var can_damage_structures = false
 
 var direction : Vector2
+var projectile_owner : Node
 
 func _ready() -> void:
 	if body_entered.is_connected(_on_body_entered) == false:
@@ -27,7 +28,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body : Node2D) -> void:
-	if body.has_method("damage"):
-		if can_damage_structures or body is not Structure:
-			body.damage(damage)
-	queue_free()
+	if body != projectile_owner:
+		if body.has_method("damage"):
+			if can_damage_structures or body is not Structure:
+				body.damage(damage)
+		queue_free()

@@ -36,5 +36,8 @@ func global_coords_to_tilemap_coords(global_coords : Vector2) -> Vector2:
 
 
 func get_player() -> Player:
-	var player : Player = get_tree().current_scene.find_child("Player")
-	return player
+	if get_tree().current_scene.has_node("Player"):
+		var player : Player = get_tree().current_scene.find_child("Player")
+		return player
+	else:
+		return null

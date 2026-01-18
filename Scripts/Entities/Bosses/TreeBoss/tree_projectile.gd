@@ -10,9 +10,10 @@ func plant(pos : Vector2):
 
 
 func _on_body_entered(body: Node2D) -> void:
-	plant(global_position)
 	if body is Player:
 		body.damage(damage)
+	elif body is Structure:
+		body.destroy()
 
 
 func _on_target_reached() -> void:

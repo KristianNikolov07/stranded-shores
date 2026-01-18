@@ -8,5 +8,5 @@ extends Item
 
 func take_durability(_durability : int = 1) -> void:
 	durability -= _durability
-	if durability < 0:
-		durability = 0
+	if durability <= 0:
+		Global.get_player().inventory.set_armor(null)
