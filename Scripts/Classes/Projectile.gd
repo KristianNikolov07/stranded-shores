@@ -11,7 +11,8 @@ signal target_reached
 var direction : Vector2
 
 func _ready() -> void:
-	body_entered.connect(_on_body_entered)
+	if body_entered.is_connected(_on_body_entered) == false:
+		body_entered.connect(_on_body_entered)
 	direction = global_position.direction_to(target)
 	look_at(target)
 

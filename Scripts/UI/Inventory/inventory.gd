@@ -78,6 +78,7 @@ func add_item(item : Item, bypass_backpack : bool = false) -> bool:
 		if has_item("Iron Ore", 9):
 			player.objectives.complete_objective("iron")
 	
+	
 	if has_item(item.item_name):
 		for i in range(items.size()):
 			if items[i] != null:

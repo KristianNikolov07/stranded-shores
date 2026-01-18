@@ -19,7 +19,7 @@ func use() -> void:
 
 
 func stop_using() -> void:
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
 	is_used = false
 
 
