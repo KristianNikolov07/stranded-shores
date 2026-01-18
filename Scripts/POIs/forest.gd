@@ -21,6 +21,6 @@ func generate_trees() -> void:
 				if get_tree().current_scene.has_node("Tilemap") == false or get_tree().current_scene.get_node("Tilemap").is_grass_tile(point):
 					if randi_range(1, 100) < tree_spawn_chance:
 						var tree = TREE_SCENE.instantiate()
-						tree.can_grow_apple = false
+						tree.can_grow_apples = false
 						tree.global_position = Global.tilemap_coords_to_global_coords(point)
 						get_tree().current_scene.call_deferred("add_child", tree)
