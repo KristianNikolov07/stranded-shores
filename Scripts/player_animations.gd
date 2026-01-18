@@ -9,7 +9,7 @@ func _process(_delta: float) -> void:
 		set("parameters/conditions/Idle", true)
 		set("parameters/conditions/Walking", false)
 		set("parameters/conditions/Running", false)
-	elif player.is_running == false:
+	elif player.is_running == false or player.stamina <= 0:
 		set("parameters/conditions/Idle", false)
 		set("parameters/conditions/Walking", true)
 		set("parameters/conditions/Running", false)
