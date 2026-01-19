@@ -131,14 +131,18 @@ func load_save() -> void:
 	var day_night_cycle = get_tree().current_scene.find_child("DayNightCycle")
 	if world.time_of_day == "night":
 		day_night_cycle.set_to_night(true)
+		day_night_cycle.get_node("DayTimer").stop()
 		if world.time_till_time_change != null:
-			day_night_cycle.get_node("NightTimer").stop()
 			day_night_cycle.get_node("NightTimer").start(world.time_till_time_change)
+		else:
+			day_night_cycle.get_node("NightTimer").start()
 	else:
 		day_night_cycle.set_to_day(true)
+		day_night_cycle.get_node("DayTimer").stop()
 		if world.time_till_time_change != null:
-			day_night_cycle.get_node("DayTimer").stop()
 			day_night_cycle.get_node("DayTimer").start(world.time_till_time_change)
+		else:
+			day_night_cycle.get_node("DayTimer").start()
 	
 	
 	if world.Objects != null:

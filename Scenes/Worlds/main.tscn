@@ -703,6 +703,7 @@ script = ExtResource("5_ctrak")
 [node name="DayTimer" type="Timer" parent="DayNightCycle"]
 wait_time = 420.0
 one_shot = true
+autostart = true
 
 [node name="NightTimer" type="Timer" parent="DayNightCycle"]
 wait_time = 180.0

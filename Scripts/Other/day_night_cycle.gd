@@ -7,15 +7,17 @@ var is_night = false
 func set_to_day(is_immediate = false) -> void:
 	if is_immediate == false:
 		$AnimationPlayer.play_backwards("day-night-transition")
-	energy = 0
-	is_night = false
+	else:
+		energy = 0
+		is_night = false
 
 
 func set_to_night(is_immediate = false) -> void:
 	if is_immediate == false:
 		$AnimationPlayer.play("day-night-transition")
-	energy = night_energy
-	is_night = true
+	else:
+		energy = night_energy
+		is_night = true
 
 
 func _on_day_timer_timeout() -> void:
