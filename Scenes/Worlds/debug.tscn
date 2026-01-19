@@ -109,6 +109,7 @@ theme_override_font_sizes/font_size = 32
 text = "Give Bow"
 
 [node name="Timetilltimechange" type="Label" parent="."]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
