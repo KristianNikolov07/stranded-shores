@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwifqlhq0eowu"]
+[gd_scene load_steps=9 format=3 uid="uid://dwifqlhq0eowu"]
 
 [ext_resource type="Script" uid="uid://djc6tekkhbrq7" path="res://Scripts/Entities/Bosses/TreeBoss/tree_boss.gd" id="1_uglrb"]
 [ext_resource type="Texture2D" uid="uid://dmbq3rwvew3w7" path="res://Assets/Textures/Entities/Bosses/tree_boss.png" id="2_uglrb"]
@@ -27,8 +27,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uglrb"]
+size = Vector2(28, 200)
+
 [node name="TreeBoss" type="CharacterBody2D"]
-z_index = 4
+z_index = 6
 collision_layer = 2144
 collision_mask = 0
 script = ExtResource("1_uglrb")
@@ -40,26 +43,24 @@ metadata/_custom_type_script = "uid://c3fbx4w04b6te"
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(3.8146973e-06, 3.8146973e-06)
+position = Vector2(6, -80)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_0xnfy")
 autoplay = "default"
 frame = 1
 frame_progress = 0.65431565
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-scale = Vector2(2, 2)
-polygon = PackedVector2Array(-31, 64, -26, 21, -28, 10, -30, 4, -36, 0, -32, -32, -18, -56, -6, -62, 4, -62, 14, -52, 26, -38, 30, -28, 32, 6, 22, 16, 22, 38, 32, 64)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_uglrb")
 
 [node name="ContactDamage" type="Area2D" parent="."]
-visible = false
 collision_layer = 128
 collision_mask = 274
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ContactDamage"]
-scale = Vector2(2, 2)
-polygon = PackedVector2Array(-31, 64, -26, 21, -28, 10, -30, 4, -36, 0, -32, -32, -18, -56, -6, -62, 4, -62, 14, -52, 26, -38, 30, -28, 32, 6, 22, 16, 22, 38, 32, 64)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage"]
+position = Vector2(0, -52)
+shape = SubResource("RectangleShape2D_uglrb")
 
 [node name="ChangeStateTimer" type="Timer" parent="."]
 one_shot = true
@@ -105,7 +106,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ShootFrom" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="ShootFrom"]
-position = Vector2(88, 0)
+position = Vector2(48, 0)
 
 [connection signal="body_entered" from="ContactDamage" to="." method="_on_contact_damage_body_entered"]
 [connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
