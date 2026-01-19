@@ -1,4 +1,6 @@
 # Stranded Shores
+## Download
+Play the latest build on: https://kris-nikolov.itch.io/stranded-shores or download it from the Github Releases tab.
 ## How to build
 1. Clone the repo
 2. Download [Godot](https://godotengine.org/download) 4.5 or later.
