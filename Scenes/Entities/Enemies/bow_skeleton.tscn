@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://pn2lyjulx8a6"]
+[gd_scene load_steps=23 format=3 uid="uid://pn2lyjulx8a6"]
 
 [ext_resource type="Script" uid="uid://qs3kg0s75dmw" path="res://Scripts/Entities/Enemies/bow_skeleton.gd" id="1_vi4bf"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_1ljqt"]
-[ext_resource type="Texture2D" uid="uid://da3k5xqrcn02p" path="res://Assets/Textures/icon.svg" id="2_vvkke"]
 [ext_resource type="Resource" uid="uid://4xf4o78gtb1x" path="res://Resources/Items/Tools/bow.tres" id="3_j3k2j"]
 [ext_resource type="Resource" uid="uid://jiklrfuxdacu" path="res://Resources/Items/arrow.tres" id="4_0o1u1"]
+[ext_resource type="Texture2D" uid="uid://qhq1ruwelp8d" path="res://Assets/Textures/Entities/Enemies/skeleton.png" id="5_1ljqt"]
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="6_0o1u1"]
+[ext_resource type="Script" uid="uid://b56lnunx30ak3" path="res://Scripts/Entities/animations.gd" id="6_j3k2j"]
 
 [sub_resource type="Resource" id="Resource_udb1y"]
 script = ExtResource("2_1ljqt")
@@ -24,6 +26,102 @@ radius = 16.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dl78v"]
 size = Vector2(32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_udb1y"]
+atlas = ExtResource("6_0o1u1")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="Animation" id="Animation_kcypx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dl78v"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_ud8yl"]
+resource_name = "walking"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(2, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kcypx"]
+_data = {
+&"RESET": SubResource("Animation_kcypx"),
+&"idle": SubResource("Animation_dl78v"),
+&"walking": SubResource("Animation_ud8yl")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dl78v"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kcypx"]
+animation = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ud8yl"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p8q6b"]
+advance_mode = 2
+advance_condition = &"Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j2li6"]
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0o1u1"]
+states/idle/node = SubResource("AnimationNodeAnimation_dl78v")
+states/idle/position = Vector2(441, 58)
+states/walking/node = SubResource("AnimationNodeAnimation_kcypx")
+states/walking/position = Vector2(443, 154)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ud8yl"), "idle", "walking", SubResource("AnimationNodeStateMachineTransition_p8q6b"), "walking", "idle", SubResource("AnimationNodeStateMachineTransition_j2li6")]
+
 [node name="BowSkeleton" type="CharacterBody2D"]
 collision_layer = 2272
 collision_mask = 197
@@ -38,8 +136,11 @@ loot_table = Array[ExtResource("2_1ljqt")]([SubResource("Resource_udb1y"), SubRe
 metadata/_custom_type_script = "uid://c3fbx4w04b6te"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_vvkke")
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_1ljqt")
+hframes = 4
+vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dl78v")
@@ -52,12 +153,30 @@ collision_mask = 2
 position = Vector2(0, -4.7683716e-07)
 shape = SubResource("RectangleShape2D_dl78v")
 
-[node name="ShootPoint" type="Node2D" parent="."]
+[node name="Bow" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="ShootPoint"]
-position = Vector2(32, 0)
+[node name="ShootingPoint" type="Marker2D" parent="Bow"]
+position = Vector2(40, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bow"]
+texture_filter = 1
+position = Vector2(35, 0)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_udb1y")
 
 [node name="ShootingTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kcypx")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_0o1u1")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/Idle = true
+parameters/conditions/Walking = false
+script = ExtResource("6_j3k2j")
 
 [connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_timer_timeout"]

@@ -17,6 +17,7 @@ func _on_windows_close_requested():
 	save()
 	get_tree().quit()
 
+
 func save() -> void:
 	if save_name != "":
 		var player : Player = Global.get_player()

@@ -1,15 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwifqlhq0eowu"]
+[gd_scene load_steps=8 format=3 uid="uid://dwifqlhq0eowu"]
 
 [ext_resource type="Script" uid="uid://djc6tekkhbrq7" path="res://Scripts/Entities/Bosses/TreeBoss/tree_boss.gd" id="1_uglrb"]
-[ext_resource type="Texture2D" uid="uid://da3k5xqrcn02p" path="res://Assets/Textures/icon.svg" id="2_fphqg"]
-[ext_resource type="Texture2D" uid="uid://b3j6wea3bj37g" path="res://Assets/Textures/UI/progress_bar.png" id="3_0xnfy"]
+[ext_resource type="Texture2D" uid="uid://c8hovpw08ogc3" path="res://Assets/Textures/Entities/Bosses/tree_boss.png" id="2_uglrb"]
+[ext_resource type="Texture2D" uid="uid://dnyupa8g2qbxa" path="res://Assets/Textures/UI/progress_bar.png" id="3_0xnfy"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="4_p0v6x"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxcfg"]
-size = Vector2(128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uglrb"]
+atlas = ExtResource("2_uglrb")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1rdx"]
-size = Vector2(128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fphqg"]
+atlas = ExtResource("2_uglrb")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0xnfy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uglrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fphqg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="TreeBoss" type="CharacterBody2D"]
 z_index = 4
@@ -22,20 +38,26 @@ max_hp = 5000
 can_despawn = false
 metadata/_custom_type_script = "uid://c3fbx4w04b6te"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(3.8146973e-06, 3.8146973e-06)
-texture = ExtResource("2_fphqg")
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_0xnfy")
+autoplay = "default"
+frame = 1
+frame_progress = 0.65431565
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_oxcfg")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-31, 64, -26, 21, -28, 10, -30, 4, -36, 0, -32, -32, -18, -56, -6, -62, 4, -62, 14, -52, 26, -38, 30, -28, 32, 6, 22, 16, 22, 38, 32, 64)
 
 [node name="ContactDamage" type="Area2D" parent="."]
 collision_layer = 128
 collision_mask = 274
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage"]
-position = Vector2(-1.9073486e-06, -1.9073486e-06)
-shape = SubResource("RectangleShape2D_l1rdx")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ContactDamage"]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-31, 64, -26, 21, -28, 10, -30, 4, -36, 0, -32, -32, -18, -56, -6, -62, 4, -62, 14, -52, 26, -38, 30, -28, 32, 6, 22, 16, 22, 38, 32, 64)
 
 [node name="ChangeStateTimer" type="Timer" parent="."]
 one_shot = true
@@ -62,6 +84,7 @@ texture_under = ExtResource("3_0xnfy")
 texture_progress = ExtResource("3_0xnfy")
 tint_under = Color(0.2509804, 0, 0, 1)
 tint_progress = Color(0.76862746, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Bossbar"]
 layout_mode = 1
@@ -75,6 +98,7 @@ theme_override_font_sizes/font_size = 36
 text = "BOSS HEALTH"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ShootFrom" type="Node2D" parent="."]
 
