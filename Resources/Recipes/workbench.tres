@@ -8,6 +8,8 @@
 [resource]
 script = ExtResource("1_df1ct")
 item1 = ExtResource("1_lx6jw")
+item1_amount = 2
 item2 = ExtResource("2_1672l")
+item2_amount = 4
 result = ExtResource("3_xsdso")
 metadata/_custom_type_script = "uid://uxhvo65tknee"

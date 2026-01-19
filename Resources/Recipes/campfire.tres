@@ -2,14 +2,14 @@
 
 [ext_resource type="Resource" uid="uid://eeregnlqd1ee" path="res://Resources/Items/wood.tres" id="1_8alq5"]
 [ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_sv1q7"]
-[ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="2_x0cgs"]
+[ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="2_8alq5"]
 [ext_resource type="Resource" uid="uid://cvb4xtnq6ft6k" path="res://Resources/Items/Structures/campfire.tres" id="3_laufe"]
 
 [resource]
 script = ExtResource("1_sv1q7")
 item1 = ExtResource("1_8alq5")
 item1_amount = 3
-item2 = ExtResource("2_x0cgs")
+item2 = ExtResource("2_8alq5")
 item2_amount = 4
 result = ExtResource("3_laufe")
 metadata/_custom_type_script = "uid://uxhvo65tknee"
