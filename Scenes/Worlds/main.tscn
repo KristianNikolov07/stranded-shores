@@ -700,13 +700,7 @@ energy = 0.0
 blend_mode = 1
 script = ExtResource("5_ctrak")
 
-[node name="DayTimer" type="Timer" parent="DayNightCycle"]
-wait_time = 420.0
-one_shot = true
-autostart = true
-
-[node name="NightTimer" type="Timer" parent="DayNightCycle"]
-wait_time = 180.0
+[node name="Timer" type="Timer" parent="DayNightCycle"]
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DayNightCycle"]
@@ -728,6 +722,5 @@ autostart = true
 [node name="Forest" parent="." instance=ExtResource("10_lr86y")]
 position = Vector2(10288, 11640)
 
-[connection signal="timeout" from="DayNightCycle/DayTimer" to="DayNightCycle" method="_on_day_timer_timeout"]
-[connection signal="timeout" from="DayNightCycle/NightTimer" to="DayNightCycle" method="_on_night_timer_timeout"]
+[connection signal="timeout" from="DayNightCycle/Timer" to="DayNightCycle" method="_on_timer_timeout"]
 [connection signal="timeout" from="EntitySpawning/SpawnAttempt" to="EntitySpawning" method="_on_spawn_attempt_timeout"]

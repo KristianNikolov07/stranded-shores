@@ -6,6 +6,10 @@ func _ready() -> void:
 	$Debug.hide()
 
 
+func _process(_delta: float) -> void:
+	$Timetilltimechange.text = str(get_tree().current_scene.find_child("DayNightCycle").get_node("Timer").time_left)
+
+
 func _input(event: InputEvent) -> void:
 	if "debug" in OS.get_cmdline_args():
 		if event.is_action_pressed("Debug"):
