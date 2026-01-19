@@ -76,3 +76,7 @@ func shoot_tree(target : Vector2):
 func _on_shoot_timer_timeout() -> void:
 	shoot_tree(Global.get_player().global_position)
 	$ShootTimer.start(randf_range(MIN_CHANGE_SHOOT_TIME, MAX_CHANGE_SHOOT_TIME))
+
+
+func _on_structure_destroy_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
