@@ -4,13 +4,6 @@ extends DirectionalLight2D
 
 var is_night = false
 
-func _on_timer_timeout() -> void:
-	if is_night:
-		set_to_day()
-	else:
-		set_to_night()
-
-
 func set_to_day(is_immediate = false) -> void:
 	if is_immediate == false:
 		$AnimationPlayer.play_backwards("day-night-transition")
@@ -23,3 +16,13 @@ func set_to_night(is_immediate = false) -> void:
 		$AnimationPlayer.play("day-night-transition")
 	energy = night_energy
 	is_night = true
+
+
+func _on_day_timer_timeout() -> void:
+	set_to_night()
+	$NightTimer.start()
+
+
+func _on_night_timer_timeout() -> void:
+	set_to_day()
+	$DayTimer.start()
