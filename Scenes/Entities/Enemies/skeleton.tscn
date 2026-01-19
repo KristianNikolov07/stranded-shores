@@ -1,13 +1,106 @@
-[gd_scene load_steps=5 format=3 uid="uid://clnvfqe0v5ti1"]
+[gd_scene load_steps=16 format=3 uid="uid://clnvfqe0v5ti1"]
 
 [ext_resource type="Script" uid="uid://c3fbx4w04b6te" path="res://Scripts/Classes/Entities/Enemy.gd" id="1_bj33v"]
-[ext_resource type="Texture2D" uid="uid://da3k5xqrcn02p" path="res://Assets/Textures/icon.svg" id="2_dl78v"]
+[ext_resource type="Texture2D" uid="uid://qhq1ruwelp8d" path="res://Assets/Textures/Entities/Enemies/skeleton.png" id="2_dl78v"]
+[ext_resource type="Script" uid="uid://b56lnunx30ak3" path="res://Scripts/Entities/animations.gd" id="3_kcypx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dl78v"]
 radius = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dl78v"]
 size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_dl78v"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_kcypx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ud8yl"]
+resource_name = "walking"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(2, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kcypx"]
+_data = {
+&"RESET": SubResource("Animation_kcypx"),
+&"idle": SubResource("Animation_dl78v"),
+&"walking": SubResource("Animation_ud8yl")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dl78v"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kcypx"]
+animation = &"walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ud8yl"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p8q6b"]
+advance_mode = 2
+advance_condition = &"Walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j2li6"]
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4yqap"]
+states/idle/node = SubResource("AnimationNodeAnimation_dl78v")
+states/idle/position = Vector2(441, 58)
+states/walking/node = SubResource("AnimationNodeAnimation_kcypx")
+states/walking/position = Vector2(443, 154)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ud8yl"), "idle", "walking", SubResource("AnimationNodeStateMachineTransition_p8q6b"), "walking", "idle", SubResource("AnimationNodeStateMachineTransition_j2li6")]
 
 [node name="Skeleton" type="CharacterBody2D"]
 collision_layer = 2272
@@ -19,8 +112,11 @@ contact_damage = 10
 metadata/_custom_type_script = "uid://c3fbx4w04b6te"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_dl78v")
+hframes = 4
+vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dl78v")
@@ -32,3 +128,15 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage"]
 position = Vector2(0, -4.7683716e-07)
 shape = SubResource("RectangleShape2D_dl78v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kcypx")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_4yqap")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/Idle = true
+parameters/conditions/Walking = false
+script = ExtResource("3_kcypx")
