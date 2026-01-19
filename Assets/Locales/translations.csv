@@ -20,6 +20,9 @@ RESTART_WARNING_TITLE,Please Restart Your Game,Моля Рестартирайт
 RESTART_WARNING_MESSAGE,Please restart your game in order to apply all changes!,"Моля рестартирайте играта си, за да приложите всички промени!"
 CONTROLS,CONTROLS,КОНТРОЛИ
 NEXT_OBJECTIVE,"NEXT OBJECTIVE:","СЛЕДВАЩА ЦЕЛ:"
+HUNGER,"HUNGER","ГЛАД"
+HEALTH,"HEALTH","ЗДРАВЕ"
+THIRST,"THIRST","ЖАЖДА"
 MOVEMENT_OBJECTIVE_DESCRIPTION,"Use CONTROL(Up), CONTROL(Left), CONTROL(Down) and CONTROL(Right) to move","Използвайте CONTROL(Up), CONTROL(Left), CONTROL(Down) и CONTROL(Right), за да се движите"
 SPRINT_OBJECTIVE_DESCRIPTION,"Use CONTROL(Sprint) to sprint","Използвайте CONTROL(Sprint), за да тичате"
 INTERACT_OBJECTIVE_DESCRIPTION,"Use CONTROL(Interact) to interact with objects","Използвайте CONTROL(Interact), за да взаимодействате с обекти"
