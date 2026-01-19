@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Stranded Shores"
-config/version="0.1.4"
+config/version="0.1.5"
 run/main_scene="uid://c17te1o2qtwsm"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/show_image=false
