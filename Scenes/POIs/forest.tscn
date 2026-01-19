@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c6kp2rykw2xor" path="res://Scripts/POIs/forest.gd" id="1_astk3"]
 [ext_resource type="Script" uid="uid://c0ir7q8od6i12" path="res://Scripts/Entities/Bosses/TreeBoss/tree_boss_spawn.gd" id="2_6q1n4"]
-[ext_resource type="Texture2D" uid="uid://bjxw2pfj1bxhr" path="res://Assets/Textures/icon.svg" id="2_e1o73"]
+[ext_resource type="Texture2D" uid="uid://c8hovpw08ogc3" path="res://Assets/Textures/Entities/Bosses/tree_boss.png" id="3_6q1n4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1o73"]
-size = Vector2(128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3is4"]
+atlas = ExtResource("3_6q1n4")
+region = Rect2(0, 0, 64, 64)
 
 [node name="Forest" type="Node2D"]
 script = ExtResource("1_astk3")
@@ -19,7 +20,10 @@ collision_mask = 0
 script = ExtResource("2_6q1n4")
 
 [node name="Sprite2D" type="Sprite2D" parent="TreeBossSpawn"]
-texture = ExtResource("2_e1o73")
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_w3is4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeBossSpawn"]
-shape = SubResource("RectangleShape2D_e1o73")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TreeBossSpawn"]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-31, 64, -26, 21, -28, 10, -30, 4, -36, 0, -32, -32, -18, -56, -6, -62, 4, -62, 14, -52, 26, -38, 30, -28, 32, 6, 22, 16, 22, 38, 32, 64)
