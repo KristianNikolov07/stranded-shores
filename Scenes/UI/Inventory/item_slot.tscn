@@ -64,8 +64,8 @@ value = 5.0
 nine_patch_stretch = true
 texture_under = ExtResource("5_fedpv")
 texture_progress = ExtResource("5_fedpv")
-tint_under = Color(0, 0, 0.24313726, 1)
-tint_progress = Color(0, 0, 0.7411765, 1)
+tint_under = Color(0, 0, 0.3019608, 1)
+tint_progress = Color(0.34117648, 0.5411765, 1, 1)
 
 [node name="Selector" type="MarginContainer" parent="."]
 visible = false
