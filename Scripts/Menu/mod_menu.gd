@@ -26,7 +26,18 @@ func list_mods() -> void:
 
 
 func _on_back_pressed() -> void:
-	OS.alert(tr("RESTART_WARNING_MESSAGE"), tr("RESTART_WARNING_TITLE"))
+	var restart_required = false
+	var reload_required = false
+	for mod in %ModList.get_children():
+		if mod.original_state == false and mod.enabled == true:
+			reload_required = true
+		elif mod.original_state == true and mod.enabled == false:
+			restart_required = true
+	
+	if restart_required:
+		OS.alert(tr("RESTART_WARNING_MESSAGE"), tr("RESTART_WARNING_TITLE"))
+	if reload_required:
+		get_tree().change_scene_to_file("res://Scenes/mod_loader.tscn")
 	hide()
 	closed.emit()
 
@@ -37,7 +48,7 @@ func _on_add_mod_pressed() -> void:
 
 func _on_file_dialog_file_selected(path: String) -> void:
 	var file_name : String = path.split("/")[-1]
-	if file_name.ends_with(".pck"):
+	if file_name.ends_with(".zip"):
 		var mod_name = file_name.replace(".pck", "")
 		if DirAccess.dir_exists_absolute(Global.MODS_FOLDER) == false:
 			DirAccess.make_dir_absolute(Global.MODS_FOLDER)
