@@ -23,6 +23,8 @@ func _ready() -> void:
 		generate_random_objects()
 		get_parent().get_node("Forest").generate()
 		choose_spawn_point()
+		SaveProgress.get_node("PlaytimeCounter").start()
+		await get_tree().physics_frame
 		SaveProgress.save()
 
 

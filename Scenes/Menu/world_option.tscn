@@ -26,10 +26,21 @@ theme_override_constants/margin_bottom = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="WorldName" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
 text = "World Name"
+
+[node name="Playtime" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5330367, 0.5330367, 0.5330367, 1)
+theme_override_font_sizes/font_size = 20
+text = "1h 30min"
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -42,6 +53,7 @@ theme_override_font_sizes/font_size = 46
 text = "PLAY"
 
 [node name="Delete" type="Button" parent="MarginContainer/HBoxContainer/Buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 46
 text = "DELETE"
