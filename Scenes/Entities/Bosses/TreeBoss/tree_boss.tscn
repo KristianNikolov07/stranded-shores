@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwifqlhq0eowu"]
+[gd_scene load_steps=10 format=3 uid="uid://dwifqlhq0eowu"]
 
 [ext_resource type="Script" uid="uid://djc6tekkhbrq7" path="res://Scripts/Entities/Bosses/TreeBoss/tree_boss.gd" id="1_uglrb"]
-[ext_resource type="Texture2D" uid="uid://dmbq3rwvew3w7" path="res://Assets/Textures/Entities/Bosses/tree_boss.png" id="2_uglrb"]
-[ext_resource type="Texture2D" uid="uid://b3j6wea3bj37g" path="res://Assets/Textures/UI/progress_bar.png" id="3_0xnfy"]
+[ext_resource type="Texture2D" uid="uid://c8hovpw08ogc3" path="res://Assets/Textures/Entities/Bosses/tree_boss.png" id="2_uglrb"]
+[ext_resource type="Texture2D" uid="uid://dnyupa8g2qbxa" path="res://Assets/Textures/UI/progress_bar.png" id="3_0xnfy"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="4_p0v6x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uglrb"]
@@ -29,6 +29,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uglrb"]
 size = Vector2(28, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fphqg"]
+size = Vector2(201, 340)
 
 [node name="TreeBoss" type="CharacterBody2D"]
 z_index = 6
@@ -61,6 +64,14 @@ collision_mask = 274
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage"]
 position = Vector2(0, -52)
 shape = SubResource("RectangleShape2D_uglrb")
+
+[node name="StructureDestory" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 274
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StructureDestory"]
+position = Vector2(-1.5, -57)
+shape = SubResource("RectangleShape2D_fphqg")
 
 [node name="ChangeStateTimer" type="Timer" parent="."]
 one_shot = true
@@ -108,6 +119,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Marker2D" type="Marker2D" parent="ShootFrom"]
 position = Vector2(48, 0)
 
-[connection signal="body_entered" from="ContactDamage" to="." method="_on_contact_damage_body_entered"]
+[connection signal="body_entered" from="StructureDestory" to="." method="_on_structure_destory_body_entered"]
 [connection signal="timeout" from="ChangeStateTimer" to="." method="_on_change_state_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

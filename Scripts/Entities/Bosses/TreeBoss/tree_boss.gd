@@ -32,11 +32,6 @@ func _physics_process(_delta) -> void:
 		move_toward_to_player()
 
 
-func _on_contact_damage_body_entered(body: Node2D) -> void:
-	if body.has_method("destroy"):
-		body.destroy()
-
-
 func damage(_dmg : int) -> void:
 	super.damage(_dmg)
 	$CanvasLayer/Bossbar.value = hp
@@ -78,5 +73,6 @@ func _on_shoot_timer_timeout() -> void:
 	$ShootTimer.start(randf_range(MIN_CHANGE_SHOOT_TIME, MAX_CHANGE_SHOOT_TIME))
 
 
-func _on_structure_destroy_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func _on_structure_destory_body_entered(body: Node2D) -> void:
+	if body.has_method("destroy"):
+		body.destroy()
