@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://de3lbvwk8xun3"]
+[gd_scene load_steps=3 format=3 uid="uid://de3lbvwk8xun3"]
 
 [ext_resource type="Script" uid="uid://xusspacd7fde" path="res://Scripts/Other/save_progress.gd" id="1_45r5o"]
+[ext_resource type="Script" uid="uid://hwxonr56bd3h" path="res://Scripts/Other/playtime_counter.gd" id="2_ob0hq"]
 
 [node name="SaveProgress" type="Node"]
 process_mode = 3
@@ -9,5 +10,8 @@ script = ExtResource("1_45r5o")
 [node name="SaveTimer" type="Timer" parent="."]
 wait_time = 60.0
 autostart = true
+
+[node name="PlaytimeCounter" type="Node" parent="."]
+script = ExtResource("2_ob0hq")
 
 [connection signal="timeout" from="SaveTimer" to="." method="save"]

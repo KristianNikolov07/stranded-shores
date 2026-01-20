@@ -26,11 +26,23 @@ theme_override_constants/margin_bottom = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Mod Name"
+
+[node name="Author" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Mod Name"
+theme_override_font_sizes/font_size = 16
+text = "By: Kris"
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -41,6 +53,7 @@ alignment = 2
 [node name="ToggleMod" type="Button" parent="MarginContainer/HBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 toggle_mode = true
 text = "ENABLE"

@@ -2,6 +2,7 @@ extends Control
 
 func _ready() -> void:
 	SaveProgress.save_name = "" # So it doesn't try to save the game while in the main menu
+	SaveProgress.get_node("PlaytimeCounter").stop()
 	
 	$Version.text = ProjectSettings.get_setting("application/config/version")
 	

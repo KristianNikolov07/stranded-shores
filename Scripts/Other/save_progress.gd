@@ -40,6 +40,7 @@ func save() -> void:
 		config.set_value("inventory", "backpack_item", player.inventory.backpack_item)
 		config.set_value("inventory", "backpack", player.inventory.backpack.items)
 		config.set_value("objectives", "current_objective", objectives.current_objective)
+		config.set_value("other", "playtime", get_node("PlaytimeCounter").playtime)
 		
 		config.save(SAVES_FOLDER + save_name + "/" + PLAYER_STATS_FILE_NAME)
 		
@@ -93,6 +94,14 @@ func has_save_with_name(_save_name : String) -> bool:
 	return DirAccess.dir_exists_absolute(SAVES_FOLDER + _save_name)
 
 
+func get_playtime(_save_name : String) -> float:
+	if DirAccess.dir_exists_absolute(SAVES_FOLDER + _save_name):
+		config.load(SAVES_FOLDER + _save_name + "/" + PLAYER_STATS_FILE_NAME)
+		if config.has_section("other"):
+			return config.get_value("other", "playtime", 0)
+	return 0
+
+
 func load_save() -> void:
 	var player : Player = Global.get_player()
 	var objectives = player.objectives
@@ -122,6 +131,10 @@ func load_save() -> void:
 			player.inventory.backpack.set_items([])
 		if config.has_section("objectives"):
 			objectives.set_objective(config.get_value("objectives", "current_objective", "movement"))
+		if config.has_section("other"):
+			get_node("PlaytimeCounter").start(config.get_value("other", "playtime", 0))
+		else:
+			get_node("PlaytimeCounter").start()
 	
 	# World
 	var save_file = FileAccess.open(SAVES_FOLDER + save_name + "/" + WORLD_FILE_NAME, FileAccess.READ)
