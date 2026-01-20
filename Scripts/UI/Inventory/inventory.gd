@@ -300,8 +300,9 @@ func drop_backpack_item() -> void:
 		var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 		dropped_item.item = backpack_item
 		dropped_item.global_position = player.global_position
-		backpack_item = null
+		set_backpack(null)
 		player.get_parent().add_child(dropped_item)
+		visualize_inventory()
 
 
 func drop_inventory() -> void:
@@ -311,6 +312,7 @@ func drop_inventory() -> void:
 	if backpack_item != null:
 		backpack.drop_all_items()
 		drop_backpack_item()
+	visualize_inventory()
 
 
 # UI
