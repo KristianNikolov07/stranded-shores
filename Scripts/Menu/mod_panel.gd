@@ -2,8 +2,8 @@ extends PanelContainer
 
 @export_file_path var mod_path = ""
 
-## False if Disabled, True if Enabled
-var original_state = false
+var enabled = false
+var enabled_originally = false
 
 func _ready() -> void:
 	# Load info
@@ -23,7 +23,8 @@ func _ready() -> void:
 	var enabled_check_file = FileAccess.open(mod_path + "/" + Global.MODS_ENABLE_CHECK_FILE_NAME, FileAccess.READ)
 	if enabled_check_file.get_var() == true:
 		%ToggleMod.button_pressed = true
-		original_state = true
+		enabled = true
+		enabled_originally = true
 	enabled_check_file.close()
 	
 	
@@ -41,6 +42,7 @@ func _on_toggle_mod_toggled(toggled_on: bool) -> void:
 	var enabled_check_file = FileAccess.open(mod_path + "/" + Global.MODS_ENABLE_CHECK_FILE_NAME, FileAccess.WRITE)
 	enabled_check_file.store_var(toggled_on)
 	enabled_check_file.close()
+	enabled = toggled_on
 	
 	if toggled_on:
 		%ToggleMod.text = tr("DISABLE")
