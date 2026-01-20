@@ -1,4 +1,3 @@
-@tool
 class_name Consumable
 extends Item
 
@@ -15,14 +14,3 @@ func use(player : Player) -> void:
 	player.max_running_speed += max_running_speed_modifier
 	player.hunger_and_thirst.remove_hunger(hunger_modifier)
 	player.hunger_and_thirst.remove_thirst(thirst_modifier)
-
-
-func get_save_data() -> Dictionary:
-	var data = {
-		"amount": amount
-	}
-	return data
-
-
-func load_save_data(data : Dictionary) -> void:
-	amount = data.amount

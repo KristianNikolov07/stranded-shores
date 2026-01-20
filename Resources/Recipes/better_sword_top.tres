@@ -1,14 +1,25 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://dmc3y8pbgkbpb"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=8 format=3 uid="uid://c0o4w18xlil6v"]
 
 [ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_6ixo3"]
 [ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="1_770mw"]
-[ext_resource type="Resource" uid="uid://c7xshpfgk8vv4" path="res://Resources/Items/better_sword_top.tres" id="2_m8d5h"]
+[ext_resource type="Script" uid="uid://765xp7t6esuk" path="res://Scripts/Classes/ItemStacks/ItemStack.gd" id="2_m8d5h"]
+[ext_resource type="Resource" uid="uid://bxlebp27821e" path="res://Resources/Items/better_sword_top.tres" id="3_ehgb3"]
 [ext_resource type="Resource" uid="uid://dcgmig5kdolf8" path="res://Resources/CraftingTools/hammer.tres" id="3_m8d5h"]
+
+[sub_resource type="Resource" id="Resource_ehgb3"]
+script = ExtResource("2_m8d5h")
+item = ExtResource("1_770mw")
+amount = 10
+metadata/_custom_type_script = "uid://765xp7t6esuk"
+
+[sub_resource type="Resource" id="Resource_fllrs"]
+script = ExtResource("2_m8d5h")
+item = ExtResource("3_ehgb3")
+metadata/_custom_type_script = "uid://765xp7t6esuk"
 
 [resource]
 script = ExtResource("1_6ixo3")
 tool = ExtResource("3_m8d5h")
-item1 = ExtResource("1_770mw")
-item1_amount = 10
-result = ExtResource("2_m8d5h")
+item1 = SubResource("Resource_ehgb3")
+result = SubResource("Resource_fllrs")
 metadata/_custom_type_script = "uid://uxhvo65tknee"

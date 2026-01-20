@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StructureItem" load_steps=6 format=3 uid="uid://c1iu4l3m78d8v"]
 
 [ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_0n1su"]
-[ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/StructureItem.gd" id="1_kwxin"]
+[ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/Items/StructureItem.gd" id="1_kwxin"]
 [ext_resource type="PackedScene" uid="uid://cnl6f57vr6u27" path="res://Scenes/Structures/sapling.tscn" id="3_0n1su"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukisv"]
@@ -19,5 +19,4 @@ preview_texture = SubResource("AtlasTexture_ukisv")
 item_name = "Sapling"
 max_amount = 30
 texture = SubResource("AtlasTexture_k471h")
-item_path = "res://Resources/Items/Structures/sapling.tres"
 metadata/_custom_type_script = "uid://c7tmhhhy6jhc7"

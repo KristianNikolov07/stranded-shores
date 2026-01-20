@@ -1,28 +1,44 @@
-[gd_scene load_steps=18 format=3 uid="uid://g0gksnwxs5jw"]
+[gd_scene load_steps=22 format=3 uid="uid://g0gksnwxs5jw"]
 
 [ext_resource type="Script" uid="uid://d3001nb6tmga0" path="res://Scripts/Classes/Structure.gd" id="1_prn5e"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_v2ket"]
 [ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="3_7ioqt"]
-[ext_resource type="Texture2D" uid="uid://dn5i4gs6nkc0w" path="res://Assets/Textures/Objects/rock.png" id="4_bd73c"]
+[ext_resource type="Script" uid="uid://765xp7t6esuk" path="res://Scripts/Classes/ItemStacks/ItemStack.gd" id="4_7ioqt"]
+[ext_resource type="Texture2D" uid="uid://cah4eabrcytye" path="res://Assets/Textures/Objects/rock.png" id="4_bd73c"]
 [ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="4_v2ket"]
 [ext_resource type="AudioStream" uid="uid://85qmoqvrgdq3" path="res://Assets/Sounds/hit-rock.mp3" id="6_7ioqt"]
 
-[sub_resource type="Resource" id="Resource_7ioqt"]
-script = ExtResource("2_v2ket")
+[sub_resource type="Resource" id="Resource_yyisc"]
+script = ExtResource("4_7ioqt")
 item = ExtResource("3_7ioqt")
 amount = 5
+metadata/_custom_type_script = "uid://765xp7t6esuk"
+
+[sub_resource type="Resource" id="Resource_7ioqt"]
+script = ExtResource("2_v2ket")
+item_stack = SubResource("Resource_yyisc")
 chance = 100
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
+
+[sub_resource type="Resource" id="Resource_t88rf"]
+script = ExtResource("4_7ioqt")
+item = ExtResource("4_v2ket")
+metadata/_custom_type_script = "uid://765xp7t6esuk"
 
 [sub_resource type="Resource" id="Resource_bd73c"]
 script = ExtResource("2_v2ket")
-item = ExtResource("4_v2ket")
+item_stack = SubResource("Resource_t88rf")
 chance = 100
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
+[sub_resource type="Resource" id="Resource_jde0m"]
+script = ExtResource("4_7ioqt")
+item = ExtResource("4_v2ket")
+metadata/_custom_type_script = "uid://765xp7t6esuk"
+
 [sub_resource type="Resource" id="Resource_5tmr7"]
 script = ExtResource("2_v2ket")
-item = ExtResource("4_v2ket")
+item_stack = SubResource("Resource_jde0m")
 chance = 25
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 

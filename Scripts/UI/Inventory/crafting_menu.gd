@@ -59,21 +59,21 @@ func load_recipes() -> void:
 
 
 func craft(recipe : Recipe) -> void:
-	if player.inventory.has_item(recipe.item1.item_name, recipe.item1_amount):
-		player.inventory.remove_item(recipe.item1.item_name, recipe.item1_amount)
-		if recipe.item2 != null and player.inventory.has_item(recipe.item2.item_name, recipe.item2_amount):
-			player.inventory.remove_item(recipe.item2.item_name, recipe.item2_amount)
+	if player.inventory.has_item(recipe.item1.item.item_name, recipe.item1.amount):
+		player.inventory.remove_item(recipe.item1.item.item_name, recipe.item1.amount)
+		if recipe.item2 != null and player.inventory.has_item(recipe.item2.item.item_name, recipe.item2.amount):
+			player.inventory.remove_item(recipe.item2.item.item_name, recipe.item2.amount)
 		
 		# Basic Axe Objective
-		if recipe.result.item_name == "Basic Axe":
+		if recipe.result.item.item_name == "Basic Axe":
 			player.objectives.complete_objective("craft basic axe")
 			
 		# Workbench Objective
-		if recipe.result.item_name == "Workbench":
+		if recipe.result.item.item_name == "Workbench":
 			player.objectives.complete_objective("workbench")
 		
 		# Backpack Objective
-		if recipe.result.item_name == "Backpack":
+		if recipe.result.item.item_name == "Backpack":
 			player.objectives.complete_objective("backpack")
 		
 		if !player.inventory.add_item(recipe.result.duplicate()):
@@ -101,14 +101,14 @@ func update_ui() -> void:
 		%Result.set_item(null)
 		%CraftButton.disabled = true
 	else:
-		%CraftingSlot1.set_item(selected_recipe.item1, selected_recipe.item1_amount, player.inventory.has_item(selected_recipe.item1.item_name, selected_recipe.item1_amount))
+		%CraftingSlot1.set_item(selected_recipe.item1, player.inventory.has_item(selected_recipe.item1.item.item_name, selected_recipe.item1.amount))
 		if selected_recipe.item2 != null:
-			%CraftingSlot2.set_item(selected_recipe.item2, selected_recipe.item2_amount, player.inventory.has_item(selected_recipe.item2.item_name, selected_recipe.item2_amount))
+			%CraftingSlot2.set_item(selected_recipe.item2, player.inventory.has_item(selected_recipe.item2.item.item_name, selected_recipe.item2.amount))
 		else:
 			%CraftingSlot2.set_tool(selected_recipe.tool)
 		%Result.set_item(selected_recipe.result)
 		
-		if player.inventory.has_item(selected_recipe.item1.item_name) and (selected_recipe.item2 == null or player.inventory.has_item(selected_recipe.item2.item_name)):
+		if player.inventory.has_item(selected_recipe.item1.item.item_name) and (selected_recipe.item2 == null or player.inventory.has_item(selected_recipe.item2.item.item_name)):
 			%CraftButton.disabled = false
 		else:
 			%CraftButton.disabled = true

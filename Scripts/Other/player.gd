@@ -80,7 +80,7 @@ func _process(_delta: float) -> void:
 		$Stamina.hide()
 	
 	# Structure Preview
-	if inventory.items[inventory.selected_slot] is StructureItem:
+	if inventory.items[inventory.selected_slot] != null and inventory.items[inventory.selected_slot].item is StructureItem:
 		if abs(global_position.x - get_global_mouse_position().x) < placement_range:
 			$StructurePreview.global_position.x = get_global_mouse_position().x
 		if abs(global_position.y - get_global_mouse_position().y) < placement_range:
@@ -160,7 +160,7 @@ func respawn() -> void:
 
 func attack(slot : int) -> void:
 	if can_move:
-		if inventory.items[slot] is Tool:
+		if inventory.items[slot].item is Tool:
 			if inventory.items[slot].durability > 0:
 				if tool != null and tool.has_method("use"):
 					tool.use()
@@ -168,7 +168,7 @@ func attack(slot : int) -> void:
 
 func place(slot : int) -> void:
 	if can_move:
-		if inventory.items[slot] is StructureItem:
+		if inventory.items[slot].item is StructureItem:
 			if $StructurePreview.get_overlapping_bodies().size() == 0:
 				inventory.items[slot].place(self, $StructurePreview.global_position)
 				inventory.remove_item_from_slot(slot)

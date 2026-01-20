@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cswffe5r7l2nt"]
 
-[ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Item.gd" id="1_0stl7"]
+[ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Items/Item.gd" id="1_0stl7"]
 [ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_du2v6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kkxd"]
@@ -12,5 +12,4 @@ script = ExtResource("1_0stl7")
 item_name = "Rock"
 max_amount = 10
 texture = SubResource("AtlasTexture_8kkxd")
-item_path = "res://Resources/Items/rock.tres"
 metadata/_custom_type_script = "uid://bapf8m2htmno7"

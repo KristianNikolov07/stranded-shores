@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StructureItem" load_steps=6 format=3 uid="uid://dexo0fi08bjdt"]
 
-[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="1_1arfr"]
-[ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/StructureItem.gd" id="1_8lai2"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_1arfr"]
+[ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/Items/StructureItem.gd" id="1_8lai2"]
 [ext_resource type="PackedScene" uid="uid://c1il72ic3cmny" path="res://Scenes/Structures/repair_station.tscn" id="3_guevu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_guevu"]
@@ -18,5 +18,4 @@ structure_scene = ExtResource("3_guevu")
 preview_texture = SubResource("AtlasTexture_guevu")
 item_name = "Repair Station"
 texture = SubResource("AtlasTexture_gloot")
-item_path = "res://Resources/Items/Structures/repair_station.tres"
 metadata/_custom_type_script = "uid://c7tmhhhy6jhc7"

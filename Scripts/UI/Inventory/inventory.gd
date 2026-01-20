@@ -4,10 +4,10 @@ extends Control
 const ITEM_SLOT_SCENE = preload("res://Scenes/UI/Inventory/item_slot.tscn")
 const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
-@export var items : Array[Item]
+@export var items : Array[ItemStack]
 @export var inventory_size = 4
-@export var armor : Armor
-@export var backpack_item : Backpack
+@export var armor : ItemStack
+@export var backpack_item : ItemStack
 
 var selected_slot = 0
 var opened_storage : Storage
@@ -59,32 +59,31 @@ func _input(event: InputEvent) -> void:
 				backpack.open()
 
 
-func add_item(item : Item, bypass_backpack : bool = false) -> bool:
+func add_item(item_stack : ItemStack, bypass_backpack : bool = false) -> bool:
 	# Rocks and Sticks Objective
-	if item.item_name == "Rock":
+	if item_stack.item.item_name == "Rock":
 		if has_item("Stick", 10) and has_item("Rock", 9):
 			player.objectives.complete_objective("sticks and rocks")
-	elif item.item_name == "Stick":
+	elif item_stack.item.item_name == "Stick":
 		if has_item("Rock", 10) and has_item("Stick", 9):
 			player.objectives.complete_objective("sticks and rocks")
 	
 	# Wood Objective
-	if item.item_name == "Wood":
+	if item_stack.item.item_name == "Wood":
 		if has_item("Wood", 1):
 			player.objectives.complete_objective("gather wood")
 	
 	# Iron Objective
-	if item.item_name == "Iron Ore":
+	if item_stack.item.item_name == "Iron Ore":
 		if has_item("Iron Ore", 9):
 			player.objectives.complete_objective("iron")
 	
-	
-	if has_item(item.item_name):
+	if has_item(item_stack.item.item_name):
 		for i in range(items.size()):
-			if items[i] != null:
-				if items[i].item_name == item.item_name:
-					var left_over = items[i].increase_amount(item.amount)
-					item.decrease_amount(item.amount - left_over)
+			if items[i] != null and items[i].item != null:
+				if items[i].item.item_name == item_stack.item.item_name:
+					var left_over = items[i].increase_amount(item_stack.amount)
+					item_stack.decrease_amount(item_stack.amount - left_over)
 					visualize_inventory()
 					if left_over == 0:
 						reselect_slot()
@@ -92,14 +91,14 @@ func add_item(item : Item, bypass_backpack : bool = false) -> bool:
 	
 	for i in range(items.size()):
 		if items[i] == null:
-			items[i] = item.duplicate()
-			items[i].amount = item.amount
+			items[i] = item_stack.duplicate()
+			items[i].amount = item_stack.amount
 			visualize_inventory()
 			reselect_slot()
 			return true
 	
 	if backpack_item != null and bypass_backpack == false:
-		if backpack.add_item(item):
+		if backpack.add_item(item_stack):
 			return true
 	return false
 
@@ -111,7 +110,7 @@ func has_item(item_name : String, amount = 1) -> bool:
 		count += backpack.get_item_amount(item_name)
 	
 	for i in range(inventory_size):
-		if items[i] != null and items[i].item_name == item_name:
+		if items[i] != null and items[i].item != null and items[i].item.item_name == item_name:
 			count += items[i].amount
 	if count >= amount:
 		return true
@@ -125,7 +124,7 @@ func remove_item(item_name : String, amount = 1) -> bool:
 			backpack.remove_item(item_name, amount)
 			
 	for i in range(items.size()):
-		if items[i] != null and items[i].item_name == item_name:
+		if items[i] != null and items[i].item != null and items[i].item.item_name == item_name:
 			items[i].decrease_amount(amount)
 			if items[i].amount <= 0:
 				items[i] = null
@@ -145,7 +144,7 @@ func remove_item_from_slot(slot : int, amount = 1) -> bool:
 		return false
 
 
-func get_selected_item() -> Item:
+func get_selected_item() -> ItemStack:
 	return items[selected_slot]
 
 
@@ -157,28 +156,29 @@ func move_item_to_storage(slot : int):
 
 
 func select_slot(slot : int) -> void:
-	if slot < inventory_size:
+	if slot < inventory_size and slot >= 0:
 		selected_slot = slot
 		visualize_selected_slot()
 	
-	# Tools
-	if player.tool != null:
-		player.tool.queue_free()
-		player.tool = null
-	if items[slot] is Tool:
-		var tool : Tool = items[slot]
-		var tool_node = tool.tool_scene.instantiate()
-		player.add_child(tool_node)
-		player.tool = tool_node
-		if player.tool.has_signal("hit"):
-			player.tool.hit.connect(decrease_durability)
-	
-	# Structures
-	if items[slot] is StructureItem:
-		player.get_node("StructurePreview").show()
-		player.get_node("StructurePreview/TextureRect").texture = items[selected_slot].preview_texture
-	else:
-		player.get_node("StructurePreview").hide()
+	if items[slot] != null and items[slot].item != null:
+		# Tools
+		if player.tool != null:
+			player.tool.queue_free()
+			player.tool = null
+		if items[slot].item is Tool:
+			var tool : Tool = items[slot].item
+			var tool_node = tool.tool_scene.instantiate()
+			player.add_child(tool_node)
+			player.tool = tool_node
+			if player.tool.has_signal("hit"):
+				player.tool.hit.connect(decrease_durability)
+		
+		# Structures
+		if items[slot].item is StructureItem:
+			player.get_node("StructurePreview").show()
+			player.get_node("StructurePreview/TextureRect").texture = items[selected_slot].preview_texture
+		else:
+			player.get_node("StructurePreview").hide()
 
 
 ## Refreshes the currently selected slot
@@ -190,13 +190,13 @@ func drop_item(slot : int, drop_all = false) -> void:
 	if items[slot] != null:
 		
 		# Prevent boats from being dropped when in water
-		if items[slot] is Boat and player.is_in_water():
+		if items[slot].item is Boat and player.is_in_water():
 			return
 		
 		var node = DROPPED_ITEM_SCENE.instantiate()
-		node.item = items[slot].duplicate()
-		if drop_all:
-			node.item.amount = items[slot].amount
+		node.item_stack = items[slot].duplicate()
+		if drop_all == false:
+			node.item_stack.amount = 1
 		node.global_position = player.global_position
 		player.get_parent().add_child(node)
 		if drop_all:
@@ -208,7 +208,7 @@ func drop_item(slot : int, drop_all = false) -> void:
 
 
 func decrease_durability() -> void:
-	if items[selected_slot] is Tool:
+	if items[selected_slot].item is Tool:
 		items[selected_slot].take_durability()
 		if items[selected_slot].durability <= 0: # Make sure the tool stops being used after it breaks
 			if player.tool.has_method("stop_using"):
@@ -218,37 +218,37 @@ func decrease_durability() -> void:
 
 func use_item(slot : int) -> void:
 	if player.can_move:
-		if items[slot] != null:
-			if items[slot] is Consumable:
+		if items[slot] != null and items[slot].item != null:
+			if items[slot].item is Consumable:
 				items[slot].use(player)
 				if !items[slot].has_unlimited_uses:
 					remove_item_from_slot(slot)
-			elif items[slot] is Armor:
+			elif items[slot].item is Armor:
 				equip_armor_from_slot(slot)
-			elif items[slot] is Backpack:
+			elif items[slot].item is Backpack:
 				equip_backpack_from_slot(slot)
 
 
-func set_items(_items : Array[Item]) -> void:
+func set_items(_items : Array[ItemStack]) -> void:
 	items = _items
 	visualize_inventory()
 
 
-func set_armor(_armor : Armor) -> void:
+func set_armor(_armor : ItemStack) -> void:
 	if _armor == null:
 		armor = null
-	else:
+	elif armor.item is Armor:
 		armor = _armor.duplicate()
 	visualize_inventory()
 
 
-func set_backpack(_backpack : Backpack) -> void:
+func set_backpack(_backpack : ItemStack) -> void:
 	if _backpack == null:
 		backpack_item = null
 		backpack.set_inv_size(0)
-	else:
+	elif _backpack.item is Backpack:
 		backpack_item = _backpack.duplicate()
-		backpack.set_inv_size(backpack_item.size)
+		backpack.set_inv_size(backpack_item.item.size)
 	visualize_inventory()
 
 

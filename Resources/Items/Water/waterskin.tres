@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WaterContainer" load_steps=4 format=3 uid="uid://ckhhgkagwo2vc"]
 
-[ext_resource type="Script" uid="uid://bkdh80177u42r" path="res://Scripts/Classes/Consumables/WaterContainer.gd" id="1_2gdk5"]
-[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="2_dtnqu"]
+[ext_resource type="Script" uid="uid://bkdh80177u42r" path="res://Scripts/Classes/Items/Consumables/WaterContainer.gd" id="1_2gdk5"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_dtnqu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crlk1"]
 atlas = ExtResource("2_dtnqu")
@@ -15,5 +15,4 @@ thirst_modifier_when_polluted = 1.0
 has_unlimited_uses = true
 item_name = "Water Skin"
 texture = SubResource("AtlasTexture_crlk1")
-item_path = "res://Resources/Items/Water/waterskin.tres"
 metadata/_custom_type_script = "uid://bkdh80177u42r"

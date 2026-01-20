@@ -1,16 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c717mvl3cjmpf"]
+[gd_scene load_steps=5 format=3 uid="uid://c717mvl3cjmpf"]
 
 [ext_resource type="Script" uid="uid://bc1xhxp0j33cl" path="res://Scripts/Structures/crafting_table.gd" id="1_wephv"]
-[ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_oh306"]
-[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="2_s6rio"]
-[ext_resource type="Resource" uid="uid://eeregnlqd1ee" path="res://Resources/Items/wood.tres" id="3_1eldc"]
-
-[sub_resource type="Resource" id="Resource_vchht"]
-script = ExtResource("2_oh306")
-item = ExtResource("3_1eldc")
-amount = 2
-chance = 100
-metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_s6rio"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ook5j"]
 atlas = ExtResource("2_s6rio")
@@ -24,7 +15,6 @@ z_index = 3
 collision_layer = 296
 collision_mask = 0
 script = ExtResource("1_wephv")
-drops = Array[ExtResource("2_oh306")]([SubResource("Resource_vchht")])
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

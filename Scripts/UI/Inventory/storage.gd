@@ -4,7 +4,7 @@ extends GridContainer
 const ITEM_SLOT_SCENE = preload("res://Scenes/UI/Inventory/item_slot.tscn")
 const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
-@export var items : Array[Item]
+@export var items : Array[ItemStack]
 
 @onready var player : Player = Global.get_player()
 
@@ -44,28 +44,27 @@ func is_empty() -> bool:
 	return true
 
 
-func add_item(item : Item) -> bool:
-	if has_item(item.item_name):
+func add_item(item_stack : ItemStack) -> bool:
+	if has_item(item_stack.item.item_name):
 		for i in range(items.size()):
-			if items[i] != null:
-				if items[i].item_name == item.item_name:
-					var left_over = items[i].increase_amount(item.amount)
-					item.decrease_amount(item.amount - left_over)
+			if items[i] != null and items[i].item != null:
+				if items[i].item.item_name == item_stack.item.item_name:
+					var left_over = items[i].increase_amount(item_stack.amount)
+					item_stack.decrease_amount(item_stack.amount - left_over)
 					update_storage()
 					if left_over == 0:
 						return true
 	
 	for i in range(items.size()):
 		if items[i] == null:
-			items[i] = item.duplicate()
-			items[i].amount = item.amount
+			items[i] = item_stack.duplicate()
 			update_storage()
 			return true
 	
 	return false
 
 
-func set_items(_items : Array[Item]) -> void:
+func set_items(_items : Array[ItemStack]) -> void:
 	items = _items
 	update_storage()
 
@@ -79,7 +78,7 @@ func has_item(item_name : String, amount = 1) -> bool:
 
 func remove_item(item_name : String, amount = 1) -> bool:
 	for i in range(items.size()):
-		if items[i] != null and items[i].item_name == item_name:
+		if items[i] != null and items[i].item.item_name == item_name:
 			items[i].decrease_amount(amount)
 			if items[i].amount <= 0:
 				items[i] = null
@@ -91,7 +90,7 @@ func remove_item(item_name : String, amount = 1) -> bool:
 func get_item_amount(item_name : String) -> int:
 	var count = 0
 	for i in range(items.size()):
-		if items[i] != null and items[i].item_name == item_name:
+		if items[i] != null and items[i].item != null and items[i].item.item_name == item_name:
 			count += items[i].amount
 	return count
 
@@ -112,7 +111,7 @@ func remove_item_from_storage(slot : int) -> void:
 
 func drop_all_items() -> void:
 	for i in range(items.size()):
-		if items[i] != null:
+		if items[i] != null and items[i].item != null:
 			var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 			dropped_item.item = items[i].duplicate()
 			dropped_item.global_position = get_node("../../").global_position

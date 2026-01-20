@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://c4bb0qsfqcbsv"]
 
-[ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Item.gd" id="1_u67s2"]
+[ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Items/Item.gd" id="1_u67s2"]
 [ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_h8ppb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kkxd"]
@@ -12,5 +12,4 @@ script = ExtResource("1_u67s2")
 item_name = "Stick"
 max_amount = 30
 texture = SubResource("AtlasTexture_8kkxd")
-item_path = "res://Resources/Items/stick.tres"
 metadata/_custom_type_script = "uid://bapf8m2htmno7"

@@ -1,13 +1,29 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://b0rk26wbc8dwx"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://b0rk26wbc8dwx"]
 
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="1_dsxss"]
 [ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_uvtjs"]
+[ext_resource type="Script" uid="uid://765xp7t6esuk" path="res://Scripts/Classes/ItemStacks/ItemStack.gd" id="2_g1171"]
 [ext_resource type="Resource" uid="uid://bc6hrplpstqri" path="res://Resources/Items/axe_top.tres" id="2_rqskv"]
 [ext_resource type="Resource" uid="uid://b3a3gr08yo8n7" path="res://Resources/Items/Tools/axe.tres" id="3_g1171"]
 
+[sub_resource type="Resource" id="Resource_6l382"]
+script = ExtResource("2_g1171")
+item = ExtResource("1_dsxss")
+metadata/_custom_type_script = "uid://765xp7t6esuk"
+
+[sub_resource type="Resource" id="Resource_pa67x"]
+script = ExtResource("2_g1171")
+item = ExtResource("2_rqskv")
+metadata/_custom_type_script = "uid://765xp7t6esuk"
+
+[sub_resource type="Resource" id="Resource_wol6j"]
+script = ExtResource("2_g1171")
+item = ExtResource("3_g1171")
+metadata/_custom_type_script = "uid://765xp7t6esuk"
+
 [resource]
 script = ExtResource("1_uvtjs")
-item1 = ExtResource("1_dsxss")
-item2 = ExtResource("2_rqskv")
-result = ExtResource("3_g1171")
+item1 = SubResource("Resource_6l382")
+item2 = SubResource("Resource_pa67x")
+result = SubResource("Resource_wol6j")
 metadata/_custom_type_script = "uid://uxhvo65tknee"
