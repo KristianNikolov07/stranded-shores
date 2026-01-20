@@ -37,3 +37,14 @@ Play the latest build on: https://kris-nikolov.itch.io/stranded-shores or downlo
 9. Click on `Export PCK/ZIP` and make sure to save the file with the `.pck` extention.
 
     ![ExportPCKButton](https://github.com/KristianNikolov07/diploma-project/blob/main/READMEImages/ModInstructions/ExportPCKButton.png)
+
+10. Rename the file to `mod.pck`
+11. Create a file called `manifest.json`, with the following structure:
+
+   ```json
+   {
+      "name":"My Mod",
+      "author":"Kris"
+   }
+   ```
+12. Put the `manifest.json` and the `mod.pck` in a zip file. 
