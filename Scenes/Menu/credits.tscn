@@ -98,6 +98,28 @@ theme_override_font_sizes/font_size = 36
 text = "Chests"
 uri = "https://pixelserial.itch.io/rpg-pixel-art-chests"
 
+[node name="Playtesters" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Playtesters"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Playtesters:"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Playtesters"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Alexander Stoyanov"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Playtesters"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Nathaniel Nechevski"
+horizontal_alignment = 1
+
 [node name="Sounds" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
