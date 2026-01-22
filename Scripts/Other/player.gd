@@ -169,6 +169,8 @@ func attack(slot : int) -> void:
 func place(slot : int) -> void:
 	if can_move:
 		if inventory.items[slot] is StructureItem:
+			# Objectives
+			objectives.check_structure_place(inventory.items[slot].item_name)
 			if $StructurePreview.get_overlapping_bodies().size() == 0:
 				inventory.items[slot].place(self, $StructurePreview.global_position)
 				inventory.remove_item_from_slot(slot)

@@ -29,4 +29,4 @@ func _on_back_pressed() -> void:
 
 
 func _on_create_new_world_pressed() -> void:
-	$CreateNewWorldMenu.show()
+	%CreateNewWorldMenu.show()

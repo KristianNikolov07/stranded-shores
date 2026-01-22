@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Tool" load_steps=8 format=3 uid="uid://4xf4o78gtb1x"]
 
-[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="1_jx21y"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_jx21y"]
 [ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="1_m2q2g"]
 [ext_resource type="PackedScene" uid="uid://xl7usnmh2x3i" path="res://Scripts/Tools/bow.tscn" id="2_43g58"]
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="2_wajhs"]

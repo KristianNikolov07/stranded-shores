@@ -63,19 +63,6 @@ func craft(recipe : Recipe) -> void:
 		player.inventory.remove_item(recipe.item1.item_name, recipe.item1_amount)
 		if recipe.item2 != null and player.inventory.has_item(recipe.item2.item_name, recipe.item2_amount):
 			player.inventory.remove_item(recipe.item2.item_name, recipe.item2_amount)
-		
-		# Basic Axe Objective
-		if recipe.result.item_name == "Basic Axe":
-			player.objectives.complete_objective("craft basic axe")
-			
-		# Workbench Objective
-		if recipe.result.item_name == "Workbench":
-			player.objectives.complete_objective("workbench")
-		
-		# Backpack Objective
-		if recipe.result.item_name == "Backpack":
-			player.objectives.complete_objective("backpack")
-		
 		if !player.inventory.add_item(recipe.result.duplicate()):
 			var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 			dropped_item.item = recipe.result

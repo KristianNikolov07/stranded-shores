@@ -60,25 +60,6 @@ func _input(event: InputEvent) -> void:
 
 
 func add_item(item : Item, bypass_backpack : bool = false) -> bool:
-	# Rocks and Sticks Objective
-	if item.item_name == "Rock":
-		if has_item("Stick", 10) and has_item("Rock", 9):
-			player.objectives.complete_objective("sticks and rocks")
-	elif item.item_name == "Stick":
-		if has_item("Rock", 10) and has_item("Stick", 9):
-			player.objectives.complete_objective("sticks and rocks")
-	
-	# Wood Objective
-	if item.item_name == "Wood":
-		if has_item("Wood", 1):
-			player.objectives.complete_objective("gather wood")
-	
-	# Iron Objective
-	if item.item_name == "Iron Ore":
-		if has_item("Iron Ore", 9):
-			player.objectives.complete_objective("iron")
-	
-	
 	if has_item(item.item_name):
 		for i in range(items.size()):
 			if items[i] != null:
@@ -88,6 +69,7 @@ func add_item(item : Item, bypass_backpack : bool = false) -> bool:
 					visualize_inventory()
 					if left_over == 0:
 						reselect_slot()
+						player.objectives.check_item()
 						return true
 	
 	for i in range(items.size()):
@@ -96,17 +78,18 @@ func add_item(item : Item, bypass_backpack : bool = false) -> bool:
 			items[i].amount = item.amount
 			visualize_inventory()
 			reselect_slot()
+			player.objectives.check_item()
 			return true
 	
 	if backpack_item != null and bypass_backpack == false:
 		if backpack.add_item(item):
+			player.objectives.check_item()
 			return true
 	return false
 
 
-func has_item(item_name : String, amount = 1) -> bool:
+func has_item(item_name : String, amount : int = 1) -> bool:
 	var count = 0
-	
 	if backpack_item != null:
 		count += backpack.get_item_amount(item_name)
 	

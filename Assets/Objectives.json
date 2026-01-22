@@ -2,65 +2,122 @@
 	"movement":{
 		"description": "MOVEMENT_OBJECTIVE_DESCRIPTION",
 		"next_objective": "sprint",
+		"type": "other"
 	},
 	"sprint":{
 		"description": "SPRINT_OBJECTIVE_DESCRIPTION",
 		"next_objective": "interact",
+		"type": "other"
 	},
 	"interact":{
 		"description": "INTERACT_OBJECTIVE_DESCRIPTION",
-		"next_objective": "sticks and rocks"
+		"next_objective": "sticks and rocks",
+		"type": "other"
 	},
 	"sticks and rocks":{
 		"description": "STONES_AND_ROCKS_OBJECTIVE_DESCRIPTION",
 		"next_objective": "open crafting menu",
+		"type": "item",
+		"requirements": [
+			{
+				"item_name": "Stick",
+				"amount": 10
+			},
+			{
+				"item_name": "Rock",
+				"amount": 10
+			}
+		]
 	},
 	"open crafting menu":{
 		"description": "CRAFTING_MENU_OBJECTIVE_DESCRIPTION",
 		"next_objective": "craft basic axe",
+		"type": "other"
 	},
 	"craft basic axe":{
 		"description": "CRAFT_BASIC_AXE_OBJECTIVE_DESCRIPTION",
 		"next_objective": "gather wood",
+		"type": "item",
+		"requirements": [
+			{
+				"item_name": "Basic Axe",
+				"amount": 1
+			}
+		]
 	},
 	"gather wood":{
 		"description": "GATHER_WOOD_OBJECTIVE_DESCRIPTION",
 		"next_objective": "workbench",
+		"type": "item",
+		"requirements": [
+			{
+				"item_name": "Wood",
+				"amount": 2
+			}
+		]
 	},
 	"workbench":{
 		"description": "WORKBENCH_OBJECTIVE_DESCRIPTION",
 		"next_objective": "backpack",
+		"type": "place_a_structure",
+		"structure_item_name": "Workbench"
 	},
 	"backpack":{
 		"description": "BACKPACK_OBJECTIVE_DESCRIPTION",
-		"next_objective": "water"
+		"next_objective": "water",
+		"type": "item",
+		"requirements": [
+			{
+				"item_name": "Backpack",
+				"amount": 1
+			}
+		]
 	},
 	"water":{
 		"description": "WATER_OBJECTIVE_DESCRIPTION",
-		"next_objective": "food"
+		"next_objective": "food",
+		"type": "other"
 	},
 	"food":{
 		"description": "FOOD_OBJECTIVE_DESCRIPTION",
-		"next_objective": "mining"
+		"next_objective": "mining",
+		"type": "item",
+		"requirements": [
+			{
+				"item_name": "Cooked Meat",
+				"amount": 1
+			}
+		]
 	},
 	"mining":{
 		"description": "MINING_OBJECTIVE_DESCRIPTION",
-		"next_objective": "iron"
+		"next_objective": "iron",
+		"type": "other"
 	},
 	"iron":{
 		"description": "IRON_OBJECTIVE_DESCRIPTION",
-		"next_objective": "clean water"
+		"next_objective": "clean water",
+		"type": "item",
+		"requirements": [
+			{
+				"item_name": "Iron Ore",
+				"amount": 10
+			}
+		]
 	},
 	"clean water":{
 		"description": "CLEAN_WATER_OBJECTIVE_DESCRIPTION",
-		"next_objective": "explore"
+		"next_objective": "explore",
+		"type": "other"
 	},
 	"explore":{
 		"description": "EXPLORE_OBJECTIVE_DESCRIPTION",
-		"next_objective": "tree boss"
+		"next_objective": "tree boss",
+		"type": "other"
 	},
 	"tree boss":{
 		"description": "TREE_BOSS_OBJECTIVE_DESCRIPTION",
-		"next_objective": ""
+		"next_objective": "",
+		"type": "other"
 	},
 }

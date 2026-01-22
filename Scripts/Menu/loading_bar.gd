@@ -5,6 +5,8 @@ var progress = []
 
 func _ready() -> void:
 	load_scene("res://Scenes/Worlds/main.tscn")
+	if OS.get_name() == "Web":
+		value = 100
 
 
 func _process(_delta: float) -> void:

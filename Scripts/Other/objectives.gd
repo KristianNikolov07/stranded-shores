@@ -41,3 +41,18 @@ func complete_objective(objective : String) -> void:
 			set_objective(objectives[current_objective]["next_objective"])
 		else:
 			hide()
+
+
+func check_item() -> void:
+	var player : Player = Global.get_player()
+	if objectives[current_objective]["type"] == "item":
+		for requirement in objectives[current_objective]["requirements"]:
+			if player.inventory.has_item(requirement.item_name, requirement.amount) == false:
+				return
+		complete_objective(current_objective)
+
+
+func check_structure_place(structure_item_name : String) -> void:
+	if objectives[current_objective]["type"] == "place_a_structure":
+		if objectives[current_objective]["structure_item_name"] == structure_item_name:
+			complete_objective(current_objective)
