@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StructureItem" load_steps=6 format=3 uid="uid://eivpgccu0q4x"]
 
 [ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/StructureItem.gd" id="1_qi6am"]
-[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_r4ric"]
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="1_r4ric"]
 [ext_resource type="PackedScene" uid="uid://c717mvl3cjmpf" path="res://Scenes/Structures/crafting_table.tscn" id="3_q7nr1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7nr1"]
