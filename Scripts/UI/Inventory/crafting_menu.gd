@@ -43,6 +43,7 @@ func open_menu(_is_crafting_table = false) -> void:
 			%Tools.show()
 		else:
 			%Tools.hide()
+			select_tool(null)
 			
 		update_ui()
 		show()

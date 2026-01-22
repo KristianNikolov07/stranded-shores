@@ -122,7 +122,7 @@
 		]
 	},
 	"anvil":{
-		"description": "ARMOR_OBJECTIVE_DESCRIPTION",
+		"description": "ANVIL_OBJECTIVE_DESCRIPTION",
 		"next_objective": "explore",
 		"type": "item",
 		"requirements": [
