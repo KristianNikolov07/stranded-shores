@@ -116,12 +116,15 @@ func update_ui() -> void:
 			else:
 				recipe.hide()
 	
-	# Tool Buttons
+	# Tools
 	for button : Button in %Tools.get_children():
 		if button.tool != selected_tool:
 			button.button_pressed = false
 		else:
 			button.button_pressed = true
+	
+	if selected_tool != null:
+		$%CraftingSlot2.set_tool(selected_tool)
 
 
 func _on_craft_pressed() -> void:
