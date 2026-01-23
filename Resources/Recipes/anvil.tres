@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_dtyhw"]
 [ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="1_kum5y"]
-[ext_resource type="Resource" uid="uid://dexo0fi08bjdt" path="res://Resources/Items/Structures/repair_station.tres" id="2_clmrh"]
+[ext_resource type="Resource" uid="uid://dexo0fi08bjdt" path="res://Resources/Items/Structures/anvil.tres" id="2_clmrh"]
 [ext_resource type="Resource" uid="uid://dcgmig5kdolf8" path="res://Resources/CraftingTools/hammer.tres" id="4_j1bu3"]
 
 [resource]

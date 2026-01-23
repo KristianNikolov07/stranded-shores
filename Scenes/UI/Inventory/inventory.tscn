@@ -36,7 +36,7 @@ grow_horizontal = 1
 grow_vertical = 1
 type = 1
 
-[node name="Outline" parent="ArmorSlot" index="1"]
+[node name="Background" parent="ArmorSlot" index="2"]
 texture = SubResource("AtlasTexture_4svce")
 
 [node name="BackpackSlot" parent="." instance=ExtResource("2_1i8xw")]
@@ -47,8 +47,11 @@ grow_horizontal = 1
 grow_vertical = 1
 type = 2
 
-[node name="Outline" parent="BackpackSlot" index="1"]
+[node name="Background" parent="BackpackSlot" index="2"]
 texture = SubResource("AtlasTexture_gx7nd")
+
+[connection signal="clicked" from="ArmorSlot" to="." method="_on_armor_slot_clicked"]
+[connection signal="clicked" from="BackpackSlot" to="." method="_on_backpack_slot_clicked"]
 
 [editable path="ArmorSlot"]
 [editable path="BackpackSlot"]

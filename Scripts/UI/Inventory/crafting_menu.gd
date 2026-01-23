@@ -43,6 +43,7 @@ func open_menu(_is_crafting_table = false) -> void:
 			%Tools.show()
 		else:
 			%Tools.hide()
+			select_tool(null)
 			
 		update_ui()
 		show()
@@ -102,26 +103,20 @@ func update_ui() -> void:
 	
 	# Recipes
 	for recipe in %Recipes.get_children():
-		if recipe.recipe.requires_crafting_table():
-			if is_crafting_table:
-				if recipe.recipe.tool == selected_tool:
-					recipe.show()
-				else:
-					recipe.hide()
-			else:
-				recipe.hide()
+		if recipe.recipe.tool == selected_tool:
+			recipe.show()
 		else:
-			if selected_tool == null or is_crafting_table == false:
-				recipe.show()
-			else:
-				recipe.hide()
+			recipe.hide()
 	
-	# Tool Buttons
+	# Tools
 	for button : Button in %Tools.get_children():
 		if button.tool != selected_tool:
 			button.button_pressed = false
 		else:
 			button.button_pressed = true
+	
+	if selected_tool != null:
+		$%CraftingSlot2.set_tool(selected_tool)
 
 
 func _on_craft_pressed() -> void:

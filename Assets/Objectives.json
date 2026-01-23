@@ -80,7 +80,7 @@
 	},
 	"food":{
 		"description": "FOOD_OBJECTIVE_DESCRIPTION",
-		"next_objective": "mining",
+		"next_objective": "clean water",
 		"type": "item",
 		"requirements": [
 			{
@@ -89,6 +89,11 @@
 			}
 		]
 	},
+	"clean water":{
+		"description": "CLEAN_WATER_OBJECTIVE_DESCRIPTION",
+		"next_objective": "mining",
+		"type": "other"
+	},
 	"mining":{
 		"description": "MINING_OBJECTIVE_DESCRIPTION",
 		"next_objective": "iron",
@@ -96,7 +101,7 @@
 	},
 	"iron":{
 		"description": "IRON_OBJECTIVE_DESCRIPTION",
-		"next_objective": "clean water",
+		"next_objective": "armor",
 		"type": "item",
 		"requirements": [
 			{
@@ -105,10 +110,27 @@
 			}
 		]
 	},
-	"clean water":{
-		"description": "CLEAN_WATER_OBJECTIVE_DESCRIPTION",
+	"armor":{
+		"description": "ARMOR_OBJECTIVE_DESCRIPTION",
+		"next_objective": "anvil",
+		"type": "item",
+		"requirements": [
+			{
+				"item_name": "Iron Armor",
+				"amount": 1
+			}
+		]
+	},
+	"anvil":{
+		"description": "ANVIL_OBJECTIVE_DESCRIPTION",
 		"next_objective": "explore",
-		"type": "other"
+		"type": "item",
+		"requirements": [
+			{
+				"item_name": "Anvil",
+				"amount": 1
+			}
+		]
 	},
 	"explore":{
 		"description": "EXPLORE_OBJECTIVE_DESCRIPTION",

@@ -20,11 +20,16 @@ theme = ExtResource("1_ds26i")
 script = ExtResource("1_nl11y")
 metadata/_edit_use_anchors_ = true
 
+[node name="Highlighter" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+color = Color(0.69411767, 0.57254905, 0, 1)
+
 [node name="Item" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 2
 
-[node name="Outline" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 2
 
