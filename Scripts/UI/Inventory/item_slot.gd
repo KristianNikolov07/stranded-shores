@@ -1,5 +1,7 @@
 extends Control
 
+signal clicked(id : int)
+
 enum Type{
 	ITEM,
 	ARMOR,
@@ -13,12 +15,13 @@ enum Type{
 @export var can_be_clicked = true
 
 var selected = false
+var highlighted = false
 
 @onready var player : Player = Global.get_player()
 
 func set_item(item : Item) -> void:
 	if item != null:
-		$Outline.hide()
+		$Background.hide()
 		
 		# Item texture
 		$Item.texture = item.texture
@@ -48,7 +51,7 @@ func set_item(item : Item) -> void:
 			$MarginContainer/Water.hide()
 	
 	else:
-		$Outline.show()
+		$Background.show()
 		$Item.texture = null
 		$MarginContainer/Amount.hide()
 		$MarginContainer/Durability.hide() 
@@ -65,16 +68,18 @@ func deselect() -> void:
 	$Selector.hide()
 
 
+func highlight() -> void:
+	highlighted = true
+	$Highlighter.show()
+
+
+func dehighlight() -> void:
+	highlighted = false
+	$Highlighter.hide()
+
+
 func _on_button_pressed() -> void:
 	if can_be_clicked:
 		if player.repair_menu != null:
 			player.repair_menu.set_tool(player.inventory.items[id])
-		elif type == Type.ARMOR:
-			get_parent().unequip_armor()
-		elif type == Type.BACKPACK:
-			get_parent().unequip_backpack()
-		else:
-			if is_in_backpack:
-				get_parent().remove_item_from_storage(id)
-			else:
-				get_node("../../").move_item_to_storage(id)
+		clicked.emit(id)

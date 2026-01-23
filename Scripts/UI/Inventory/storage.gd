@@ -6,6 +6,8 @@ const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
 @export var items : Array[Item]
 
+var highlighted_slot = null
+
 @onready var player : Player = Global.get_player()
 
 func _ready() -> void:

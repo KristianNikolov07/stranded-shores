@@ -4,12 +4,16 @@ extends Control
 const ITEM_SLOT_SCENE = preload("res://Scenes/UI/Inventory/item_slot.tscn")
 const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
+const ARMOR_SLOT_ID = 100
+const BACKPACK_SLOT_ID = 101
+
 @export var items : Array[Item]
 @export var inventory_size = 4
 @export var armor : Armor
 @export var backpack_item : Backpack
 
 var selected_slot = 0
+var highlighted_slot = null
 var opened_storage : Storage
 
 @onready var player = get_node("../../")
@@ -19,6 +23,8 @@ func _ready() -> void:
 	items.resize(inventory_size)
 	initiate_inventory_UI()
 	select_slot(0)
+	$ArmorSlot.id = ARMOR_SLOT_ID
+	$BackpackSlot.id = BACKPACK_SLOT_ID
 
 
 func _input(event: InputEvent) -> void:
@@ -142,7 +148,7 @@ func move_item_to_storage(slot : int):
 func select_slot(slot : int) -> void:
 	if slot < inventory_size:
 		selected_slot = slot
-		visualize_selected_slot()
+		visualize_inventory()
 	
 	# Tools
 	if player.tool != null:
@@ -298,12 +304,54 @@ func drop_inventory() -> void:
 	visualize_inventory()
 
 
+func swap_items(slot1 : int, slot2 : int) -> void:
+	# Stacking
+	if items[slot2] != null:
+		if items[slot1].item_name == items[slot2].item_name:
+			if items[slot2].amount != items[slot2].max_amount:
+				var left_over = items[slot2].increase_amount(items[slot1].amount)
+				items[slot1].decrease_amount(items[slot1].amount - left_over)
+				if items[slot1].amount == 0:
+					items[slot1] = null
+				visualize_inventory()
+				return
+	
+	# Swapping
+	var temp = items[slot1]
+	items[slot1] = items[slot2]
+	items[slot2] = temp
+	visualize_inventory()
+
+
+func highlight_slot(slot : int) -> void:
+	if items[slot] != null:
+		if highlighted_slot == null:
+			highlighted_slot = slot
+		elif highlighted_slot == slot:
+			highlighted_slot = null
+		visualize_inventory()
+
+
+func dehighlight_current_slot() -> void:
+	highlighted_slot = null
+	visualize_inventory()
+
+
+func _on_item_slot_clicked(id : int) -> void:
+	if highlighted_slot == null:
+		highlight_slot(id)
+	else:
+		swap_items(highlighted_slot, id)
+		dehighlight_current_slot()
+
+
 # UI
 func initiate_inventory_UI():
 	for i in range(inventory_size):
 		var node = ITEM_SLOT_SCENE.instantiate()
 		node.id = i
 		$Inventory.add_child(node)
+		node.clicked.connect(_on_item_slot_clicked)
 	$Inventory.get_child(0).select()
 
 func visualize_inventory():
@@ -311,9 +359,11 @@ func visualize_inventory():
 		$Inventory.get_child(i).set_item(items[i])
 	$ArmorSlot.set_item(armor)
 	$BackpackSlot.set_item(backpack_item)
-
-
-func visualize_selected_slot():
+	
+	# Selected and Highlighted Slots
 	for child in $Inventory.get_children():
 		child.deselect()
+		child.dehighlight()
 	$Inventory.get_child(selected_slot).select()
+	if highlighted_slot != null:
+		$Inventory.get_child(highlighted_slot).highlight()
