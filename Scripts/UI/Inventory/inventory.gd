@@ -103,18 +103,31 @@ func has_item(item_name : String, amount : int = 1) -> bool:
 		return false
 
 
-func remove_item(item_name : String, amount = 1) -> bool:
-	if backpack_item != null:
-		if backpack.has_item(item_name, amount):
-			backpack.remove_item(item_name, amount)
-			
+func remove_item(item_name: String, amount: int = 1) -> bool:
+	var remaining : int = amount
+
+	if backpack_item != null and remaining > 0:
+		var from_backpack : int = min(remaining, backpack.get_item_amount(item_name))
+		if from_backpack > 0:
+			backpack.remove_item(item_name, from_backpack)
+			remaining -= from_backpack
+
+	if remaining <= 0:
+		visualize_inventory()
+		return true
+
 	for i in range(items.size()):
 		if items[i] != null and items[i].item_name == item_name:
-			items[i].decrease_amount(amount)
+			var take : int = min(remaining, items[i].amount)
+			items[i].decrease_amount(take)
+			remaining -= take
 			if items[i].amount <= 0:
 				items[i] = null
-			visualize_inventory()
-			return true
+			if remaining <= 0:
+				visualize_inventory()
+				return true
+
+	visualize_inventory()
 	return false
 
 
