@@ -28,7 +28,7 @@ func set_inv_size(new_size : int) -> void:
 
 
 func open() -> void:
-	update_storage()
+	initiate_storage()
 	show()
 
 
@@ -106,12 +106,6 @@ func remove_item_from_slot(slot : int, amount = 1) -> void:
 		update_storage()
 
 
-func remove_item_from_storage(slot : int) -> void:
-	if items[slot] != null:
-		if player.inventory.add_item(items[slot], true):
-			remove_item_from_slot(slot, items[slot].amount)
-		update_storage()
-
 func drop_all_items() -> void:
 	for i in range(items.size()):
 		if items[i] != null:
@@ -122,7 +116,73 @@ func drop_all_items() -> void:
 			get_node("../../../").add_child(dropped_item)
 
 
-func update_storage() -> void:
+func swap_items(slot1 : int, slot2 : int) -> void:
+	# Stacking
+	if items[slot2] != null:
+		if items[slot1].item_name == items[slot2].item_name:
+			if items[slot2].amount != items[slot2].max_amount:
+				var left_over = items[slot2].increase_amount(items[slot1].amount)
+				items[slot1].decrease_amount(items[slot1].amount - left_over)
+				if items[slot1].amount == 0:
+					items[slot1] = null
+				update_storage()
+				return
+	
+	# Swapping
+	var temp = items[slot1]
+	items[slot1] = items[slot2]
+	items[slot2] = temp
+	update_storage()
+
+
+func remove_from_storage(slot1 : int, slot2 : int) -> void:
+	# Stacking
+	if player.inventory.items[slot2] != null:
+		if items[slot1].item_name == player.inventory.items[slot2].item_name:
+			if player.inventory.items[slot2].amount != player.inventory.items[slot2].max_amount:
+				var left_over = player.inventory.items[slot2].increase_amount(items[slot1].amount)
+				items[slot1].decrease_amount(items[slot1].amount - left_over)
+				if items[slot1].amount == 0:
+					items[slot1] = null
+				update_storage()
+				player.inventory.visualize_inventory()
+				return
+	
+	# Swapping
+	var temp = items[slot1]
+	items[slot1] = player.inventory.items[slot2]
+	player.inventory.items[slot2] = temp
+	update_storage()
+	player.inventory.visualize_inventory()
+
+
+func highlight_slot(slot : int) -> void:
+	if items[slot] != null:
+		if highlighted_slot == null:
+			highlighted_slot = slot
+		elif highlighted_slot == slot:
+			highlighted_slot = null
+		update_storage()
+
+
+func dehighlight_current_slot() -> void:
+	highlighted_slot = null
+	update_storage()
+
+
+func _on_item_slot_clicked(id : int) -> void:
+	if highlighted_slot == null and player.inventory.highlighted_slot == null:
+		highlight_slot(id)
+	else:
+		if highlighted_slot != null:
+			swap_items(highlighted_slot, id)
+			dehighlight_current_slot()
+		else:
+			player.inventory.move_to_storage(player.inventory.highlighted_slot, id)
+			player.inventory.dehighlight_current_slot()
+
+
+func initiate_storage() -> void:
 	for slot in get_children():
 		slot.queue_free()
 	
@@ -132,4 +192,16 @@ func update_storage() -> void:
 		slot.id = i
 		slot.is_in_backpack = true
 		add_child(slot, true)
-	
+		slot.clicked.connect(_on_item_slot_clicked)
+
+
+func update_storage() -> void:
+	if visible:
+		for i in range(items.size()):
+			get_child(i).set_item(items[i])
+		
+		#Highlighted Slots
+		for child in get_children():
+			child.dehighlight()
+		if highlighted_slot != null:
+			get_child(highlighted_slot).highlight()
