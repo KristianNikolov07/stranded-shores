@@ -103,19 +103,10 @@ func update_ui() -> void:
 	
 	# Recipes
 	for recipe in %Recipes.get_children():
-		if recipe.recipe.requires_crafting_table():
-			if is_crafting_table:
-				if recipe.recipe.tool == selected_tool:
-					recipe.show()
-				else:
-					recipe.hide()
-			else:
-				recipe.hide()
+		if recipe.recipe.tool == selected_tool:
+			recipe.show()
 		else:
-			if selected_tool == null or is_crafting_table == false:
-				recipe.show()
-			else:
-				recipe.hide()
+			recipe.hide()
 	
 	# Tools
 	for button : Button in %Tools.get_children():
