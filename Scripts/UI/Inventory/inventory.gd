@@ -4,9 +4,6 @@ extends Control
 const ITEM_SLOT_SCENE = preload("res://Scenes/UI/Inventory/item_slot.tscn")
 const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
-const ARMOR_SLOT_ID = 100
-const BACKPACK_SLOT_ID = 101
-
 @export var items : Array[Item]
 @export var inventory_size = 4
 @export var armor : Armor
@@ -23,8 +20,6 @@ func _ready() -> void:
 	items.resize(inventory_size)
 	initiate_inventory_UI()
 	select_slot(0)
-	$ArmorSlot.id = ARMOR_SLOT_ID
-	$BackpackSlot.id = BACKPACK_SLOT_ID
 
 
 func _input(event: InputEvent) -> void:
@@ -361,6 +356,24 @@ func _on_item_slot_clicked(id : int) -> void:
 		else:
 			opened_storage.remove_from_storage(opened_storage.highlighted_slot, id)
 			opened_storage.dehighlight_current_slot()
+
+
+func _on_armor_slot_clicked(_id: int) -> void:
+	if highlighted_slot != null:
+		if items[highlighted_slot] is Armor:
+			equip_armor_from_slot(highlighted_slot)
+			dehighlight_current_slot()
+	else:
+		unequip_armor()
+
+
+func _on_backpack_slot_clicked(_id: int) -> void:
+	if highlighted_slot != null:
+		if items[highlighted_slot] is Backpack:
+			equip_backpack_from_slot(highlighted_slot)
+			dehighlight_current_slot()
+	else:
+		unequip_backpack()
 
 
 # UI

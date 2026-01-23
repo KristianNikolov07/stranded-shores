@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://b835m5mv6qhyh"]
+[gd_scene load_steps=8 format=3 uid="uid://b835m5mv6qhyh"]
 
 [ext_resource type="Script" uid="uid://ctcfv3jdh0rbg" path="res://Scripts/UI/Inventory/inventory.gd" id="1_1i8xw"]
 [ext_resource type="PackedScene" uid="uid://b14v1jc5n78s2" path="res://Scenes/UI/Inventory/item_slot.tscn" id="2_1i8xw"]
 [ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Item.gd" id="2_4svce"]
 [ext_resource type="Resource" uid="uid://cvb38nknma2s1" path="res://Resources/Items/Backpacks/small_backpack.tres" id="3_gx7nd"]
+[ext_resource type="Texture2D" uid="uid://bqphnplxc0q58" path="res://Assets/Textures/UI/slot_outlines.png" id="5_gx7nd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4svce"]
+atlas = ExtResource("5_gx7nd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx7nd"]
+atlas = ExtResource("5_gx7nd")
+region = Rect2(16, 0, 16, 16)
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -27,6 +36,9 @@ grow_horizontal = 1
 grow_vertical = 1
 type = 1
 
+[node name="Background" parent="ArmorSlot" index="2"]
+texture = SubResource("AtlasTexture_4svce")
+
 [node name="BackpackSlot" parent="." instance=ExtResource("2_1i8xw")]
 layout_mode = 1
 anchor_top = 0.8888889
@@ -34,6 +46,12 @@ anchor_bottom = 1.0002717
 grow_horizontal = 1
 grow_vertical = 1
 type = 2
+
+[node name="Background" parent="BackpackSlot" index="2"]
+texture = SubResource("AtlasTexture_gx7nd")
+
+[connection signal="clicked" from="ArmorSlot" to="." method="_on_armor_slot_clicked"]
+[connection signal="clicked" from="BackpackSlot" to="." method="_on_backpack_slot_clicked"]
 
 [editable path="ArmorSlot"]
 [editable path="BackpackSlot"]
