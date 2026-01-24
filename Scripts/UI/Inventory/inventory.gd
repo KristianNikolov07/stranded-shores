@@ -103,18 +103,31 @@ func has_item(item_name : String, amount : int = 1) -> bool:
 		return false
 
 
-func remove_item(item_name : String, amount = 1) -> bool:
-	if backpack_item != null:
-		if backpack.has_item(item_name, amount):
-			backpack.remove_item(item_name, amount)
-			
+func remove_item(item_name: String, amount: int = 1) -> bool:
+	var remaining : int = amount
+
+	if backpack_item != null and remaining > 0:
+		var from_backpack : int = min(remaining, backpack.get_item_amount(item_name))
+		if from_backpack > 0:
+			backpack.remove_item(item_name, from_backpack)
+			remaining -= from_backpack
+
+	if remaining <= 0:
+		visualize_inventory()
+		return true
+
 	for i in range(items.size()):
 		if items[i] != null and items[i].item_name == item_name:
-			items[i].decrease_amount(amount)
+			var take : int = min(remaining, items[i].amount)
+			items[i].decrease_amount(take)
+			remaining -= take
 			if items[i].amount <= 0:
 				items[i] = null
-			visualize_inventory()
-			return true
+			if remaining <= 0:
+				visualize_inventory()
+				return true
+
+	visualize_inventory()
 	return false
 
 
@@ -292,44 +305,39 @@ func drop_inventory() -> void:
 	visualize_inventory()
 
 
-func swap_items(slot1 : int, slot2 : int) -> void:
+func swap_items(slot1: int, slot2: int, move_to_storage: bool = false) -> void:
+	var src := items
+	var dst : Array[Item]
+	if move_to_storage:
+		dst = opened_storage.items
+	else:
+		dst = items
+
+	var src_item = src[slot1]
+	if src_item == null:
+		return
+
+	var dst_item = dst[slot2]
+
 	# Stacking
-	if items[slot2] != null:
-		if items[slot1].item_name == items[slot2].item_name:
-			if items[slot2].amount != items[slot2].max_amount:
-				var left_over = items[slot2].increase_amount(items[slot1].amount)
-				items[slot1].decrease_amount(items[slot1].amount - left_over)
-				if items[slot1].amount == 0:
-					items[slot1] = null
-				visualize_inventory()
-				return
-	
+	if dst_item != null and src_item.item_name == dst_item.item_name and dst_item.amount < dst_item.max_amount:
+		var left_over = dst_item.increase_amount(src_item.amount)
+		src_item.decrease_amount(src_item.amount - left_over)
+		if src_item.amount == 0:
+			src[slot1] = null
+
+		visualize_inventory()
+		if move_to_storage:
+			opened_storage.update_storage()
+		return
+
 	# Swapping
-	var temp = items[slot1]
-	items[slot1] = items[slot2]
-	items[slot2] = temp
+	src[slot1] = dst_item
+	dst[slot2] = src_item
+
 	visualize_inventory()
-
-
-func move_to_storage(slot1 : int, slot2 : int) -> void:
-	# Stacking
-	if opened_storage.items[slot2] != null:
-		if items[slot1].item_name == opened_storage.items[slot2].item_name:
-			if opened_storage.items[slot2].amount != opened_storage.items[slot2].max_amount:
-				var left_over = opened_storage.items[slot2].increase_amount(items[slot1].amount)
-				items[slot1].decrease_amount(items[slot1].amount - left_over)
-				if items[slot1].amount == 0:
-					items[slot1] = null
-				visualize_inventory()
-				opened_storage.update_storage()
-				return
-	
-	# Swapping
-	var temp = items[slot1]
-	items[slot1] = opened_storage.items[slot2]
-	opened_storage.items[slot2] = temp
-	visualize_inventory() 
-	opened_storage.update_storage()
+	if move_to_storage:
+		opened_storage.update_storage()
 
 
 func highlight_slot(slot : int) -> void:
@@ -354,7 +362,7 @@ func _on_item_slot_clicked(id : int) -> void:
 			swap_items(highlighted_slot, id)
 			dehighlight_current_slot()
 		else:
-			opened_storage.remove_from_storage(opened_storage.highlighted_slot, id)
+			opened_storage.swap_items(opened_storage.highlighted_slot, id, true)
 			opened_storage.dehighlight_current_slot()
 
 
