@@ -117,23 +117,23 @@ func drop_all_items() -> void:
 
 func swap_items(slot1: int, slot2: int, remove_from_storage: bool = false) -> void:
 	var src := items
-	var dst : Array[Item]
+	var dst : Array[ItemStack]
 	if remove_from_storage:
 		dst = player.inventory.items
 	else:
 		dst = items
 
-	var src_item = src[slot1]
-	if src_item == null:
+	var src_item_stack = src[slot1]
+	if src_item_stack == null:
 		return
 
-	var dst_item = dst[slot2]
+	var dst_item_stack = dst[slot2]
 
 	# Stacking
-	if dst_item != null and src_item.item_name == dst_item.item_name and dst_item.amount < dst_item.max_amount:
-		var left_over = dst_item.increase_amount(src_item.amount)
-		src_item.decrease_amount(src_item.amount - left_over)
-		if src_item.amount == 0:
+	if dst_item_stack != null and src_item_stack.item.item_name == dst_item_stack.item.item_name and dst_item_stack.amount < dst_item_stack.item.max_amount:
+		var left_over = dst_item_stack.increase_amount(src_item_stack.amount)
+		src_item_stack.decrease_amount(src_item_stack.amount - left_over)
+		if src_item_stack.amount == 0:
 			src[slot1] = null
 
 		update_storage()
@@ -142,8 +142,8 @@ func swap_items(slot1: int, slot2: int, remove_from_storage: bool = false) -> vo
 		return
 
 	# Swapping
-	src[slot1] = dst_item
-	dst[slot2] = src_item
+	src[slot1] = dst_item_stack
+	dst[slot2] = src_item_stack
 
 	update_storage()
 	if remove_from_storage:
