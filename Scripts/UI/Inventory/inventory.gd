@@ -303,39 +303,44 @@ func drop_inventory() -> void:
 	visualize_inventory()
 
 
-func swap_items(slot1: int, slot2: int, move_to_storage: bool = false) -> void:
-	var src := items
-	var dst : Array[Item]
-	if move_to_storage:
-		dst = opened_storage.items
-	else:
-		dst = items
-
-	var src_item = src[slot1]
-	if src_item == null:
-		return
-
-	var dst_item = dst[slot2]
-
+func swap_items(slot1 : int, slot2 : int) -> void:
 	# Stacking
-	if dst_item != null and src_item.item_name == dst_item.item_name and dst_item.amount < dst_item.max_amount:
-		var left_over = dst_item.increase_amount(src_item.amount)
-		src_item.decrease_amount(src_item.amount - left_over)
-		if src_item.amount == 0:
-			src[slot1] = null
-
-		visualize_inventory()
-		if move_to_storage:
-			opened_storage.update_storage()
-		return
-
+	if items[slot2] != null:
+		if items[slot1].item_name == items[slot2].item_name:
+			if items[slot2].amount != items[slot2].max_amount:
+				var left_over = items[slot2].increase_amount(items[slot1].amount)
+				items[slot1].decrease_amount(items[slot1].amount - left_over)
+				if items[slot1].amount == 0:
+					items[slot1] = null
+				visualize_inventory()
+				return
+	
 	# Swapping
-	src[slot1] = dst_item
-	dst[slot2] = src_item
-
+	var temp = items[slot1]
+	items[slot1] = items[slot2]
+	items[slot2] = temp
 	visualize_inventory()
-	if move_to_storage:
-		opened_storage.update_storage()
+
+
+func move_to_storage(slot1 : int, slot2 : int) -> void:
+	# Stacking
+	if opened_storage.items[slot2] != null:
+		if items[slot1].item_name == opened_storage.items[slot2].item_name:
+			if opened_storage.items[slot2].amount != opened_storage.items[slot2].max_amount:
+				var left_over = opened_storage.items[slot2].increase_amount(items[slot1].amount)
+				items[slot1].decrease_amount(items[slot1].amount - left_over)
+				if items[slot1].amount == 0:
+					items[slot1] = null
+				visualize_inventory()
+				opened_storage.update_storage()
+				return
+	
+	# Swapping
+	var temp = items[slot1]
+	items[slot1] = opened_storage.items[slot2]
+	opened_storage.items[slot2] = temp
+	visualize_inventory() 
+	opened_storage.update_storage()
 
 
 func highlight_slot(slot : int) -> void:
@@ -360,7 +365,7 @@ func _on_item_slot_clicked(id : int) -> void:
 			swap_items(highlighted_slot, id)
 			dehighlight_current_slot()
 		else:
-			opened_storage.swap_items(opened_storage.highlighted_slot, id, true)
+			opened_storage.remove_from_storage(opened_storage.highlighted_slot, id)
 			opened_storage.dehighlight_current_slot()
 
 

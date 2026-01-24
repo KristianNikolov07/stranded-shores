@@ -115,39 +115,44 @@ func drop_all_items() -> void:
 			get_node("../../../").add_child(dropped_item)
 
 
-func swap_items(slot1: int, slot2: int, remove_from_storage: bool = false) -> void:
-	var src := items
-	var dst : Array[Item]
-	if remove_from_storage:
-		dst = player.inventory.items
-	else:
-		dst = items
-
-	var src_item = src[slot1]
-	if src_item == null:
-		return
-
-	var dst_item = dst[slot2]
-
+func swap_items(slot1 : int, slot2 : int) -> void:
 	# Stacking
-	if dst_item != null and src_item.item_name == dst_item.item_name and dst_item.amount < dst_item.max_amount:
-		var left_over = dst_item.increase_amount(src_item.amount)
-		src_item.decrease_amount(src_item.amount - left_over)
-		if src_item.amount == 0:
-			src[slot1] = null
-
-		update_storage()
-		if remove_from_storage:
-			player.inventory.visualize_inventory()
-		return
-
+	if items[slot2] != null:
+		if items[slot1].item_name == items[slot2].item_name:
+			if items[slot2].amount != items[slot2].max_amount:
+				var left_over = items[slot2].increase_amount(items[slot1].amount)
+				items[slot1].decrease_amount(items[slot1].amount - left_over)
+				if items[slot1].amount == 0:
+					items[slot1] = null
+				update_storage()
+				return
+	
 	# Swapping
-	src[slot1] = dst_item
-	dst[slot2] = src_item
-
+	var temp = items[slot1]
+	items[slot1] = items[slot2]
+	items[slot2] = temp
 	update_storage()
-	if remove_from_storage:
-		player.inventory.visualize_inventory()
+
+
+func remove_from_storage(slot1 : int, slot2 : int) -> void:
+	# Stacking
+	if player.inventory.items[slot2] != null:
+		if items[slot1].item_name == player.inventory.items[slot2].item_name:
+			if player.inventory.items[slot2].amount != player.inventory.items[slot2].max_amount:
+				var left_over = player.inventory.items[slot2].increase_amount(items[slot1].amount)
+				items[slot1].decrease_amount(items[slot1].amount - left_over)
+				if items[slot1].amount == 0:
+					items[slot1] = null
+				update_storage()
+				player.inventory.visualize_inventory()
+				return
+	
+	# Swapping
+	var temp = items[slot1]
+	items[slot1] = player.inventory.items[slot2]
+	player.inventory.items[slot2] = temp
+	update_storage()
+	player.inventory.visualize_inventory()
 
 
 func highlight_slot(slot : int) -> void:
@@ -172,7 +177,7 @@ func _on_item_slot_clicked(id : int) -> void:
 			swap_items(highlighted_slot, id)
 			dehighlight_current_slot()
 		else:
-			player.inventory.swap_items(player.inventory.highlighted_slot, id, true)
+			player.inventory.move_to_storage(player.inventory.highlighted_slot, id)
 			player.inventory.dehighlight_current_slot()
 
 
