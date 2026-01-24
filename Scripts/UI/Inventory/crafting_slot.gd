@@ -1,11 +1,11 @@
 extends Control
 
-func set_item(item : Item, amount : int = 1, avaliable = true) -> void:
-	if item != null:
-		$ItemTexture.texture = item.texture
+func set_item(item_stack : ItemStack, avaliable = true) -> void:
+	if item_stack != null:
+		$ItemTexture.texture = item_stack.item.texture
 		
-		if amount > 1:
-			$Amount.text = str(amount)
+		if item_stack.amount > 1:
+			$Amount.text = str(item_stack.amount)
 			$Amount.show()
 		else:
 			$Amount.hide()

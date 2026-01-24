@@ -1,21 +1,33 @@
-[gd_scene load_steps=19 format=3 uid="uid://dxbjcmy6g3tgr"]
+[gd_scene load_steps=22 format=3 uid="uid://dxbjcmy6g3tgr"]
 
 [ext_resource type="Script" uid="uid://1sd1p5id6chv" path="res://Scripts/Structures/big_rock.gd" id="1_5cn61"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_6jbqd"]
-[ext_resource type="Texture2D" uid="uid://dn5i4gs6nkc0w" path="res://Assets/Textures/Objects/rock.png" id="2_iou6s"]
+[ext_resource type="Texture2D" uid="uid://cah4eabrcytye" path="res://Assets/Textures/Objects/rock.png" id="2_iou6s"]
 [ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="3_5cn61"]
+[ext_resource type="Script" uid="uid://765xp7t6esuk" path="res://Scripts/Classes/ItemStacks/ItemStack.gd" id="4_qw88s"]
 [ext_resource type="AudioStream" uid="uid://85qmoqvrgdq3" path="res://Assets/Sounds/hit-rock.mp3" id="5_5cn61"]
+
+[sub_resource type="Resource" id="Resource_0g4qg"]
+script = ExtResource("4_qw88s")
+item = ExtResource("3_5cn61")
+amount = 5
+metadata/_custom_type_script = "uid://765xp7t6esuk"
 
 [sub_resource type="Resource" id="Resource_qw88s"]
 script = ExtResource("2_6jbqd")
-item = ExtResource("3_5cn61")
-amount = 5
+item_stack = SubResource("Resource_0g4qg")
 chance = 100
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
+[sub_resource type="Resource" id="Resource_sbgt5"]
+script = ExtResource("4_qw88s")
+item = ExtResource("3_5cn61")
+amount = 2
+metadata/_custom_type_script = "uid://765xp7t6esuk"
+
 [sub_resource type="Resource" id="Resource_qsha1"]
 script = ExtResource("2_6jbqd")
-item = ExtResource("3_5cn61")
+item_stack = SubResource("Resource_sbgt5")
 chance = 25
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 

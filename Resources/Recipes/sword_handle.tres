@@ -1,13 +1,24 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://ckhdh31qtiwa3"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=8 format=3 uid="uid://d3r4g02i0xcmf"]
 
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="1_26et2"]
 [ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_sdle3"]
-[ext_resource type="Resource" uid="uid://6v1x3ls83hld" path="res://Resources/Items/sword_handle.tres" id="2_jmxs3"]
+[ext_resource type="Script" uid="uid://765xp7t6esuk" path="res://Scripts/Classes/ItemStacks/ItemStack.gd" id="2_26et2"]
+[ext_resource type="Resource" uid="uid://d4ckxj4dshixy" path="res://Resources/Items/sword_handle.tres" id="2_jmxs3"]
 [ext_resource type="Resource" uid="uid://dnyirqgk2r7cr" path="res://Resources/CraftingTools/handsaw.tres" id="4_ykq2e"]
+
+[sub_resource type="Resource" id="Resource_jmxs3"]
+script = ExtResource("2_26et2")
+item = ExtResource("1_26et2")
+metadata/_custom_type_script = "uid://765xp7t6esuk"
+
+[sub_resource type="Resource" id="Resource_ykq2e"]
+script = ExtResource("2_26et2")
+item = ExtResource("2_jmxs3")
+metadata/_custom_type_script = "uid://765xp7t6esuk"
 
 [resource]
 script = ExtResource("1_sdle3")
 tool = ExtResource("4_ykq2e")
-item1 = ExtResource("1_26et2")
-result = ExtResource("2_jmxs3")
+item1 = SubResource("Resource_jmxs3")
+result = SubResource("Resource_ykq2e")
 metadata/_custom_type_script = "uid://uxhvo65tknee"

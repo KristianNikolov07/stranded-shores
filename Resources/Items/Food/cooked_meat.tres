@@ -13,5 +13,4 @@ hunger_modifier = 5.0
 item_name = "Cooked Meat"
 max_amount = 32
 texture = SubResource("AtlasTexture_p6tiw")
-item_path = "res://Resources/Items/Food/cooked_meat.tres"
 metadata/_custom_type_script = "uid://dwh1bhdedho1q"

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Armor" load_steps=3 format=3 uid="uid://ctt6eqsv8jbik"]
 
-[ext_resource type="Script" uid="uid://wutefwu0vnf7" path="res://Scripts/Classes/Armor.gd" id="1_7stjj"]
-[ext_resource type="Texture2D" uid="uid://db18ovrssm1ga" path="res://Assets/Textures/Items/Weapons/test_sword.png" id="2_ffh6q"]
+[ext_resource type="Script" uid="uid://wutefwu0vnf7" path="res://Scripts/Classes/Items/Armor.gd" id="1_7stjj"]
+[ext_resource type="Texture2D" uid="uid://bxwr6gg0wme6t" path="res://Assets/Textures/Items/Weapons/test_sword.png" id="2_ffh6q"]
 
 [resource]
 script = ExtResource("1_7stjj")

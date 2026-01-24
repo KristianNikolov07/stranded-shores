@@ -1,18 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://jgu3rbyb7a1j"]
+[gd_scene load_steps=6 format=3 uid="uid://jgu3rbyb7a1j"]
 
 [ext_resource type="Texture2D" uid="uid://baspsa2a43vbe" path="res://Assets/Textures/Objects/Chests.png" id="2_nwhr8"]
-[ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_s4hep"]
 [ext_resource type="Script" uid="uid://c0vxy1cawfm2n" path="res://Scripts/Structures/chest.gd" id="3_s6f8g"]
-[ext_resource type="Resource" uid="uid://eeregnlqd1ee" path="res://Resources/Items/wood.tres" id="3_yd0t7"]
 [ext_resource type="PackedScene" uid="uid://clkeesixpv71" path="res://Scenes/UI/Inventory/storage.tscn" id="4_nwhr8"]
-[ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Item.gd" id="5_qfnb3"]
-
-[sub_resource type="Resource" id="Resource_tmla7"]
-script = ExtResource("2_s4hep")
-item = ExtResource("3_yd0t7")
-amount = 10
-chance = 100
-metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfnb3"]
 atlas = ExtResource("2_nwhr8")
@@ -26,7 +16,6 @@ z_index = 3
 collision_layer = 296
 collision_mask = 0
 script = ExtResource("3_s6f8g")
-drops = Array[ExtResource("2_s4hep")]([SubResource("Resource_tmla7")])
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -40,4 +29,3 @@ shape = SubResource("RectangleShape2D_s6f8g")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Storage" parent="CanvasLayer" instance=ExtResource("4_nwhr8")]
-items = Array[ExtResource("5_qfnb3")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])

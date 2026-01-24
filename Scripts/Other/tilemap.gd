@@ -25,7 +25,7 @@ func is_grass_tile(pos : Vector2i) -> bool:
 
 
 func interact(player : Player):
-	if player.inventory.get_selected_item() is WaterContainer:
-		var water_container : WaterContainer = player.inventory.get_selected_item()
+	if player.inventory.get_selected_item().item is WaterContainer:
+		var water_container : WaterContainer = player.inventory.get_selected_item().item
 		water_container.pollute()
 		water_container.fill()

@@ -44,7 +44,9 @@ func generate_random_objects() -> void:
 			# Attempt to place a rock
 			if tilemap.is_water_tile(Vector2i(x, y)) == false:
 				var rock = DROPPED_ITEM_SCENE.instantiate()
-				rock.item = ROCK_ITEM.duplicate()
+				var rock_item_stack = ItemStack.new()
+				rock_item_stack.item = ROCK_ITEM
+				rock.item_stack = rock_item_stack.duplicate()
 				rock.can_despawn = false
 				if attempt_to_place(rock, rock_spawn_chance, Global.tilemap_coords_to_global_coords(Vector2(x, y))):
 					continue
@@ -52,7 +54,9 @@ func generate_random_objects() -> void:
 			# Attempt to place a stick
 			if tilemap.is_water_tile(Vector2i(x, y)) == false:
 				var stick = DROPPED_ITEM_SCENE.instantiate()
-				stick.item = STICK_ITEM.duplicate()
+				var stick_item_stack = ItemStack.new()
+				stick_item_stack.item = STICK_ITEM
+				stick.item_stack = stick_item_stack.duplicate()
 				stick.can_despawn = false
 				if attempt_to_place(stick, stick_spawn_chance, Global.tilemap_coords_to_global_coords(Vector2(x, y))):
 					continue

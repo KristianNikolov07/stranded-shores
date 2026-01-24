@@ -12,5 +12,4 @@ script = ExtResource("1_djsmv")
 item_name = "Leather"
 max_amount = 30
 texture = SubResource("AtlasTexture_xl74u")
-item_path = "res://Resources/Items/leather.tres"
 metadata/_custom_type_script = "uid://bapf8m2htmno7"

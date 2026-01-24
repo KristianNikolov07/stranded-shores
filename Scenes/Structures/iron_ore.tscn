@@ -1,22 +1,33 @@
-[gd_scene load_steps=20 format=3 uid="uid://vqr8ictumiry"]
+[gd_scene load_steps=23 format=3 uid="uid://vqr8ictumiry"]
 
 [ext_resource type="Script" uid="uid://1sd1p5id6chv" path="res://Scripts/Structures/big_rock.gd" id="1_ef3ia"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_ef3ia"]
 [ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="3_7vb16"]
-[ext_resource type="Texture2D" uid="uid://dn5i4gs6nkc0w" path="res://Assets/Textures/Objects/rock.png" id="4_v8yo3"]
+[ext_resource type="Texture2D" uid="uid://cah4eabrcytye" path="res://Assets/Textures/Objects/rock.png" id="4_v8yo3"]
+[ext_resource type="Script" uid="uid://765xp7t6esuk" path="res://Scripts/Classes/ItemStacks/ItemStack.gd" id="4_vlubg"]
 [ext_resource type="AudioStream" uid="uid://85qmoqvrgdq3" path="res://Assets/Sounds/hit-rock.mp3" id="5_ef3ia"]
+
+[sub_resource type="Resource" id="Resource_17h32"]
+script = ExtResource("4_vlubg")
+item = ExtResource("3_7vb16")
+amount = 5
+metadata/_custom_type_script = "uid://765xp7t6esuk"
 
 [sub_resource type="Resource" id="Resource_qw88s"]
 script = ExtResource("2_ef3ia")
-item = ExtResource("3_7vb16")
-amount = 2
+item_stack = SubResource("Resource_17h32")
 chance = 100
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
+[sub_resource type="Resource" id="Resource_v8yo3"]
+script = ExtResource("4_vlubg")
+item = ExtResource("3_7vb16")
+metadata/_custom_type_script = "uid://765xp7t6esuk"
+
 [sub_resource type="Resource" id="Resource_qsha1"]
 script = ExtResource("2_ef3ia")
-item = ExtResource("3_7vb16")
-chance = 25
+item_stack = SubResource("Resource_v8yo3")
+chance = 100
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7vb16"]

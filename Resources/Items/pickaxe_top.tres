@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://c0oq7p206w0p7"]
 
-[ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Item.gd" id="1_7ncr8"]
-[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="2_q7wtt"]
+[ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Items/Item.gd" id="1_7ncr8"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_q7wtt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0a4f2"]
 atlas = ExtResource("2_q7wtt")
@@ -12,5 +12,4 @@ script = ExtResource("1_7ncr8")
 item_name = "Pickaxe Top"
 max_amount = 30
 texture = SubResource("AtlasTexture_0a4f2")
-item_path = "res://Resources/Items/pickaxe_top.tres"
 metadata/_custom_type_script = "uid://bapf8m2htmno7"

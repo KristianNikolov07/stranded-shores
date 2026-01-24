@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://6v1x3ls83hld"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://d4ckxj4dshixy"]
 
-[ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Item.gd" id="1_8m7jp"]
-[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="2_d4bmo"]
+[ext_resource type="Script" uid="uid://bapf8m2htmno7" path="res://Scripts/Classes/Items/Item.gd" id="1_8m7jp"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_d4bmo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6urgs"]
 atlas = ExtResource("2_d4bmo")
@@ -12,5 +12,4 @@ script = ExtResource("1_8m7jp")
 item_name = "Sword Handle"
 max_amount = 30
 texture = SubResource("AtlasTexture_6urgs")
-item_path = "res://Resources/Items/sword_handle.tres"
 metadata/_custom_type_script = "uid://bapf8m2htmno7"
