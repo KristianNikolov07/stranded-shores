@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Food" load_steps=5 format=3 uid="uid://skabqfhsljcg"]
 
-[ext_resource type="Script" uid="uid://dwh1bhdedho1q" path="res://Scripts/Classes/Items/Consumables/Food.gd" id="1_11hrm"]
+[ext_resource type="Script" uid="uid://dwh1bhdedho1q" path="res://Scripts/Classes/Consumables/Food.gd" id="1_11hrm"]
 [ext_resource type="Resource" uid="uid://r8korpea0lh7" path="res://Resources/Items/Food/cooked_meat.tres" id="1_p22sh"]
 [ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_6a3te"]
 
@@ -15,4 +15,5 @@ hunger_modifier = 1.0
 item_name = "Meat"
 max_amount = 32
 texture = SubResource("AtlasTexture_6a3te")
+item_path = "res://Resources/Items/Food/meat.tres"
 metadata/_custom_type_script = "uid://dwh1bhdedho1q"

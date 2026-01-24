@@ -1,31 +1,15 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://dmkcillci2ukd"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://dmkcillci2ukd"]
 
 [ext_resource type="Resource" uid="uid://eeregnlqd1ee" path="res://Resources/Items/wood.tres" id="1_8alq5"]
 [ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_sv1q7"]
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="2_8alq5"]
-[ext_resource type="Script" uid="uid://765xp7t6esuk" path="res://Scripts/Classes/ItemStacks/ItemStack.gd" id="2_x0cgs"]
 [ext_resource type="Resource" uid="uid://cvb4xtnq6ft6k" path="res://Resources/Items/Structures/campfire.tres" id="3_laufe"]
-
-[sub_resource type="Resource" id="Resource_laufe"]
-script = ExtResource("2_x0cgs")
-item = ExtResource("1_8alq5")
-amount = 3
-metadata/_custom_type_script = "uid://765xp7t6esuk"
-
-[sub_resource type="Resource" id="Resource_utal2"]
-script = ExtResource("2_x0cgs")
-item = ExtResource("2_8alq5")
-amount = 4
-metadata/_custom_type_script = "uid://765xp7t6esuk"
-
-[sub_resource type="Resource" id="Resource_cconm"]
-script = ExtResource("2_x0cgs")
-item = ExtResource("3_laufe")
-metadata/_custom_type_script = "uid://765xp7t6esuk"
 
 [resource]
 script = ExtResource("1_sv1q7")
-item1 = SubResource("Resource_laufe")
-item2 = SubResource("Resource_utal2")
-result = SubResource("Resource_cconm")
+item1 = ExtResource("1_8alq5")
+item1_amount = 3
+item2 = ExtResource("2_8alq5")
+item2_amount = 4
+result = ExtResource("3_laufe")
 metadata/_custom_type_script = "uid://uxhvo65tknee"

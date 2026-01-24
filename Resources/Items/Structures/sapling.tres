@@ -19,4 +19,5 @@ preview_texture = SubResource("AtlasTexture_ukisv")
 item_name = "Sapling"
 max_amount = 30
 texture = SubResource("AtlasTexture_k471h")
+item_path = "res://Resources/Items/Structures/sapling.tres"
 metadata/_custom_type_script = "uid://c7tmhhhy6jhc7"

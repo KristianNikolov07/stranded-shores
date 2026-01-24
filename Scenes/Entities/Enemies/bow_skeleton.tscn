@@ -1,33 +1,22 @@
-[gd_scene load_steps=26 format=3 uid="uid://pn2lyjulx8a6"]
+[gd_scene load_steps=23 format=3 uid="uid://pn2lyjulx8a6"]
 
 [ext_resource type="Script" uid="uid://qs3kg0s75dmw" path="res://Scripts/Entities/Enemies/bow_skeleton.gd" id="1_vi4bf"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_1ljqt"]
 [ext_resource type="Resource" uid="uid://4xf4o78gtb1x" path="res://Resources/Items/Tools/bow.tres" id="3_j3k2j"]
 [ext_resource type="Resource" uid="uid://jiklrfuxdacu" path="res://Resources/Items/arrow.tres" id="4_0o1u1"]
-[ext_resource type="Script" uid="uid://765xp7t6esuk" path="res://Scripts/Classes/ItemStacks/ItemStack.gd" id="4_udb1y"]
-[ext_resource type="Texture2D" uid="uid://nusg3esqcoa2" path="res://Assets/Textures/Entities/Enemies/skeleton.png" id="5_1ljqt"]
-[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="6_0o1u1"]
+[ext_resource type="Texture2D" uid="uid://qhq1ruwelp8d" path="res://Assets/Textures/Entities/Enemies/skeleton.png" id="5_1ljqt"]
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="6_0o1u1"]
 [ext_resource type="Script" uid="uid://b56lnunx30ak3" path="res://Scripts/Entities/animations.gd" id="6_j3k2j"]
-
-[sub_resource type="Resource" id="Resource_2o6am"]
-script = ExtResource("4_udb1y")
-item = ExtResource("3_j3k2j")
-metadata/_custom_type_script = "uid://765xp7t6esuk"
 
 [sub_resource type="Resource" id="Resource_udb1y"]
 script = ExtResource("2_1ljqt")
-item_stack = SubResource("Resource_2o6am")
+item = ExtResource("3_j3k2j")
 chance = 20
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
-[sub_resource type="Resource" id="Resource_4okav"]
-script = ExtResource("4_udb1y")
-item = ExtResource("4_0o1u1")
-metadata/_custom_type_script = "uid://765xp7t6esuk"
-
 [sub_resource type="Resource" id="Resource_eyy8l"]
 script = ExtResource("2_1ljqt")
-item_stack = SubResource("Resource_4okav")
+item = ExtResource("4_0o1u1")
 chance = 100
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 

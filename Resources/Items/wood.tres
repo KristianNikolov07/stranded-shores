@@ -12,4 +12,5 @@ script = ExtResource("1_bmdpr")
 item_name = "Wood"
 max_amount = 10
 texture = SubResource("AtlasTexture_p7cti")
+item_path = "res://Resources/Items/wood.tres"
 metadata/_custom_type_script = "uid://bapf8m2htmno7"

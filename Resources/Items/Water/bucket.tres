@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WaterContainer" load_steps=2 format=3 uid="uid://m61uldpno3pk"]
 
-[ext_resource type="Script" uid="uid://bkdh80177u42r" path="res://Scripts/Classes/Items/Consumables/WaterContainer.gd" id="1_t2gva"]
+[ext_resource type="Script" uid="uid://bkdh80177u42r" path="res://Scripts/Classes/Consumables/WaterContainer.gd" id="1_t2gva"]
 
 [resource]
 script = ExtResource("1_t2gva")

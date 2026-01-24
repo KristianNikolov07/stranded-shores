@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StructureItem" load_steps=6 format=3 uid="uid://drervlp1jt1d4"]
 
-[ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/Items/StructureItem.gd" id="1_wliee"]
+[ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/StructureItem.gd" id="1_wliee"]
 [ext_resource type="PackedScene" uid="uid://jgu3rbyb7a1j" path="res://Scenes/Structures/chest.tscn" id="3_xiuhk"]
 [ext_resource type="Texture2D" uid="uid://baspsa2a43vbe" path="res://Assets/Textures/Objects/Chests.png" id="4_xiuhk"]
 
@@ -19,4 +19,5 @@ preview_texture = SubResource("AtlasTexture_tcgap")
 item_name = "Chest"
 max_amount = 5
 texture = SubResource("AtlasTexture_eugjs")
+item_path = "res://Resources/Items/Structures/chest.tres"
 metadata/_custom_type_script = "uid://c7tmhhhy6jhc7"

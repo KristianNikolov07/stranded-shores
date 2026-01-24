@@ -1,54 +1,33 @@
-[gd_scene load_steps=27 format=3 uid="uid://y7vcpunxm45x"]
+[gd_scene load_steps=22 format=3 uid="uid://y7vcpunxm45x"]
 
 [ext_resource type="Script" uid="uid://borj6l7sh0iy5" path="res://Scripts/Classes/Entities/PassiveEntity.gd" id="1_4bf5e"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_2yaru"]
 [ext_resource type="Resource" uid="uid://skabqfhsljcg" path="res://Resources/Items/Food/meat.tres" id="3_h844i"]
-[ext_resource type="Texture2D" uid="uid://bb85hyt5kkxbw" path="res://Assets/Textures/Entities/caw.png" id="4_h844i"]
+[ext_resource type="Texture2D" uid="uid://b4wfcr2xl0srx" path="res://Assets/Textures/Entities/caw.png" id="4_h844i"]
 [ext_resource type="Resource" uid="uid://cvf5jwa1bw1d5" path="res://Resources/Items/leather.tres" id="4_j3vjv"]
-[ext_resource type="Script" uid="uid://765xp7t6esuk" path="res://Scripts/Classes/ItemStacks/ItemStack.gd" id="4_x7ckd"]
 [ext_resource type="Script" uid="uid://b56lnunx30ak3" path="res://Scripts/Entities/animations.gd" id="5_g5gbr"]
-
-[sub_resource type="Resource" id="Resource_ca803"]
-script = ExtResource("4_x7ckd")
-item = ExtResource("4_j3vjv")
-metadata/_custom_type_script = "uid://765xp7t6esuk"
 
 [sub_resource type="Resource" id="Resource_g5gbr"]
 script = ExtResource("2_2yaru")
-item_stack = SubResource("Resource_ca803")
+item = ExtResource("3_h844i")
 chance = 100
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
-
-[sub_resource type="Resource" id="Resource_g4xi0"]
-script = ExtResource("4_x7ckd")
-item = ExtResource("3_h844i")
-metadata/_custom_type_script = "uid://765xp7t6esuk"
 
 [sub_resource type="Resource" id="Resource_j3vjv"]
 script = ExtResource("2_2yaru")
-item_stack = SubResource("Resource_g4xi0")
+item = ExtResource("3_h844i")
 chance = 50
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
-[sub_resource type="Resource" id="Resource_g1b6t"]
-script = ExtResource("4_x7ckd")
-item = ExtResource("3_h844i")
-metadata/_custom_type_script = "uid://765xp7t6esuk"
-
 [sub_resource type="Resource" id="Resource_x7ckd"]
 script = ExtResource("2_2yaru")
-item_stack = SubResource("Resource_g1b6t")
+item = ExtResource("4_j3vjv")
 chance = 100
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 
-[sub_resource type="Resource" id="Resource_s2icp"]
-script = ExtResource("4_x7ckd")
-item = ExtResource("4_j3vjv")
-metadata/_custom_type_script = "uid://765xp7t6esuk"
-
 [sub_resource type="Resource" id="Resource_21yad"]
 script = ExtResource("2_2yaru")
-item_stack = SubResource("Resource_s2icp")
+item = ExtResource("4_j3vjv")
 chance = 25
 metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 

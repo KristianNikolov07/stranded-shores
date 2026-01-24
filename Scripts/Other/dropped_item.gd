@@ -1,25 +1,24 @@
 extends Area2D
 
-@export var item_stack : ItemStack
+@export var item : Item
 @export var can_despawn = true
 
 func _ready() -> void:
-	$ItemTexture.texture = item_stack.item.texture
+	$ItemTexture.texture = item.texture
 	if can_despawn:
 		$DespawnTimer.start()
 
 
 func interact(player : CharacterBody2D) -> void:
-	if player.inventory.add_item(item_stack):
+	if player.inventory.add_item(item):
 		queue_free()
-	pass
 
 
 func get_save_data() -> Dictionary:
 	var data = {
 		"item": {
-			"path": item_stack.item.get_path(),
-			"data": item_stack.get_save_data()
+			"path": item.item_path,
+			"data": item.get_save_data()
 		},
 		"can_despawn": can_despawn,
 		"despawn_time_left": $DespawnTimer.time_left
@@ -29,10 +28,9 @@ func get_save_data() -> Dictionary:
 
 func load_save_data(data : Dictionary) -> void:
 	if data.item.path != null:
-		item_stack = ItemStack.new()
-		item_stack.item = load(data.item.path)
+		item = load(data.item.path).duplicate()
 		
-		item_stack.load_save_data(data.item.data)
+		item.load_save_data(data.item.data)
 		can_despawn = data.can_despawn
 		if can_despawn:
 			$DespawnTimer.wait_time = data.despawn_time_left

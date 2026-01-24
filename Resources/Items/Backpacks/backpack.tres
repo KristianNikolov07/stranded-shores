@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Backpack" load_steps=4 format=3 uid="uid://dxflm4gjjxnft"]
 
-[ext_resource type="Script" uid="uid://c0lywttvuiocp" path="res://Scripts/Classes/Items/Backpack.gd" id="1_nsvlh"]
-[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_ejpp1"]
+[ext_resource type="Script" uid="uid://c0lywttvuiocp" path="res://Scripts/Classes/Backpack.gd" id="1_nsvlh"]
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="2_ejpp1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oe5pq"]
 atlas = ExtResource("2_ejpp1")
@@ -12,4 +12,5 @@ script = ExtResource("1_nsvlh")
 size = 10
 item_name = "Backpack"
 texture = SubResource("AtlasTexture_oe5pq")
+item_path = "res://Resources/Items/Backpacks/backpack.tres"
 metadata/_custom_type_script = "uid://c0lywttvuiocp"

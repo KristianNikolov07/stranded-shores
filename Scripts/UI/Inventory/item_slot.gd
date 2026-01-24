@@ -19,34 +19,34 @@ var highlighted = false
 
 @onready var player : Player = Global.get_player()
 
-func set_item(item_stack : ItemStack) -> void:
-	if item_stack != null and item_stack.item != null:
+func set_item(item : Item) -> void:
+	if item != null:
 		$Background.hide()
 		
 		# Item texture
-		$Item.texture = item_stack.item.texture
-		if item_stack.amount > 1:
-			$MarginContainer/Amount.text = str(item_stack.amount)
+		$Item.texture = item.texture
+		if item.amount > 1:
+			$MarginContainer/Amount.text = str(item.amount)
 			$MarginContainer/Amount.show()
 		else:
 			$MarginContainer/Amount.hide()
 		
 		# Durability
-		if item_stack.item is Tool or item_stack.item is Armor:
-			$MarginContainer/Durability.max_value = item_stack.item.max_durability
-			if item_stack.durability == item_stack.item.max_durability:
+		if item is Tool or item is Armor:
+			$MarginContainer/Durability.max_value = item.max_durability
+			if item.durability == item.max_durability:
 				$MarginContainer/Durability.hide()
 			else:
-				$MarginContainer/Durability.value = item_stack.durability
+				$MarginContainer/Durability.value = item.durability
 				$MarginContainer/Durability.show()
 		else:
 			$MarginContainer/Durability.hide() 
 		
 		# Water Amount
-		if item_stack.item is WaterContainer:
+		if item is WaterContainer:
 			$MarginContainer/Water.show()
-			$MarginContainer/Water.max_value = item_stack.item.capacity
-			$MarginContainer/Water.value = item_stack.water_amount
+			$MarginContainer/Water.max_value = item.capacity
+			$MarginContainer/Water.value = item.water_amount
 		else:
 			$MarginContainer/Water.hide()
 	

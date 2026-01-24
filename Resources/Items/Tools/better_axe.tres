@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="Tool" load_steps=7 format=3 uid="uid://blqkfaqo0wmgn"]
+[gd_resource type="Resource" script_class="Tool" load_steps=8 format=3 uid="uid://blqkfaqo0wmgn"]
 
-[ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Items/Tool.gd" id="1_ieuqa"]
+[ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="1_ieuqa"]
 [ext_resource type="Resource" uid="uid://svpcok83144e" path="res://Resources/Items/iron_ore.tres" id="1_itr0w"]
-[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="1_yh76o"]
+[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="1_yh76o"]
 [ext_resource type="PackedScene" uid="uid://bbsov2av6do3a" path="res://Scenes/Tools/better_axe.tscn" id="4_rml16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rml16"]
 atlas = ExtResource("1_yh76o")
 region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh76o"]
+atlas = ExtResource("1_yh76o")
+region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aveud"]
 atlas = ExtResource("1_yh76o")
@@ -17,9 +21,12 @@ region = Rect2(0, 16, 16, 16)
 script = ExtResource("1_ieuqa")
 tool_scene = ExtResource("4_rml16")
 max_durability = 50
+durability = 50
 repair_item = ExtResource("1_itr0w")
 repair_amount = 25
 broken_texture = SubResource("AtlasTexture_rml16")
+repaired_texture = SubResource("AtlasTexture_yh76o")
 item_name = "Better Axe"
 texture = SubResource("AtlasTexture_aveud")
+item_path = "res://Resources/Items/Tools/better_axe.tres"
 metadata/_custom_type_script = "uid://ccifyb4dk0sri"

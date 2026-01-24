@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="StructureItem" load_steps=4 format=3 uid="uid://cvb4xtnq6ft6k"]
 
-[ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/Items/StructureItem.gd" id="1_2goox"]
+[ext_resource type="Script" uid="uid://c7tmhhhy6jhc7" path="res://Scripts/Classes/StructureItem.gd" id="1_2goox"]
 [ext_resource type="Texture2D" uid="uid://cebry366ijp05" path="res://Assets/Textures/Objects/fire1.png" id="1_qu0w7"]
 [ext_resource type="PackedScene" uid="uid://iuq4lp5j1m3b" path="res://Scenes/Structures/campfire.tscn" id="3_xxc5q"]
 

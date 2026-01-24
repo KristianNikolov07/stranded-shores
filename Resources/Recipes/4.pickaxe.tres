@@ -1,29 +1,13 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://tlhlaaks68pi"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://tlhlaaks68pi"]
 
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="1_3hk2p"]
 [ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_67ad0"]
-[ext_resource type="Script" uid="uid://765xp7t6esuk" path="res://Scripts/Classes/ItemStacks/ItemStack.gd" id="2_ltdek"]
 [ext_resource type="Resource" uid="uid://c0oq7p206w0p7" path="res://Resources/Items/pickaxe_top.tres" id="2_vbm3s"]
 [ext_resource type="Resource" uid="uid://big1u1t5xr3wc" path="res://Resources/Items/Tools/pickaxe.tres" id="3_88uie"]
 
-[sub_resource type="Resource" id="Resource_3hk2p"]
-script = ExtResource("2_ltdek")
-item = ExtResource("1_3hk2p")
-metadata/_custom_type_script = "uid://765xp7t6esuk"
-
-[sub_resource type="Resource" id="Resource_vbm3s"]
-script = ExtResource("2_ltdek")
-item = ExtResource("2_vbm3s")
-metadata/_custom_type_script = "uid://765xp7t6esuk"
-
-[sub_resource type="Resource" id="Resource_88uie"]
-script = ExtResource("2_ltdek")
-item = ExtResource("3_88uie")
-metadata/_custom_type_script = "uid://765xp7t6esuk"
-
 [resource]
 script = ExtResource("1_67ad0")
-item1 = SubResource("Resource_3hk2p")
-item2 = SubResource("Resource_vbm3s")
-result = SubResource("Resource_88uie")
+item1 = ExtResource("1_3hk2p")
+item2 = ExtResource("2_vbm3s")
+result = ExtResource("3_88uie")
 metadata/_custom_type_script = "uid://uxhvo65tknee"
