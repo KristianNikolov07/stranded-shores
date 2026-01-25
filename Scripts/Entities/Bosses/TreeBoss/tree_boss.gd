@@ -1,16 +1,24 @@
 extends Enemy
 
+## The main logic of the Tree Boss
+
+## The attack states the boss can be in
 enum State{
 	SHOOTING,
 	WALKING
 }
 
 const TREE_PROJECTILES_SCENE = preload("res://Scenes/Entities/Bosses/TreeBoss/tree_projectile.tscn")
+## The minimum amount of time the boss has to wait for before changing its attack state
 const MIN_CHANGE_STATE_TIME = 10
+## The maximum amount of time the boss can wait for before changing its attack state
 const MAX_CHANGE_STATE_TIME = 30
+## The minimum amount of time the boss has to wait for before shooting a tree
 const MIN_CHANGE_SHOOT_TIME = 1
+## The maximum amount of time the boss can wait for before shooting a tree
 const MAX_CHANGE_SHOOT_TIME = 5
 
+## The attack state the boss is currently in
 var current_state = State.WALKING
 
 func _ready() -> void:
@@ -52,6 +60,7 @@ func _on_change_state_timer_timeout() -> void:
 	$ChangeStateTimer.start(randf_range(MIN_CHANGE_STATE_TIME, MAX_CHANGE_STATE_TIME))
 
 
+## Changes the attack state of the boss
 func change_state(state : State) -> void:
 	current_state = state
 	if state == State.SHOOTING:
@@ -60,6 +69,7 @@ func change_state(state : State) -> void:
 		$ShootTimer.stop()
 
 
+## Shoots a tree toward a target
 func shoot_tree(target : Vector2):
 	$ShootFrom.look_at(target)
 	var tree = TREE_PROJECTILES_SCENE.instantiate()

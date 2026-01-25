@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://jgu3rbyb7a1j"]
 
-[ext_resource type="Texture2D" uid="uid://baspsa2a43vbe" path="res://Assets/Textures/Objects/Chests.png" id="2_nwhr8"]
+[ext_resource type="Texture2D" uid="uid://cee12dwfgrofu" path="res://Assets/Textures/Objects/Chests.png" id="2_nwhr8"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_s4hep"]
 [ext_resource type="Script" uid="uid://c0vxy1cawfm2n" path="res://Scripts/Structures/chest.gd" id="3_s6f8g"]
 [ext_resource type="Resource" uid="uid://eeregnlqd1ee" path="res://Resources/Items/wood.tres" id="3_yd0t7"]

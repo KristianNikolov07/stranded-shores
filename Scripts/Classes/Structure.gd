@@ -3,12 +3,17 @@ extends StaticBody2D
 
 const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
+## The max amount of health the structure can have
 @export var max_hp : int = 50
+## The loot that the structure drops
 @export var drops : Array[Loot]
+## An array of the textures for when that structure is been broken
 @export var broken_textures : Array[Texture]
 
+## The current health of the structure
 @onready var hp = max_hp
 
+## Decreases the structure's health
 func damage(dmg : int) -> void:
 	hp -= dmg
 	
@@ -28,6 +33,7 @@ func damage(dmg : int) -> void:
 		destroy()
 
 
+## Destroies the structure
 func destroy() -> void:
 	for loot in drops:
 		var rand = randi_range(1, 100)
@@ -40,6 +46,7 @@ func destroy() -> void:
 	queue_free()
 
 
+## Gets the data that needs to be saved 
 func get_save_data() -> Dictionary:
 	var data = {
 		"hp" = hp
@@ -47,5 +54,6 @@ func get_save_data() -> Dictionary:
 	return data
 
 
+## Loades the save data
 func load_save_data(data : Dictionary) -> void:
 	hp = data.hp
