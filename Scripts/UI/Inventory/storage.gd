@@ -4,8 +4,10 @@ extends GridContainer
 const ITEM_SLOT_SCENE = preload("res://Scenes/UI/Inventory/item_slot.tscn")
 const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
+## An array of the items currently stored inside the Storage
 @export var items : Array[Item]
 
+## The item slot that is selected for the purpose of moving its item
 var highlighted_slot = null
 
 @onready var player : Player = Global.get_player()
@@ -23,15 +25,18 @@ func _input(event: InputEvent) -> void:
 			accept_event()
 
 
+## Sets the amount of item slots that Storage has
 func set_inv_size(new_size : int) -> void:
 	items.resize(new_size)
 
 
+## Opens the Storage UI
 func open() -> void:
 	initiate_storage()
 	show()
 
 
+## Checks whether or not the Storage's UI is open
 func is_open() -> bool:
 	if visible:
 		return true
@@ -39,6 +44,7 @@ func is_open() -> bool:
 		return false
 
 
+## Checks whether or not the Storage is empty
 func is_empty() -> bool:
 	for i in range(items.size()):
 		if items[i] != null:
@@ -46,6 +52,9 @@ func is_empty() -> bool:
 	return true
 
 
+## Adds an item the the Storage.  
+## Returns True if the item is successfully added to the Storage and false
+## if it is not.
 func add_item(item : Item) -> bool:
 	if has_item(item.item_name):
 		for i in range(items.size()):
@@ -67,18 +76,20 @@ func add_item(item : Item) -> bool:
 	return false
 
 
+## Sets the array of Items
 func set_items(_items : Array[Item]) -> void:
 	items = _items
 	update_storage()
 
-
+## Checks the Storage for a specific item and amount
 func has_item(item_name : String, amount = 1) -> bool:
 	if get_item_amount(item_name) >= amount:
 		return true
 	else:
 		return false
 
-
+## Removes an item from the Storage. Returns True
+## if the removal is successful
 func remove_item(item_name : String, amount = 1) -> bool:
 	for i in range(items.size()):
 		if items[i] != null and items[i].item_name == item_name:
@@ -90,6 +101,7 @@ func remove_item(item_name : String, amount = 1) -> bool:
 	return false
 
 
+## Gets the amount of a specific item in the Storage
 func get_item_amount(item_name : String) -> int:
 	var count = 0
 	for i in range(items.size()):
@@ -98,6 +110,7 @@ func get_item_amount(item_name : String) -> int:
 	return count
 
 
+## Removes an item from a specific slot
 func remove_item_from_slot(slot : int, amount = 1) -> void:
 	if items[slot] != null:
 		items[slot].decrease_amount(amount)
@@ -106,6 +119,7 @@ func remove_item_from_slot(slot : int, amount = 1) -> void:
 		update_storage()
 
 
+## Drops all items in the Storage on the ground
 func drop_all_items() -> void:
 	for i in range(items.size()):
 		if items[i] != null:
@@ -116,6 +130,7 @@ func drop_all_items() -> void:
 			get_node("../../../").add_child(dropped_item)
 
 
+## Swaps two items in the Storage
 func swap_items(slot1: int, slot2: int, remove_from_storage: bool = false) -> void:
 	var src := items
 	var dst : Array[Item]
