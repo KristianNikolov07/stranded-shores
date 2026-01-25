@@ -1,5 +1,7 @@
 extends Camera2D
 
+## Limits the camera at the edges of the world
+
 func _ready() -> void:
 	var world_bounds = get_tree().get_first_node_in_group("WorldBounds")
 	

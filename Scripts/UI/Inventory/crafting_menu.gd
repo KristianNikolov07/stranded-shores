@@ -1,10 +1,15 @@
 extends Control
 
+## The script resposible for the functionallity of the crafting system
+
 const CRAFTING_RECIPE_SCENE = preload("res://Scenes/UI/Inventory/crafting_recipe_ui.tscn")
 const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
+## The currently selected recipe
 var selected_recipe : Recipe
+## Whether or not the UI is open via a workbench
 var is_crafting_table : bool = false
+## The currently selected CraftingTool. Null if a crafting tool isn't selected
 var selected_tool : CraftingTool = null
 
 @onready var player : Player = get_node("../../")
@@ -29,6 +34,7 @@ func _input(event: InputEvent) -> void:
 			accept_event()
 
 
+## Opens the crafting menu
 func open_menu(_is_crafting_table = false) -> void:
 	# Objective
 	player.objectives.complete_objective("open crafting menu")
@@ -49,6 +55,7 @@ func open_menu(_is_crafting_table = false) -> void:
 		show()
 
 
+## Fetches the recipe resources
 func load_recipes() -> void:
 	for file in DirAccess.get_files_at("res://Resources/Recipes"):
 		var file_name = file.replace(".remap", "")
@@ -59,6 +66,7 @@ func load_recipes() -> void:
 		crafting_recipe_ui.recipe_selected.connect(select_recipe)
 
 
+## Attempts to craft a specific recipe
 func craft(recipe : Recipe) -> void:
 	if player.inventory.has_item(recipe.item1.item_name, recipe.item1_amount):
 		player.inventory.remove_item(recipe.item1.item_name, recipe.item1_amount)
@@ -72,16 +80,19 @@ func craft(recipe : Recipe) -> void:
 		update_ui()
 
 
+## Selects a specific CraftingTool
 func select_tool(tool : CraftingTool) -> void:
 	selected_tool = tool
 	update_ui()
 
 
+## Selects a specific Recipe
 func select_recipe(recipe : Recipe) -> void:
 	selected_recipe = recipe
 	update_ui()
 
 
+## Updates the UI
 func update_ui() -> void:
 	if selected_recipe == null:
 		%CraftingSlot1.set_item(null)

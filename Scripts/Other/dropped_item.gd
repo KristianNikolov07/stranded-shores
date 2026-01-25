@@ -1,6 +1,10 @@
 extends Area2D
 
+## The script for the dropped items
+
+## The dropped item
 @export var item : Item
+## Whether or not the item despawns after a surtain time
 @export var can_despawn = true
 
 func _ready() -> void:
@@ -9,6 +13,7 @@ func _ready() -> void:
 		$DespawnTimer.start()
 
 
+## Called when the player interacts with the item
 func interact(player : CharacterBody2D) -> void:
 	if player.inventory.add_item(item):
 		queue_free()

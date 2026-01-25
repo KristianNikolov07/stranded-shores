@@ -1,16 +1,25 @@
 class_name Inventory
 extends Control
 
+## The script responcible for the player's inventory system
+
 const ITEM_SLOT_SCENE = preload("res://Scenes/UI/Inventory/item_slot.tscn")
 const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
+## An array of the items the player currently has
 @export var items : Array[Item]
+## The amount of item slots the player's inventory has
 @export var inventory_size = 4
+## The currently equipped armor. Null if the player doesn't have an equpped armor
 @export var armor : Armor
+## The currently equipped backpack. Null if the player doesn't have an equpped backpack
 @export var backpack_item : Backpack
 
+## The item slot the is currently in use
 var selected_slot = 0
+## The item slot that is selected for the purpose of moving its item
 var highlighted_slot = null
+## The Storage that is currently open. Null if a storage isn't an open 
 var opened_storage : Storage
 
 @onready var player = get_node("../../")
@@ -59,7 +68,10 @@ func _input(event: InputEvent) -> void:
 				opened_storage = backpack
 				backpack.open()
 
-
+## Addes an item the the inventory, if it is full, the player has a backpack equipped and
+## bypass_backpack is false that item attempts to be placed in the backpack.
+## Returns True if the item is successfully added to the inventory or backpack, and false
+## if it is not.
 func add_item(item : Item, bypass_backpack : bool = false) -> bool:
 	if has_item(item.item_name):
 		for i in range(items.size()):
@@ -89,6 +101,7 @@ func add_item(item : Item, bypass_backpack : bool = false) -> bool:
 	return false
 
 
+## Checks the inventory and backpack(if there is one) for a specific item and amount
 func has_item(item_name : String, amount : int = 1) -> bool:
 	var count = 0
 	if backpack_item != null:
@@ -103,6 +116,8 @@ func has_item(item_name : String, amount : int = 1) -> bool:
 		return false
 
 
+## Removes an item from the inventory and backpack(if there is one). Returns True
+## if the removal is successful
 func remove_item(item_name: String, amount: int = 1) -> bool:
 	var remaining : int = amount
 
@@ -131,6 +146,7 @@ func remove_item(item_name: String, amount: int = 1) -> bool:
 	return false
 
 
+## Removes an item from a specific slot
 func remove_item_from_slot(slot : int, amount = 1) -> bool:
 	if items[slot] != null:
 		items[slot].decrease_amount(amount)
@@ -142,10 +158,12 @@ func remove_item_from_slot(slot : int, amount = 1) -> bool:
 		return false
 
 
+## Gets the item in the selected_slot
 func get_selected_item() -> Item:
 	return items[selected_slot]
 
 
+## Selects a specific slot
 func select_slot(slot : int) -> void:
 	if slot < inventory_size:
 		selected_slot = slot
@@ -176,6 +194,7 @@ func reselect_slot():
 	select_slot(selected_slot)
 
 
+## Drops an item/items from a slot
 func drop_item(slot : int, drop_all = false) -> void:
 	if items[slot] != null:
 		
@@ -197,6 +216,7 @@ func drop_item(slot : int, drop_all = false) -> void:
 		reselect_slot()
 
 
+## If the item in the selected_slot is a Tool, decreases the durability
 func decrease_durability() -> void:
 	if items[selected_slot] is Tool:
 		items[selected_slot].take_durability()
@@ -206,6 +226,7 @@ func decrease_durability() -> void:
 		visualize_inventory()
 
 
+## Attempts to use an item in a specific slot
 func use_item(slot : int) -> void:
 	if player.can_move:
 		if items[slot] != null:
@@ -219,11 +240,13 @@ func use_item(slot : int) -> void:
 				equip_backpack_from_slot(slot)
 
 
+## Sets the array of Items
 func set_items(_items : Array[Item]) -> void:
 	items = _items
 	visualize_inventory()
 
 
+## Sets the armor
 func set_armor(_armor : Armor) -> void:
 	if _armor == null:
 		armor = null
@@ -232,6 +255,7 @@ func set_armor(_armor : Armor) -> void:
 	visualize_inventory()
 
 
+## Sets the backpack
 func set_backpack(_backpack : Backpack) -> void:
 	if _backpack == null:
 		backpack_item = null
@@ -242,6 +266,7 @@ func set_backpack(_backpack : Backpack) -> void:
 	visualize_inventory()
 
 
+## Equips an armor from a specific slot
 func equip_armor_from_slot(slot : int) -> void:
 	if armor == null:
 		set_armor(items[slot].duplicate())
@@ -253,6 +278,7 @@ func equip_armor_from_slot(slot : int) -> void:
 		add_item(temp.duplicate())
 
 
+## Equips a backpack from a specific slot
 func equip_backpack_from_slot(slot):
 	if backpack_item == null:
 		set_backpack(items[slot].duplicate())
@@ -264,18 +290,21 @@ func equip_backpack_from_slot(slot):
 		add_item(temp.duplicate())
 
 
+## Attempts to unequip the armor
 func unequip_armor() -> void:
 	if armor != null:
 		if add_item(armor.duplicate()):
 			set_armor(null)
 
 
+## Attempts to unequip the backpack
 func unequip_backpack() -> void:
 	if backpack_item != null and backpack.is_empty():
 		if add_item(backpack_item.duplicate(), true):
 			set_backpack(null)
 
 
+## Drops the player's armor on the ground
 func drop_armor() -> void:
 	if armor != null:
 		var dropped_item = DROPPED_ITEM_SCENE.instantiate()
@@ -285,6 +314,7 @@ func drop_armor() -> void:
 		player.get_parent().add_child(dropped_item)
 
 
+## Drops the player's backpack on the ground
 func drop_backpack_item() -> void:
 	if backpack_item != null:
 		var dropped_item = DROPPED_ITEM_SCENE.instantiate()
@@ -295,6 +325,7 @@ func drop_backpack_item() -> void:
 		visualize_inventory()
 
 
+## Drops all items in the inventory on the ground
 func drop_inventory() -> void:
 	for i in range(inventory_size):
 		drop_item(i, true)
@@ -305,6 +336,7 @@ func drop_inventory() -> void:
 	visualize_inventory()
 
 
+## Swaps two items in the inventory
 func swap_items(slot1: int, slot2: int, move_to_storage: bool = false) -> void:
 	var src := items
 	var dst : Array[Item]
@@ -393,6 +425,8 @@ func initiate_inventory_UI():
 		node.clicked.connect(_on_item_slot_clicked)
 	$Inventory.get_child(0).select()
 
+
+## Updates the player's inventory
 func visualize_inventory():
 	for i in range(items.size()):
 		$Inventory.get_child(i).set_item(items[i])

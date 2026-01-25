@@ -1,7 +1,5 @@
 extends Node
 
-## A script containing a bunch of helpful utility functions and constants
-
 const TILE_SIZE = 16
 const TILEMAP_SCALE = 4
 const TILEMAP_SIZE = 256

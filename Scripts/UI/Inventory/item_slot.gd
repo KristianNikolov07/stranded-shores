@@ -1,5 +1,8 @@
 extends Control
 
+## Used for visualising an item from the player's inventory
+
+## Emitted when the slot in clicked
 signal clicked(id : int)
 
 enum Type{
@@ -8,13 +11,17 @@ enum Type{
 	BACKPACK
 }
 
+## The Type of Item the slot can visualise
 @export var type : Type = Type.ITEM
-@export var is_in_backpack = false
-@export var is_in_chest = false
+## The id of the slot. 
+## Coresponds to the index of the item inside the inventory Array
 @export var id : int
+## Whether or not the slot can be clicked
 @export var can_be_clicked = true
 
+## Whether or not the item is currently in use
 var selected = false
+## Whether or not the item slot is currently selected for the purpose of moving its item
 var highlighted = false
 
 @onready var player : Player = Global.get_player()

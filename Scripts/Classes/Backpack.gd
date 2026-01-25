@@ -4,5 +4,5 @@ extends Item
 
 ## The base class for the backpack items.
 
-## The amount of items the backpack can store
+## The amount of slots the backpack has
 @export var size : int

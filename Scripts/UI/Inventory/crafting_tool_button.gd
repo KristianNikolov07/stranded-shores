@@ -1,5 +1,7 @@
 extends Button
 
+## A button used for selecting a CraftingTool
+
 signal tool_selected(tool : CraftingTool)
 
 @export var tool : CraftingTool
