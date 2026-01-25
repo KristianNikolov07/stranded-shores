@@ -1,16 +1,26 @@
 class_name Projectile
 extends Area2D
 
+## The base class for the projectils
+
+## Emitted when the projectile reaches its target. Only emits if continue_ater_target is false
 signal target_reached
 
+## The position the projectile is fling toward
 @export var target : Vector2
+## Whether or not the projectile can continue fling after the target position is reached
 @export var continue_after_target = true
+## The speed of the projectile
 @export var speed = 5
+## The amount of damage the projectile deals the entities of structure when it hits them
 @export var damage = 0
+## Whether or not the projectile can damage structures
 @export var can_damage_structures = false
 
+## The direction the projectile moves towards
 var direction : Vector2
-var projectile_owner : Node
+## The character body that the projectile was shot by
+var projectile_owner : CharacterBody2D
 
 func _ready() -> void:
 	if body_entered.is_connected(_on_body_entered) == false:

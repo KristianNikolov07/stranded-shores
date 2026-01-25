@@ -1,7 +1,10 @@
 extends Projectile
 
+## The logic for the tree projectiles the the Tree Boss shoots
+
 const TREE_SCENE = preload("res://Scenes/Structures/tree.tscn")
 
+## Plants the tree
 func plant(pos : Vector2):
 	var tree = TREE_SCENE.instantiate()
 	tree.global_position = pos

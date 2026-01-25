@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d2kxwrhqxmsoo" path="res://Scripts/Structures/campfire.gd" id="1_vu2sp"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_cv6oq"]
-[ext_resource type="Texture2D" uid="uid://yneff87l8cnn" path="res://Assets/Textures/2d_lights_and_shadows_neutral_point_light.webp" id="2_o1yvi"]
+[ext_resource type="Texture2D" uid="uid://cg5bjp5nxuixt" path="res://Assets/Textures/2d_lights_and_shadows_neutral_point_light.webp" id="2_o1yvi"]
 [ext_resource type="Resource" uid="uid://eeregnlqd1ee" path="res://Resources/Items/wood.tres" id="3_m5n71"]
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="4_h3ltd"]
-[ext_resource type="Texture2D" uid="uid://cebry366ijp05" path="res://Assets/Textures/Objects/fire1.png" id="4_m5n71"]
+[ext_resource type="Texture2D" uid="uid://b536dc71y3o7x" path="res://Assets/Textures/Objects/fire1.png" id="4_m5n71"]
 
 [sub_resource type="Resource" id="Resource_0fkht"]
 script = ExtResource("2_cv6oq")
