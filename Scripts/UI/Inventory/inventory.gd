@@ -68,7 +68,7 @@ func _input(event: InputEvent) -> void:
 				opened_storage = backpack
 				backpack.open()
 
-## Addes an item the the inventory, if it is full, the player has a backpack equipped and
+## Adds an item the the inventory, if it is full, the player has a backpack equipped and
 ## bypass_backpack is false that item attempts to be placed in the backpack.
 ## Returns True if the item is successfully added to the inventory or backpack, and false
 ## if it is not.
