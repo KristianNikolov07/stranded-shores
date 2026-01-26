@@ -16,3 +16,18 @@ func take_durability(_durability : int = 1) -> void:
 	durability -= _durability
 	if durability <= 0:
 		Global.get_player().inventory.set_armor(null)
+
+
+func get_save_data() -> Dictionary:
+	var data = super.get_save_data()
+	var new_data = {
+		"durability": durability
+	}
+	data.merge(new_data)
+	return data
+
+
+func load_save_data(data : Dictionary) -> void:
+	super.load_save_data(data)
+	if data.has("durability"):
+		durability = data.durability
