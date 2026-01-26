@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 
 run/main_run_args="debug"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/mod-export/plugin.cfg")
+
 [file_customization]
 
 folder_colors={

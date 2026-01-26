@@ -75,7 +75,7 @@ func save() -> void:
 			if node.has_method("get_save_data"):
 				object.data = node.get_save_data()
 			world.Objects.append(object)
-		world_file.store_string(JSON.stringify(world))
+		world_file.store_string(JSON.stringify(world, "\t"))
 		world_file.close()
 		
 		print("Progress Saved")
