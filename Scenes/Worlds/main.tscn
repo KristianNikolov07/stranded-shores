@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=4 uid="uid://c0ywgb5q0iqsg"]
 
-[ext_resource type="Texture2D" uid="uid://cpl4qu23vmwn6" path="res://Assets/Textures/tilemap.png" id="2_bu3mo"]
+[ext_resource type="Texture2D" uid="uid://b2sxc2tyo0mfa" path="res://Assets/Textures/tilemap.png" id="2_bu3mo"]
 [ext_resource type="Script" uid="uid://cctr251x3yfn2" path="res://Scripts/Other/tilemap.gd" id="2_kdqb4"]
 [ext_resource type="PackedScene" uid="uid://xqjghw70oxkf" path="res://Scenes/Objects/Player.tscn" id="2_msvm5"]
 [ext_resource type="PackedScene" uid="uid://mt76hyi6jq2q" path="res://Scenes/Worlds/debug.tscn" id="3_rt6fk"]
@@ -546,25 +546,24 @@ distance = -24.0
 [sub_resource type="Resource" id="Resource_ygy3h"]
 script = ExtResource("6_uuto2")
 scene = ExtResource("7_73d62")
-change = 10
+chance = 10
 metadata/_custom_type_script = "uid://dh42imrwqp3e"
 
 [sub_resource type="Resource" id="Resource_2iy86"]
 script = ExtResource("6_uuto2")
 scene = ExtResource("8_w5xs2")
-change = 5
+chance = 5
 metadata/_custom_type_script = "uid://dh42imrwqp3e"
 
 [sub_resource type="Resource" id="Resource_7sbva"]
 script = ExtResource("6_uuto2")
 scene = ExtResource("9_030in")
-change = 3
+chance = 3
 metadata/_custom_type_script = "uid://dh42imrwqp3e"
 
 [sub_resource type="Resource" id="Resource_e4h82"]
 script = ExtResource("6_uuto2")
 scene = ExtResource("10_07p1v")
-change = 1
 metadata/_custom_type_script = "uid://dh42imrwqp3e"
 
 [sub_resource type="Animation" id="Animation_hss3q"]
@@ -607,25 +606,25 @@ _data = {
 [sub_resource type="Resource" id="Resource_uuto2"]
 script = ExtResource("6_uuto2")
 scene = ExtResource("8_lr86y")
-change = 100
+chance = 100
 metadata/_custom_type_script = "uid://dh42imrwqp3e"
 
 [sub_resource type="Resource" id="Resource_73d62"]
 script = ExtResource("6_uuto2")
 scene = ExtResource("9_lr86y")
-change = 20
+chance = 20
 metadata/_custom_type_script = "uid://dh42imrwqp3e"
 
 [sub_resource type="Resource" id="Resource_w5xs2"]
 script = ExtResource("6_uuto2")
 scene = ExtResource("15_73d62")
-change = 25
+chance = 25
 metadata/_custom_type_script = "uid://dh42imrwqp3e"
 
 [sub_resource type="Resource" id="Resource_030in"]
 script = ExtResource("6_uuto2")
 scene = ExtResource("16_w5xs2")
-change = 50
+chance = 50
 metadata/_custom_type_script = "uid://dh42imrwqp3e"
 
 [node name="Main" type="Node2D"]
