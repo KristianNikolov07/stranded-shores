@@ -1,9 +1,12 @@
 extends Node
 
+## The script responsible for the saving and loading of the game's progress
+
 const SAVES_FOLDER = "user://saves/"
 const PLAYER_STATS_FILE_NAME = "player_stats.ini"
 const WORLD_FILE_NAME = "world.json"
 
+## The name of the save
 @export var save_name = ""
 
 var config = ConfigFile.new()
@@ -18,6 +21,8 @@ func _on_windows_close_requested():
 	get_tree().quit()
 
 
+## Saves the progress in a folder with the save_name. If the save_name is
+## empty - does nothing
 func save() -> void:
 	if save_name != "":
 		var player : Player = Global.get_player()
@@ -70,30 +75,35 @@ func save() -> void:
 			if node.has_method("get_save_data"):
 				object.data = node.get_save_data()
 			world.Objects.append(object)
-		world_file.store_string(JSON.stringify(world))
+		world_file.store_string(JSON.stringify(world, "\t"))
 		world_file.close()
 		
 		print("Progress Saved")
 
 
+## Deletes a save
 func delete(save_name_to_delete : String) -> void:
 	DirAccess.remove_absolute(SAVES_FOLDER + save_name_to_delete + "/" + PLAYER_STATS_FILE_NAME)
 	DirAccess.remove_absolute(SAVES_FOLDER + save_name_to_delete + "/" + WORLD_FILE_NAME)
 	DirAccess.remove_absolute(SAVES_FOLDER + save_name_to_delete)
 
 
+## Gets all the saves inside the SAVES_FOLDER
 func get_saves() -> PackedStringArray:
 	return DirAccess.get_directories_at(SAVES_FOLDER)
 
 
+## Checks whether or not a save with the save_name already exists
 func has_save() -> bool:
 	return DirAccess.dir_exists_absolute(SAVES_FOLDER + save_name)
 
 
+## Checks whether or not a specific save exists
 func has_save_with_name(_save_name : String) -> bool:
 	return DirAccess.dir_exists_absolute(SAVES_FOLDER + _save_name)
 
 
+## Gets the playtime of a specific save
 func get_playtime(_save_name : String) -> float:
 	if DirAccess.dir_exists_absolute(SAVES_FOLDER + _save_name):
 		config.load(SAVES_FOLDER + _save_name + "/" + PLAYER_STATS_FILE_NAME)
@@ -102,6 +112,7 @@ func get_playtime(_save_name : String) -> float:
 	return 0
 
 
+## Loads a save with the save_name
 func load_save() -> void:
 	var player : Player = Global.get_player()
 	var objectives = player.objectives

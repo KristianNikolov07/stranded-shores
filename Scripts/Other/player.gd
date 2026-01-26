@@ -1,26 +1,47 @@
 class_name Player
 extends CharacterBody2D
 
-@export var can_move = true
-@export var max_hp = 100
-@export var placement_range = 200
+## The script responsible for the movement for the player and its interaction with
+## the game world
+
+## Whether or not the player can move, mostly used for when the player
+## is looking in a UI/Menu
+@export var can_move : bool = true
+## The maximum amount of health the player can have
+@export var max_hp : int = 100
+## The maximum amount of distance the player can place structures at
+@export var placement_range : float = 200
 
 @export_group("Speed and Stamina")
-@export var base_speed = 200
-@export var running_speed_gain = 5
+## The speed of the player when he isn't running
+@export var base_speed : float = 200
+## The amount of speed the player gains while running 
+@export var running_speed_gain : float = 5
+## The maximum amount of speed the player can have when running 
 @export var max_running_speed = 400 
+## The maximum amount if stamina the player can have
 @export var max_stamina = 200
+## The amount the stamina decreases by every second while running
 @export var stamina_decrease_per_second = 0.5
+## The amount the stamina increases by every second while not running
 @export var stamina_recharge_per_second = 0.25
 
+## Whether or not the player is currently running
 var is_running = false
+## The currently openned repair menu. Null if the repair menu is not open
 var repair_menu : Control
+## The currently openned chest menu. Null if a chest is not open
 var chest_menu : Area2D
+## The coordinates the player respawns at after death
 var respawn_point : Vector2
+## The currently used tool. Null if a tool isn't being used
 var tool : Node2D = null
 
+## The current amount of speed
 @onready var speed = base_speed
+## The current amount of stamina
 @onready var stamina = max_stamina
+## The current amount of health
 @onready var hp = max_hp
 @onready var inventory : Inventory = $UI/Inventory
 @onready var crafting = $UI/CraftingMenu
@@ -112,6 +133,7 @@ func _input(event: InputEvent) -> void:
 			object.interact(self)
 
 
+## Decreases the player's health
 func damage(dmg : int, is_hunger_or_thirst = false) -> void:
 	if inventory.armor != null and !is_hunger_or_thirst:
 		if inventory.armor.durability > 0:
@@ -128,6 +150,7 @@ func damage(dmg : int, is_hunger_or_thirst = false) -> void:
 		respawn()
 
 
+## Checks whether or not the play is over a water tile
 func is_in_water() -> bool:
 	var tilemap = get_node("../Tilemap")
 	if tilemap.is_water_tile(Global.global_coords_to_tilemap_coords(global_position)):
@@ -136,6 +159,7 @@ func is_in_water() -> bool:
 		return false
 
 
+## Increases the player's health
 func heal(_hp : int) -> void:
 	hp += _hp
 	if hp > max_hp:
@@ -143,11 +167,13 @@ func heal(_hp : int) -> void:
 	hp_bar.value = hp
 
 
+## Sets the player's health to a specific amount
 func set_hp(_hp : int) -> void:
 	hp = _hp
 	hp_bar.value = hp
 
 
+## Drops all of the player's items and sets its position to its respawn_point
 func respawn() -> void:
 	inventory.drop_inventory()
 	global_position = respawn_point
@@ -158,6 +184,7 @@ func respawn() -> void:
 	$HungerAndThirst.set_thirst(0)
 
 
+## Uses the tool in the slot if the slot contains one, otherways does nothing
 func attack(slot : int) -> void:
 	if can_move:
 		if inventory.items[slot] is Tool:
@@ -166,6 +193,7 @@ func attack(slot : int) -> void:
 					tool.use()
 
 
+## Uses the structure in the slot if the slot contains one, otherways does nothing
 func place(slot : int) -> void:
 	if can_move:
 		if inventory.items[slot] is StructureItem:

@@ -32,6 +32,7 @@ func save_controls() -> void:
 			config.set_value("Controls", action, InputMap.action_get_events(action)[0])
 	config.save(Global.SETTINGS_FILE_PATH)
 
+
 func load_controls() -> void:
 	config.load(Global.SETTINGS_FILE_PATH)
 	if config.has_section("Controls"):

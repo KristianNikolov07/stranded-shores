@@ -1,5 +1,8 @@
 extends Control
 
+## The slot for an ingredient from the selected crafting recipe inside the 
+## crafting menu
+
 func set_item(item : Item, amount : int = 1, avaliable = true) -> void:
 	if item != null:
 		$ItemTexture.texture = item.texture

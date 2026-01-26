@@ -15,6 +15,7 @@ extends Resource
 ## Variable used the preserve the resource path through duplicates
 @export_file_path() var item_path
 
+## The current amount of the item
 var amount : int = 1
 
 ## Sets assigns the resource_path to the item_path variable

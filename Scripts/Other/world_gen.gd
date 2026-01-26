@@ -1,16 +1,17 @@
 extends Node
 
+## The script responsible for the world generation
+
 const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 const ROCK_ITEM = preload("res://Resources/Items/rock.tres")
 const STICK_ITEM = preload("res://Resources/Items/stick.tres")
 
+## The structures that the world generator attempts to place
 @export var structures : Array[SpawnChance]
+## The change form 1 to 100 that a rock item is placed
 @export_range(1, 100, 1) var rock_spawn_chance = 5
+## The change form 1 to 100 that a stick item is placed
 @export_range(1, 100, 1) var stick_spawn_chance = 5 
-
-var grass_tile_atlas_coords = Vector2i(0, 0)
-var sand_tile_atlas_coords = Vector2i(1, 0)
-var water_tile_atlas_coords = Vector2i(2, 0)
 
 @onready var tilemap : TileMapLayer = get_node("../Tilemap")
 @onready var spawn_points_node : Node = get_node("../SpawnPoints")
@@ -28,6 +29,8 @@ func _ready() -> void:
 		SaveProgress.save()
 
 
+## Goes through the entire tilemap and attempts to place structures from
+## the structures array
 func generate_random_objects() -> void:
 	for x in range(Global.TILEMAP_SIZE):
 		for y in range(Global.TILEMAP_SIZE):
@@ -58,6 +61,8 @@ func generate_random_objects() -> void:
 					continue
 
 
+## Attempts the place and object/structure at a specific position with a
+## specific 1 to 100 chance
 func attempt_to_place(object : Node, chance : int, pos : Vector2) -> bool:
 	var random = randi_range(1, 100)
 	if random <= chance:
@@ -68,6 +73,7 @@ func attempt_to_place(object : Node, chance : int, pos : Vector2) -> bool:
 		return false
 
 
+## Chooses the spawn point for the player
 func choose_spawn_point() -> void:
 	var rand = randi_range(0, spawn_points_node.get_child_count())
 	var i = 0
