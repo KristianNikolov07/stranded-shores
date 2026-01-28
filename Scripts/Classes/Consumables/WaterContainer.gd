@@ -10,7 +10,8 @@ extends Consumable
 @export var thirst_modifier_when_clean : float
 ## The amount the thirst gets modified by, when the water is polluted
 @export var thirst_modifier_when_polluted : float
-## The max amount of water that is currently stored inside of the container
+## The max amount of water that is currently stored inside 
+## of the container
 @export var water_amount : int = 0
 ## Whether or not the water is clean
 @export var is_clean = false

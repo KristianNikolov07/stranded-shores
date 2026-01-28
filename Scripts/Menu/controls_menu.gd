@@ -46,7 +46,9 @@ func list_controls() -> void:
 	for child in %Controls.get_children():
 		child.queue_free()
 	for action : StringName in InputMap.get_actions():
-		if InputMap.action_get_events(action).is_empty() == false and action.begins_with("ui_") == false and action not in BLACKLIST:
+		if InputMap.action_get_events(action).is_empty() == false \
+		and action.begins_with("ui_") == false \
+		and action not in BLACKLIST:
 			var control_option = CONTROL_OPTION_SCENE.instantiate()
 			control_option.action = action
 			control_option.key = InputMap.action_get_events(action)[0].as_text()

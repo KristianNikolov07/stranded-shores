@@ -4,13 +4,16 @@ extends Item
 
 ## The class for the Consumable items
 
-## Whether or not the consumble can be used an infinate amount of times
+## Whether or not the consumble can be used an infinate 
+## amount of times
 @export var has_unlimited_uses = false
 ## The amount the speed gets modified by, after the items is consumed
 @export var speed_modifier : int
-## The amount the running speed gain gets modified by, after the items is consumed
+## The amount the running speed gain gets modified by, 
+## after the items is consumed
 @export var running_speed_gain_modifier : int
-## The amount the max running speed gets modified by, after the items is consumed
+## The amount the max running speed gets modified by, 
+## after the items is consumed
 @export var max_running_speed_modifier : int
 ## The amount the hunger gets modified by, after the items is consumed
 @export var hunger_modifier : float

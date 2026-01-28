@@ -6,7 +6,8 @@ extends Item
 
 ## The PackedScene of the structure that is placed
 @export var structure_scene : PackedScene
-## The texture that is used for the placement preview before the structure is placed
+## The texture that is used for the placement preview before 
+## the structure is placed
 @export var preview_texture : Texture
 
 ## Places the structure

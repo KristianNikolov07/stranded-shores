@@ -4,7 +4,8 @@ extends Consumable
 
 ## The class for the food items
 
-## The resource for the cooked version of the food, null if the food can't be cooked.
+## The resource for the cooked version of the food, 
+## null if the food can't be cooked.
 @export var cooked_version : Food
 
 ## Called when the food is cooked

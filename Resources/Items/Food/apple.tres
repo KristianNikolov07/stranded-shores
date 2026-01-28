@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Food" load_steps=4 format=3 uid="uid://c7m726bg167o"]
 
 [ext_resource type="Script" uid="uid://dwh1bhdedho1q" path="res://Scripts/Classes/Consumables/Food.gd" id="1_52qd5"]
-[ext_resource type="Texture2D" uid="uid://xydeeiwpn5iv" path="res://Assets/Textures/Items/items.png" id="2_6smqw"]
+[ext_resource type="Texture2D" uid="uid://bhx6of8ja1lkw" path="res://Assets/Textures/Items/items.png" id="2_6smqw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ihy3c"]
 atlas = ExtResource("2_6smqw")
