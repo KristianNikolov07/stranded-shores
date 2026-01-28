@@ -42,7 +42,8 @@ func update_ui() -> void:
 	$Description.text = description
 
 
-## Attempts the complete an objective. If the current_objective matches the string passed to the function,
+## Attempts the complete an objective. If the current_objective matches 
+## the string passed to the function,
 ## the current_objective is set to the next objective
 func complete_objective(objective : String) -> void:
 	if current_objective == objective:

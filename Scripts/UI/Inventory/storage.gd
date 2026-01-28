@@ -200,7 +200,6 @@ func initiate_storage() -> void:
 		var slot = ITEM_SLOT_SCENE.instantiate()
 		slot.set_item(items[i])
 		slot.id = i
-		slot.is_in_backpack = true
 		add_child(slot, true)
 		slot.clicked.connect(_on_item_slot_clicked)
 

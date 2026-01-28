@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CraftingTool" load_steps=4 format=3 uid="uid://dnyirqgk2r7cr"]
 
 [ext_resource type="Script" uid="uid://dan4vamyiuxvr" path="res://Scripts/Classes/CraftingTool.gd" id="1_25ipx"]
-[ext_resource type="Texture2D" uid="uid://b2qo6rmj77slm" path="res://Assets/Textures/Items/crafting_tools.png" id="2_crros"]
+[ext_resource type="Texture2D" uid="uid://cgugxs521djfo" path="res://Assets/Textures/Items/crafting_tools.png" id="2_crros"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0h7w0"]
 atlas = ExtResource("2_crros")
