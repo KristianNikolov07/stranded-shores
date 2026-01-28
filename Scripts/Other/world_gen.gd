@@ -21,9 +21,9 @@ func _ready() -> void:
 	if SaveProgress.has_save():
 		SaveProgress.load_save()
 	else:
+		choose_spawn_point()
 		generate_random_objects()
 		get_parent().get_node("Forest").generate()
-		choose_spawn_point()
 		SaveProgress.get_node("PlaytimeCounter").start()
 		await get_tree().physics_frame
 		SaveProgress.save()

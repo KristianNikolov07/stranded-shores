@@ -8,7 +8,16 @@ const TREE_SCENE = preload("res://Scenes/Structures/tree.tscn")
 @export_range(0, 100, 1) var tree_spawn_chance = 50
 
 func generate() -> void:
+	await clean_area()
 	generate_trees()
+
+
+func clean_area() -> void:
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	for node in $CleanArea.get_overlapping_bodies():
+		if node != $TreeBossSpawn:
+			node.queue_free()
 
 
 func generate_trees() -> void:
