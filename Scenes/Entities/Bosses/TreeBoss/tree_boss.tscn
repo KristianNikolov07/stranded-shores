@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dwifqlhq0eowu"]
 
 [ext_resource type="Script" uid="uid://djc6tekkhbrq7" path="res://Scripts/Entities/Bosses/TreeBoss/tree_boss.gd" id="1_uglrb"]
-[ext_resource type="Texture2D" uid="uid://c8hovpw08ogc3" path="res://Assets/Textures/Entities/Bosses/tree_boss.png" id="2_uglrb"]
-[ext_resource type="Texture2D" uid="uid://dnyupa8g2qbxa" path="res://Assets/Textures/UI/progress_bar.png" id="3_0xnfy"]
+[ext_resource type="Texture2D" uid="uid://684xqn8o4fhf" path="res://Assets/Textures/Entities/Bosses/tree_boss.png" id="2_uglrb"]
+[ext_resource type="Texture2D" uid="uid://b3j6wea3bj37g" path="res://Assets/Textures/UI/progress_bar.png" id="3_0xnfy"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="4_p0v6x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uglrb"]

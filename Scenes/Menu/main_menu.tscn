@@ -120,7 +120,6 @@ offset_left = 0.12799072
 offset_top = -0.15200806
 offset_right = -0.12805176
 offset_bottom = -0.072021484
-metadata/_edit_use_anchors_ = true
 
 [node name="ModMenu" parent="." instance=ExtResource("5_gpijq")]
 visible = false
