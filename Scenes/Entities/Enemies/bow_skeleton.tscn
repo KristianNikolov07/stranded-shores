@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_1ljqt"]
 [ext_resource type="Resource" uid="uid://4xf4o78gtb1x" path="res://Resources/Items/Tools/bow.tres" id="3_j3k2j"]
 [ext_resource type="Resource" uid="uid://jiklrfuxdacu" path="res://Resources/Items/arrow.tres" id="4_0o1u1"]
-[ext_resource type="Texture2D" uid="uid://qhq1ruwelp8d" path="res://Assets/Textures/Entities/Enemies/skeleton.png" id="5_1ljqt"]
-[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="6_0o1u1"]
+[ext_resource type="Texture2D" uid="uid://nusg3esqcoa2" path="res://Assets/Textures/Entities/Enemies/skeleton.png" id="5_1ljqt"]
+[ext_resource type="Texture2D" uid="uid://xydeeiwpn5iv" path="res://Assets/Textures/Items/items.png" id="6_0o1u1"]
 [ext_resource type="Script" uid="uid://b56lnunx30ak3" path="res://Scripts/Entities/animations.gd" id="6_j3k2j"]
 
 [sub_resource type="Resource" id="Resource_udb1y"]

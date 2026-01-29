@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_3fm3v"]
 [ext_resource type="Script" uid="uid://wg3pna2lrlw3" path="res://Scripts/UI/Inventory/crafting_recipe_ui.gd" id="1_k1u3d"]
-[ext_resource type="Texture2D" uid="uid://cdb4a5asg7dhm" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="3_3fm3v"]
-[ext_resource type="Texture2D" uid="uid://cvrlsbtwytbd7" path="res://Assets/Textures/UI/plus.png" id="4_sdq7x"]
-[ext_resource type="Texture2D" uid="uid://ceacgbygoxt43" path="res://Assets/Textures/UI/big_arrow.png" id="5_xnqce"]
+[ext_resource type="Texture2D" uid="uid://b1vbxn5yod07u" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="3_3fm3v"]
+[ext_resource type="Texture2D" uid="uid://bb0fp4f2xen18" path="res://Assets/Textures/UI/plus.png" id="4_sdq7x"]
+[ext_resource type="Texture2D" uid="uid://m3in4snxed4n" path="res://Assets/Textures/UI/big_arrow.png" id="5_xnqce"]
 
 [node name="CraftingRecipeUI" type="PanelContainer"]
 anchors_preset = -1

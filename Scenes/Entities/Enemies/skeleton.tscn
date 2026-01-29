@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://clnvfqe0v5ti1"]
 
 [ext_resource type="Script" uid="uid://c3fbx4w04b6te" path="res://Scripts/Classes/Entities/Enemy.gd" id="1_bj33v"]
-[ext_resource type="Texture2D" uid="uid://qhq1ruwelp8d" path="res://Assets/Textures/Entities/Enemies/skeleton.png" id="2_dl78v"]
+[ext_resource type="Texture2D" uid="uid://nusg3esqcoa2" path="res://Assets/Textures/Entities/Enemies/skeleton.png" id="2_dl78v"]
 [ext_resource type="Script" uid="uid://b56lnunx30ak3" path="res://Scripts/Entities/animations.gd" id="3_kcypx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dl78v"]
@@ -9,23 +9,6 @@ radius = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dl78v"]
 size = Vector2(32, 32)
-
-[sub_resource type="Animation" id="Animation_dl78v"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
 
 [sub_resource type="Animation" id="Animation_kcypx"]
 length = 0.001
@@ -52,6 +35,23 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dl78v"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_ud8yl"]

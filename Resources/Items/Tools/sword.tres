@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Tool" load_steps=8 format=3 uid="uid://blgovg736ndxx"]
 
 [ext_resource type="Script" uid="uid://ccifyb4dk0sri" path="res://Scripts/Classes/Tool.gd" id="1_axhcr"]
-[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="1_hdioj"]
+[ext_resource type="Texture2D" uid="uid://xydeeiwpn5iv" path="res://Assets/Textures/Items/items.png" id="1_hdioj"]
 [ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="2_325b8"]
 [ext_resource type="PackedScene" uid="uid://cri3f4hl8d8qo" path="res://Scenes/Tools/sword.tscn" id="4_dfjpa"]
 

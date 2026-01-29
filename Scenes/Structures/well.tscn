@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://7g3bjao3xxhu"]
 
-[ext_resource type="Texture2D" uid="uid://56thdtqswp8s" path="res://Assets/Textures/Items/items.png" id="2_f6nty"]
+[ext_resource type="Texture2D" uid="uid://xydeeiwpn5iv" path="res://Assets/Textures/Items/items.png" id="2_f6nty"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_yyq28"]
 [ext_resource type="Script" uid="uid://5uxkgia8qf7" path="res://Scripts/Structures/well.gd" id="3_a42g1"]
 [ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="3_ub14h"]
