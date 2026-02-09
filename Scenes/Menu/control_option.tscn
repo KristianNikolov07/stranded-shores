@@ -29,14 +29,4 @@ theme_override_font_sizes/font_size = 36
 toggle_mode = true
 text = "Key"
 
-[node name="ControllerRebindButton" type="Button" parent="Buttons"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(95, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_font_sizes/font_size = 36
-toggle_mode = true
-text = "Key"
-
 [connection signal="pressed" from="Buttons/RebindButton" to="." method="_on_rebind_button_pressed"]
-[connection signal="pressed" from="Buttons/ControllerRebindButton" to="." method="_on_controller_rebind_button_pressed"]

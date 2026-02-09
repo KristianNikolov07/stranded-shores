@@ -13,7 +13,8 @@ func _input(event: InputEvent) -> void:
 		elif player.can_move:
 			get_tree().paused = true
 			show()
-			$Buttons/Resume.grab_focus()
+			if Global.is_using_controller:
+				$Buttons/Resume.grab_focus()
 
 
 func _on_resume_pressed() -> void:
@@ -36,4 +37,5 @@ func _on_save_and_quit_pressed() -> void:
 
 func _on_settings_menu_closed() -> void:
 	$Buttons.show()
-	$Buttons/Resume.grab_focus()
+	if Global.is_using_controller:
+		$Buttons/Resume.grab_focus()

@@ -27,7 +27,13 @@ func _on_back_pressed() -> void:
 
 func open() -> void:
 	show()
-	$VBoxContainer/MarginContainer/HBoxContainer/Back.grab_focus()
+	if Global.is_using_controller:
+		$VBoxContainer/MarginContainer/HBoxContainer/Back.grab_focus()
+
+	if Global.is_using_controller:
+		$VBoxContainer/MarginContainer2/HBoxContainer/OptionButton.select(1)
+	else:
+		$VBoxContainer/MarginContainer2/HBoxContainer/OptionButton.select(0)
 
 
 func save_controls() -> void:
@@ -68,7 +74,19 @@ func list_controls() -> void:
 		if InputMap.action_get_events(action).is_empty() == false and action.begins_with("ui_") == false and action not in BLACKLIST:
 			var control_option = CONTROL_OPTION_SCENE.instantiate()
 			control_option.action = action
-			control_option.key = InputMap.action_get_events(action)[0]
-			if InputMap.action_get_events(action).size() > 1:
-				control_option.controller_key = InputMap.action_get_events(action)[1]
-			%Controls.add_child(control_option)
+			if Global.is_using_controller == false:
+				control_option.key = InputMap.action_get_events(action)[0]
+				%Controls.add_child(control_option)
+			elif InputMap.action_get_events(action).size() > 1:
+				control_option.is_controller = true
+				control_option.key = InputMap.action_get_events(action)[1]
+				%Controls.add_child(control_option)
+
+
+func _on_option_button_item_selected(index: int) -> void:
+	if index == 0:
+		Global.is_using_controller = false
+	else:
+		Global.is_using_controller = true
+	list_controls()
+	

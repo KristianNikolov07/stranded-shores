@@ -8,6 +8,8 @@ const MODS_FOLDER = "user://mods"
 const MODS_ENABLE_CHECK_FILE_NAME = "enabled"
 const MODS_MANIFEST_FILE_NAME = "manifest.json"
 
+var is_using_controller = false
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ToggleFullscreen"):
 		toggle_fullscreen()

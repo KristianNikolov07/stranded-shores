@@ -11,7 +11,8 @@ func _ready() -> void:
 		$MainButtons/Quit.hide()
 	
 	# Focus
-	$MainButtons/Play.grab_focus()
+	if Global.is_using_controller:
+		$MainButtons/Play.grab_focus()
 
 
 func _on_play_pressed() -> void:
@@ -30,12 +31,14 @@ func _on_quit_pressed() -> void:
 
 func _on_settings_menu_closed() -> void:
 	$MainButtons.show()
-	$MainButtons/Play.grab_focus()
+	if Global.is_using_controller:
+		$MainButtons/Play.grab_focus()
 
 
 func _on_world_select_closed() -> void:
 	$MainButtons.show()
-	$MainButtons/Play.grab_focus()
+	if Global.is_using_controller:
+		$MainButtons/Play.grab_focus()
 
 
 func _on_mod_menu_closed() -> void:
@@ -49,4 +52,5 @@ func _on_credits_pressed() -> void:
 
 func _on_credits_closed() -> void:
 	$MainButtons.show()
-	$MainButtons/Play.grab_focus()
+	if Global.is_using_controller:
+		$MainButtons/Play.grab_focus()

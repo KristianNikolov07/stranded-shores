@@ -46,7 +46,8 @@ func _on_language_selected(index: int) -> void:
 
 func open() -> void:
 	show()
-	$Back.grab_focus()
+	if Global.is_using_controller:
+		$Back.grab_focus()
 
 
 func set_language(lang : int):
@@ -79,4 +80,5 @@ func _on_controls_pressed() -> void:
 
 func _on_controls_menu_closed() -> void:
 	show()
-	$Back.grab_focus()
+	if Global.is_using_controller:
+		$Back.grab_focus()

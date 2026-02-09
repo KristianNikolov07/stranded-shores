@@ -15,7 +15,8 @@ func _input(event: InputEvent) -> void:
 
 func open() -> void:
 	show()
-	$VBoxContainer/MarginContainer/HBoxContainer/Back.grab_focus()
+	if Global.is_using_controller:
+		$VBoxContainer/MarginContainer/HBoxContainer/Back.grab_focus()
 
 
 func _on_back_pressed() -> void:

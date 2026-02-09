@@ -18,7 +18,8 @@ func _input(event: InputEvent) -> void:
 
 func open() -> void:
 	show()
-	$VBoxContainer/Buttons/Back.grab_focus()
+	if Global.is_using_controller:
+		$VBoxContainer/Buttons/Back.grab_focus()
 
 
 func get_worlds() -> void:
