@@ -26,14 +26,11 @@ func _on_back_pressed() -> void:
 
 
 func open() -> void:
+	list_controls()
 	show()
 	if Global.is_using_controller:
 		$VBoxContainer/MarginContainer/HBoxContainer/Back.grab_focus()
-
-	if Global.is_using_controller:
 		$VBoxContainer/MarginContainer2/HBoxContainer/OptionButton.select(1)
-	else:
-		$VBoxContainer/MarginContainer2/HBoxContainer/OptionButton.select(0)
 
 
 func save_controls() -> void:

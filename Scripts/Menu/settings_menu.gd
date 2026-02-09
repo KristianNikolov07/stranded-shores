@@ -74,8 +74,7 @@ func _on_mods_pressed() -> void:
 
 
 func _on_controls_pressed() -> void:
-	%ControlsMenu.show()
-	%ControlsMenu.list_controls()
+	%ControlsMenu.open()
 
 
 func _on_controls_menu_closed() -> void:
