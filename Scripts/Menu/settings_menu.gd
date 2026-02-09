@@ -79,3 +79,4 @@ func _on_controls_pressed() -> void:
 
 func _on_controls_menu_closed() -> void:
 	show()
+	$Back.grab_focus()
