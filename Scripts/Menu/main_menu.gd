@@ -9,16 +9,19 @@ func _ready() -> void:
 	# Web
 	if OS.get_name() == "Web":
 		$MainButtons/Quit.hide()
+	
+	# Focus
+	$MainButtons/Play.grab_focus()
 
 
 func _on_play_pressed() -> void:
 	$MainButtons.hide()
-	$WorldSelect.show()
+	$WorldSelect.open()
 
 
 func _on_settings_pressed() -> void:
 	$MainButtons.hide()
-	$SettingsMenu.show()
+	$SettingsMenu.open()
 
 
 func _on_quit_pressed() -> void:
@@ -27,20 +30,23 @@ func _on_quit_pressed() -> void:
 
 func _on_settings_menu_closed() -> void:
 	$MainButtons.show()
+	$MainButtons/Play.grab_focus()
 
 
 func _on_world_select_closed() -> void:
 	$MainButtons.show()
+	$MainButtons/Play.grab_focus()
 
 
 func _on_mod_menu_closed() -> void:
-	$SettingsMenu.show()
+	$SettingsMenu.open()
 
 
 func _on_credits_pressed() -> void:
-	$Credits.show()
+	$Credits.open()
 	$MainButtons.hide()
 
 
 func _on_credits_closed() -> void:
 	$MainButtons.show()
+	$MainButtons/Play.grab_focus()

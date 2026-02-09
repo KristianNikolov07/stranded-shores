@@ -44,6 +44,11 @@ func _on_language_selected(index: int) -> void:
 	set_language(index)
 
 
+func open() -> void:
+	show()
+	$Back.grab_focus()
+
+
 func set_language(lang : int):
 	if lang == 0:
 		TranslationServer.set_locale("en")

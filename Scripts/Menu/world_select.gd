@@ -16,6 +16,11 @@ func _input(event: InputEvent) -> void:
 			accept_event()
 
 
+func open() -> void:
+	show()
+	$VBoxContainer/Buttons/Back.grab_focus()
+
+
 func get_worlds() -> void:
 	for world in SaveProgress.get_saves():
 		var world_option = WORLD_OPTION_SCENE.instantiate()

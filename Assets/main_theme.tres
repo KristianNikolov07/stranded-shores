@@ -111,6 +111,7 @@ content_margin_left = 5.0
 bg_color = Color(0.41570944, 0.2415401, 0.15876752, 1)
 
 [resource]
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
 Button/fonts/font = ExtResource("1_j03tf")
 Button/styles/focus = SubResource("StyleBoxEmpty_j03tf")
 Button/styles/hover = SubResource("StyleBoxFlat_xn4lo")
