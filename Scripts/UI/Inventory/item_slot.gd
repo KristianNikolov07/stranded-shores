@@ -26,6 +26,13 @@ var highlighted = false
 
 @onready var player : Player = Global.get_player()
 
+func _ready() -> void:
+	if Global.is_using_controller:
+		$Button.focus_mode = FocusMode.FOCUS_ALL
+	else:
+		$Button.focus_mode = FocusMode.FOCUS_NONE
+
+
 func set_item(item : Item) -> void:
 	if item != null:
 		$Background.hide()
@@ -65,6 +72,10 @@ func set_item(item : Item) -> void:
 		$MarginContainer/Water.hide()
 
 
+func focus() -> void:
+	$Button.grab_focus()
+
+
 func select() -> void:
 	selected = true
 	$Selector.show()
@@ -90,3 +101,11 @@ func _on_button_pressed() -> void:
 		if player.repair_menu != null:
 			player.repair_menu.set_tool(player.inventory.items[id])
 		clicked.emit(id)
+
+
+func _on_button_focus_entered() -> void:
+	$ControllerSelector.show()
+
+
+func _on_button_focus_exited() -> void:
+	$ControllerSelector.hide()

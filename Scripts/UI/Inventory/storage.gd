@@ -34,6 +34,8 @@ func set_inv_size(new_size : int) -> void:
 func open() -> void:
 	initiate_storage()
 	show()
+	if Global.is_using_controller:
+		get_child(0).focus()
 
 
 ## Checks whether or not the Storage's UI is open
@@ -185,7 +187,8 @@ func _on_item_slot_clicked(id : int) -> void:
 		highlight_slot(id)
 	else:
 		if highlighted_slot != null:
-			swap_items(highlighted_slot, id)
+			if highlighted_slot != id:
+				swap_items(highlighted_slot, id)
 			dehighlight_current_slot()
 		else:
 			player.inventory.swap_items(player.inventory.highlighted_slot, id, true)

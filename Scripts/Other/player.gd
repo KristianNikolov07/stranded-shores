@@ -115,22 +115,23 @@ func _process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	# Inventory
-	if event.is_action_pressed("Attack"):
-		attack(inventory.selected_slot)
-	if event.is_action_pressed("Place"):
-		place(inventory.selected_slot)
-	
-	#Interactions
-	elif event.is_action_pressed("Interact"):
-		for object in $InteractionRange.get_overlapping_areas():
-			# Objective
-			objectives.complete_objective("interact")
-			object.interact(self)
-		for object in $InteractionRange.get_overlapping_bodies():
-			# Objective
-			objectives.complete_objective("interact")
-			object.interact(self)
+	if can_move:
+		# Inventory
+		if event.is_action_pressed("Attack"):
+			attack(inventory.selected_slot)
+		if event.is_action_pressed("Place"):
+			place(inventory.selected_slot)
+		
+		#Interactions
+		elif event.is_action_pressed("Interact"):
+			for object in $InteractionRange.get_overlapping_areas():
+				# Objective
+				objectives.complete_objective("interact")
+				object.interact(self)
+			for object in $InteractionRange.get_overlapping_bodies():
+				# Objective
+				objectives.complete_objective("interact")
+				object.interact(self)
 
 
 ## Decreases the player's health

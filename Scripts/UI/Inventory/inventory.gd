@@ -391,7 +391,8 @@ func _on_item_slot_clicked(id : int) -> void:
 		highlight_slot(id)
 	else:
 		if opened_storage == null or opened_storage.highlighted_slot == null:
-			swap_items(highlighted_slot, id)
+			if highlighted_slot != id:
+				swap_items(highlighted_slot, id)
 			dehighlight_current_slot()
 		else:
 			opened_storage.swap_items(opened_storage.highlighted_slot, id, true)
