@@ -102,7 +102,8 @@ func dehighlight() -> void:
 func _on_button_pressed() -> void:
 	if can_be_clicked:
 		if player.repair_menu != null:
-			player.repair_menu.set_tool(player.inventory.items[id])
+			if player.inventory.items[id] is Tool:
+				player.repair_menu.set_tool(player.inventory.items[id])
 		clicked.emit(id)
 
 

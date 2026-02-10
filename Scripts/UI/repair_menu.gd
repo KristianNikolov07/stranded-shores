@@ -18,11 +18,26 @@ func _input(event: InputEvent) -> void:
 			accept_event()
 
 
+func open() -> void:
+	show()
+	update_ui()
+	
+	if Global.is_using_controller:
+		var i : int = 0
+		for item_slot in Global.get_player().inventory.get_node("Inventory").get_children():
+			item_slot.set_right_focus_neighbor(%RepairButton)
+			if i == 0:
+				item_slot.focus()
+				%RepairButton.focus_neighbor_left = item_slot.get_path()
+			i += 1
+
+
 func set_tool(_tool : Tool):
-	if _tool.repair_item != null and _tool.durability < _tool.max_durability:
-		tool = _tool
-		%Material.texture = tool.repair_item.texture
-		update_ui()
+	if _tool != null and _tool is Tool: 
+		if _tool.repair_item != null and _tool.durability < _tool.max_durability:
+			tool = _tool
+			%Material.texture = tool.repair_item.texture
+			update_ui()
 
 
 func reset() -> void:
