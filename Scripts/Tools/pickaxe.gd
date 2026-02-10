@@ -12,7 +12,10 @@ func _input(event: InputEvent) -> void:
 
 
 func use() -> void:
-	look_at(get_global_mouse_position())
+	if Global.is_using_controller == false:
+		look_at(get_global_mouse_position())
+	else:
+		look_at(Input.get_vector("ControllerRightJoystickLeft", "ControllerRightJoystickRight", "ControllerRightJoystickUp", "ControllerRightJoystickDown"))
 	if $Cooldown.is_stopped():
 		$CollisionShape2D.disabled = false
 		is_used = true

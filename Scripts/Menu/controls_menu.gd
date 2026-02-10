@@ -8,10 +8,10 @@ const BLACKLIST = [
 	"Debug", 
 	"Click", 
 	"ToggleFullscreen",
-	"StructurePreviewControllerMovementLeft",
-	"StructurePreviewControllerMovementRight",
-	"StructurePreviewControllerMovementUp",
-	"StructurePreviewControllerMovementDown"
+	"ControllerRightJoystickLeft",
+	"ControllerRightJoystickRight",
+	"ControllerRightJoystickUp",
+	"ControllerRightJoystickDown"
 	]
 
 var config = ConfigFile.new()

@@ -11,11 +11,14 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if visible:
-		look_at(get_global_mouse_position())
+		if Global.is_using_controller == false:
+			look_at(get_global_mouse_position())
+		else:
+			look_at(Input.get_vector("ControllerRightJoystickLeft", "ControllerRightJoystickRight", "ControllerRightJoystickUp", "ControllerRightJoystickDown"))
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("Attack"):
+	if event.is_action_released("Attack") or Global.is_using_controller and Input.get_vector("ControllerRightJoystickLeft", "ControllerRightJoystickRight", "ControllerRightJoystickUp", "ControllerRightJoystickDown") == Vector2.ZERO:
 		stop_using()
 
 

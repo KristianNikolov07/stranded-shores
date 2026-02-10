@@ -10,7 +10,10 @@ func _ready() -> void:
 
 func use() -> void:
 	show()
-	look_at(get_global_mouse_position())
+	if Global.is_using_controller == false:
+		look_at(get_global_mouse_position())
+	else:
+		look_at(Input.get_vector("ControllerRightJoystickLeft", "ControllerRightJoystickRight", "ControllerRightJoystickUp", "ControllerRightJoystickDown"))
 	$Area2D/CollisionShape2D.disabled = false
 	if get_global_mouse_position().x < global_position.x:
 		$Area2D/AnimationPlayer.play_backwards("hit")

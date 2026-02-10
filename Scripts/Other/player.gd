@@ -110,7 +110,7 @@ func _process(delta: float) -> void:
 			if abs(global_position.y - get_global_mouse_position().y) < placement_range:
 				$StructurePreview.global_position.y = get_global_mouse_position().y
 		else:
-			var structure_preview_velocity = Input.get_vector("StructurePreviewControllerMovementLeft", "StructurePreviewControllerMovementRight", "StructurePreviewControllerMovementUp", "StructurePreviewControllerMovementDown")
+			var structure_preview_velocity = Input.get_vector("ControllerRightJoystickLeft", "ControllerRightJoystickRight", "ControllerRightJoystickUp", "ControllerRightJoystickDown")
 			$StructurePreview.position += structure_preview_velocity * delta * structure_preview_controller_movement_speed
 	# Boat
 	if inventory.has_item("Boat"):
@@ -122,7 +122,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if can_move:
 		# Inventory
-		if event.is_action_pressed("Attack"):
+		if event.is_action_pressed("Attack") or Input.get_vector("ControllerRightJoystickLeft", "ControllerRightJoystickRight", "ControllerRightJoystickUp", "ControllerRightJoystickDown") != Vector2.ZERO:
 			attack(inventory.selected_slot)
 		if event.is_action_pressed("Place"):
 			place(inventory.selected_slot)
