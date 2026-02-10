@@ -38,6 +38,10 @@ func save_controls() -> void:
 	for action in InputMap.get_actions():
 		if !action.begins_with("ui_") and action not in BLACKLIST and InputMap.action_get_events(action).size() > 0:
 			config.set_value("Controls", action, InputMap.action_get_events(action))
+	if Global.is_using_controller:
+		config.set_value("Settings", "input_mode", 1)
+	else:
+		config.set_value("Settings", "input_mode", 0)
 	config.save(Global.SETTINGS_FILE_PATH)
 
 
@@ -50,6 +54,10 @@ func load_controls() -> void:
 					set_key(action, config.get_value("Controls", action)[0])
 					if config.get_value("Controls", action).size() > 1:
 						set_key(action, config.get_value("Controls", action)[1], true)
+	if config.get_value("Settings", "input_mode", 0) == 0:
+		Global.is_using_controller = false
+	else:
+		Global.is_using_controller = true
 
 
 func set_key(action : String, key : InputEvent, is_controller = false) -> void:
