@@ -3,7 +3,16 @@ extends PanelContainer
 signal closed
 
 const CONTROL_OPTION_SCENE = preload("res://Scenes/Menu/control_option.tscn")
-const BLACKLIST = ["esc", "Debug", "Click", "ToggleFullscreen"]
+const BLACKLIST = [
+	"esc", 
+	"Debug", 
+	"Click", 
+	"ToggleFullscreen",
+	"StructurePreviewControllerMovementLeft",
+	"StructurePreviewControllerMovementRight",
+	"StructurePreviewControllerMovementUp",
+	"StructurePreviewControllerMovementDown"
+	]
 
 var config = ConfigFile.new()
 

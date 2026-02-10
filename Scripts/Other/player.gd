@@ -25,6 +25,8 @@ extends CharacterBody2D
 @export var stamina_decrease_per_second = 0.5
 ## The amount the stamina increases by every second while not running
 @export var stamina_recharge_per_second = 0.25
+## The speed the structure preview moves at when using a controller
+@export var structure_preview_controller_movement_speed = 200
 
 ## Whether or not the player is currently running
 var is_running = false
@@ -59,7 +61,7 @@ func _ready() -> void:
 	
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if can_move:
 		velocity = Input.get_vector("Left", "Right", "Up", "Down") * speed
 		
@@ -102,11 +104,14 @@ func _process(_delta: float) -> void:
 	
 	# Structure Preview
 	if inventory.items[inventory.selected_slot] is StructureItem:
-		if abs(global_position.x - get_global_mouse_position().x) < placement_range:
-			$StructurePreview.global_position.x = get_global_mouse_position().x
-		if abs(global_position.y - get_global_mouse_position().y) < placement_range:
-			$StructurePreview.global_position.y = get_global_mouse_position().y
-	
+		if Global.is_using_controller == false:
+			if abs(global_position.x - get_global_mouse_position().x) < placement_range:
+				$StructurePreview.global_position.x = get_global_mouse_position().x
+			if abs(global_position.y - get_global_mouse_position().y) < placement_range:
+				$StructurePreview.global_position.y = get_global_mouse_position().y
+		else:
+			var structure_preview_velocity = Input.get_vector("StructurePreviewControllerMovementLeft", "StructurePreviewControllerMovementRight", "StructurePreviewControllerMovementUp", "StructurePreviewControllerMovementDown")
+			$StructurePreview.position += structure_preview_velocity * delta * structure_preview_controller_movement_speed
 	# Boat
 	if inventory.has_item("Boat"):
 		set_collision_mask_value(1, false)
