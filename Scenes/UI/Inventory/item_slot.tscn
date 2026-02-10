@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b14v1jc5n78s2"]
+[gd_scene load_steps=8 format=3 uid="uid://b14v1jc5n78s2"]
 
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_ds26i"]
 [ext_resource type="Script" uid="uid://buoumfl2vww4x" path="res://Scripts/UI/Inventory/item_slot.gd" id="1_nl11y"]
@@ -6,43 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://djxee4coa3afp" path="res://Assets/Textures/UI/durability_bg.png" id="4_47aue"]
 [ext_resource type="Texture2D" uid="uid://b7u7muita7hio" path="res://Assets/Textures/UI/durability.png" id="5_ds26i"]
 [ext_resource type="Texture2D" uid="uid://b3j6wea3bj37g" path="res://Assets/Textures/UI/progress_bar.png" id="5_fedpv"]
-
-[sub_resource type="Animation" id="Animation_ds26i"]
-resource_name = "fade"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0.45490196, 0, 0.21568628), Color(0, 0.45490196, 0, 0.64705884)]
-}
-
-[sub_resource type="Animation" id="Animation_fedpv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0.45490196, 0, 0.64705884)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1t2h7"]
-_data = {
-&"RESET": SubResource("Animation_fedpv"),
-&"fade": SubResource("Animation_ds26i")
-}
+[ext_resource type="PackedScene" uid="uid://cd8x7oexbc7g" path="res://Scenes/UI/Inventory/controller_selector.tscn" id="7_fedpv"]
 
 [node name="ItemSlot" type="PanelContainer"]
 custom_minimum_size = Vector2(72, 72)
@@ -128,17 +92,8 @@ expand_mode = 1
 [node name="Button" type="TextureButton" parent="."]
 layout_mode = 2
 
-[node name="ControllerSelector" type="ColorRect" parent="."]
-visible = false
+[node name="ControllerSelector" parent="." instance=ExtResource("7_fedpv")]
 layout_mode = 2
-mouse_filter = 1
-color = Color(0, 0.45490196, 0, 0.64705884)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ControllerSelector"]
-libraries = {
-&"": SubResource("AnimationLibrary_1t2h7")
-}
-autoplay = "fade"
 
 [connection signal="focus_entered" from="Button" to="." method="_on_button_focus_entered"]
 [connection signal="focus_exited" from="Button" to="." method="_on_button_focus_exited"]

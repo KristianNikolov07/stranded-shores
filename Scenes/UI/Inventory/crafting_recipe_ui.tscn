@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg4fg688arahg"]
+[gd_scene load_steps=7 format=3 uid="uid://bg4fg688arahg"]
 
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_3fm3v"]
 [ext_resource type="Script" uid="uid://wg3pna2lrlw3" path="res://Scripts/UI/Inventory/crafting_recipe_ui.gd" id="1_k1u3d"]
 [ext_resource type="Texture2D" uid="uid://b1vbxn5yod07u" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="3_3fm3v"]
 [ext_resource type="Texture2D" uid="uid://bb0fp4f2xen18" path="res://Assets/Textures/UI/plus.png" id="4_sdq7x"]
 [ext_resource type="Texture2D" uid="uid://m3in4snxed4n" path="res://Assets/Textures/UI/big_arrow.png" id="5_xnqce"]
+[ext_resource type="PackedScene" uid="uid://cd8x7oexbc7g" path="res://Scenes/UI/Inventory/controller_selector.tscn" id="6_xnqce"]
 
 [node name="CraftingRecipeUI" type="PanelContainer"]
 anchors_preset = -1
@@ -89,4 +90,9 @@ texture = ExtResource("3_3fm3v")
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 2
 
+[node name="ControllerSelector" parent="." instance=ExtResource("6_xnqce")]
+layout_mode = 2
+
+[connection signal="focus_entered" from="TextureButton" to="." method="_on_texture_button_focus_entered"]
+[connection signal="focus_exited" from="TextureButton" to="." method="_on_texture_button_focus_exited"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

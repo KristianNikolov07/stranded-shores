@@ -39,7 +39,6 @@ func open_menu(_is_crafting_table = false) -> void:
 	# Objective
 	player.objectives.complete_objective("open crafting menu")
 	
-	
 	if player.can_move:
 		player.can_move = false
 		selected_recipe = null
@@ -53,7 +52,12 @@ func open_menu(_is_crafting_table = false) -> void:
 			
 		update_ui()
 		show()
-
+		
+		if Global.is_using_controller:
+			for recipe in %Recipes.get_children():
+				if recipe.visible:
+					recipe.focus()
+					break
 
 ## Fetches the recipe resources
 func load_recipes() -> void:
@@ -94,6 +98,7 @@ func select_recipe(recipe : Recipe) -> void:
 
 ## Updates the UI
 func update_ui() -> void:
+	# Items
 	if selected_recipe == null:
 		%CraftingSlot1.set_item(null)
 		%CraftingSlot2.set_item(null)
