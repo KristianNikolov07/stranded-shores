@@ -26,13 +26,6 @@ var highlighted = false
 
 @onready var player : Player = Global.get_player()
 
-func _ready() -> void:
-	if Global.is_using_controller:
-		$Button.focus_mode = FocusMode.FOCUS_ALL
-	else:
-		$Button.focus_mode = FocusMode.FOCUS_NONE
-
-
 func set_item(item : Item) -> void:
 	if item != null:
 		$Background.hide()
@@ -75,6 +68,16 @@ func set_item(item : Item) -> void:
 func focus() -> void:
 	$Button.grab_focus()
 
+## Used in storages so that the focus is able to move from the storage to
+## the inventory 
+func set_left_focus_neighbor(neighbor : Control) -> void:
+	$Button.focus_neighbor_left = neighbor.get_path()
+
+## Used so that the focus is able to move from the inventory to
+## the opened storage
+func set_right_focus_neighbor(neighbor : Control) -> void:
+	$Button.focus_neighbor_right = neighbor.get_path()
+
 
 func select() -> void:
 	selected = true
@@ -104,7 +107,8 @@ func _on_button_pressed() -> void:
 
 
 func _on_button_focus_entered() -> void:
-	$ControllerSelector.show()
+	if Global.is_using_controller:
+		$ControllerSelector.show()
 
 
 func _on_button_focus_exited() -> void:

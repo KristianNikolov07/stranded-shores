@@ -34,8 +34,6 @@ func set_inv_size(new_size : int) -> void:
 func open() -> void:
 	initiate_storage()
 	show()
-	if Global.is_using_controller:
-		get_child(0).focus()
 
 
 ## Checks whether or not the Storage's UI is open
@@ -205,6 +203,13 @@ func initiate_storage() -> void:
 		slot.id = i
 		add_child(slot, true)
 		slot.clicked.connect(_on_item_slot_clicked)
+		if Global.is_using_controller and i == 0: # Set the focus for controllers
+			slot.focus()
+			slot.set_left_focus_neighbor(player.inventory.get_node("Inventory").get_child(0).get_node("Button"))
+		
+			# Set the focus for the inventory
+			for item_slot in player.inventory.get_node("Inventory").get_children():
+				item_slot.set_right_focus_neighbor(slot)
 
 
 func update_storage() -> void:
