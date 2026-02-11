@@ -38,6 +38,8 @@ var chest_menu : Area2D
 var respawn_point : Vector2
 ## The currently used tool. Null if a tool isn't being used
 var tool : Node2D = null
+## The direction the player is looking at
+var direction : Vector2 = Vector2.RIGHT
 
 ## The current amount of speed
 @onready var speed = base_speed
@@ -63,6 +65,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if can_move:
+		# Movement
 		velocity = Input.get_vector("Left", "Right", "Up", "Down") * speed
 		
 		# Running
@@ -82,6 +85,10 @@ func _process(delta: float) -> void:
 		# Movement Objective
 		if velocity != Vector2.ZERO:
 			objectives.complete_objective("movement")
+		
+		# Direction
+		if velocity != Vector2.ZERO:
+			direction = velocity
 		
 		move_and_slide()
 	
@@ -122,7 +129,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if can_move:
 		# Inventory
-		if event.is_action_pressed("Attack") or Input.get_vector("ControllerRightJoystickLeft", "ControllerRightJoystickRight", "ControllerRightJoystickUp", "ControllerRightJoystickDown") != Vector2.ZERO:
+		if event.is_action_pressed("Attack"):
 			attack(inventory.selected_slot)
 		if event.is_action_pressed("Place"):
 			place(inventory.selected_slot)

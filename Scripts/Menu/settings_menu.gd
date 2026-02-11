@@ -75,9 +75,13 @@ func _on_mods_pressed() -> void:
 
 func _on_controls_pressed() -> void:
 	%ControlsMenu.open()
+	for child in get_children():
+		child.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _on_controls_menu_closed() -> void:
 	show()
+	for child in get_children():
+		child.process_mode = Node.PROCESS_MODE_INHERIT
 	if Global.is_using_controller:
 		$Back.grab_focus()

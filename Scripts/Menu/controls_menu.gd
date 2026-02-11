@@ -31,6 +31,7 @@ func _input(event: InputEvent) -> void:
 func _on_back_pressed() -> void:
 	save_controls()
 	hide()
+	
 	closed.emit()
 
 

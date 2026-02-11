@@ -10,12 +10,18 @@ func _ready() -> void:
 
 func use() -> void:
 	show()
+	var aim_pos : Vector2
+	
 	if Global.is_using_controller == false:
-		look_at(get_global_mouse_position())
+		aim_pos = get_global_mouse_position()
+	
+	# Controller
 	else:
-		look_at(Input.get_vector("ControllerRightJoystickLeft", "ControllerRightJoystickRight", "ControllerRightJoystickUp", "ControllerRightJoystickDown"))
+		aim_pos = global_position + Global.get_player().direction
+	
+	look_at(aim_pos)
 	$Area2D/CollisionShape2D.disabled = false
-	if get_global_mouse_position().x < global_position.x:
+	if aim_pos.x < global_position.x:
 		$Area2D/AnimationPlayer.play_backwards("hit")
 		$Area2D/Sprite2D.flip_v = true
 		$Area2D/Sprite2D.rotation_degrees = -45
