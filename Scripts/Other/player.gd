@@ -116,7 +116,7 @@ func _process(delta: float) -> void:
 				$StructurePreview.global_position.x = get_global_mouse_position().x
 			if abs(global_position.y - get_global_mouse_position().y) < placement_range:
 				$StructurePreview.global_position.y = get_global_mouse_position().y
-		else:
+		else: # Controller
 			var structure_preview_velocity = Input.get_vector("ControllerRightJoystickLeft", "ControllerRightJoystickRight", "ControllerRightJoystickUp", "ControllerRightJoystickDown")
 			$StructurePreview.position += structure_preview_velocity * delta * structure_preview_controller_movement_speed
 	# Boat
