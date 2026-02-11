@@ -22,6 +22,7 @@ func _input(event: InputEvent) -> void:
 			player.can_move = true
 			player.inventory.opened_storage = null
 			hide()
+			player.inventory.unfocus_all()
 			accept_event()
 
 

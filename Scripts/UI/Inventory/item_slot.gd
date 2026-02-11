@@ -68,6 +68,10 @@ func set_item(item : Item) -> void:
 func focus() -> void:
 	$Button.grab_focus()
 
+
+func unfocus() -> void:
+	$Button.release_focus()
+
 ## Used in storages so that the focus is able to move from the storage to
 ## the inventory 
 func set_left_focus_neighbor(neighbor : Control) -> void:

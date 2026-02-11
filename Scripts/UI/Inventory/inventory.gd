@@ -441,3 +441,10 @@ func visualize_inventory():
 	$Inventory.get_child(selected_slot).select()
 	if highlighted_slot != null:
 		$Inventory.get_child(highlighted_slot).highlight()
+
+## Unfocuses the slots focused by a controller
+func unfocus_all() -> void:
+	for item_slot in $Inventory.get_children():
+		item_slot.unfocus()
+	$ArmorSlot.unfocus()
+	$BackpackSlot.unfocus()

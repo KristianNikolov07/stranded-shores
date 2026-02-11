@@ -15,6 +15,7 @@ func _input(event: InputEvent) -> void:
 			reset()
 			player.can_move = true
 			player.repair_menu = null
+			player.inventory.unfocus_all()
 			accept_event()
 
 
@@ -28,7 +29,7 @@ func open() -> void:
 			item_slot.set_right_focus_neighbor(%RepairButton)
 			if i == 0:
 				item_slot.focus()
-				%RepairButton.focus_neighbor_left = item_slot.get_path()
+				%RepairButton.focus_neighbor_left = item_slot.get_node("Button").get_path()
 			i += 1
 
 
