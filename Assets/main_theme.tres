@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=18 format=3 uid="uid://5uq80ele5x1b"]
+[gd_resource type="Theme" format=3 uid="uid://5uq80ele5x1b"]
+
+[ext_resource type="FontFile" uid="uid://cfarutyervafy" path="res://Assets/Fonts/BoldPixels.ttf" id="1_j03tf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j03tf"]
 
@@ -109,7 +111,7 @@ content_margin_left = 5.0
 bg_color = Color(0.41570944, 0.2415401, 0.15876752, 1)
 
 [resource]
-Button/fonts/font = null
+Button/fonts/font = ExtResource("1_j03tf")
 Button/styles/focus = SubResource("StyleBoxEmpty_j03tf")
 Button/styles/hover = SubResource("StyleBoxFlat_xn4lo")
 Button/styles/normal = SubResource("StyleBoxFlat_tl586")
@@ -121,8 +123,8 @@ HSeparator/styles/separator = SubResource("StyleBoxLine_j03tf")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_j03tf")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_65lvl")
 HSlider/styles/slider = SubResource("StyleBoxFlat_5mymi")
-Label/fonts/font = null
-LineEdit/fonts/font = null
+Label/fonts/font = ExtResource("1_j03tf")
+LineEdit/fonts/font = ExtResource("1_j03tf")
 LineEdit/styles/focus = SubResource("StyleBoxEmpty_teysu")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_x7ijp")
 LinkButton/fonts/font = null
