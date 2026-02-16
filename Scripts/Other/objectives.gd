@@ -36,7 +36,7 @@ func update_ui() -> void:
 	for action in regex.search_all(description):
 		if InputMap.has_action(action.get_string()) and InputMap.action_get_events(action.get_string()).size() > 0:
 			var event = InputMap.action_get_events(action.get_string())[0]
-			var keybind = event.as_text().replace("(Physical)", "").lstrip(" ").rstrip(" ")
+			var keybind = event.as_text().replace(" - Physical", "").lstrip(" ").rstrip(" ")
 			description = description.replace("CONTROL(" + action.get_string() + ")", keybind)
 	
 	$Description.text = description
