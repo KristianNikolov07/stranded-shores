@@ -1,53 +1,159 @@
-name: Build and Publish
+name: Build & Release
 
-on: 
+on:
   push:
     tags:
       - "v*.*.*"
   workflow_dispatch:
 
-jobs:
-  export_game:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    env:
-      ITCH_NAME: "kris-nikolov/stranded-shores"
-    
-    name: Export And Upload
-    steps:
-    - name: checkout
-      uses: actions/checkout@v5
-  
-    - name: Export
-      id: export
-      uses: firebelley/godot-export@v7.0.0
-      with:
-        godot_executable_download_url: https://downloads.godotengine.org/?version=4.6&flavor=stable&slug=linux.x86_64.zip&platform=linux.64
-        godot_export_templates_download_url: https://downloads.godotengine.org/?version=4.6&flavor=stable&slug=export_templates.tpz&platform=templates
-        relative_project_path: ./
-        archive_output: true
+permissions:
+  contents: write
 
-    - name: Create Release
-      uses: ncipollo/release-action@v1.18.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        generateReleaseNotes: true
-        tag: ${{ github.ref_name }}
-        artifacts: ${{ steps.export.outputs.archive_directory }}/*
-        
-    - name: Upload to Itch.io
-      env:
-        BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-      run: |
-        set -euo pipefail
-    
-        curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
-        unzip butler.zip
-        
-        chmod +x butler
-    
-        ./butler push "${{ steps.export.outputs.archive_directory }}/Windows.zip" ${ITCH_NAME}:windows --userversion ${{ github.ref_name }}
-        ./butler push "${{ steps.export.outputs.archive_directory }}/Linux.zip"   ${ITCH_NAME}:linux   --userversion ${{ github.ref_name }}
-        ./butler push "${{ steps.export.outputs.archive_directory }}/Web.zip"     ${ITCH_NAME}:web     --userversion ${{ github.ref_name }}
+env:
+  GODOT_VERSION: "4.6"
+  EXPORT_DIR: "Export"
+  ITCH_USER: "kris-nikolov"
+  ITCH_GAME: "stranded-shores"
+  APP_NAME: "Stranded Shores"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y unzip wget zsync file desktop-file-utils appstream libfuse2 zip
+
+      - name: Download Godot
+        run: |
+          cd /opt
+          wget -q "https://godot-releases.nbg1.your-objectstorage.com/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip" -O godot.zip
+          unzip -q godot.zip
+          sudo mv "Godot_v${GODOT_VERSION}-stable_linux.x86_64" /usr/local/bin/godot
+          sudo chmod +x /usr/local/bin/godot
+
+      - name: Download Export Templates
+        run: |
+          set -e
+          TEMPLATE_DIR="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          mkdir -p "$TEMPLATE_DIR"
+          wget -q "https://godot-releases.nbg1.your-objectstorage.com/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz" -O "$TEMPLATE_DIR/export_templates.tpz"
+          cd "$TEMPLATE_DIR"
+          unzip -q export_templates.tpz
+          mv templates/* .
+          rmdir templates
+
+      - name: Prepare export
+        run: |
+          mkdir -p "${EXPORT_DIR}"
+
+      - name: Export Windows
+        run: |
+          godot --headless --quiet --export-release "Windows" "${EXPORT_DIR}/${ITCH_GAME}.exe"
+
+      - name: Export Linux
+        run: |
+          godot --headless --quiet --export-release "Linux" "${EXPORT_DIR}/${ITCH_GAME}.x86_64"
+
+      - name: Build AppDir
+        run: |
+          set -euo pipefail
+          APPDIR="${EXPORT_DIR}/${ITCH_GAME}.AppDir"
+          mkdir -p "${APPDIR}/usr/bin"
+
+          cp "${EXPORT_DIR}/${ITCH_GAME}.x86_64" "${APPDIR}/usr/bin/${ITCH_GAME}"
+          chmod +x "${APPDIR}/usr/bin/${ITCH_GAME}"
+
+          # Desktop File
+          cat > "${APPDIR}/${ITCH_GAME}.desktop" << EOF
+          [Desktop Entry]
+          Type=Application
+          Name=${APP_NAME}
+          Exec=${ITCH_GAME}
+          Icon=icon
+          Categories=Game;
+          Terminal=false
+          EOF
+
+          # Icon 
+          cp "Assets/Textures/icon.png" "${APPDIR}/icon.png"
+
+          # AppRun
+          cat > "${APPDIR}/AppRun" << EOF
+          #!/bin/sh
+          HERE="\$(dirname "\$(readlink -f "\$0")")"
+          exec "\$HERE/usr/bin/${ITCH_GAME}" "\$@"
+          EOF
+          chmod +x "${APPDIR}/AppRun"
+
+      - name: Download appimagetool
+        run: |
+          sudo wget -q "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" -O /usr/local/bin/appimagetool
+          sudo chmod +x /usr/local/bin/appimagetool
+
+      - name: Create AppImage
+        run: |
+          set -euo pipefail
+          appimagetool "${EXPORT_DIR}/${ITCH_GAME}.AppDir" "${EXPORT_DIR}/${ITCH_GAME}.AppImage"
+
+      - name: Export Web
+        run: |
+          set -euo pipefail
+          mkdir -p "${EXPORT_DIR}/web"
+          godot --headless --quiet --export-release "Web" "${EXPORT_DIR}/web/index.html"
+
+      - name: Zip Windows build
+        run: |
+          set -euo pipefail
+          cd "${EXPORT_DIR}"
+          zip -r "Windows.zip" "${ITCH_GAME}.exe"
+
+      - name: Zip Linux build
+        run: |
+          set -euo pipefail
+          cd "${EXPORT_DIR}"
+          zip -r "LinuxBinary.zip" "${ITCH_GAME}.x86_64"
+
+      - name: Zip AppImage
+        run: |
+          set -euo pipefail
+          cd "${EXPORT_DIR}"
+          zip -r "Appimage.zip" "${ITCH_GAME}.AppImage"
+
+      - name: Zip Web build
+        run: |
+          set -euo pipefail
+          cd "${EXPORT_DIR}/web"
+          zip -r "../Web.zip" .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ${{ env.EXPORT_DIR }}/Windows.zip
+            ${{ env.EXPORT_DIR }}/LinuxBinary.zip
+            ${{ env.EXPORT_DIR }}/Web.zip
+            ${{ env.EXPORT_DIR }}/Appimage.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload to Itch.io
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+        run: |
+          set -euo pipefail
+
+          curl -L -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
+          unzip -q butler.zip
+          chmod +x butler
+
+          ./butler push "${EXPORT_DIR}/Windows.zip"      ${ITCH_USER}/${ITCH_GAME}:windows        --userversion "${GITHUB_REF_NAME}"
+          ./butler push "${EXPORT_DIR}/LinuxBinary.zip"  ${ITCH_USER}/${ITCH_GAME}:linux          --userversion "${GITHUB_REF_NAME}"
+          ./butler push "${EXPORT_DIR}/Web.zip"          ${ITCH_USER}/${ITCH_GAME}:web            --userversion "${GITHUB_REF_NAME}"
+          ./butler push "${EXPORT_DIR}/Appimage.zip"     ${ITCH_USER}/${ITCH_GAME}:linux-appimage --userversion "${GITHUB_REF_NAME}"
 
