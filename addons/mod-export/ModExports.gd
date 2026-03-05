@@ -12,11 +12,11 @@ func _get_name() -> String:
 func _get_export_options(platform: EditorExportPlatform) -> Array[Dictionary]:
 	return [
 		{
-			"option": {"name": "Mod Name", "type": Variant.Type.TYPE_STRING},
+			"option": {"name": "mod_information/mod_name", "type": Variant.Type.TYPE_STRING},
 			"default_value": "My Mod"
 		},
 		{
-			"option": {"name": "Mod Author", "type": Variant.Type.TYPE_STRING},
+			"option": {"name": "mod_information/mod_author", "type": Variant.Type.TYPE_STRING},
 			"default_value": "Me"
 		}
 	]
@@ -31,7 +31,7 @@ func _export_begin(features: PackedStringArray, is_debug: bool, path: String, fl
 func _export_end() -> void:
 	if get_export_preset().get_preset_name() == "Mod":
 		if export_pck_path != "" and export_pck_path.ends_with(".pck"):
-			var mod_name := str(get_option("Mod Name"))
+			var mod_name := str(get_option("mod_information/mod_name"))
 			var zip_file_name := mod_name.to_lower().replace(" ", "_") + ".zip"
 			var zip_path := export_pck_path.get_base_dir().path_join(zip_file_name)
 
@@ -70,8 +70,8 @@ func _export_end() -> void:
 ## Generates the manifest.json file
 func generate_manifest_file(dir_path: String) -> void:
 	var manifest = {
-		"name": str(get_option("Mod Name")),
-		"author": str(get_option("Mod Author"))
+		"name": str(get_option("mod_information/mod_name")),
+		"author": str(get_option("mod_information/mod_author"))
 	}
 	var file = FileAccess.open(dir_path.path_join("manifest.json"), FileAccess.WRITE)
 	file.store_string(JSON.stringify(manifest, "\t"))
