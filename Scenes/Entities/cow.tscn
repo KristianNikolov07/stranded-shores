@@ -1,9 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://y7vcpunxm45x"]
+[gd_scene format=3 uid="uid://y7vcpunxm45x"]
 
 [ext_resource type="Script" uid="uid://borj6l7sh0iy5" path="res://Scripts/Classes/Entities/PassiveEntity.gd" id="1_4bf5e"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_2yaru"]
 [ext_resource type="Resource" uid="uid://skabqfhsljcg" path="res://Resources/Items/Food/meat.tres" id="3_h844i"]
-[ext_resource type="Texture2D" uid="uid://b4wfcr2xl0srx" path="res://Assets/Textures/Entities/caw.png" id="4_h844i"]
+[ext_resource type="Texture2D" uid="uid://oij23kepekw1" path="res://Assets/Textures/Entities/caw.png" id="4_h844i"]
 [ext_resource type="Resource" uid="uid://cvf5jwa1bw1d5" path="res://Resources/Items/leather.tres" id="4_j3vjv"]
 [ext_resource type="Script" uid="uid://b56lnunx30ak3" path="res://Scripts/Entities/animations.gd" id="5_g5gbr"]
 
@@ -114,7 +114,7 @@ states/walking/node = SubResource("AnimationNodeAnimation_g5gbr")
 states/walking/position = Vector2(424, 162)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_j3vjv"), "idle", "walking", SubResource("AnimationNodeStateMachineTransition_x7ckd"), "walking", "idle", SubResource("AnimationNodeStateMachineTransition_21yad")]
 
-[node name="Cow" type="CharacterBody2D" groups=["PassiveEntities"]]
+[node name="Cow" type="CharacterBody2D" unique_id=817595407 groups=["PassiveEntities"]]
 z_index = 4
 collision_layer = 2144
 collision_mask = 213
@@ -126,7 +126,7 @@ speed = 25
 loot_table = Array[ExtResource("2_2yaru")]([SubResource("Resource_g5gbr"), SubResource("Resource_j3vjv"), SubResource("Resource_x7ckd"), SubResource("Resource_21yad")])
 metadata/_custom_type_script = "uid://borj6l7sh0iy5"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1997020909]
 texture_filter = 1
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("4_h844i")
@@ -134,59 +134,57 @@ flip_h = true
 hframes = 4
 vframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2025618578]
 position = Vector2(1.5, 8)
 shape = SubResource("RectangleShape2D_h844i")
 
-[node name="RetargetTimer" type="Timer" parent="."]
+[node name="RetargetTimer" type="Timer" parent="." unique_id=1053733267]
 wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="CollisionCheck" type="Node2D" parent="."]
+[node name="CollisionCheck" type="Node2D" parent="." unique_id=1333709319]
 rotation = 6.2831855
 
-[node name="CollisionCheck" type="RayCast2D" parent="CollisionCheck"]
+[node name="CollisionCheck" type="RayCast2D" parent="CollisionCheck" unique_id=1799904434]
 position = Vector2(28.333336, 0)
 exclude_parent = false
 target_position = Vector2(54.66667, -6.3578286e-06)
 collision_mask = 213
 hit_from_inside = true
 
-[node name="CollisionCheck2" type="RayCast2D" parent="CollisionCheck"]
+[node name="CollisionCheck2" type="RayCast2D" parent="CollisionCheck" unique_id=528880022]
 position = Vector2(27.000008, -24.000008)
 exclude_parent = false
 target_position = Vector2(56, 0)
 collision_mask = 213
 hit_from_inside = true
 
-[node name="CollisionCheck3" type="RayCast2D" parent="CollisionCheck"]
+[node name="CollisionCheck3" type="RayCast2D" parent="CollisionCheck" unique_id=652962806]
 position = Vector2(27.000008, 23.999994)
 exclude_parent = false
 target_position = Vector2(56, 0)
 collision_mask = 213
 hit_from_inside = true
 
-[node name="CollisionCheck4" type="RayCast2D" parent="CollisionCheck"]
+[node name="CollisionCheck4" type="RayCast2D" parent="CollisionCheck" unique_id=693660993]
 position = Vector2(27.000008, 47.999996)
 exclude_parent = false
 target_position = Vector2(56, 0)
 collision_mask = 213
 hit_from_inside = true
 
-[node name="CollisionCheck5" type="RayCast2D" parent="CollisionCheck"]
+[node name="CollisionCheck5" type="RayCast2D" parent="CollisionCheck" unique_id=1823715990]
 position = Vector2(27.000008, -48.000008)
 exclude_parent = false
 target_position = Vector2(56, 0)
 collision_mask = 213
 hit_from_inside = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_g5gbr")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=528382601]
+libraries/ = SubResource("AnimationLibrary_g5gbr")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=672101851]
 tree_root = SubResource("AnimationNodeStateMachine_h844i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/Idle = true

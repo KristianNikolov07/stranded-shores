@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://mt76hyi6jq2q"]
+[gd_scene format=3 uid="uid://mt76hyi6jq2q"]
 
 [ext_resource type="Script" uid="uid://bycdhw62lo3qv" path="res://Scripts/Other/debug_menu.gd" id="1_c8q1c"]
 
-[node name="Debug" type="CanvasLayer"]
+[node name="Debug" type="CanvasLayer" unique_id=22941275]
 script = ExtResource("1_c8q1c")
 
-[node name="Debug" type="Control" parent="."]
+[node name="Debug" type="Control" parent="." unique_id=1285079767]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Debug"]
+[node name="Panel" type="Panel" parent="Debug" unique_id=2092850315]
 self_modulate = Color(1, 1, 1, 0.5764706)
 layout_mode = 1
 anchors_preset = 8
@@ -29,7 +29,7 @@ offset_bottom = 228.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Debug/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Debug/Panel" unique_id=1371724598]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,78 +37,78 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Debug/Panel/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Debug/Panel/ScrollContainer" unique_id=442711787]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 theme_override_constants/separation = 19
 
-[node name="ListInventory" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="ListInventory" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=1527783811]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "List Inventory"
 
-[node name="AddTestItem" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="AddTestItem" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=1790023678]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Add Test Item"
 
-[node name="RemoveTestItem" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="RemoveTestItem" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=1943513020]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Remove Test Item"
 
-[node name="AddTestConsumable" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="AddTestConsumable" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=159134267]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Add Test Consumable"
 
-[node name="AddBasicSword" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="AddBasicSword" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=1839345972]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Add Test Sword"
 
-[node name="DamagePlayer" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="DamagePlayer" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=928686280]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Deal 10 HP"
 
-[node name="HealPlayer" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="HealPlayer" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=1230727630]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Heal 10 HP"
 
-[node name="Save" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="Save" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=1121424850]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Save to \"Test\""
 
-[node name="Load" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="Load" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=1250840663]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Load from \"Test\""
 
-[node name="SpawnTestEntity" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="SpawnTestEntity" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=1236955466]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Spawn Test Entity"
 
-[node name="Time Change" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="Time Change" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=774432872]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Time Change"
 
-[node name="TreeBoss" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="TreeBoss" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=38274791]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Spawn Tree Boss"
 
-[node name="GiveBow" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer"]
+[node name="GiveBow" type="Button" parent="Debug/Panel/ScrollContainer/VBoxContainer" unique_id=712439256]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Give Bow"
 
-[node name="Timetilltimechange" type="Label" parent="."]
+[node name="Timetilltimechange" type="Label" parent="." unique_id=1254575970]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5

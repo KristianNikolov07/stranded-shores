@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://b4a76p0lb1b7i"]
+[gd_resource type="Resource" script_class="Recipe" format=3 uid="uid://b4a76p0lb1b7i"]
 
 [ext_resource type="Script" uid="uid://uxhvo65tknee" path="res://Scripts/Classes/Recipe.gd" id="1_knnck"]
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="1_y70qb"]

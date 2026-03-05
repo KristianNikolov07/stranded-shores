@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx25w13rsr5xr"]
+[gd_scene format=3 uid="uid://dx25w13rsr5xr"]
 
 [ext_resource type="Script" uid="uid://h3g5mxur20is" path="res://Scripts/Menu/settings_menu.gd" id="1_051s4"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_poyrj"]
 
-[node name="SettingsMenu" type="PanelContainer"]
+[node name="SettingsMenu" type="PanelContainer" unique_id=1881695739]
 anchors_preset = -1
 anchor_left = 0.004
 anchor_right = 0.49600002
@@ -18,29 +18,29 @@ theme = ExtResource("1_poyrj")
 script = ExtResource("1_051s4")
 metadata/_edit_use_anchors_ = true
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1597197195]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer" unique_id=554234126]
 layout_mode = 2
 theme_override_constants/margin_top = 70
 
-[node name="Settings" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
+[node name="Settings" type="VBoxContainer" parent="CenterContainer/MarginContainer" unique_id=849646183]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Language" type="HBoxContainer" parent="CenterContainer/MarginContainer/Settings"]
+[node name="Language" type="HBoxContainer" parent="CenterContainer/MarginContainer/Settings" unique_id=365536573]
 layout_mode = 2
 theme_override_constants/separation = 45
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/Settings/Language"]
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/Settings/Language" unique_id=1598659479]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "LANGUAGE"
 
-[node name="Language" type="OptionButton" parent="CenterContainer/MarginContainer/Settings/Language"]
+[node name="Language" type="OptionButton" parent="CenterContainer/MarginContainer/Settings/Language" unique_id=1690925949]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -52,33 +52,33 @@ popup/item_0/id = 0
 popup/item_1/text = "Български"
 popup/item_1/id = 1
 
-[node name="Volume" type="HBoxContainer" parent="CenterContainer/MarginContainer/Settings"]
+[node name="Volume" type="HBoxContainer" parent="CenterContainer/MarginContainer/Settings" unique_id=1193470502]
 layout_mode = 2
 theme_override_constants/separation = 45
 
-[node name="Label" type="Label" parent="CenterContainer/MarginContainer/Settings/Volume"]
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/Settings/Volume" unique_id=207427694]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "VOLUME"
 
-[node name="VolumeSlider" type="HSlider" parent="CenterContainer/MarginContainer/Settings/Volume"]
+[node name="VolumeSlider" type="HSlider" parent="CenterContainer/MarginContainer/Settings/Volume" unique_id=367428002]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Controls" type="Button" parent="CenterContainer/MarginContainer/Settings"]
+[node name="Controls" type="Button" parent="CenterContainer/MarginContainer/Settings" unique_id=885303672]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "CONTROLS"
 
-[node name="Mods" type="Button" parent="CenterContainer/MarginContainer/Settings"]
+[node name="Mods" type="Button" parent="CenterContainer/MarginContainer/Settings" unique_id=157968602]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "MODS"
 
-[node name="Back" type="Button" parent="."]
+[node name="Back" type="Button" parent="." unique_id=1152498709]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 8

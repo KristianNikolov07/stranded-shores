@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://crepcw1eco0cp"]
+[gd_scene format=3 uid="uid://crepcw1eco0cp"]
 
-[ext_resource type="Texture2D" uid="uid://b3wn3ofeq3jso" path="res://Assets/Textures/MainMenuBackground/1.jpg" id="1_dny2n"]
-[ext_resource type="Texture2D" uid="uid://b3j6wea3bj37g" path="res://Assets/Textures/UI/progress_bar.png" id="1_jw8s3"]
+[ext_resource type="Texture2D" uid="uid://cbyhgijh44alg" path="res://Assets/Textures/MainMenuBackground/1.jpg" id="1_dny2n"]
+[ext_resource type="Texture2D" uid="uid://vk7prp3tpig3" path="res://Assets/Textures/UI/progress_bar.png" id="1_jw8s3"]
 [ext_resource type="Script" uid="uid://dk8o7v48saug6" path="res://Scripts/Menu/loading_bar.gd" id="2_0knpm"]
-[ext_resource type="Texture2D" uid="uid://c3clmju5asm4d" path="res://Assets/Textures/MainMenuBackground/2.jpg" id="2_vpjrt"]
+[ext_resource type="Texture2D" uid="uid://bjqpn7s1wvb2" path="res://Assets/Textures/MainMenuBackground/2.jpg" id="2_vpjrt"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="3_nwbx1"]
-[ext_resource type="Texture2D" uid="uid://c1mobl6e7e042" path="res://Assets/Textures/MainMenuBackground/3.jpg" id="3_tv1ip"]
-[ext_resource type="Texture2D" uid="uid://bcm3u8rx2yjkb" path="res://Assets/Textures/MainMenuBackground/4.jpg" id="4_ldfly"]
+[ext_resource type="Texture2D" uid="uid://b3cp14i5pfk3p" path="res://Assets/Textures/MainMenuBackground/3.jpg" id="3_tv1ip"]
+[ext_resource type="Texture2D" uid="uid://cu2wxnq3743t7" path="res://Assets/Textures/MainMenuBackground/4.jpg" id="4_ldfly"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vunat"]
 animations = [{
@@ -28,7 +28,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="LoadingScreen" type="Control"]
+[node name="LoadingScreen" type="Control" unique_id=487894182]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,14 +36,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=560021568]
 self_modulate = Color(0.46618086, 0.4661808, 0.4661808, 1)
 position = Vector2(576, 324)
 scale = Vector2(0.6000001, 0.6)
 sprite_frames = SubResource("SpriteFrames_vunat")
 autoplay = "default"
 
-[node name="LoadingBar" type="TextureProgressBar" parent="."]
+[node name="LoadingBar" type="TextureProgressBar" parent="." unique_id=1006864683]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -63,7 +63,7 @@ tint_under = Color(0, 0.12156863, 0, 1)
 tint_progress = Color(0, 0.69803923, 0, 1)
 script = ExtResource("2_0knpm")
 
-[node name="Label" type="Label" parent="LoadingBar"]
+[node name="Label" type="Label" parent="LoadingBar" unique_id=718336353]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cri3f4hl8d8qo"]
+[gd_scene format=3 uid="uid://cri3f4hl8d8qo"]
 
 [ext_resource type="Script" uid="uid://ddawtef3k1j6m" path="res://Scripts/Tools/sword.gd" id="1_3fxqd"]
-[ext_resource type="Texture2D" uid="uid://xydeeiwpn5iv" path="res://Assets/Textures/Items/items.png" id="1_4e8jt"]
-[ext_resource type="AudioStream" uid="uid://dgetefdrwahg8" path="res://Assets/Sounds/sword-hit.mp3" id="3_3u7bf"]
+[ext_resource type="Texture2D" uid="uid://btjn0rabj268d" path="res://Assets/Textures/Items/items.png" id="1_4e8jt"]
+[ext_resource type="AudioStream" uid="uid://bedcurjd13fvg" path="res://Assets/Sounds/sword-hit.mp3" id="3_3u7bf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3fxqd"]
 atlas = ExtResource("1_4e8jt")
@@ -11,23 +11,23 @@ region = Rect2(80, 16, 16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e8jt"]
 size = Vector2(104, 48)
 
-[node name="Sword" type="Area2D"]
+[node name="Sword" type="Area2D" unique_id=134297095]
 collision_layer = 0
 collision_mask = 2048
 script = ExtResource("1_3fxqd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1487528643]
 texture_filter = 1
 position = Vector2(162.50967, 2.5096664)
 rotation = 0.7853982
 scale = Vector2(8, 8)
 texture = SubResource("AtlasTexture_3fxqd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62398444]
 position = Vector2(182.50967, 2.5096664)
 shape = SubResource("RectangleShape2D_4e8jt")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=221650472]
 position = Vector2(186.50967, 2.5096664)
 stream = ExtResource("3_3u7bf")
 volume_db = -9.0

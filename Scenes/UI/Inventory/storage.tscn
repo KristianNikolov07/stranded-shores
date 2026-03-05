@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://clkeesixpv71"]
+[gd_scene format=3 uid="uid://clkeesixpv71"]
 
 [ext_resource type="Script" uid="uid://c1w4pipeuo2xw" path="res://Scripts/UI/Inventory/storage.gd" id="1_srex3"]
 
-[node name="Storage" type="GridContainer"]
+[node name="Storage" type="GridContainer" unique_id=1402657118]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

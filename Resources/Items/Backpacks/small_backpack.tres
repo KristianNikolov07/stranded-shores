@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Backpack" load_steps=2 format=3 uid="uid://cvb38nknma2s1"]
+[gd_resource type="Resource" script_class="Backpack" format=3 uid="uid://cvb38nknma2s1"]
 
 [ext_resource type="Script" uid="uid://c0lywttvuiocp" path="res://Scripts/Classes/Backpack.gd" id="1_xn8l2"]
 

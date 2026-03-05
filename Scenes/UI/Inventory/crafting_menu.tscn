@@ -1,19 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://cx54gmymjr10i"]
+[gd_scene format=3 uid="uid://cx54gmymjr10i"]
 
 [ext_resource type="Script" uid="uid://qkkgw8jqlml2" path="res://Scripts/UI/Inventory/crafting_menu.gd" id="1_4njxr"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_fyp3v"]
 [ext_resource type="PackedScene" uid="uid://daxxibw6axoih" path="res://Scenes/UI/Inventory/crafting_slot.tscn" id="2_hs25i"]
 [ext_resource type="PackedScene" uid="uid://e2riunx43o7p" path="res://Scenes/UI/Inventory/crafting_tool_button.tscn" id="4_2fa18"]
-[ext_resource type="Texture2D" uid="uid://bb0fp4f2xen18" path="res://Assets/Textures/UI/plus.png" id="4_g87qd"]
-[ext_resource type="Texture2D" uid="uid://c4b5akvqxuu0h" path="res://Assets/Textures/Items/test_item.png" id="4_l8p2g"]
+[ext_resource type="Texture2D" uid="uid://clo10ne3ayh1w" path="res://Assets/Textures/UI/plus.png" id="4_g87qd"]
+[ext_resource type="Texture2D" uid="uid://cnhjx0ufghirn" path="res://Assets/Textures/Items/test_item.png" id="4_l8p2g"]
 [ext_resource type="Resource" uid="uid://dcgmig5kdolf8" path="res://Resources/CraftingTools/hammer.tres" id="5_dvuwp"]
-[ext_resource type="Texture2D" uid="uid://m3in4snxed4n" path="res://Assets/Textures/UI/big_arrow.png" id="5_l8p2g"]
-[ext_resource type="Texture2D" uid="uid://b1vbxn5yod07u" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="5_umd2w"]
-[ext_resource type="Texture2D" uid="uid://bxwr6gg0wme6t" path="res://Assets/Textures/Items/Weapons/test_sword.png" id="6_k37wi"]
+[ext_resource type="Texture2D" uid="uid://civj27q8vy2wo" path="res://Assets/Textures/UI/big_arrow.png" id="5_l8p2g"]
+[ext_resource type="Texture2D" uid="uid://2efyikfvqgex" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="5_umd2w"]
+[ext_resource type="Texture2D" uid="uid://deunbccvo0kg5" path="res://Assets/Textures/Items/Weapons/test_sword.png" id="6_k37wi"]
 [ext_resource type="Resource" uid="uid://dnyirqgk2r7cr" path="res://Resources/CraftingTools/handsaw.tres" id="7_ywugm"]
 [ext_resource type="Resource" uid="uid://nfdyvo3u6riw" path="res://Resources/CraftingTools/scissors.tres" id="9_fdhci"]
 
-[node name="CraftingMenu" type="PanelContainer"]
+[node name="CraftingMenu" type="PanelContainer" unique_id=93464277]
 texture_filter = 1
 anchors_preset = -1
 anchor_right = 0.6666667
@@ -24,95 +24,95 @@ theme = ExtResource("1_fyp3v")
 script = ExtResource("1_4njxr")
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1438563231]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=916547538]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_constants/separation = 40
 
-[node name="Tools" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="Tools" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1693413491]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 5
 
-[node name="CraftingToolSlot" parent="HBoxContainer/VBoxContainer/Tools" instance=ExtResource("4_2fa18")]
+[node name="CraftingToolSlot" parent="HBoxContainer/VBoxContainer/Tools" unique_id=991307924 instance=ExtResource("4_2fa18")]
 layout_mode = 2
 icon = ExtResource("4_l8p2g")
 tool = ExtResource("5_dvuwp")
 
-[node name="CraftingToolSlot2" parent="HBoxContainer/VBoxContainer/Tools" instance=ExtResource("4_2fa18")]
+[node name="CraftingToolSlot2" parent="HBoxContainer/VBoxContainer/Tools" unique_id=1466864329 instance=ExtResource("4_2fa18")]
 layout_mode = 2
 icon = ExtResource("5_umd2w")
 tool = ExtResource("7_ywugm")
 
-[node name="CraftingToolSlot3" parent="HBoxContainer/VBoxContainer/Tools" instance=ExtResource("4_2fa18")]
+[node name="CraftingToolSlot3" parent="HBoxContainer/VBoxContainer/Tools" unique_id=1068427791 instance=ExtResource("4_2fa18")]
 layout_mode = 2
 icon = ExtResource("6_k37wi")
 tool = ExtResource("9_fdhci")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1861221924]
 layout_mode = 2
 
-[node name="CraftingSlot1" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_hs25i")]
+[node name="CraftingSlot1" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2072709638 instance=ExtResource("2_hs25i")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
-[node name="Plus" type="TextureRect" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Plus" type="TextureRect" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=876891779]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 texture = ExtResource("4_g87qd")
 
-[node name="CraftingSlot2" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_hs25i")]
+[node name="CraftingSlot2" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1068604732 instance=ExtResource("2_hs25i")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
-[node name="Arrow" type="TextureRect" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Arrow" type="TextureRect" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1650458377]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 texture = ExtResource("5_l8p2g")
 
-[node name="Result" parent="HBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_hs25i")]
+[node name="Result" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=2002289686 instance=ExtResource("2_hs25i")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
-[node name="CraftButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="CraftButton" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=1207331382]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "Craft"
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" unique_id=907178814]
 layout_mode = 2
 theme_override_constants/margin_left = -5
 theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = -5
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer" unique_id=660971404]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer/PanelContainer" unique_id=1556456383]
 custom_minimum_size = Vector2(215, 0)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/PanelContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/PanelContainer/ScrollContainer" unique_id=1675166336]
 layout_mode = 2
 theme_override_constants/margin_left = -5
 theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = -5
 
-[node name="Recipes" type="VBoxContainer" parent="HBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer"]
+[node name="Recipes" type="VBoxContainer" parent="HBoxContainer/MarginContainer/PanelContainer/ScrollContainer/MarginContainer" unique_id=117854078]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

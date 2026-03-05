@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://daxxibw6axoih"]
+[gd_scene format=3 uid="uid://daxxibw6axoih"]
 
 [ext_resource type="Script" uid="uid://lcqk52vqqku6" path="res://Scripts/UI/Inventory/crafting_slot.gd" id="1_oeowu"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_t5rlp"]
 
-[node name="CraftingSlot" type="PanelContainer"]
+[node name="CraftingSlot" type="PanelContainer" unique_id=2019148136]
 anchors_preset = -1
 anchor_right = 0.06261111
 anchor_bottom = 0.111419745
@@ -13,12 +13,12 @@ theme = ExtResource("1_t5rlp")
 script = ExtResource("1_oeowu")
 metadata/_edit_use_anchors_ = true
 
-[node name="ItemTexture" type="TextureRect" parent="."]
+[node name="ItemTexture" type="TextureRect" parent="." unique_id=812181359]
 z_index = 1
 texture_filter = 1
 layout_mode = 2
 
-[node name="Amount" type="Label" parent="."]
+[node name="Amount" type="Label" parent="." unique_id=352292819]
 z_index = 1
 texture_filter = 1
 layout_mode = 2

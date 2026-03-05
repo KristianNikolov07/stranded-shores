@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg4fg688arahg"]
+[gd_scene format=3 uid="uid://bg4fg688arahg"]
 
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_3fm3v"]
 [ext_resource type="Script" uid="uid://wg3pna2lrlw3" path="res://Scripts/UI/Inventory/crafting_recipe_ui.gd" id="1_k1u3d"]
-[ext_resource type="Texture2D" uid="uid://b1vbxn5yod07u" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="3_3fm3v"]
-[ext_resource type="Texture2D" uid="uid://bb0fp4f2xen18" path="res://Assets/Textures/UI/plus.png" id="4_sdq7x"]
-[ext_resource type="Texture2D" uid="uid://m3in4snxed4n" path="res://Assets/Textures/UI/big_arrow.png" id="5_xnqce"]
+[ext_resource type="Texture2D" uid="uid://2efyikfvqgex" path="res://Assets/Textures/Items/Consumables/test_consumable.png" id="3_3fm3v"]
+[ext_resource type="Texture2D" uid="uid://clo10ne3ayh1w" path="res://Assets/Textures/UI/plus.png" id="4_sdq7x"]
+[ext_resource type="Texture2D" uid="uid://civj27q8vy2wo" path="res://Assets/Textures/UI/big_arrow.png" id="5_xnqce"]
 
-[node name="CraftingRecipeUI" type="PanelContainer"]
+[node name="CraftingRecipeUI" type="PanelContainer" unique_id=1314554559]
 anchors_preset = -1
 anchor_right = 0.21180555
 anchor_bottom = 0.108024694
@@ -16,19 +16,19 @@ theme = ExtResource("1_3fm3v")
 script = ExtResource("1_k1u3d")
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=683230777]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Item1" type="TextureRect" parent="HBoxContainer"]
+[node name="Item1" type="TextureRect" parent="HBoxContainer" unique_id=882790288]
 unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("3_3fm3v")
 
-[node name="Item1Amount" type="Label" parent="HBoxContainer/Item1"]
+[node name="Item1Amount" type="Label" parent="HBoxContainer/Item1" unique_id=1876672129]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -44,20 +44,20 @@ grow_vertical = 0
 text = "1"
 horizontal_alignment = 2
 
-[node name="Plus" type="TextureRect" parent="HBoxContainer"]
+[node name="Plus" type="TextureRect" parent="HBoxContainer" unique_id=868625452]
 texture_filter = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("4_sdq7x")
 
-[node name="Item2" type="TextureRect" parent="HBoxContainer"]
+[node name="Item2" type="TextureRect" parent="HBoxContainer" unique_id=1372759044]
 unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("3_3fm3v")
 
-[node name="Item2Amount" type="Label" parent="HBoxContainer/Item2"]
+[node name="Item2Amount" type="Label" parent="HBoxContainer/Item2" unique_id=1314224940]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -73,20 +73,20 @@ grow_vertical = 0
 text = "1"
 horizontal_alignment = 2
 
-[node name="Arrow" type="TextureRect" parent="HBoxContainer"]
+[node name="Arrow" type="TextureRect" parent="HBoxContainer" unique_id=1591053269]
 texture_filter = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("5_xnqce")
 
-[node name="Result" type="TextureRect" parent="HBoxContainer"]
+[node name="Result" type="TextureRect" parent="HBoxContainer" unique_id=691021365]
 unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("3_3fm3v")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=805407871]
 layout_mode = 2
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

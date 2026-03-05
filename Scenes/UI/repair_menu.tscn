@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ri8mkxrx5357"]
+[gd_scene format=3 uid="uid://ri8mkxrx5357"]
 
 [ext_resource type="Script" uid="uid://rmu2kyj31hur" path="res://Scripts/UI/repair_menu.gd" id="1_8uoeh"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_hjpn2"]
 [ext_resource type="PackedScene" uid="uid://b14v1jc5n78s2" path="res://Scenes/UI/Inventory/item_slot.tscn" id="2_5p5qb"]
 
-[node name="RepairMenu" type="PanelContainer"]
+[node name="RepairMenu" type="PanelContainer" unique_id=290160308]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -19,30 +19,30 @@ grow_vertical = 2
 theme = ExtResource("1_hjpn2")
 script = ExtResource("1_8uoeh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=338861716]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 69
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=545850543]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 29
 
-[node name="Tool" parent="VBoxContainer/VBoxContainer" instance=ExtResource("2_5p5qb")]
+[node name="Tool" parent="VBoxContainer/VBoxContainer" unique_id=1416418986 instance=ExtResource("2_5p5qb")]
 unique_name_in_owner = true
 layout_mode = 2
 can_be_clicked = false
 
-[node name="Material" type="TextureRect" parent="VBoxContainer/VBoxContainer"]
+[node name="Material" type="TextureRect" parent="VBoxContainer/VBoxContainer" unique_id=497697655]
 unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
-[node name="RepairButton" type="Button" parent="VBoxContainer"]
+[node name="RepairButton" type="Button" parent="VBoxContainer" unique_id=511379329]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 28

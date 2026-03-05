@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfm4swyp8c57k"]
+[gd_scene format=3 uid="uid://cfm4swyp8c57k"]
 
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_b3vw7"]
 [ext_resource type="Script" uid="uid://du6tybatxvifl" path="res://Scripts/Menu/mod_panel.gd" id="2_6hvs7"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6hvs7"]
 
-[node name="ModPanel" type="PanelContainer"]
+[node name="ModPanel" type="PanelContainer" unique_id=925492164]
 texture_filter = 1
 anchors_preset = -1
 anchor_right = 0.59142363
@@ -16,41 +16,45 @@ theme = ExtResource("1_b3vw7")
 script = ExtResource("2_6hvs7")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=405427980]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=990981899]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=819937445]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1439085751]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Mod Name"
+clip_text = true
+text_overrun_behavior = 5
 
-[node name="Author" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Author" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1169174571]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "By: Kris"
+clip_text = true
+text_overrun_behavior = 5
 
-[node name="Buttons" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=190693630]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 alignment = 2
 
-[node name="ToggleMod" type="Button" parent="MarginContainer/HBoxContainer/Buttons"]
+[node name="ToggleMod" type="Button" parent="MarginContainer/HBoxContainer/Buttons" unique_id=1904467655]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -58,13 +62,13 @@ theme_override_font_sizes/font_size = 32
 toggle_mode = true
 text = "ENABLE"
 
-[node name="RemoveMod" type="Button" parent="MarginContainer/HBoxContainer/Buttons"]
+[node name="RemoveMod" type="Button" parent="MarginContainer/HBoxContainer/Buttons" unique_id=221538176]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "REMOVE"
 
-[node name="ProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/Buttons/RemoveMod"]
+[node name="ProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/Buttons/RemoveMod" unique_id=623112379]
 self_modulate = Color(0.5294118, 0.08235294, 0.16470589, 0.38431373)
 layout_mode = 1
 anchors_preset = 15
@@ -77,7 +81,7 @@ value = 30.0
 nine_patch_stretch = true
 texture_progress = SubResource("CanvasTexture_6hvs7")
 
-[node name="DeleteTimer" type="Timer" parent="MarginContainer/HBoxContainer/Buttons/RemoveMod"]
+[node name="DeleteTimer" type="Timer" parent="MarginContainer/HBoxContainer/Buttons/RemoveMod" unique_id=1993342375]
 wait_time = 2.0
 
 [connection signal="toggled" from="MarginContainer/HBoxContainer/Buttons/ToggleMod" to="." method="_on_toggle_mod_toggled"]

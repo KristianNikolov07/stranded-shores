@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ipwooukhmjtm"]
+[gd_scene format=3 uid="uid://ipwooukhmjtm"]
 
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_gwqnf"]
 [ext_resource type="Script" uid="uid://d25pfrl32n2g4" path="res://Scripts/Menu/credits.gd" id="2_i06gd"]
 
-[node name="Credits" type="PanelContainer"]
+[node name="Credits" type="PanelContainer" unique_id=1829113014]
 anchors_preset = -1
 anchor_right = 0.50027776
 anchor_bottom = 0.69162965
@@ -13,18 +13,18 @@ theme = ExtResource("1_gwqnf")
 script = ExtResource("2_i06gd")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1032374347]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1633049992]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1781130497]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=776062504]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -32,7 +32,7 @@ theme_override_font_sizes/font_size = 40
 text = "Credits & Attributuions:"
 vertical_alignment = 1
 
-[node name="Back" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Back" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1093552792]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -40,57 +40,57 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 64
 text = "X"
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=12545147]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=682299166]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=2122733884]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="Developer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Developer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=222515649]
 layout_mode = 2
 
-[node name="label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Developer"]
+[node name="label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Developer" unique_id=1433980857]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Developer:"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Developer"]
+[node name="Label2" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Developer" unique_id=1587427295]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Kristian Nikolov"
 horizontal_alignment = 1
 
-[node name="Sprites" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Sprites" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=961991465]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sprites"]
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sprites" unique_id=490552157]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Sprites:"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sprites"]
+[node name="Label3" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sprites" unique_id=509268114]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Kristian Nikolov"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sprites"]
+[node name="Label4" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sprites" unique_id=2143393898]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Alex Nikolova"
 horizontal_alignment = 1
 
-[node name="Label2" type="LinkButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sprites"]
+[node name="Label2" type="LinkButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sprites" unique_id=333896472]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_gwqnf")
@@ -98,39 +98,39 @@ theme_override_font_sizes/font_size = 36
 text = "Chests"
 uri = "https://pixelserial.itch.io/rpg-pixel-art-chests"
 
-[node name="Playtesters" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Playtesters" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=121417386]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Playtesters"]
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Playtesters" unique_id=20021049]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Playtesters:"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Playtesters"]
+[node name="Label3" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Playtesters" unique_id=1837660690]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Alexander Stoyanov"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Playtesters"]
+[node name="Label4" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Playtesters" unique_id=1476342324]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Nathaniel Nechevski"
 horizontal_alignment = 1
 
-[node name="Sounds" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Sounds" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=400860003]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sounds"]
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sounds" unique_id=1219568380]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Sounds:"
 horizontal_alignment = 1
 
-[node name="Label2" type="LinkButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sounds"]
+[node name="Label2" type="LinkButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sounds" unique_id=1382759486]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_gwqnf")
@@ -138,7 +138,7 @@ theme_override_font_sizes/font_size = 36
 text = "Sword Slash 01"
 uri = "https://pixabay.com/sound-effects/film-special-effects-sword-slash-01-266296/"
 
-[node name="Label3" type="LinkButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sounds"]
+[node name="Label3" type="LinkButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sounds" unique_id=885421337]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_gwqnf")
@@ -146,7 +146,7 @@ theme_override_font_sizes/font_size = 36
 text = "Hit Tree 01"
 uri = "https://pixabay.com/sound-effects/film-special-effects-hit-tree-01-266310/"
 
-[node name="Label4" type="LinkButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sounds"]
+[node name="Label4" type="LinkButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Sounds" unique_id=1838407298]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_gwqnf")
@@ -154,17 +154,17 @@ theme_override_font_sizes/font_size = 36
 text = "Hit Rock 02"
 uri = "https://pixabay.com/sound-effects/film-special-effects-hit-rock-02-266304/"
 
-[node name="Font" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Font" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1023411082]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Font"]
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/Font" unique_id=1437642421]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Font:"
 horizontal_alignment = 1
 
-[node name="Label2" type="LinkButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Font"]
+[node name="Label2" type="LinkButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Font" unique_id=977019117]
 layout_mode = 2
 theme = ExtResource("1_gwqnf")
 theme_override_font_sizes/font_size = 36

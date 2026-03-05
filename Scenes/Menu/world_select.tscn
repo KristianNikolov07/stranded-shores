@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cosb80or2npy4"]
+[gd_scene format=3 uid="uid://cosb80or2npy4"]
 
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_3f3ot"]
 [ext_resource type="Script" uid="uid://w1gdiragrl2i" path="res://Scripts/Menu/world_select.gd" id="1_u1338"]
 [ext_resource type="PackedScene" uid="uid://c1rwvhccj8sbd" path="res://Scenes/Menu/create_new_world_menu.tscn" id="3_3uk8j"]
 
-[node name="WorldSelect" type="PanelContainer"]
+[node name="WorldSelect" type="PanelContainer" unique_id=1577935314]
 anchors_preset = -1
 anchor_left = 0.004
 anchor_top = 0.008
@@ -20,15 +20,15 @@ theme = ExtResource("1_3f3ot")
 script = ExtResource("1_u1338")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=698545102]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer" unique_id=1120948553]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="CreateNewWorld" type="Button" parent="VBoxContainer/Buttons"]
+[node name="CreateNewWorld" type="Button" parent="VBoxContainer/Buttons" unique_id=1783558943]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 2
@@ -36,7 +36,7 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 48
 text = "CREATE_NEW_WORLD"
 
-[node name="Back" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Back" type="Button" parent="VBoxContainer/Buttons" unique_id=1915207759]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -44,14 +44,14 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 64
 text = "X"
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1468204599]
 layout_mode = 2
 
-[node name="Worlds" type="ScrollContainer" parent="VBoxContainer"]
+[node name="Worlds" type="ScrollContainer" parent="VBoxContainer" unique_id=1828323565]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Worlds"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Worlds" unique_id=1180619493]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = -5
@@ -59,12 +59,12 @@ theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = -5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Worlds/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Worlds/MarginContainer" unique_id=1289630022]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = -5
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=960675360]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = -5
@@ -72,7 +72,7 @@ theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = -5
 
-[node name="CreateNewWorldMenu" parent="MarginContainer" instance=ExtResource("3_3uk8j")]
+[node name="CreateNewWorldMenu" parent="MarginContainer" unique_id=1955476008 instance=ExtResource("3_3uk8j")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

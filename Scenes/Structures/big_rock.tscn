@@ -1,10 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://dxbjcmy6g3tgr"]
+[gd_scene format=3 uid="uid://dxbjcmy6g3tgr"]
 
 [ext_resource type="Script" uid="uid://1sd1p5id6chv" path="res://Scripts/Structures/big_rock.gd" id="1_5cn61"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_6jbqd"]
-[ext_resource type="Texture2D" uid="uid://dn5i4gs6nkc0w" path="res://Assets/Textures/Objects/rock.png" id="2_iou6s"]
+[ext_resource type="Texture2D" uid="uid://bpl5k6btiu6cm" path="res://Assets/Textures/Objects/rock.png" id="2_iou6s"]
 [ext_resource type="Resource" uid="uid://cswffe5r7l2nt" path="res://Resources/Items/rock.tres" id="3_5cn61"]
-[ext_resource type="AudioStream" uid="uid://85qmoqvrgdq3" path="res://Assets/Sounds/hit-rock.mp3" id="5_5cn61"]
+[ext_resource type="AudioStream" uid="uid://dmkkp0g7en6iw" path="res://Assets/Sounds/hit-rock.mp3" id="5_5cn61"]
 
 [sub_resource type="Resource" id="Resource_qw88s"]
 script = ExtResource("2_6jbqd")
@@ -57,7 +57,7 @@ polygon = PackedVector2Array(0, -2, 0, -34, 4, -34, 4, -42, 8, -42, 8, -50, 12, 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iou6s"]
 radius = 34.0147
 
-[node name="BigRock" type="StaticBody2D" groups=["Persistant"]]
+[node name="BigRock" type="StaticBody2D" unique_id=58471808 groups=["Persistant"]]
 collision_layer = 1040
 collision_mask = 0
 script = ExtResource("1_5cn61")
@@ -66,35 +66,35 @@ drops = Array[ExtResource("2_6jbqd")]([SubResource("Resource_qw88s"), SubResourc
 broken_textures = Array[Texture]([SubResource("AtlasTexture_5cn61"), SubResource("AtlasTexture_qsha1"), SubResource("AtlasTexture_sbgt5"), SubResource("AtlasTexture_saub1")])
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=723842219]
 z_index = 3
 texture_filter = 1
 position = Vector2(2, 6)
 scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_6jbqd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1764900220]
 position = Vector2(2, 8)
 shape = SubResource("RectangleShape2D_fkqk2")
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=866280185]
 position = Vector2(2, -36)
 show_rect = false
 enable_node_path = NodePath("")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2025741118]
 position = Vector2(-22, 36)
 occluder = SubResource("OccluderPolygon2D_6jbqd")
 
-[node name="EntityCollision" type="StaticBody2D" parent="."]
+[node name="EntityCollision" type="StaticBody2D" parent="." unique_id=1293852696]
 position = Vector2(-22, 36)
 collision_layer = 128
 collision_mask = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EntityCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntityCollision" unique_id=2026533423]
 position = Vector2(24, -26)
 shape = SubResource("CircleShape2D_iou6s")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1102271694]
 stream = ExtResource("5_5cn61")
 volume_db = -9.0

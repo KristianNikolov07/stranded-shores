@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://iuq4lp5j1m3b"]
+[gd_scene format=3 uid="uid://iuq4lp5j1m3b"]
 
 [ext_resource type="Script" uid="uid://d2kxwrhqxmsoo" path="res://Scripts/Structures/campfire.gd" id="1_vu2sp"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_cv6oq"]
-[ext_resource type="Texture2D" uid="uid://cg5bjp5nxuixt" path="res://Assets/Textures/2d_lights_and_shadows_neutral_point_light.webp" id="2_o1yvi"]
+[ext_resource type="Texture2D" uid="uid://j2fdhq2de6m7" path="res://Assets/Textures/2d_lights_and_shadows_neutral_point_light.webp" id="2_o1yvi"]
 [ext_resource type="Resource" uid="uid://eeregnlqd1ee" path="res://Resources/Items/wood.tres" id="3_m5n71"]
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="4_h3ltd"]
-[ext_resource type="Texture2D" uid="uid://cebry366ijp05" path="res://Assets/Textures/Objects/fire1.png" id="4_m5n71"]
+[ext_resource type="Texture2D" uid="uid://deo1ofy8kcjtv" path="res://Assets/Textures/Objects/fire1.png" id="4_m5n71"]
 
 [sub_resource type="Resource" id="Resource_0fkht"]
 script = ExtResource("2_cv6oq")
@@ -24,7 +24,7 @@ metadata/_custom_type_script = "uid://dyyxnso5r2v7u"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cv6oq"]
 size = Vector2(52, 54)
 
-[node name="Campfire" type="StaticBody2D" groups=["Persistant"]]
+[node name="Campfire" type="StaticBody2D" unique_id=1852418112 groups=["Persistant"]]
 z_index = 3
 collision_layer = 296
 collision_mask = 0
@@ -32,18 +32,18 @@ script = ExtResource("1_vu2sp")
 drops = Array[ExtResource("2_cv6oq")]([SubResource("Resource_0fkht"), SubResource("Resource_jaib6")])
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=835954610]
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("4_m5n71")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=429242603]
 scale = Vector2(3, 3)
 color = Color(1, 0.627451, 0.039215688, 1)
 energy = 0.2
 shadow_enabled = true
 texture = ExtResource("2_o1yvi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=977727983]
 position = Vector2(-2, 5)
 shape = SubResource("RectangleShape2D_cv6oq")
