@@ -1,12 +1,14 @@
 # Stranded Shores
-Gather resources, craft tools, build your base, and hold your ground when the dangers of the night come knocking.  
-During the day, explore the island, chop trees, mine rocks, and stockpile everything you need to survive. When darkness falls, things get a lot less peaceful, so make sure you're ready.
+## Game Description
+**Survive the Island**  
+Gather resources, craft tools, build your base, and hold your ground when the dangers of the night come knocking. During the day, explore the island, chop trees, mine rocks, and stockpile everything you need to survive.  
 
-Collect resources   
-Craft a variety of tools and items  
-Build and expand your own base  
-Fight off enemies that come out at night  
-Full mod support  
+
+**Danger After Dark**  
+When darkness falls, things get a lot less peaceful. Plan your defenses, gear up, and make sure you're ready before the sun goes down.
+
+**Play Your Way**  
+Progress at your own pace, experiment with different strategies, and see how long you can last.  
 
 ## Download
 Play the latest build on: https://kris-nikolov.itch.io/stranded-shores or download it from the Github Releases tab.
