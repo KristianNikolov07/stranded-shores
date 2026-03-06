@@ -183,6 +183,8 @@ func dehighlight_current_slot() -> void:
 func _on_item_slot_clicked(id : int) -> void:
 	if highlighted_slot == null and player.inventory.highlighted_slot == null:
 		highlight_slot(id)
+	elif highlighted_slot == id:
+		dehighlight_current_slot()
 	else:
 		if highlighted_slot != null:
 			swap_items(highlighted_slot, id)

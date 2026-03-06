@@ -1,15 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwlyi2oj4yksl"]
+[gd_scene format=3 uid="uid://dwlyi2oj4yksl"]
 
 [ext_resource type="Script" uid="uid://b3tskrkc5usx" path="res://Scripts/Menu/main_menu.gd" id="1_bkwd7"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_gpijq"]
 [ext_resource type="PackedScene" uid="uid://dx25w13rsr5xr" path="res://Scenes/Menu/settings_menu.tscn" id="2_tself"]
 [ext_resource type="PackedScene" uid="uid://cosb80or2npy4" path="res://Scenes/Menu/world_select.tscn" id="3_7jtkx"]
-[ext_resource type="Texture2D" uid="uid://b3wn3ofeq3jso" path="res://Assets/Textures/MainMenuBackground/1.jpg" id="3_nbh3q"]
-[ext_resource type="Texture2D" uid="uid://c3clmju5asm4d" path="res://Assets/Textures/MainMenuBackground/2.jpg" id="4_4qbh4"]
+[ext_resource type="Texture2D" uid="uid://cbyhgijh44alg" path="res://Assets/Textures/MainMenuBackground/1.jpg" id="3_nbh3q"]
+[ext_resource type="Texture2D" uid="uid://bjqpn7s1wvb2" path="res://Assets/Textures/MainMenuBackground/2.jpg" id="4_4qbh4"]
 [ext_resource type="PackedScene" uid="uid://bbdqopeogorpk" path="res://Scenes/Menu/controls_menu.tscn" id="4_gpijq"]
-[ext_resource type="Texture2D" uid="uid://c1mobl6e7e042" path="res://Assets/Textures/MainMenuBackground/3.jpg" id="5_3ko7u"]
+[ext_resource type="Texture2D" uid="uid://b3cp14i5pfk3p" path="res://Assets/Textures/MainMenuBackground/3.jpg" id="5_3ko7u"]
 [ext_resource type="PackedScene" uid="uid://bjbbmrwcd6a0c" path="res://Scenes/Menu/mod_menu.tscn" id="5_gpijq"]
-[ext_resource type="Texture2D" uid="uid://bcm3u8rx2yjkb" path="res://Assets/Textures/MainMenuBackground/4.jpg" id="6_jqrnd"]
+[ext_resource type="Texture2D" uid="uid://cu2wxnq3743t7" path="res://Assets/Textures/MainMenuBackground/4.jpg" id="6_jqrnd"]
 [ext_resource type="PackedScene" uid="uid://ipwooukhmjtm" path="res://Scenes/Menu/credits.tscn" id="7_pn3xf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2sy2r"]
@@ -32,7 +32,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1650916101]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +42,7 @@ grow_vertical = 2
 theme = ExtResource("1_gpijq")
 script = ExtResource("1_bkwd7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1978407072]
 self_modulate = Color(0.46618086, 0.4661808, 0.4661808, 1)
 position = Vector2(576, 324)
 scale = Vector2(0.6000001, 0.6)
@@ -50,7 +50,7 @@ sprite_frames = SubResource("SpriteFrames_2sy2r")
 autoplay = "default"
 frame_progress = 0.57515067
 
-[node name="MainButtons" type="VBoxContainer" parent="."]
+[node name="MainButtons" type="VBoxContainer" parent="." unique_id=2029268257]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,27 +65,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 
-[node name="Play" type="Button" parent="MainButtons"]
+[node name="Play" type="Button" parent="MainButtons" unique_id=1483511912]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "PLAY"
 
-[node name="Settings" type="Button" parent="MainButtons"]
+[node name="Settings" type="Button" parent="MainButtons" unique_id=84988741]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "SETTINGS"
 
-[node name="Credits" type="Button" parent="MainButtons"]
+[node name="Credits" type="Button" parent="MainButtons" unique_id=164862803]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "CREDITS"
 
-[node name="Quit" type="Button" parent="MainButtons"]
+[node name="Quit" type="Button" parent="MainButtons" unique_id=687940504]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "QUIT"
 
-[node name="SettingsMenu" parent="." instance=ExtResource("2_tself")]
+[node name="SettingsMenu" parent="." unique_id=2062909403 instance=ExtResource("2_tself")]
 visible = false
 layout_mode = 1
 anchor_left = 0.2534722
@@ -95,7 +95,7 @@ anchor_bottom = 0.79207414
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="ControlsMenu" parent="." instance=ExtResource("4_gpijq")]
+[node name="ControlsMenu" parent="." unique_id=328629850 instance=ExtResource("4_gpijq")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -109,7 +109,7 @@ offset_top = -260.0
 offset_right = 384.0
 offset_bottom = 260.0
 
-[node name="WorldSelect" parent="." instance=ExtResource("3_7jtkx")]
+[node name="WorldSelect" parent="." unique_id=471714388 instance=ExtResource("3_7jtkx")]
 visible = false
 layout_mode = 1
 anchor_left = 0.11100001
@@ -121,7 +121,7 @@ offset_top = -0.15200806
 offset_right = -0.12805176
 offset_bottom = -0.072021484
 
-[node name="ModMenu" parent="." instance=ExtResource("5_gpijq")]
+[node name="ModMenu" parent="." unique_id=1463991060 instance=ExtResource("5_gpijq")]
 visible = false
 layout_mode = 1
 anchor_left = 0.2543403
@@ -130,7 +130,7 @@ anchor_right = 0.7453402
 anchor_bottom = 0.7822469
 metadata/_edit_use_anchors_ = true
 
-[node name="Version" type="Label" parent="."]
+[node name="Version" type="Label" parent="." unique_id=1121059169]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -145,7 +145,7 @@ theme_override_font_sizes/font_size = 32
 text = "1.0.0"
 horizontal_alignment = 2
 
-[node name="Credits" parent="." instance=ExtResource("7_pn3xf")]
+[node name="Credits" parent="." unique_id=1208684162 instance=ExtResource("7_pn3xf")]
 visible = false
 layout_mode = 1
 anchor_left = 0.18721527

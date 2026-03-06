@@ -1,13 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://bonc006vbgjtv"]
+[gd_scene format=3 uid="uid://bonc006vbgjtv"]
 
-[ext_resource type="Texture2D" uid="uid://dg8nixwfrpfwe" path="res://Assets/Textures/Objects/tree.png" id="1_b0kcf"]
+[ext_resource type="Texture2D" uid="uid://dxw4sec7hv612" path="res://Assets/Textures/Objects/tree.png" id="1_b0kcf"]
 [ext_resource type="Script" uid="uid://rc8dgaqqsmbd" path="res://Scripts/Structures/tree.gd" id="1_jdkqx"]
 [ext_resource type="Script" uid="uid://dyyxnso5r2v7u" path="res://Scripts/Classes/Loot.gd" id="2_jdkqx"]
 [ext_resource type="Resource" uid="uid://c4bb0qsfqcbsv" path="res://Resources/Items/stick.tres" id="3_uk51g"]
-[ext_resource type="Texture2D" uid="uid://b7uqpygf0k3jw" path="res://Assets/Textures/Objects/apple_tree.png" id="3_vaht6"]
+[ext_resource type="Texture2D" uid="uid://cd2dri3fhq3ai" path="res://Assets/Textures/Objects/apple_tree.png" id="3_vaht6"]
 [ext_resource type="Resource" uid="uid://c1iu4l3m78d8v" path="res://Resources/Items/Structures/sapling.tres" id="6_3kn26"]
 [ext_resource type="Resource" uid="uid://eeregnlqd1ee" path="res://Resources/Items/wood.tres" id="7_n4m1q"]
-[ext_resource type="AudioStream" uid="uid://37f7vyd6qhvg" path="res://Assets/Sounds/hit-tree.mp3" id="8_n4m1q"]
+[ext_resource type="AudioStream" uid="uid://wxychmmbswgd" path="res://Assets/Sounds/hit-tree.mp3" id="8_n4m1q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dsloy"]
 atlas = ExtResource("1_b0kcf")
@@ -69,7 +69,7 @@ radius = 26.305893
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ebggc"]
 polygon = PackedVector2Array(16, -64, 28, -64, 28, -8, 16, -8)
 
-[node name="Tree" type="StaticBody2D" groups=["Persistant"]]
+[node name="Tree" type="StaticBody2D" unique_id=87027197 groups=["Persistant"]]
 collision_layer = 312
 collision_mask = 0
 script = ExtResource("1_jdkqx")
@@ -79,44 +79,44 @@ drops = Array[ExtResource("2_jdkqx")]([SubResource("Resource_edxoy"), SubResourc
 broken_textures = Array[Texture]([SubResource("AtlasTexture_n4m1q"), SubResource("AtlasTexture_edxoy"), SubResource("AtlasTexture_eja1b"), SubResource("AtlasTexture_uohxl")])
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2143539524]
 z_index = 3
 texture_filter = 1
 position = Vector2(2, 6)
 scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_af0pm")
 
-[node name="Top" type="Sprite2D" parent="."]
+[node name="Top" type="Sprite2D" parent="." unique_id=1425264069]
 z_index = 6
 texture_filter = 1
 position = Vector2(1, -58)
 scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_3kn26")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=893659674]
 shape = SubResource("RectangleShape2D_b0kcf")
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=15174494]
 position = Vector2(2, -36)
 show_rect = false
 enable_node_path = NodePath("")
 
-[node name="EntityCollision" type="StaticBody2D" parent="."]
+[node name="EntityCollision" type="StaticBody2D" parent="." unique_id=2131181477]
 position = Vector2(-22, 36)
 collision_layer = 128
 collision_mask = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EntityCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntityCollision" unique_id=1430630217]
 position = Vector2(22, -36)
 shape = SubResource("CircleShape2D_ebggc")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=746512925]
 position = Vector2(-22, 36)
 occluder = SubResource("OccluderPolygon2D_ebggc")
 
-[node name="AppleTimer" type="Timer" parent="."]
+[node name="AppleTimer" type="Timer" parent="." unique_id=1107911328]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1116716341]
 stream = ExtResource("8_n4m1q")
 volume_db = -9.0
 

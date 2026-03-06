@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwifqlhq0eowu"]
+[gd_scene format=3 uid="uid://dwifqlhq0eowu"]
 
 [ext_resource type="Script" uid="uid://djc6tekkhbrq7" path="res://Scripts/Entities/Bosses/TreeBoss/tree_boss.gd" id="1_uglrb"]
-[ext_resource type="Texture2D" uid="uid://684xqn8o4fhf" path="res://Assets/Textures/Entities/Bosses/tree_boss.png" id="2_uglrb"]
-[ext_resource type="Texture2D" uid="uid://b3j6wea3bj37g" path="res://Assets/Textures/UI/progress_bar.png" id="3_0xnfy"]
+[ext_resource type="Texture2D" uid="uid://b0oov4xlat2rx" path="res://Assets/Textures/Entities/Bosses/tree_boss.png" id="2_uglrb"]
+[ext_resource type="Texture2D" uid="uid://vk7prp3tpig3" path="res://Assets/Textures/UI/progress_bar.png" id="3_0xnfy"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="4_p0v6x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uglrb"]
@@ -33,7 +33,7 @@ size = Vector2(28, 200)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fphqg"]
 size = Vector2(201, 340)
 
-[node name="TreeBoss" type="CharacterBody2D"]
+[node name="TreeBoss" type="CharacterBody2D" unique_id=599881269]
 z_index = 6
 collision_layer = 2144
 collision_mask = 0
@@ -44,7 +44,7 @@ max_hp = 5000
 can_despawn = false
 metadata/_custom_type_script = "uid://c3fbx4w04b6te"
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=261979538]
 texture_filter = 1
 position = Vector2(6, -80)
 scale = Vector2(4, 4)
@@ -53,35 +53,35 @@ autoplay = "default"
 frame = 1
 frame_progress = 0.65431565
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1262710082]
 position = Vector2(0, -50)
 shape = SubResource("RectangleShape2D_uglrb")
 
-[node name="ContactDamage" type="Area2D" parent="."]
+[node name="ContactDamage" type="Area2D" parent="." unique_id=592162049]
 collision_layer = 128
 collision_mask = 274
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContactDamage" unique_id=259572062]
 position = Vector2(0, -52)
 shape = SubResource("RectangleShape2D_uglrb")
 
-[node name="StructureDestory" type="Area2D" parent="."]
+[node name="StructureDestory" type="Area2D" parent="." unique_id=1825599390]
 collision_layer = 128
 collision_mask = 274
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StructureDestory"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StructureDestory" unique_id=1828485994]
 position = Vector2(-1.5, -57)
 shape = SubResource("RectangleShape2D_fphqg")
 
-[node name="ChangeStateTimer" type="Timer" parent="."]
+[node name="ChangeStateTimer" type="Timer" parent="." unique_id=1206450830]
 one_shot = true
 
-[node name="ShootTimer" type="Timer" parent="."]
+[node name="ShootTimer" type="Timer" parent="." unique_id=2067668814]
 one_shot = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1582308577]
 
-[node name="Bossbar" type="TextureProgressBar" parent="CanvasLayer"]
+[node name="Bossbar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1310054322]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -100,7 +100,7 @@ tint_under = Color(0.2509804, 0, 0, 1)
 tint_progress = Color(0.76862746, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer/Bossbar"]
+[node name="Label" type="Label" parent="CanvasLayer/Bossbar" unique_id=48568078]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,9 +114,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ShootFrom" type="Node2D" parent="."]
+[node name="ShootFrom" type="Node2D" parent="." unique_id=1316954803]
 
-[node name="Marker2D" type="Marker2D" parent="ShootFrom"]
+[node name="Marker2D" type="Marker2D" parent="ShootFrom" unique_id=555306749]
 position = Vector2(48, 0)
 
 [connection signal="body_entered" from="StructureDestory" to="." method="_on_structure_destory_body_entered"]

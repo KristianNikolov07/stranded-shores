@@ -1,10 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://xqjghw70oxkf"]
+[gd_scene format=3 uid="uid://xqjghw70oxkf"]
 
 [ext_resource type="Script" uid="uid://ds284ijxir0f7" path="res://Scripts/Other/player.gd" id="1_t86h6"]
-[ext_resource type="Texture2D" uid="uid://bess1xr18blsq" path="res://Assets/Textures/Player.png" id="2_k46cm"]
+[ext_resource type="Texture2D" uid="uid://gmv6dcg5c1f1" path="res://Assets/Textures/Player.png" id="2_k46cm"]
 [ext_resource type="Script" uid="uid://pxkbysso4esr" path="res://Scripts/Other/CameraLimiter.gd" id="3_5f5w1"]
 [ext_resource type="PackedScene" uid="uid://br7sveoej6sjf" path="res://Scenes/UI/ui.tscn" id="4_r6m6p"]
-[ext_resource type="Texture2D" uid="uid://b3j6wea3bj37g" path="res://Assets/Textures/UI/progress_bar.png" id="4_w3k6v"]
+[ext_resource type="Texture2D" uid="uid://vk7prp3tpig3" path="res://Assets/Textures/UI/progress_bar.png" id="4_w3k6v"]
 [ext_resource type="Script" uid="uid://cy6otwbqa0w1x" path="res://Scripts/Other/hunger_and_thirst.gd" id="5_s8rx5"]
 [ext_resource type="Script" uid="uid://dhie3qxe0hb7i" path="res://Scripts/player_animations.gd" id="7_vsrq0"]
 
@@ -174,7 +174,7 @@ _data = {
 &"walking": SubResource("Animation_d83tg")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=2146920496]
 z_index = 5
 texture_filter = 1
 scale = Vector2(0.3, 0.3)
@@ -182,30 +182,30 @@ collision_layer = 2
 collision_mask = 21
 script = ExtResource("1_t86h6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=987797414]
 scale = Vector2(8, 8)
 texture = ExtResource("2_k46cm")
 hframes = 4
 vframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1659639868]
 position = Vector2(-1.6666682, 1.589457e-06)
 shape = SubResource("RectangleShape2D_t86h6")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=304380726]
 zoom = Vector2(1.96, 1.96)
 limit_left = 0
 limit_top = 0
 script = ExtResource("3_5f5w1")
 
-[node name="InteractionRange" type="Area2D" parent="."]
+[node name="InteractionRange" type="Area2D" parent="." unique_id=290256288]
 collision_layer = 8
 collision_mask = 9
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange" unique_id=286289867]
 shape = SubResource("RectangleShape2D_r6m6p")
 
-[node name="Stamina" type="TextureProgressBar" parent="."]
+[node name="Stamina" type="TextureProgressBar" parent="." unique_id=398507256]
 offset_left = -64.0
 offset_top = -96.66666
 offset_right = 64.0
@@ -216,15 +216,15 @@ texture_progress = ExtResource("4_w3k6v")
 tint_under = Color(3.3691526e-07, 0.33380455, 0.36672413, 1)
 tint_progress = Color(0, 0.91764706, 1, 1)
 
-[node name="UI" parent="." instance=ExtResource("4_r6m6p")]
+[node name="UI" parent="." unique_id=561208178 instance=ExtResource("4_r6m6p")]
 
-[node name="StructurePreview" type="Area2D" parent="."]
+[node name="StructurePreview" type="Area2D" parent="." unique_id=1615573455]
 visible = false
 position = Vector2(213.33333, 0)
 collision_layer = 512
 collision_mask = 273
 
-[node name="TextureRect" type="TextureRect" parent="StructurePreview"]
+[node name="TextureRect" type="TextureRect" parent="StructurePreview" unique_id=29240717]
 offset_left = -106.66667
 offset_top = -106.66666
 offset_right = 21.077843
@@ -232,26 +232,24 @@ offset_bottom = 21.07785
 scale = Vector2(1.67, 1.67)
 expand_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StructurePreview"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StructurePreview" unique_id=561791974]
 position = Vector2(2.2888184e-05, 0)
 shape = SubResource("RectangleShape2D_s8rx5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StructurePreview"]
-libraries = {
-&"": SubResource("AnimationLibrary_s8rx5")
-}
-autoplay = "pulse"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StructurePreview" unique_id=1767170633]
+libraries/ = SubResource("AnimationLibrary_s8rx5")
+autoplay = &"pulse"
 
-[node name="HungerAndThirst" type="Node" parent="."]
+[node name="HungerAndThirst" type="Node" parent="." unique_id=1237478042]
 script = ExtResource("5_s8rx5")
 hunger_per_second = 0.008
 thirst_per_second = 0.01
 thirst_per_second_running_multipliar = 10.0
 
-[node name="Timer" type="Timer" parent="HungerAndThirst"]
+[node name="Timer" type="Timer" parent="HungerAndThirst" unique_id=497556148]
 autostart = true
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1759960072]
 tree_root = SubResource("AnimationNodeStateMachine_vsrq0")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/Idle = false
@@ -259,11 +257,9 @@ parameters/conditions/Running = false
 parameters/conditions/Walking = false
 script = ExtResource("7_vsrq0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ff814")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=941585705]
+libraries/ = SubResource("AnimationLibrary_ff814")
 
-[node name="AudioListener2D" type="AudioListener2D" parent="."]
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=992318517]
 
 [connection signal="timeout" from="HungerAndThirst/Timer" to="HungerAndThirst" method="_on_timer_timeout"]

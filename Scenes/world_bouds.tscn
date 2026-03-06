@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://da87ln0xrsexo"]
+[gd_scene format=3 uid="uid://da87ln0xrsexo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_msvm5"]
 normal = Vector2(1, 0)
@@ -13,21 +13,21 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ctrak"]
 distance = -24.0
 
-[node name="WorldBouds" type="StaticBody2D" groups=["WorldBounds"]]
+[node name="WorldBouds" type="StaticBody2D" unique_id=155227579 groups=["WorldBounds"]]
 collision_layer = 5
 collision_mask = 2
 
-[node name="Left" type="CollisionShape2D" parent="."]
+[node name="Left" type="CollisionShape2D" parent="." unique_id=783661995]
 shape = SubResource("WorldBoundaryShape2D_msvm5")
 
-[node name="Top" type="CollisionShape2D" parent="."]
+[node name="Top" type="CollisionShape2D" parent="." unique_id=1135789152]
 position = Vector2(0, 24)
 shape = SubResource("WorldBoundaryShape2D_rt6fk")
 
-[node name="Right" type="CollisionShape2D" parent="."]
+[node name="Right" type="CollisionShape2D" parent="." unique_id=1136154960]
 position = Vector2(16384, 16384)
 shape = SubResource("WorldBoundaryShape2D_a8pps")
 
-[node name="Bottom" type="CollisionShape2D" parent="."]
+[node name="Bottom" type="CollisionShape2D" parent="." unique_id=1733649234]
 position = Vector2(16384, 16360)
 shape = SubResource("WorldBoundaryShape2D_ctrak")

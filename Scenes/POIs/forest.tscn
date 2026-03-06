@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b303n5uyeksfc"]
+[gd_scene format=3 uid="uid://b303n5uyeksfc"]
 
 [ext_resource type="Script" uid="uid://c6kp2rykw2xor" path="res://Scripts/POIs/forest.gd" id="1_astk3"]
 [ext_resource type="Script" uid="uid://c0ir7q8od6i12" path="res://Scripts/Entities/Bosses/TreeBoss/tree_boss_spawn.gd" id="2_6q1n4"]
-[ext_resource type="Texture2D" uid="uid://684xqn8o4fhf" path="res://Assets/Textures/Entities/Bosses/tree_boss.png" id="3_6q1n4"]
+[ext_resource type="Texture2D" uid="uid://b0oov4xlat2rx" path="res://Assets/Textures/Entities/Bosses/tree_boss.png" id="3_6q1n4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w3is4"]
 atlas = ExtResource("3_6q1n4")
@@ -14,29 +14,29 @@ size = Vector2(28, 96)
 [sub_resource type="CircleShape2D" id="CircleShape2D_6q1n4"]
 radius = 1300.0
 
-[node name="Forest" type="Node2D"]
+[node name="Forest" type="Node2D" unique_id=626771224]
 script = ExtResource("1_astk3")
 radius = 20.0
 inner_radius = 2.0
 
-[node name="TreeBossSpawn" type="StaticBody2D" parent="."]
+[node name="TreeBossSpawn" type="StaticBody2D" parent="." unique_id=1306104179]
 z_index = 6
 collision_layer = 24
 collision_mask = 0
 script = ExtResource("2_6q1n4")
 
-[node name="Sprite2D" type="Sprite2D" parent="TreeBossSpawn"]
+[node name="Sprite2D" type="Sprite2D" parent="TreeBossSpawn" unique_id=969957477]
 texture_filter = 1
 position = Vector2(6, -80)
 scale = Vector2(4, 4)
 texture = SubResource("AtlasTexture_w3is4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeBossSpawn"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreeBossSpawn" unique_id=1239937857]
 shape = SubResource("RectangleShape2D_6q1n4")
 
-[node name="CleanArea" type="Area2D" parent="."]
+[node name="CleanArea" type="Area2D" parent="." unique_id=615945886]
 collision_layer = 0
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CleanArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CleanArea" unique_id=144972016]
 shape = SubResource("CircleShape2D_6q1n4")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cad00mippid7o"]
+[gd_scene format=3 uid="uid://cad00mippid7o"]
 
 [ext_resource type="Script" uid="uid://ce7gvw826mwe1" path="res://Scripts/Tools/axe.gd" id="1_ik4le"]
-[ext_resource type="Texture2D" uid="uid://xydeeiwpn5iv" path="res://Assets/Textures/Items/items.png" id="2_x0kss"]
+[ext_resource type="Texture2D" uid="uid://btjn0rabj268d" path="res://Assets/Textures/Items/items.png" id="2_x0kss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxmbi"]
 size = Vector2(76.21021, 43.999992)
@@ -47,25 +47,23 @@ _data = {
 atlas = ExtResource("2_x0kss")
 region = Rect2(32, 0, 16, 16)
 
-[node name="BasicAxe" type="Node2D"]
+[node name="BasicAxe" type="Node2D" unique_id=36496151]
 script = ExtResource("1_ik4le")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1081515728]
 rotation = -0.5235988
 collision_layer = 32
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1583779649]
 position = Vector2(194.715, 32.744)
 shape = SubResource("RectangleShape2D_yxmbi")
 disabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_7dk8h")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D" unique_id=916821615]
+libraries/ = SubResource("AnimationLibrary_7dk8h")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1796974206]
 texture_filter = 1
 position = Vector2(194.715, 32.744)
 rotation = 0.7853982

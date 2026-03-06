@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfru26xs7uhmj"]
+[gd_scene format=3 uid="uid://bfru26xs7uhmj"]
 
 [ext_resource type="Script" uid="uid://dojtfgtjlrccf" path="res://Scripts/Menu/pause_menu.gd" id="1_i0al5"]
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_jnmi5"]
 [ext_resource type="PackedScene" uid="uid://dx25w13rsr5xr" path="res://Scenes/Menu/settings_menu.tscn" id="2_6pfc5"]
 [ext_resource type="PackedScene" uid="uid://bbdqopeogorpk" path="res://Scenes/Menu/controls_menu.tscn" id="4_mux1j"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=497418230]
 process_mode = 3
 z_index = 100
 layout_mode = 3
@@ -17,7 +17,7 @@ grow_vertical = 2
 theme = ExtResource("1_jnmi5")
 script = ExtResource("1_i0al5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1038286316]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.20392157, 0.20392157, 0.20392157, 0.38039216)
 
-[node name="Buttons" type="VBoxContainer" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1626273122]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.059000004
@@ -40,22 +40,22 @@ offset_bottom = 21.46399
 grow_vertical = 2
 theme_override_constants/separation = 24
 
-[node name="Resume" type="Button" parent="Buttons"]
+[node name="Resume" type="Button" parent="Buttons" unique_id=2023156596]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "RESUME"
 
-[node name="Settings" type="Button" parent="Buttons"]
+[node name="Settings" type="Button" parent="Buttons" unique_id=115403646]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "SETTINGS"
 
-[node name="Save and Quit" type="Button" parent="Buttons"]
+[node name="Save and Quit" type="Button" parent="Buttons" unique_id=1877791017]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "SAVE_AND_QUIT"
 
-[node name="SettingsMenu" parent="." instance=ExtResource("2_6pfc5")]
+[node name="SettingsMenu" parent="." unique_id=1735917857 instance=ExtResource("2_6pfc5")]
 visible = false
 layout_mode = 1
 anchor_left = 0.25
@@ -65,7 +65,7 @@ anchor_bottom = 0.79053074
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="ControlsMenu" parent="." instance=ExtResource("4_mux1j")]
+[node name="ControlsMenu" parent="." unique_id=578478324 instance=ExtResource("4_mux1j")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

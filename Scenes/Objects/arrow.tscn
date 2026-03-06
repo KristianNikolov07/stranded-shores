@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://u4s1mv1bcpp0"]
+[gd_scene format=3 uid="uid://u4s1mv1bcpp0"]
 
 [ext_resource type="Script" uid="uid://bp3o7yyqe72ax" path="res://Scripts/Classes/Projectile.gd" id="1_m7be0"]
-[ext_resource type="Texture2D" uid="uid://xydeeiwpn5iv" path="res://Assets/Textures/Items/items.png" id="2_48iav"]
+[ext_resource type="Texture2D" uid="uid://btjn0rabj268d" path="res://Assets/Textures/Items/items.png" id="2_48iav"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ti45y"]
 atlas = ExtResource("2_48iav")
@@ -10,7 +10,7 @@ region = Rect2(80, 32, 16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m12d2"]
 size = Vector2(47, 10)
 
-[node name="Arrow" type="Area2D"]
+[node name="Arrow" type="Area2D" unique_id=907656150]
 z_index = 4
 collision_layer = 0
 collision_mask = 83
@@ -19,13 +19,13 @@ speed = 300
 damage = 5
 metadata/_custom_type_script = "uid://bp3o7yyqe72ax"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=40719580]
 texture_filter = 1
 position = Vector2(27.499998, -2.3841858e-07)
 rotation = 0.7853982
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_ti45y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1151327047]
 position = Vector2(27.5, 0)
 shape = SubResource("RectangleShape2D_m12d2")

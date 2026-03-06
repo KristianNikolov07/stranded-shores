@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Food" load_steps=5 format=3 uid="uid://skabqfhsljcg"]
+[gd_resource type="Resource" script_class="Food" format=3 uid="uid://skabqfhsljcg"]
 
 [ext_resource type="Script" uid="uid://dwh1bhdedho1q" path="res://Scripts/Classes/Consumables/Food.gd" id="1_11hrm"]
 [ext_resource type="Resource" uid="uid://r8korpea0lh7" path="res://Resources/Items/Food/cooked_meat.tres" id="1_p22sh"]
-[ext_resource type="Texture2D" uid="uid://xydeeiwpn5iv" path="res://Assets/Textures/Items/items.png" id="2_6a3te"]
+[ext_resource type="Texture2D" uid="uid://btjn0rabj268d" path="res://Assets/Textures/Items/items.png" id="2_6a3te"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6a3te"]
 atlas = ExtResource("2_6a3te")

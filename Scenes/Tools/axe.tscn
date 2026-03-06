@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://fmgs47t5ur6h"]
+[gd_scene format=3 uid="uid://fmgs47t5ur6h"]
 
 [ext_resource type="Script" uid="uid://ce7gvw826mwe1" path="res://Scripts/Tools/axe.gd" id="1_7dk8h"]
-[ext_resource type="Texture2D" uid="uid://xydeeiwpn5iv" path="res://Assets/Textures/Items/items.png" id="2_g3djy"]
+[ext_resource type="Texture2D" uid="uid://btjn0rabj268d" path="res://Assets/Textures/Items/items.png" id="2_g3djy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxmbi"]
 size = Vector2(76.21021, 43.999992)
@@ -47,26 +47,24 @@ _data = {
 atlas = ExtResource("2_g3djy")
 region = Rect2(144, 0, 16, 16)
 
-[node name="Axe" type="Node2D"]
+[node name="Axe" type="Node2D" unique_id=2131690652]
 script = ExtResource("1_7dk8h")
 damage = 15
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=344278752]
 rotation = -0.5235988
 collision_layer = 32
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1342730019]
 position = Vector2(194.715, 32.744)
 shape = SubResource("RectangleShape2D_yxmbi")
 disabled = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_7dk8h")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D" unique_id=619520293]
+libraries/ = SubResource("AnimationLibrary_7dk8h")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1200588083]
 texture_filter = 1
 position = Vector2(194.715, 32.744)
 rotation = 0.7853982

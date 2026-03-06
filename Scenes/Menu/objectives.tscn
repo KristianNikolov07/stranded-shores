@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://coic25r1tt4j3"]
+[gd_scene format=3 uid="uid://coic25r1tt4j3"]
 
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_ea0lq"]
 [ext_resource type="Script" uid="uid://ciubymmxgug54" path="res://Scripts/Other/objectives.gd" id="2_guf5f"]
 
-[node name="Objectives" type="VBoxContainer"]
+[node name="Objectives" type="VBoxContainer" unique_id=1267224604]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -15,14 +15,14 @@ grow_horizontal = 0
 theme = ExtResource("1_ea0lq")
 script = ExtResource("2_guf5f")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=2083804739]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.6392157, 0, 1)
 theme_override_font_sizes/font_size = 28
 text = "NEXT_OBJECTIVE"
 horizontal_alignment = 2
 
-[node name="Description" type="Label" parent="."]
+[node name="Description" type="Label" parent="." unique_id=47073671]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Collect 10 sticks and 10 rocks"

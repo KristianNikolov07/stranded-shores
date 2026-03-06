@@ -1,27 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://c318mtwh0x83r"]
+[gd_scene format=3 uid="uid://c318mtwh0x83r"]
 
 [ext_resource type="Script" uid="uid://cjajk8ksgmo3o" path="res://Scripts/Other/dropped_item.gd" id="1_1k5q3"]
-[ext_resource type="Texture2D" uid="uid://c4b5akvqxuu0h" path="res://Assets/Textures/Items/test_item.png" id="1_5cnki"]
+[ext_resource type="Texture2D" uid="uid://cnhjx0ufghirn" path="res://Assets/Textures/Items/test_item.png" id="1_5cnki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn71l"]
 size = Vector2(80, 80)
 
-[node name="DroppedItem" type="Area2D" groups=["Persistant"]]
+[node name="DroppedItem" type="Area2D" unique_id=1914574275 groups=["Persistant"]]
 z_index = 2
 scale = Vector2(0.5, 0.5)
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_1k5q3")
 
-[node name="ItemTexture" type="Sprite2D" parent="."]
+[node name="ItemTexture" type="Sprite2D" parent="." unique_id=930403462]
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("1_5cnki")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2108390136]
 shape = SubResource("RectangleShape2D_pn71l")
 
-[node name="DespawnTimer" type="Timer" parent="."]
+[node name="DespawnTimer" type="Timer" parent="." unique_id=1684510990]
 wait_time = 600.0
 
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

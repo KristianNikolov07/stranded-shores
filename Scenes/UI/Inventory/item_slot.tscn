@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b14v1jc5n78s2"]
+[gd_scene format=3 uid="uid://b14v1jc5n78s2"]
 
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_ds26i"]
 [ext_resource type="Script" uid="uid://buoumfl2vww4x" path="res://Scripts/UI/Inventory/item_slot.gd" id="1_nl11y"]
-[ext_resource type="Texture2D" uid="uid://srrs7vnp1c2s" path="res://Assets/Textures/UI/slot_selector.png" id="3_q6gx5"]
-[ext_resource type="Texture2D" uid="uid://djxee4coa3afp" path="res://Assets/Textures/UI/durability_bg.png" id="4_47aue"]
-[ext_resource type="Texture2D" uid="uid://b7u7muita7hio" path="res://Assets/Textures/UI/durability.png" id="5_ds26i"]
-[ext_resource type="Texture2D" uid="uid://b3j6wea3bj37g" path="res://Assets/Textures/UI/progress_bar.png" id="5_fedpv"]
+[ext_resource type="Texture2D" uid="uid://cko5u8515e3jj" path="res://Assets/Textures/UI/slot_selector.png" id="3_q6gx5"]
+[ext_resource type="Texture2D" uid="uid://dntk3iso5bv12" path="res://Assets/Textures/UI/durability_bg.png" id="4_47aue"]
+[ext_resource type="Texture2D" uid="uid://dp3xhy1k8i00v" path="res://Assets/Textures/UI/durability.png" id="5_ds26i"]
+[ext_resource type="Texture2D" uid="uid://vk7prp3tpig3" path="res://Assets/Textures/UI/progress_bar.png" id="5_fedpv"]
 
-[node name="ItemSlot" type="PanelContainer"]
+[node name="ItemSlot" type="PanelContainer" unique_id=190810911]
 custom_minimum_size = Vector2(72, 72)
 anchors_preset = -1
 anchor_right = 0.062875
@@ -20,26 +20,26 @@ theme = ExtResource("1_ds26i")
 script = ExtResource("1_nl11y")
 metadata/_edit_use_anchors_ = true
 
-[node name="Highlighter" type="ColorRect" parent="."]
+[node name="Highlighter" type="ColorRect" parent="." unique_id=968082971]
 visible = false
 layout_mode = 2
 color = Color(0.69411767, 0.57254905, 0, 1)
 
-[node name="Item" type="TextureRect" parent="."]
+[node name="Item" type="TextureRect" parent="." unique_id=757296905]
 texture_filter = 1
 layout_mode = 2
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1439920977]
 texture_filter = 1
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1711404225]
 layout_mode = 2
 theme_override_constants/margin_left = 1
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 1
 
-[node name="Amount" type="Label" parent="MarginContainer"]
+[node name="Amount" type="Label" parent="MarginContainer" unique_id=613567842]
 visible = false
 texture_filter = 1
 layout_mode = 2
@@ -49,7 +49,7 @@ theme_override_font_sizes/font_size = 16
 text = "1"
 horizontal_alignment = 2
 
-[node name="Durability" type="TextureProgressBar" parent="MarginContainer"]
+[node name="Durability" type="TextureProgressBar" parent="MarginContainer" unique_id=448696910]
 visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(0, 4)
@@ -59,7 +59,7 @@ nine_patch_stretch = true
 texture_under = ExtResource("4_47aue")
 texture_progress = ExtResource("5_ds26i")
 
-[node name="Water" type="TextureProgressBar" parent="MarginContainer"]
+[node name="Water" type="TextureProgressBar" parent="MarginContainer" unique_id=1231168166]
 visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(0, 4)
@@ -72,7 +72,7 @@ texture_progress = ExtResource("5_fedpv")
 tint_under = Color(0, 0, 0.3019608, 1)
 tint_progress = Color(0.34117648, 0.5411765, 1, 1)
 
-[node name="Selector" type="MarginContainer" parent="."]
+[node name="Selector" type="MarginContainer" parent="." unique_id=501858710]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = -5
@@ -80,7 +80,7 @@ theme_override_constants/margin_top = -5
 theme_override_constants/margin_right = -5
 theme_override_constants/margin_bottom = -5
 
-[node name="Selector" type="TextureRect" parent="Selector"]
+[node name="Selector" type="TextureRect" parent="Selector" unique_id=766029979]
 z_index = 1
 texture_filter = 1
 custom_minimum_size = Vector2(16, 0)
@@ -88,7 +88,7 @@ layout_mode = 2
 texture = ExtResource("3_q6gx5")
 expand_mode = 1
 
-[node name="Button" type="TextureButton" parent="."]
+[node name="Button" type="TextureButton" parent="." unique_id=318376543]
 layout_mode = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
