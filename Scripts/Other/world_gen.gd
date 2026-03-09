@@ -9,9 +9,9 @@ const STICK_ITEM = preload("res://Resources/Items/stick.tres")
 ## The structures that the world generator attempts to place
 @export var structures : Array[SpawnChance]
 ## The change form 1 to 100 that a rock item is placed
-@export_range(1, 100, 1) var rock_spawn_chance = 5
+@export_range(1, 100) var rock_spawn_chance : float = 5
 ## The change form 1 to 100 that a stick item is placed
-@export_range(1, 100, 1) var stick_spawn_chance = 5 
+@export_range(1, 100) var stick_spawn_chance : float = 5 
 
 @onready var tilemap : TileMapLayer = get_node("../Tilemap")
 @onready var spawn_points_node : Node = get_node("../SpawnPoints")
@@ -43,7 +43,7 @@ func generate_random_objects() -> void:
 						structure_node.global_position = Global.tilemap_coords_to_global_coords(Vector2i(x, y))
 						get_parent().add_child.call_deferred(structure_node)
 						break
-				
+			
 			# Attempt to place a rock
 			if tilemap.is_water_tile(Vector2i(x, y)) == false:
 				var rock = DROPPED_ITEM_SCENE.instantiate()
@@ -63,8 +63,8 @@ func generate_random_objects() -> void:
 
 ## Attempts the place and object/structure at a specific position with a
 ## specific 1 to 100 chance
-func attempt_to_place(object : Node, chance : int, pos : Vector2) -> bool:
-	var random = randi_range(1, 100)
+func attempt_to_place(object : Node, chance : float, pos : Vector2) -> bool:
+	var random = randf_range(1, 100)
 	if random <= chance:
 		object.global_position = pos
 		get_parent().add_child.call_deferred(object)
