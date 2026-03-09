@@ -59,17 +59,17 @@ jobs:
 
       - name: Export Windows
         run: |
-          godot --headless --quiet --export-release "Windows" "${EXPORT_DIR}/${ITCH_GAME}.exe"
+          godot --headless --export-release "Windows" "${EXPORT_DIR}/${ITCH_GAME}.exe"
 
       - name: Export Linux
         run: |
-          godot --headless --quiet --export-release "Linux" "${EXPORT_DIR}/${ITCH_GAME}.x86_64"
+          godot --headless --export-release "Linux" "${EXPORT_DIR}/${ITCH_GAME}.x86_64"
 
       - name: Export Web
         run: |
           set -euo pipefail
           mkdir -p "${EXPORT_DIR}/web"
-          godot --headless --quiet --export-release "Web" "${EXPORT_DIR}/web/index.html"
+          godot --headless --export-release "Web" "${EXPORT_DIR}/web/index.html"
 
       - name: Zip Windows build
         run: |
