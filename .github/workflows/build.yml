@@ -52,60 +52,24 @@ jobs:
         run: |
           mkdir -p "${EXPORT_DIR}"
 
-      - name: Export Windows
-        run: |
-          godot --headless --quiet --export-release "Windows" "${EXPORT_DIR}/${ITCH_GAME}.exe"
-
-      - name: Export Linux
-        run: |
-          godot --headless --quiet --export-release "Linux" "${EXPORT_DIR}/${ITCH_GAME}.x86_64"
-
-      - name: Build AppDir
-        run: |
-          set -euo pipefail
-          APPDIR="${EXPORT_DIR}/${ITCH_GAME}.AppDir"
-          mkdir -p "${APPDIR}/usr/bin"
-
-          cp "${EXPORT_DIR}/${ITCH_GAME}.x86_64" "${APPDIR}/usr/bin/${ITCH_GAME}"
-          chmod +x "${APPDIR}/usr/bin/${ITCH_GAME}"
-
-          # Desktop File
-          cat > "${APPDIR}/${ITCH_GAME}.desktop" << EOF
-          [Desktop Entry]
-          Type=Application
-          Name=${APP_NAME}
-          Exec=${ITCH_GAME}
-          Icon=icon
-          Categories=Game;
-          Terminal=false
-          EOF
-
-          # Icon 
-          cp "Assets/Textures/icon.png" "${APPDIR}/icon.png"
-
-          # AppRun
-          cat > "${APPDIR}/AppRun" << EOF
-          #!/bin/sh
-          HERE="\$(dirname "\$(readlink -f "\$0")")"
-          exec "\$HERE/usr/bin/${ITCH_GAME}" "\$@"
-          EOF
-          chmod +x "${APPDIR}/AppRun"
-
       - name: Download appimagetool
         run: |
           sudo wget -q "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" -O /usr/local/bin/appimagetool
           sudo chmod +x /usr/local/bin/appimagetool
 
-      - name: Create AppImage
+      - name: Export Windows
         run: |
-          set -euo pipefail
-          appimagetool "${EXPORT_DIR}/${ITCH_GAME}.AppDir" "${EXPORT_DIR}/${ITCH_GAME}.AppImage"
+          godot --headless --export-release "Windows" "${EXPORT_DIR}/${ITCH_GAME}.exe"
+
+      - name: Export Linux
+        run: |
+          godot --headless --export-release "Linux" "${EXPORT_DIR}/${ITCH_GAME}.x86_64"
 
       - name: Export Web
         run: |
           set -euo pipefail
           mkdir -p "${EXPORT_DIR}/web"
-          godot --headless --quiet --export-release "Web" "${EXPORT_DIR}/web/index.html"
+          godot --headless --export-release "Web" "${EXPORT_DIR}/web/index.html"
 
       - name: Zip Windows build
         run: |

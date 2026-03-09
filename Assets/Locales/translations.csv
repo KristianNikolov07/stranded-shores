@@ -2,14 +2,15 @@ keys,en,bg
 PLAY,PLAY,ИГРАЙ
 SETTINGS,SETTINGS,НАСТРОЙКИ
 QUIT,QUIT,ЗАТВОРИ
-CREDITS,CREDITS,HAДПИСИ
+CREDITS,CREDITS,БЛАГОДАРНОСТИ
 CREATE_NEW_WORLD,Create New World,Създай Нов Свят
 WORLD_NAME,World Name,Име на Света
 CREATE,CREATE,СЪЗДАЙ
 DELETE,DELETE,ИЗТРИЙ
 LANGUAGE,LANGUAGE: ,ЕЗИК: 
 VOLUME,VOLUME: ,ЗВУК: 
-MODS,MODS,МОДОВЕ
+MODS,MODS,МОДИФИКАЦИИ
+LOADING,LOADING,ЗАРЕЖДАНЕ
 ADD_MOD,Add Mod,Добави Мод
 ENABLE,ЕNABLE,ВКЛЮЧИ
 DISABLE,DISABLE,ИЗКЛЮЧИ
