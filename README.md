@@ -29,7 +29,7 @@ Play the latest build on: https://kris-nikolov.itch.io/stranded-shores or downlo
 
 
 ## Modding
-Modding instructions can be found here
+Modding instructions can be found here: https://github.com/KristianNikolov07/stranded-shores/wiki
 
 ## Credits and Attributions
 Developed by: Kristian Nikolov  
