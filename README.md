@@ -3,7 +3,6 @@
 **Survive the Island**  
 Gather resources, craft tools, build your base, and hold your ground when the dangers of the night come knocking. During the day, explore the island, chop trees, mine rocks, and stockpile everything you need to survive.  
 
-
 **Danger After Dark**  
 When darkness falls, things get a lot less peaceful. Plan your defenses, gear up, and make sure you're ready before the sun goes down.
 
@@ -18,14 +17,14 @@ Play the latest build on: https://kris-nikolov.itch.io/stranded-shores or downlo
 2. Download [Godot](https://godotengine.org/download) 4.6 or later.
 3. Open Godot, click on Import and select the `project.godot` file inside the repository folder.
    
-   ![Import](READMEImages/BuildInstructions/Import.png)
-   ![ProjectFile](READMEImages/BuildInstructions/ProjectFile.png)
+   ![Import](.github/images/BuildInstructions/Import.png)
+   ![ProjectFile](.github/images/BuildInstructions/ProjectFile.png)
 4. Once loaded click on `Project -> Export`
    
-   ![ExportButton](READMEImages/BuildInstructions/ExportButton.png)  
+   ![ExportButton](.github/images/BuildInstructions/ExportButton.png)  
 5. Select your platform and click on `Export Project`
    
-   ![Export](READMEImages/BuildInstructions/Export.png)
+   ![Export](.github/images/BuildInstructions/Export.png)
 
 
 ## Modding
