@@ -12,7 +12,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var status = ResourceLoader.load_threaded_get_status(scene_name, progress)
 	value = floor(progress[0]*100)
-	print(floor(progress[0]*100))
 	if status == ResourceLoader.THREAD_LOAD_LOADED:
 		var scene = ResourceLoader.load_threaded_get(scene_name)
 		get_tree().change_scene_to_packed(scene)

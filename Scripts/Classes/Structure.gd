@@ -23,7 +23,6 @@ func damage(dmg : int) -> void:
 		var damage_percent = float(max_hp - hp) / hp
 		var texture_index = int(damage_percent * (broken_textures.size() - 1))
 		$Sprite2D.texture = broken_textures[min(broken_textures.size() - 1, texture_index)]
-		print(texture_index)
 	
 	# Audio
 	if has_node("AudioStreamPlayer2D"):
