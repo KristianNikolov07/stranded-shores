@@ -75,10 +75,10 @@ func attempt_to_place(object : Node, chance : float, pos : Vector2) -> bool:
 
 ## Chooses the spawn point for the player
 func choose_spawn_point() -> void:
-	var rand = randi_range(0, spawn_points_node.get_child_count())
-	var i = 0
+	var rand = randi_range(0, spawn_points_node.get_child_count() - 1)
+	var pos = spawn_points_node.get_child(rand).global_position
+	player.global_position = pos
+	player.respawn_point = pos
+
 	for child in spawn_points_node.get_children():
-		if i == rand:
-			player.global_position = child.global_position
-			player.respawn_point = child.global_position
-		i += 1
+		child.queue_free()
