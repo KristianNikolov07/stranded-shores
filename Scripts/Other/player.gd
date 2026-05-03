@@ -137,7 +137,7 @@ func _input(event: InputEvent) -> void:
 func damage(dmg : int, is_hunger_or_thirst = false) -> void:
 	if inventory.armor != null and !is_hunger_or_thirst:
 		if inventory.armor.durability > 0:
-			hp -= dmg - inventory.armor.defence
+			hp -= max(0, dmg - inventory.armor.defence)
 			inventory.armor.take_durability()
 			inventory.visualize_inventory()
 		else:

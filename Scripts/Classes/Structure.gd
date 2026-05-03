@@ -20,7 +20,7 @@ func damage(dmg : int) -> void:
 	# Textures
 	if broken_textures.is_empty() == false and hp > 0:
 		@warning_ignore("integer_division")
-		var damage_percent = float(max_hp - hp) / hp
+		var damage_percent = float(max_hp - hp) / max_hp
 		var texture_index = int(damage_percent * (broken_textures.size() - 1))
 		$Sprite2D.texture = broken_textures[min(broken_textures.size() - 1, texture_index)]
 	
@@ -32,7 +32,7 @@ func damage(dmg : int) -> void:
 		destroy()
 
 
-## Destroies the structure
+## Destroys the structure
 func destroy() -> void:
 	for loot in drops:
 		var rand = randi_range(1, 100)

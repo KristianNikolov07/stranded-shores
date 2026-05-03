@@ -10,7 +10,7 @@ extends Node
 ## The amount of hunger the player gains each second
 @export var hunger_per_second : float = 0.05
 ## The amount the hunger_per_second variable is multiplied by when the player is running 
-@export var hunger_per_second_running_multipliar : float = 2
+@export var hunger_per_second_running_multiplier : float = 2
 ## The amount of damage the player gains each second when the hunger is at its max amount
 @export var hunger_damage_per_second : int = 1
 ## The minimum amount of hunger that prevents the player's health from regenerating
@@ -24,7 +24,7 @@ extends Node
 ## The amount of hunger the player gains each second
 @export var thirst_per_second : float = 0.1
 ## The amount thirst_per_second variable is multiplied by when the player is running 
-@export var thirst_per_second_running_multipliar : float = 1.5
+@export var thirst_per_second_running_multiplier : float = 1.5
 ## The amount of damage the player gains each second when the thirst is at its max amount
 @export var thirst_damage_per_second : int = 1
 ## The minimum amount of thirst that prevents the player's health from regenerating
@@ -41,8 +41,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if player.is_running and player.velocity != Vector2.ZERO:
-		add_thirst(delta * thirst_per_second * thirst_per_second_running_multipliar)
-		add_hunger(delta * hunger_per_second * hunger_per_second_running_multipliar)
+		add_thirst(delta * thirst_per_second * thirst_per_second_running_multiplier)
+		add_hunger(delta * hunger_per_second * hunger_per_second_running_multiplier)
 	add_thirst(delta * thirst_per_second)
 	add_hunger(delta * hunger_per_second)
 

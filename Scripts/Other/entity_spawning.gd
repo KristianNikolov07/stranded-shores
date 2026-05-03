@@ -1,6 +1,6 @@
 extends Node
 
-## The script responcible for the spawning of entities
+## The script responsible for the spawning of entities
 
 const SPAWN_CHECK_SCENE = preload("res://Scenes/Systems/spawn_check.tscn")
 
@@ -10,7 +10,7 @@ const PASSIVE_ENTITY_CAP = 20
 const ENEMY_CAP = 20
 
 ## The passive entities to spawn
-@export var passiveEntityes : Array[SpawnChance]
+@export var passiveEntities : Array[SpawnChance]
 ## The enemies to spawn
 @export var enemies : Array[SpawnChance]
 ## The minimum amount of distance the entity needs to be from the player in order the spawn
@@ -44,7 +44,7 @@ func spawn() -> void:
 	if day_night_cycle.is_night and get_tree().get_nodes_in_group("Enemies").size() < ENEMY_CAP:
 		entities = enemies
 	elif day_night_cycle.is_night == false and get_tree().get_nodes_in_group("PassiveEntities").size() < PASSIVE_ENTITY_CAP:
-		entities = passiveEntityes
+		entities = passiveEntities
 	
 	for entity_spawn in entities:
 		if entity_spawn != null:

@@ -22,7 +22,7 @@ const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 
 func _process(_delta: float) -> void:
 	var player : Player = Global.get_player()
-	if player.global_position.distance_to(global_position) > despawn_distance:
+	if player.global_position.distance_to(global_position) > despawn_distance and can_despawn:
 		queue_free()
 
 
@@ -40,7 +40,7 @@ func damage(dmg : int) -> void:
 func kill() -> void:
 	for loot in loot_table:
 		var rand = randi_range(1, 100)
-		if rand < loot.chance:
+		if rand <= loot.chance:
 			var dropped_item = DROPPED_ITEM_SCENE.instantiate()
 			dropped_item.global_position = global_position
 			dropped_item.item = loot.item.duplicate()
