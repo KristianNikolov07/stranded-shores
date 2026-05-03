@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 env:
-  GODOT_VERSION: "4.6"
+  GODOT_VERSION: "4.6.1"
   EXPORT_DIR: "Export"
   ITCH_USER: "kris-nikolov"
   ITCH_GAME: "stranded-shores"
@@ -32,7 +32,7 @@ jobs:
       - name: Download Godot
         run: |
           cd /opt
-          wget -q "https://godot-releases.nbg1.your-objectstorage.com/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip" -O godot.zip
+          wget -q "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip" -O godot.zip
           unzip -q godot.zip
           sudo mv "Godot_v${GODOT_VERSION}-stable_linux.x86_64" /usr/local/bin/godot
           sudo chmod +x /usr/local/bin/godot
@@ -42,7 +42,7 @@ jobs:
           set -e
           TEMPLATE_DIR="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
           mkdir -p "$TEMPLATE_DIR"
-          wget -q "https://godot-releases.nbg1.your-objectstorage.com/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz" -O "$TEMPLATE_DIR/export_templates.tpz"
+          wget -q "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz" -O "$TEMPLATE_DIR/export_templates.tpz"
           cd "$TEMPLATE_DIR"
           unzip -q export_templates.tpz
           mv templates/* .

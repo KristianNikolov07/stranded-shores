@@ -3,7 +3,7 @@ extends Entity
 
 ## The base class for the Enemies
 
-## The damage the enemy dials on contact with the player
+## The damage the enemy deals on contact with the player
 @export var contact_damage : int
 ## The distance the enemy starts targeting the player from
 @export var activate_distance : float = 1000

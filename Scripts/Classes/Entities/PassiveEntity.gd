@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 func _physics_process(_delta) -> void:
-	if neads_to_retarget():
+	if needs_to_retarget():
 		retarget()
 	else:
 		velocity = global_position.direction_to(target) * speed
@@ -33,7 +33,7 @@ func _physics_process(_delta) -> void:
 
 
 ## Checks whether or not the entity needs to retarget
-func neads_to_retarget() -> bool:
+func needs_to_retarget() -> bool:
 	if global_position.distance_to(target) <= min_distance_before_retarget:
 		return true
 		

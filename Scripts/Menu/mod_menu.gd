@@ -64,7 +64,6 @@ func _on_file_dialog_file_selected(path: String) -> void:
 				# Copy files
 				var mod_buffer = zip.read_file("mod.pck")
 				var manifest_buffer = zip.read_file(Global.MODS_MANIFEST_FILE_NAME)
-				print(manifest_buffer)
 				
 				var mod_file = FileAccess.open(Global.MODS_FOLDER + "/" + mod_folder + "/mod.pck", FileAccess.WRITE)
 				mod_file.store_buffer(mod_buffer)

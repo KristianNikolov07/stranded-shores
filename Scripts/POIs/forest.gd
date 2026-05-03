@@ -26,7 +26,6 @@ func generate_trees() -> void:
 		for y in range(-radius, radius):
 			var point = center + Vector2(x, y)
 			if center.distance_to(point) <= radius and center.distance_to(point) > inner_radius:
-				print(point)
 				if get_tree().current_scene.has_node("Tilemap") == false or get_tree().current_scene.get_node("Tilemap").is_grass_tile(point):
 					if randi_range(1, 100) < tree_spawn_chance:
 						var tree = TREE_SCENE.instantiate()
