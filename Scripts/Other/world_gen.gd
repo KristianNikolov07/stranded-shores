@@ -79,6 +79,7 @@ func choose_spawn_point() -> void:
 	var pos = spawn_points_node.get_child(rand).global_position
 	player.global_position = pos
 	player.respawn_point = pos
+	player.get_node("SpawnAreaClear").clear_area()
 
 	for child in spawn_points_node.get_children():
 		child.queue_free()

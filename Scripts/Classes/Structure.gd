@@ -32,7 +32,7 @@ func damage(dmg : int) -> void:
 		destroy()
 
 
-## Destroys the structure
+## Destroys the struЯcture
 func destroy() -> void:
 	for loot in drops:
 		var rand = randi_range(1, 100)
