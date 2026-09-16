@@ -1,22 +1,28 @@
 [gd_scene format=4 uid="uid://c0ywgb5q0iqsg"]
 
-[ext_resource type="Texture2D" uid="uid://bewtthtd7wer7" path="res://Assets/Textures/tilemap.png" id="2_bu3mo"]
+[ext_resource type="Texture2D" uid="uid://bewtthtd7wer7" path="res://Assets/Textures/Objects/tilemap.png" id="2_bu3mo"]
 [ext_resource type="Script" uid="uid://cctr251x3yfn2" path="res://Scripts/Other/tilemap.gd" id="2_kdqb4"]
-[ext_resource type="PackedScene" uid="uid://xqjghw70oxkf" path="res://Scenes/Objects/Player.tscn" id="2_msvm5"]
+[ext_resource type="PackedScene" uid="uid://xqjghw70oxkf" path="res://Scenes/Entities/Player.tscn" id="2_msvm5"]
 [ext_resource type="PackedScene" uid="uid://mt76hyi6jq2q" path="res://Scenes/Worlds/debug.tscn" id="3_rt6fk"]
 [ext_resource type="Script" uid="uid://w2hhj7ovbr1l" path="res://Scripts/Other/world_gen.gd" id="4_a8pps"]
 [ext_resource type="Script" uid="uid://dgnvtib1al1jp" path="res://Scripts/Other/day_night_cycle.gd" id="5_ctrak"]
 [ext_resource type="Script" uid="uid://d13d48v0ahe3e" path="res://Scripts/Other/entity_spawning.gd" id="6_hss3q"]
 [ext_resource type="Script" uid="uid://dh42imrwqp3e" path="res://Scripts/Classes/SpawnChance.gd" id="6_uuto2"]
 [ext_resource type="PackedScene" uid="uid://bonc006vbgjtv" path="res://Scenes/Structures/tree.tscn" id="7_73d62"]
-[ext_resource type="PackedScene" uid="uid://y7vcpunxm45x" path="res://Scenes/Entities/cow.tscn" id="8_lr86y"]
+[ext_resource type="PackedScene" uid="uid://y7vcpunxm45x" path="res://Scenes/Entities/Passive/cow.tscn" id="8_lr86y"]
 [ext_resource type="PackedScene" uid="uid://dxbjcmy6g3tgr" path="res://Scenes/Structures/big_rock.tscn" id="8_w5xs2"]
 [ext_resource type="PackedScene" uid="uid://g0gksnwxs5jw" path="res://Scenes/Structures/small_iron_ore.tscn" id="9_030in"]
 [ext_resource type="PackedScene" uid="uid://s5tjbjk7dyk0" path="res://Scenes/Entities/Enemies/ghost.tscn" id="9_lr86y"]
 [ext_resource type="PackedScene" uid="uid://vqr8ictumiry" path="res://Scenes/Structures/iron_ore.tscn" id="10_07p1v"]
 [ext_resource type="PackedScene" uid="uid://b303n5uyeksfc" path="res://Scenes/POIs/forest.tscn" id="10_lr86y"]
+[ext_resource type="Texture2D" uid="uid://vk7prp3tpig3" path="res://Assets/Textures/UI/progress_bar.png" id="11_ygy3h"]
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="13_7sbva"]
+[ext_resource type="Texture2D" uid="uid://cbyhgijh44alg" path="res://Assets/Textures/MainMenuBackground/1.jpg" id="14_101g1"]
 [ext_resource type="PackedScene" uid="uid://clnvfqe0v5ti1" path="res://Scenes/Entities/Enemies/skeleton.tscn" id="15_73d62"]
+[ext_resource type="Texture2D" uid="uid://bjqpn7s1wvb2" path="res://Assets/Textures/MainMenuBackground/2.jpg" id="15_my1bo"]
+[ext_resource type="Texture2D" uid="uid://b3cp14i5pfk3p" path="res://Assets/Textures/MainMenuBackground/3.jpg" id="16_7uk1l"]
 [ext_resource type="PackedScene" uid="uid://pn2lyjulx8a6" path="res://Scenes/Entities/Enemies/bow_skeleton.tscn" id="16_w5xs2"]
+[ext_resource type="Texture2D" uid="uid://cu2wxnq3743t7" path="res://Assets/Textures/MainMenuBackground/4.jpg" id="17_826xi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itmdd"]
 texture = ExtResource("2_bu3mo")
@@ -543,30 +549,6 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ctrak"]
 distance = -24.0
 
-[sub_resource type="Resource" id="Resource_e4h82"]
-script = ExtResource("6_uuto2")
-scene = ExtResource("10_07p1v")
-chance = 1.5
-metadata/_custom_type_script = "uid://dh42imrwqp3e"
-
-[sub_resource type="Resource" id="Resource_7sbva"]
-script = ExtResource("6_uuto2")
-scene = ExtResource("9_030in")
-chance = 3.0
-metadata/_custom_type_script = "uid://dh42imrwqp3e"
-
-[sub_resource type="Resource" id="Resource_2iy86"]
-script = ExtResource("6_uuto2")
-scene = ExtResource("8_w5xs2")
-chance = 5.0
-metadata/_custom_type_script = "uid://dh42imrwqp3e"
-
-[sub_resource type="Resource" id="Resource_ygy3h"]
-script = ExtResource("6_uuto2")
-scene = ExtResource("7_73d62")
-chance = 10.0
-metadata/_custom_type_script = "uid://dh42imrwqp3e"
-
 [sub_resource type="Animation" id="Animation_hss3q"]
 length = 0.001
 tracks/0/type = "value"
@@ -628,6 +610,50 @@ scene = ExtResource("15_73d62")
 chance = 50.0
 metadata/_custom_type_script = "uid://dh42imrwqp3e"
 
+[sub_resource type="Resource" id="Resource_e4h82"]
+script = ExtResource("6_uuto2")
+scene = ExtResource("10_07p1v")
+chance = 1.5
+metadata/_custom_type_script = "uid://dh42imrwqp3e"
+
+[sub_resource type="Resource" id="Resource_7sbva"]
+script = ExtResource("6_uuto2")
+scene = ExtResource("9_030in")
+chance = 3.0
+metadata/_custom_type_script = "uid://dh42imrwqp3e"
+
+[sub_resource type="Resource" id="Resource_2iy86"]
+script = ExtResource("6_uuto2")
+scene = ExtResource("8_w5xs2")
+chance = 5.0
+metadata/_custom_type_script = "uid://dh42imrwqp3e"
+
+[sub_resource type="Resource" id="Resource_ygy3h"]
+script = ExtResource("6_uuto2")
+scene = ExtResource("7_73d62")
+chance = 10.0
+metadata/_custom_type_script = "uid://dh42imrwqp3e"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n08rf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_101g1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_my1bo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7uk1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_826xi")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Main" type="Node2D" unique_id=439926405]
 
 [node name="Tilemap" type="TileMapLayer" parent="." unique_id=1240322310 groups=["Tilemap"]]
@@ -661,10 +687,6 @@ position = Vector2(16384, 16360)
 shape = SubResource("WorldBoundaryShape2D_ctrak")
 
 [node name="Debug" parent="." unique_id=1552803623 instance=ExtResource("3_rt6fk")]
-
-[node name="WorldGen" type="Node" parent="." unique_id=1998715315]
-script = ExtResource("4_a8pps")
-structures = Array[ExtResource("6_uuto2")]([SubResource("Resource_e4h82"), SubResource("Resource_7sbva"), SubResource("Resource_2iy86"), SubResource("Resource_ygy3h")])
 
 [node name="SpawnPoints" type="Node" parent="." unique_id=873995118]
 
@@ -720,6 +742,53 @@ autostart = true
 [node name="Forest" parent="." unique_id=423060391 instance=ExtResource("10_lr86y")]
 position = Vector2(10288, 11640)
 inner_radius = 4.0
+
+[node name="WorldGen" type="Node" parent="." unique_id=1998715315]
+script = ExtResource("4_a8pps")
+structures = Array[ExtResource("6_uuto2")]([SubResource("Resource_e4h82"), SubResource("Resource_7sbva"), SubResource("Resource_2iy86"), SubResource("Resource_ygy3h")])
+
+[node name="LoadingScreen" type="CanvasLayer" parent="WorldGen" unique_id=801209830]
+layer = 100
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="WorldGen/LoadingScreen" unique_id=1479399956]
+self_modulate = Color(0.46618086, 0.4661808, 0.4661808, 1)
+position = Vector2(576, 324)
+scale = Vector2(0.6000001, 0.6)
+sprite_frames = SubResource("SpriteFrames_n08rf")
+autoplay = "default"
+
+[node name="LoadingBar" type="TextureProgressBar" parent="WorldGen/LoadingScreen" unique_id=691810960]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -56.0
+offset_right = 448.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 4.0
+nine_patch_stretch = true
+texture_under = ExtResource("11_ygy3h")
+texture_progress = ExtResource("11_ygy3h")
+tint_under = Color(0, 0.12156863, 0, 1)
+tint_progress = Color(0, 0.69803923, 0, 1)
+
+[node name="Label" type="Label" parent="WorldGen/LoadingScreen/LoadingBar" unique_id=673764415]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_7sbva")
+theme_override_font_sizes/font_size = 40
+text = "AAA"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="DayNightCycle/Timer" to="DayNightCycle" method="_on_timer_timeout"]
 [connection signal="timeout" from="EntitySpawning/SpawnAttempt" to="EntitySpawning" method="_on_spawn_attempt_timeout"]

@@ -55,7 +55,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "SAVE_AND_QUIT"
 
-[node name="SettingsMenu" parent="." unique_id=1735917857 instance=ExtResource("2_6pfc5")]
+[node name="SettingsMenu" parent="." unique_id=1735917857 node_paths=PackedStringArray("controls_menu", "skin_customization") instance=ExtResource("2_6pfc5")]
 visible = false
 layout_mode = 1
 anchor_left = 0.25
@@ -64,6 +64,8 @@ anchor_right = 0.75
 anchor_bottom = 0.79053074
 grow_horizontal = 1
 grow_vertical = 1
+controls_menu = NodePath("../ControlsMenu")
+skin_customization = NodePath("")
 
 [node name="ControlsMenu" parent="." unique_id=578478324 instance=ExtResource("4_mux1j")]
 unique_name_in_owner = true

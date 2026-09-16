@@ -57,14 +57,15 @@ func _ready() -> void:
 	hp_bar.max_value = max_hp
 	hp_bar.value = hp
 	
+	load_skin()
 
 
 func _physics_process(delta: float) -> void:
 	if can_move:
-		velocity = Input.get_vector("Left", "Right", "Up", "Down") * speed
+		velocity = Input.get_vector("LEFT", "RIGHT", "UP", "DOWN") * speed
 
 		# Running
-		if Input.is_action_pressed("Sprint") and stamina > 0 and $HungerAndThirst.can_sprint() and !is_in_water():
+		if Input.is_action_pressed("SPRINT") and stamina > 0 and $HungerAndThirst.can_sprint() and !is_in_water():
 			is_running = true
 			speed = min(speed + running_speed_gain * delta, max_running_speed)
 			
@@ -74,10 +75,9 @@ func _physics_process(delta: float) -> void:
 			is_running = false
 			speed = base_speed
 		
-		# Movement Objective
 		if velocity != Vector2.ZERO:
+			# Movement Objective
 			objectives.complete_objective("movement")
-		
 		move_and_slide()
 	
 	# Stamina
@@ -109,17 +109,33 @@ func _physics_process(delta: float) -> void:
 		set_collision_mask_value(1, false)
 	else:
 		set_collision_mask_value(1, true)
+	
+	# Animations
+	if velocity == Vector2.ZERO:
+		$PlayerSprite.start_idle()
+	else:
+		if is_running:
+			$PlayerSprite.start_running()
+		else:
+			$PlayerSprite.start_walking()
+		
+		# Rotation
+		if velocity.x < 0 and $PlayerSprite.scale.x > 0:
+			print("left")
+			$PlayerSprite.scale.x = -$PlayerSprite.scale.x
+		elif velocity.x > 0 and $PlayerSprite.scale.x < 0:
+			$PlayerSprite.scale.x = -$PlayerSprite.scale.x
 
 
 func _input(event: InputEvent) -> void:
 	# Inventory
-	if event.is_action_pressed("Attack"):
+	if event.is_action_pressed("ATTACK"):
 		attack(inventory.selected_slot)
-	if event.is_action_pressed("Place"):
+	if event.is_action_pressed("PLACE"):
 		place(inventory.selected_slot)
 	
 	#Interactions
-	elif event.is_action_pressed("Interact"):
+	elif event.is_action_pressed("INTERACT"):
 		for object in $InteractionRange.get_overlapping_areas():
 			# Objective
 			objectives.complete_objective("interact")
@@ -144,7 +160,7 @@ func damage(dmg : int, is_hunger_or_thirst = false) -> void:
 		
 	hp_bar.value = hp
 	if hp <= 0:
-		respawn()
+		kill()
 
 
 ## Checks whether or not the play is over a water tile
@@ -170,10 +186,19 @@ func set_hp(_hp : int) -> void:
 	hp_bar.value = hp
 
 
-## Drops all of the player's items and sets its position to its respawn_point
-func respawn() -> void:
+## Drops all of the player's items and shows the death screen
+func kill() -> void:
 	inventory.drop_inventory()
+	can_move = false
+	hide()
+	$UI/DeathScreen.start()
+
+
+## Sets the player's position to its respawn_point
+func respawn() -> void:
 	global_position = respawn_point
+	show()
+	can_move = true
 	set_hp(max_hp)
 	speed = base_speed
 	stamina = max_stamina
@@ -200,3 +225,16 @@ func place(slot : int) -> void:
 				inventory.items[slot].place(self, $StructurePreview.global_position)
 				inventory.remove_item_from_slot(slot)
 				inventory.reselect_slot()
+
+
+func load_skin() -> void:
+	var config = ConfigFile.new()
+	var err = config.load(Global.SKIN_CUSTOMIZATIONS_FILE_PATH)
+	if err != OK:
+		return
+	var hair = config.get_value("colors", "hair_color", $PlayerSprite.DEFAULT_HAIR_COLOR)
+	var skin = config.get_value("colors", "skin_color", $PlayerSprite.DEFAULT_SKIN_COLOR)
+	var shirt = config.get_value("colors", "shirt_color", $PlayerSprite.DEFAULT_SHIRT_COLOR)
+	$PlayerSprite.set_hair_color(hair)
+	$PlayerSprite.set_skin_color(skin)
+	$PlayerSprite.set_shirt_color(shirt)

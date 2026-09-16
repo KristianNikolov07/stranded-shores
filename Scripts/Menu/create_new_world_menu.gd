@@ -22,7 +22,10 @@ func _on_create_new_world_pressed() -> void:
 	if %WorldSeed.text == "":
 		SaveProgress.world_seed = randi()
 	else:
-		SaveProgress.world_seed = %WorldSeed.text
+		if int(%WorldName.text) == 0:
+			SaveProgress.world_seed = hash(%WorldSeed.text)
+		else:
+			SaveProgress.world_seed = int(%WorldSeed.text)
 	get_tree().change_scene_to_file("res://Scenes/Menu/loading_screen.tscn")
 
 

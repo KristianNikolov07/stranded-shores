@@ -23,7 +23,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_ldfly")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]

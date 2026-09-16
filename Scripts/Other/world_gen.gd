@@ -21,16 +21,39 @@ func _ready() -> void:
 	if SaveProgress.has_save():
 		SaveProgress.load_save()
 	else:
+		$LoadingScreen.show()
 		var rng = RandomNumberGenerator.new()
 		rng.seed = SaveProgress.world_seed
+		player.can_move = false
+		await get_tree().physics_frame
+		
+		
+		$LoadingScreen/LoadingBar.value += 1
+		$LoadingScreen/LoadingBar/Label.text = tr("CHOOSING_SPAWN_POINT")
+		await get_tree().process_frame
 		choose_spawn_point(rng)
+		
+		$LoadingScreen/LoadingBar.value += 1
+		$LoadingScreen/LoadingBar/Label.text = tr("PLACING_OBJECTS")
+		await get_tree().process_frame
 		generate_random_objects(rng)
+		
+		$LoadingScreen/LoadingBar.value += 1
+		$LoadingScreen/LoadingBar/Label.text = tr("GENERATING_THE_FOREST")
+		await get_tree().process_frame
 		get_parent().get_node("Forest").generate()
+		
 		SaveProgress.get_node("PlaytimeCounter").start()
 		await get_tree().physics_frame
 		await get_tree().physics_frame
+		
+		$LoadingScreen/LoadingBar.value += 1
+		$LoadingScreen/LoadingBar/Label.text = tr("FINISHING")
+		await get_tree().process_frame
 		player.get_node("SpawnAreaClear").clear_area() # This is so the player doesn't spawn inside structures
 		SaveProgress.save()
+		$LoadingScreen.hide()
+		player.can_move = true
 
 
 ## Goes through the entire tilemap and attempts to place structures from

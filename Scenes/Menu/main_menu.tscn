@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bjbbmrwcd6a0c" path="res://Scenes/Menu/mod_menu.tscn" id="5_gpijq"]
 [ext_resource type="Texture2D" uid="uid://cu2wxnq3743t7" path="res://Assets/Textures/MainMenuBackground/4.jpg" id="6_jqrnd"]
 [ext_resource type="PackedScene" uid="uid://ipwooukhmjtm" path="res://Scenes/Menu/credits.tscn" id="7_pn3xf"]
+[ext_resource type="PackedScene" uid="uid://dxklupgg0eibr" path="res://Scenes/Menu/skin_customizer.tscn" id="12_4qbh4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2sy2r"]
 animations = [{
@@ -27,7 +28,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_jqrnd")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -85,7 +86,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "QUIT"
 
-[node name="SettingsMenu" parent="." unique_id=2062909403 instance=ExtResource("2_tself")]
+[node name="SettingsMenu" parent="." unique_id=2062909403 node_paths=PackedStringArray("controls_menu", "mods_menu", "skin_customization") instance=ExtResource("2_tself")]
 visible = false
 layout_mode = 1
 anchor_left = 0.25086805
@@ -94,6 +95,9 @@ anchor_right = 0.750868
 anchor_bottom = 0.79207414
 grow_horizontal = 1
 grow_vertical = 1
+controls_menu = NodePath("../ControlsMenu")
+mods_menu = NodePath("../ModMenu")
+skin_customization = NodePath("../SkinCustomizer")
 
 [node name="ControlsMenu" parent="." unique_id=328629850 instance=ExtResource("4_gpijq")]
 unique_name_in_owner = true
@@ -159,6 +163,14 @@ offset_bottom = -0.09603882
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="SkinCustomizer" parent="." unique_id=1825560861 instance=ExtResource("12_4qbh4")]
+visible = false
+layout_mode = 1
+anchor_left = 0.11111111
+anchor_top = 0.15586418
+anchor_right = 0.8891112
+anchor_bottom = 0.8468643
+
 [connection signal="pressed" from="MainButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MainButtons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainButtons/Credits" to="." method="_on_credits_pressed"]
@@ -168,3 +180,4 @@ grow_vertical = 2
 [connection signal="closed" from="WorldSelect" to="." method="_on_world_select_closed"]
 [connection signal="closed" from="ModMenu" to="." method="_on_mod_menu_closed"]
 [connection signal="closed" from="Credits" to="." method="_on_credits_closed"]
+[connection signal="close" from="SkinCustomizer" to="SettingsMenu" method="_on_skin_customizer_close"]

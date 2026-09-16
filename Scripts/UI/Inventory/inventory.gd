@@ -32,32 +32,32 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("PreviousItem"):
+	if event.is_action_released("PREVIOUS_ITEM"):
 		if selected_slot == 0:
 			select_slot(inventory_size - 1)
 		else:
 			select_slot(selected_slot - 1)
-	if event.is_action_released("NextItem"):
+	if event.is_action_released("NEXT_ITEM"):
 		if selected_slot == inventory_size - 1:
 			select_slot(0)
 		else:
 			select_slot(selected_slot + 1)
-	if event.is_action_pressed("Item0"):
+	if event.is_action_pressed("ITEM_1"):
 		select_slot(0)
-	if event.is_action_pressed("Item1"):
+	if event.is_action_pressed("ITEM_2"):
 		select_slot(1)
-	if event.is_action_pressed("Item2"):
+	if event.is_action_pressed("ITEM_3"):
 		select_slot(2)
-	if event.is_action_pressed("Item3"):
+	if event.is_action_pressed("ITEM_4"):
 		select_slot(3)
-	if event.is_action_pressed("DropItem"):
-		if Input.is_action_pressed("DropAll"):
+	if event.is_action_pressed("DROP_ITEM"):
+		if Input.is_action_pressed("DROP_ALL"):
 			drop_item(selected_slot, true)
 		else:
 			drop_item(selected_slot, false)
-	if event.is_action_pressed("UseItem"):
+	if event.is_action_pressed("USE_ITEM"):
 		use_item(selected_slot)
-	if event.is_action_pressed("ToggleBackpack"):
+	if event.is_action_pressed("TOGGLE_BACKPACK"):
 		if backpack.is_open():
 			player.can_move = true
 			opened_storage = null

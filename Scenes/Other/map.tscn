@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://iajyou5xcxvh"]
+
+[ext_resource type="Script" uid="uid://cx8ir5tq2b5q2" path="res://Scripts/Other/map.gd" id="1_ufwmp"]
+[ext_resource type="Script" uid="uid://pxkbysso4esr" path="res://Scripts/Other/CameraLimiter.gd" id="2_vnsmo"]
+
+[node name="Map" type="Control" unique_id=516500520]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ufwmp")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1442106586]
+disable_3d = true
+physics_object_picking = true
+physics_object_picking_sort = true
+physics_object_picking_first_only = true
+canvas_cull_mask = 4293918721
+size = Vector2i(1280, 720)
+size_2d_override_stretch = true
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=206175875]
+script = ExtResource("2_vnsmo")

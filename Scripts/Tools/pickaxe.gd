@@ -7,7 +7,7 @@ signal hit
 var is_used = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("Attack"):
+	if event.is_action_released("ATTACK"):
 		stop_using()
 
 

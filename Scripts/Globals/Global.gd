@@ -7,6 +7,7 @@ const SETTINGS_FILE_PATH = "user://settings.ini"
 const MODS_FOLDER = "user://mods"
 const MODS_ENABLE_CHECK_FILE_NAME = "enabled"
 const MODS_MANIFEST_FILE_NAME = "manifest.json"
+const SKIN_CUSTOMIZATIONS_FILE_PATH = "user://skin.ini"
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ToggleFullscreen"):

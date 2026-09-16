@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Food" format=3 uid="uid://trigjcvqvruf"]
 
-[ext_resource type="Script" uid="uid://dwh1bhdedho1q" path="res://Scripts/Classes/Consumables/Food.gd" id="1_elxbw"]
+[ext_resource type="Script" uid="uid://dwh1bhdedho1q" path="res://Scripts/Classes/Items/Consumables/Food.gd" id="1_elxbw"]
 [ext_resource type="Texture2D" uid="uid://cnhjx0ufghirn" path="res://Assets/Textures/Items/test_item.png" id="2_ne8w3"]
 
 [resource]

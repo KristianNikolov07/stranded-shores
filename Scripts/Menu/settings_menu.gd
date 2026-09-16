@@ -2,6 +2,10 @@ extends Control
 
 signal closed
 
+@export var controls_menu : PanelContainer
+@export var mods_menu : PanelContainer
+@export var skin_customization : PanelContainer
+
 var config = ConfigFile.new()
 
 func _ready() -> void:
@@ -16,9 +20,10 @@ func _ready() -> void:
 	set_volume(volume)
 	%VolumeSlider.value = volume
 	
-	# Disable Mod Button if not in the menu
+	# Disable Mod and Skin Customiziation buttons if not in the menu
 	if get_tree().current_scene.name != "MainMenu":
 		%Mods.disabled = true
+		%SkinCustomization.disabled = true
 	
 	# Web
 	if OS.get_name() == "Web":
@@ -64,13 +69,22 @@ func set_volume(volume : float):
 
 func _on_mods_pressed() -> void:
 	hide()
-	get_node("../ModMenu").show()
+	mods_menu.show()
 
 
 func _on_controls_pressed() -> void:
-	%ControlsMenu.show()
-	%ControlsMenu.list_controls()
+	controls_menu.show()
+	controls_menu.list_controls()
 
 
 func _on_controls_menu_closed() -> void:
+	show()
+
+
+func _on_skin_customization_pressed() -> void:
+	hide()
+	skin_customization.open()
+
+
+func _on_skin_customizer_close() -> void:
 	show()

@@ -58,14 +58,23 @@ theme_override_constants/separation = 45
 
 [node name="Label" type="Label" parent="CenterContainer/MarginContainer/Settings/Volume" unique_id=207427694]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 25
 text = "VOLUME"
 
 [node name="VolumeSlider" type="HSlider" parent="CenterContainer/MarginContainer/Settings/Volume" unique_id=367428002]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(156, 16)
+custom_maximum_size = Vector2(156, 16)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 size_flags_vertical = 4
+
+[node name="SkinCustomization" type="Button" parent="CenterContainer/MarginContainer/Settings" unique_id=44215020]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "SKIN_CUSTOMIZATION"
 
 [node name="Controls" type="Button" parent="CenterContainer/MarginContainer/Settings" unique_id=885303672]
 layout_mode = 2
@@ -88,6 +97,7 @@ text = "X"
 
 [connection signal="item_selected" from="CenterContainer/MarginContainer/Settings/Language/Language" to="." method="_on_language_selected"]
 [connection signal="value_changed" from="CenterContainer/MarginContainer/Settings/Volume/VolumeSlider" to="." method="_on_volume_changed"]
+[connection signal="pressed" from="CenterContainer/MarginContainer/Settings/SkinCustomization" to="." method="_on_skin_customization_pressed"]
 [connection signal="pressed" from="CenterContainer/MarginContainer/Settings/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="CenterContainer/MarginContainer/Settings/Mods" to="." method="_on_mods_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

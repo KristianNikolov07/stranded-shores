@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oij23kepekw1"
-path="res://.godot/imported/caw.png-de572558e7b552e909043f723294fbe9.ctex"
+uid="uid://i87ixv70ubn1"
+path="res://.godot/imported/icon.svg-b784d415cbc8fdc1dd7a0faae0525b61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Entities/caw.png"
-dest_files=["res://.godot/imported/caw.png-de572558e7b552e909043f723294fbe9.ctex"]
+source_file="res://Assets/Textures/Other/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-b784d415cbc8fdc1dd7a0faae0525b61.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

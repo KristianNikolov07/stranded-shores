@@ -50,6 +50,7 @@ func save() -> void:
 		config.set_value("other", "playtime", get_node("PlaytimeCounter").playtime)
 		config.set_value("other", "version", ProjectSettings.get_setting("application/config/version"))
 		config.set_value("other", "modded", has_loaded_mods)
+		config.set_value("other", "last_played_timestamp", Time.get_datetime_string_from_system())
 		config.save(SAVES_FOLDER + save_name + "/" + PLAYER_STATS_FILE_NAME)
 		
 		# World
@@ -106,8 +107,19 @@ func delete(save_name_to_delete : String) -> void:
 
 
 ## Gets all the saves inside the SAVES_FOLDER
-func get_saves() -> PackedStringArray:
-	return DirAccess.get_directories_at(SAVES_FOLDER)
+func get_saves() -> Array[WorldInfo]:
+	var saves : Array[WorldInfo]
+	for dir in DirAccess.get_directories_at(SAVES_FOLDER):
+		var info = WorldInfo.new()
+		info.world_name = dir
+		info.world_seed = get_seed(dir)
+		info.playtime = get_playtime(dir)
+		info.is_modded = is_modded(dir)
+		info.version = get_version(dir)
+		info.is_checksum_valid = check_checksum(dir)
+		info.last_played_timestamp = get_last_played_timestamp(dir)
+		saves.append(info)
+	return saves
 
 
 ## Checks whether or not a save with the save_name already exists
@@ -129,6 +141,18 @@ func get_playtime(_save_name : String) -> float:
 			return config.get_value("other", "playtime", 0)
 	return 0
 
+
+func get_seed(_save_name : String) -> String:
+	var save_file = FileAccess.open(SAVES_FOLDER + _save_name + "/" + WORLD_FILE_NAME, FileAccess.READ)
+	if save_file == null:
+		push_error("Failed to open world file for reading: " + SAVES_FOLDER + _save_name + "/" + WORLD_FILE_NAME)
+		return ""
+	var world = JSON.parse_string(save_file.get_as_text())
+	if world.has("world_seed") == false:
+		return ""
+	return str(world.world_seed)
+
+
 ## Check if the world has been played with any mods enabled
 func is_modded(_save_name : String) -> bool:
 	var config = ConfigFile.new()
@@ -137,6 +161,17 @@ func is_modded(_save_name : String) -> bool:
 		if config.has_section("other"):
 			return config.get_value("other", "modded", false)
 	return false
+
+
+## Gets the timestamp for the last time a save has been played
+func get_last_played_timestamp(_save_name : String) -> String:
+	var config = ConfigFile.new()
+	if DirAccess.dir_exists_absolute(SAVES_FOLDER + _save_name):
+		config.load(SAVES_FOLDER + _save_name + "/" + PLAYER_STATS_FILE_NAME)
+		if config.has_section("other"):
+			return config.get_value("other", "last_played_timestamp", "")
+	return ""
+
 
 ## Checks the checksum of a save
 func check_checksum(_save_name : String) -> bool:

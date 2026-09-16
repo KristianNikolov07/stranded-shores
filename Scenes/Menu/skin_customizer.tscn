@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://dxklupgg0eibr"]
+
+[ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="1_mbsvu"]
+[ext_resource type="Script" uid="uid://dneqcc3r07sjb" path="res://Scripts/Menu/skin_customizer.gd" id="2_ha25d"]
+[ext_resource type="PackedScene" uid="uid://dfgdahc0x5a0f" path="res://Scenes/Entities/Player/player_sprite.tscn" id="3_enm87"]
+
+[node name="SkinCustomizer" type="PanelContainer" unique_id=1825560861]
+custom_minimum_size = Vector2(896, 448)
+anchors_preset = -1
+anchor_right = 0.77800006
+anchor_bottom = 0.69100004
+offset_right = -0.25604248
+offset_bottom = 0.23196411
+theme = ExtResource("1_mbsvu")
+script = ExtResource("2_ha25d")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1788919855]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=784005353]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=522682950]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 65
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1556829159]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer" unique_id=1690706624]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "HAIR"
+
+[node name="HairColor" type="ColorPicker" parent="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer" unique_id=894622674]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+edit_alpha = false
+edit_intensity = false
+color_mode = 1
+picker_shape = 4
+sampler_visible = false
+color_modes_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=77423540]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=645885755]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2095430512]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "SKIN"
+
+[node name="SkinColor" type="ColorPicker" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=948235000]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+edit_alpha = false
+edit_intensity = false
+color_mode = 1
+picker_shape = 4
+sampler_visible = false
+color_modes_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1260282013]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=543219773]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "SHIRT"
+
+[node name="ShirtColor" type="ColorPicker" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=607752083]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+edit_alpha = false
+edit_intensity = false
+color_mode = 1
+picker_shape = 4
+sampler_visible = false
+color_modes_visible = false
+hex_visible = false
+presets_visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=616064566]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = -10
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1242472322]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Save" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/Buttons" unique_id=737670470]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "SAVE"
+
+[node name="ResetToDefault" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/Buttons" unique_id=2034749461]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "RESET_TO_DEFAULT"
+
+[node name="Close" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/Buttons" unique_id=610456140]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "CANCEL"
+
+[node name="PlayerSprite" parent="." unique_id=1358140484 instance=ExtResource("3_enm87")]
+unique_name_in_owner = true
+position = Vector2(448, 224)
+
+[connection signal="color_changed" from="MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer/HairColor" to="." method="_on_hair_color_color_changed"]
+[connection signal="color_changed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/SkinColor" to="." method="_on_skin_color_color_changed"]
+[connection signal="color_changed" from="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ShirtColor" to="." method="_on_shirt_color_color_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/Buttons/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/Buttons/ResetToDefault" to="." method="_on_reset_to_default_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/Buttons/Close" to="." method="_on_close_pressed"]
+
+[editable path="PlayerSprite"]

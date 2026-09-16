@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WaterContainer" format=3 uid="uid://ckhhgkagwo2vc"]
 
-[ext_resource type="Script" uid="uid://bkdh80177u42r" path="res://Scripts/Classes/Consumables/WaterContainer.gd" id="1_2gdk5"]
+[ext_resource type="Script" uid="uid://bkdh80177u42r" path="res://Scripts/Classes/Items/Consumables/WaterContainer.gd" id="1_2gdk5"]
 [ext_resource type="Texture2D" uid="uid://btjn0rabj268d" path="res://Assets/Textures/Items/items.png" id="2_dtnqu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crlk1"]
