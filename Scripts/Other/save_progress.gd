@@ -50,6 +50,7 @@ func save() -> void:
 		config.set_value("other", "playtime", get_node("PlaytimeCounter").playtime)
 		config.set_value("other", "version", ProjectSettings.get_setting("application/config/version"))
 		config.set_value("other", "modded", has_loaded_mods)
+		config.set_value("other", "last_played_timestamp", Time.get_datetime_string_from_system())
 		config.save(SAVES_FOLDER + save_name + "/" + PLAYER_STATS_FILE_NAME)
 		
 		# World
@@ -116,6 +117,7 @@ func get_saves() -> Array[WorldInfo]:
 		info.is_modded = is_modded(dir)
 		info.version = get_version(dir)
 		info.is_checksum_valid = check_checksum(dir)
+		info.last_played_timestamp = get_last_played_timestamp(dir)
 		saves.append(info)
 	return saves
 
@@ -159,6 +161,17 @@ func is_modded(_save_name : String) -> bool:
 		if config.has_section("other"):
 			return config.get_value("other", "modded", false)
 	return false
+
+
+## Gets the timestamp for the last time a save has been played
+func get_last_played_timestamp(_save_name : String) -> String:
+	var config = ConfigFile.new()
+	if DirAccess.dir_exists_absolute(SAVES_FOLDER + _save_name):
+		config.load(SAVES_FOLDER + _save_name + "/" + PLAYER_STATS_FILE_NAME)
+		if config.has_section("other"):
+			return config.get_value("other", "last_played_timestamp", "")
+	return ""
+
 
 ## Checks the checksum of a save
 func check_checksum(_save_name : String) -> bool:
