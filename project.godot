@@ -15,7 +15,7 @@ warnings/check_invalid_track_paths=false
 [application]
 
 config/name="Stranded Shores"
-config/version="0.7.0"
+config/version="0.7.1"
 run/main_scene="uid://c17te1o2qtwsm"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/show_image=false
