@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if $Timer.is_stopped() == false:
-		%RespawingLabel.text = "Respawning in: " + str(int($Timer.time_left))
+		%RespawingLabel.text = tr("RESPAWNING_IN") + str(int($Timer.time_left))
 
 
 func start() -> void:

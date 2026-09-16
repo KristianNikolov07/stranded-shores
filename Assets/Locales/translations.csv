@@ -59,6 +59,8 @@ TREE_BOSS_OBJECTIVE_DESCRIPTION,"Defeat the Big Tree","Победете Голя
 BACKPACK_OBJECTIVE_DESCRIPTION,"Craft a backpack","Изработете раница"
 ARMOR_OBJECTIVE_DESCRIPTION,"Craft an iron armor","Изработете желязна броня"
 ANVIL_OBJECTIVE_DESCRIPTION,"Craft an anvil.","Изработете наковалня."
+DEATH, "You Died :(", "Умря :("
+RESPAWNING_IN, "Respawning in: ", "Съживяване след: "
 
 UP,UP,НАГОРЕ
 LEFT,LEFT,НАЛЯВО
