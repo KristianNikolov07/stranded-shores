@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://br7sveoej6sjf" path="res://Scenes/UI/ui.tscn" id="4_r6m6p"]
 [ext_resource type="Texture2D" uid="uid://vk7prp3tpig3" path="res://Assets/Textures/UI/progress_bar.png" id="4_w3k6v"]
 [ext_resource type="Script" uid="uid://cy6otwbqa0w1x" path="res://Scripts/Other/hunger_and_thirst.gd" id="5_s8rx5"]
+[ext_resource type="PackedScene" uid="uid://bx386mj851q8v" path="res://Scenes/UI/death_screen.tscn" id="6_ynt0t"]
 [ext_resource type="Script" uid="uid://ckekt4jyusoh" path="res://Scripts/Other/spawn_area_clear.gd" id="8_w3k6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t86h6"]
@@ -97,6 +98,8 @@ tint_under = Color(3.3691526e-07, 0.33380455, 0.36672413, 1)
 tint_progress = Color(0, 0.91764706, 1, 1)
 
 [node name="UI" parent="." unique_id=561208178 instance=ExtResource("4_r6m6p")]
+
+[node name="DeathScreen" parent="UI" unique_id=825960373 instance=ExtResource("6_ynt0t")]
 
 [node name="StructurePreview" type="Area2D" parent="." unique_id=1615573455]
 visible = false

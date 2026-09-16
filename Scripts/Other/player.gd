@@ -160,7 +160,7 @@ func damage(dmg : int, is_hunger_or_thirst = false) -> void:
 		
 	hp_bar.value = hp
 	if hp <= 0:
-		respawn()
+		kill()
 
 
 ## Checks whether or not the play is over a water tile
@@ -186,10 +186,19 @@ func set_hp(_hp : int) -> void:
 	hp_bar.value = hp
 
 
-## Drops all of the player's items and sets its position to its respawn_point
-func respawn() -> void:
+## Drops all of the player's items and shows the death screen
+func kill() -> void:
 	inventory.drop_inventory()
+	can_move = false
+	hide()
+	$UI/DeathScreen.start()
+
+
+## Sets the player's position to its respawn_point
+func respawn() -> void:
 	global_position = respawn_point
+	show()
+	can_move = true
 	set_hp(max_hp)
 	speed = base_speed
 	stamina = max_stamina
