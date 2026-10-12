@@ -60,6 +60,7 @@ _data = {
 size = Vector2(156.66666, 146.66666)
 
 [node name="Player" type="CharacterBody2D" unique_id=2146920496]
+visibility_layer = 2
 z_index = 5
 texture_filter = 1
 scale = Vector2(0.3, 0.3)

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://iajyou5xcxvh"]
 
 [ext_resource type="Script" uid="uid://cx8ir5tq2b5q2" path="res://Scripts/Other/map.gd" id="1_ufwmp"]
-[ext_resource type="Script" uid="uid://pxkbysso4esr" path="res://Scripts/Other/CameraLimiter.gd" id="2_vnsmo"]
+[ext_resource type="Texture2D" uid="uid://2c8c5vtst26u" path="res://Assets/Textures/UI/blank_map.png" id="2_vnsmo"]
+[ext_resource type="Texture2D" uid="uid://cdoj2047nvvqh" path="res://Assets/Textures/UI/player_map_indicator.png" id="3_nr0xl"]
 
 [node name="Map" type="Control" unique_id=516500520]
 layout_mode = 3
@@ -10,14 +11,32 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ufwmp")
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1442106586]
-disable_3d = true
-physics_object_picking = true
-physics_object_picking_sort = true
-physics_object_picking_first_only = true
-canvas_cull_mask = 4293918721
-size = Vector2i(1280, 720)
-size_2d_override_stretch = true
+[node name="MapTexture" type="TextureRect" parent="." unique_id=670755650]
+texture_filter = 1
+layout_mode = 0
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vnsmo")
 
-[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=206175875]
-script = ExtResource("2_vnsmo")
+[node name="PlayerIndicator" type="TextureRect" parent="MapTexture" unique_id=607986724]
+texture_filter = 1
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(3, 3)
+offset_transform_enabled = true
+offset_transform_position = Vector2(-4, -4)
+texture = ExtResource("3_nr0xl")
+
+[node name="MapViewport" type="SubViewport" parent="." unique_id=1812684515]
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+canvas_cull_mask = 4294966273
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="MapViewport" unique_id=1742387200]
+light_mask = 0

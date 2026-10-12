@@ -95,6 +95,9 @@ func save() -> void:
 		checksum_file.store_string(player_stats_checksum + world_checksum)
 		checksum_file.close()
 		
+		# Map
+		player.map.save()
+		
 		print("Progress Saved")
 
 
