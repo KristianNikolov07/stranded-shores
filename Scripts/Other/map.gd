@@ -14,7 +14,6 @@ var tilemap_tile_images = {}
 
 func _ready() -> void:
 	hide()
-	$MapViewport.world_2d = get_viewport().world_2d
 	load_save()
 	fetch_tilemap_tile_images()
 
@@ -28,10 +27,7 @@ func _physics_process(delta: float) -> void:
 		$MapTexture.self_modulate.a = 1
 	
 	if visible:
-		
 		$MapTexture/PlayerIndicator.self_modulate.a += indicator_pulse_direction * delta * indicator_pulse_speed
-		print($MapTexture/PlayerIndicator.self_modulate.a)
-		
 		if $MapTexture/PlayerIndicator.self_modulate.a >= 1:
 			indicator_pulse_direction = -1
 		elif $MapTexture/PlayerIndicator.self_modulate.a <= 0:
@@ -98,3 +94,4 @@ func load_save() -> void:
 	var map : Image = Image.load_from_file(SaveProgress.SAVES_FOLDER.path_join(SaveProgress.save_name).path_join("map.png"))
 	if map != null:
 		$MapTexture.texture = ImageTexture.create_from_image(map)
+		map_image = map
