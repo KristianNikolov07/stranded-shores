@@ -2,6 +2,14 @@ extends Control
 
 const RADAR_ICON_SCENE = preload("res://Scenes/UI/radar_icon.tscn")
 
+func _ready() -> void:
+	hide()
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("TOGGLE_WAYPOINT_RADAR"):
+		visible = !visible
+
 
 func update() -> void:
 	for child in get_children():
