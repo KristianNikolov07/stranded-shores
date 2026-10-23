@@ -50,7 +50,7 @@ var is_dead : bool = false
 @onready var hp_bar = $UI/Stats/HP
 @onready var hunger_and_thirst = $HungerAndThirst
 @onready var objectives = $UI/Objectives
-@onready var map = $UI/Map
+@onready var radar = $UI/Radar
 
 func _ready() -> void:
 	$Stamina.max_value = max_stamina
@@ -243,4 +243,3 @@ func load_skin() -> void:
 	$PlayerSprite.set_hair_color(hair)
 	$PlayerSprite.set_skin_color(skin)
 	$PlayerSprite.set_shirt_color(shirt)
-	map.set_player_indicator_color(shirt)

@@ -59,9 +59,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsrq0"]
 size = Vector2(156.66666, 146.66666)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynt0t"]
-size = Vector2(266.66666, 266.66666)
-
 [node name="Player" type="CharacterBody2D" unique_id=2146920496]
 visibility_layer = 2
 z_index = 5
@@ -102,6 +99,10 @@ tint_under = Color(3.3691526e-07, 0.33380455, 0.36672413, 1)
 tint_progress = Color(0, 0.91764706, 1, 1)
 
 [node name="UI" parent="." unique_id=561208178 instance=ExtResource("4_r6m6p")]
+
+[node name="Map" parent="UI" index="6" unique_id=516500520]
+indicator_pulse_speed = 1
+map_capture_range = 10
 
 [node name="DeathScreen" parent="UI" unique_id=825960373 instance=ExtResource("6_ynt0t")]
 
@@ -146,16 +147,6 @@ script = ExtResource("8_w3k6v")
 position = Vector2(-1.6666666, 3.3333333)
 shape = SubResource("RectangleShape2D_vsrq0")
 debug_color = Color(0.6591337, 0.5090556, 0.23106265, 0.41960785)
-
-[node name="MapCaptureArea" type="Area2D" parent="." unique_id=1682790912]
-collision_layer = 0
-collision_mask = 272
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapCaptureArea" unique_id=38727621]
-position = Vector2(-6.3578286e-06, 6.3578286e-06)
-scale = Vector2(5.185, 5.185)
-shape = SubResource("RectangleShape2D_ynt0t")
-debug_color = Color(0.50331944, 0.57601553, 0.20887896, 0.41960785)
 
 [connection signal="timeout" from="HungerAndThirst/Timer" to="HungerAndThirst" method="_on_timer_timeout"]
 

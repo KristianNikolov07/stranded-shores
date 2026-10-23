@@ -171,4 +171,22 @@ theme_override_font_sizes/font_size = 36
 text = "Boldpixels"
 uri = "https://yukipixels.itch.io/boldpixels"
 
+[node name="GodotLicense" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1240507327]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/GodotLicense" unique_id=109543311]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Godot Engine:"
+horizontal_alignment = 1
+
+[node name="Godot" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/GodotLicense" unique_id=1721498752]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_gwqnf")
+theme_override_font_sizes/font_size = 18
+text = "Boldpixels"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

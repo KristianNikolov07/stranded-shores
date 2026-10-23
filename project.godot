@@ -58,6 +58,7 @@ Tilemap=""
 Persistant=""
 PassiveEntities=""
 Enemies=""
+Radar=""
 
 [gui]
 

@@ -4,6 +4,7 @@ signal closed
 
 func _ready() -> void:
 	hide()
+	add_godot_license()
 
 
 func _input(event: InputEvent) -> void:
@@ -16,3 +17,7 @@ func _input(event: InputEvent) -> void:
 func _on_back_pressed() -> void:
 	hide()
 	closed.emit()
+
+
+func add_godot_license() -> void:
+	%Godot.text = Engine.get_license_text()

@@ -9,9 +9,18 @@ const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 @export var drops : Array[Loot]
 ## An array of the textures for when that structure is been broken
 @export var broken_textures : Array[Texture]
+## An image representing the structure on the mini map. If empty the texture from Sprite2D is taken instead. 
+## In order for a structures to appear on the radar, it needs to be a part of the Radar Group
+@export var radar_texture : Texture
 
 ## The current health of the structure
 @onready var hp = max_hp
+
+func _ready() -> void:
+	radar_texture = $Sprite2D.texture
+	if is_in_group("Radar"):
+		Global.get_player().radar.update()
+
 
 ## Decreases the structure's health
 func damage(dmg : int) -> void:
@@ -42,6 +51,9 @@ func destroy() -> void:
 			dropped_item.item = loot.item.duplicate()
 			dropped_item.item.amount = loot.amount
 			get_tree().current_scene.call_deferred("add_child", dropped_item)
+	if is_in_group("Radar"):
+		remove_from_group("Radar")
+		Global.get_player().radar.update()
 	queue_free()
 
 
