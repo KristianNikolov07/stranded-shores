@@ -52,6 +52,10 @@ region = Rect2(48, 19, 16, 13)
 atlas = ExtResource("1_b0kcf")
 region = Rect2(64, 19, 16, 13)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_anfk6"]
+atlas = ExtResource("1_b0kcf")
+region = Rect2(0, 0, 16, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_af0pm"]
 atlas = ExtResource("1_b0kcf")
 region = Rect2(0, 19, 16, 13)
@@ -77,6 +81,7 @@ tree_texture = SubResource("AtlasTexture_dsloy")
 apple_tree_texture = SubResource("AtlasTexture_yotnf")
 drops = Array[ExtResource("2_jdkqx")]([SubResource("Resource_edxoy"), SubResource("Resource_n4m1q"), SubResource("Resource_eja1b")])
 broken_textures = Array[Texture]([SubResource("AtlasTexture_n4m1q"), SubResource("AtlasTexture_edxoy"), SubResource("AtlasTexture_eja1b"), SubResource("AtlasTexture_uohxl")])
+map_texture = SubResource("AtlasTexture_anfk6")
 metadata/_custom_type_script = "uid://d3001nb6tmga0"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2143539524]

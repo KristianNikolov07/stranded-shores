@@ -171,4 +171,14 @@ theme_override_font_sizes/font_size = 36
 text = "Boldpixels"
 uri = "https://yukipixels.itch.io/boldpixels"
 
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1375660737]
+visible = false
+layout_mode = 2
+
+[node name="Licenses" type="Button" parent="VBoxContainer" unique_id=943869868]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "LICENSES"
+
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/Licenses" to="." method="_on_licenses_pressed"]

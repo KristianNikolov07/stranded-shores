@@ -20,6 +20,11 @@ const DROPPED_ITEM_SCENE = preload("res://Scenes/Objects/dropped_item.tscn")
 ## The current health of the entity
 @onready var hp = max_hp
 
+func _ready() -> void:
+	set_visibility_layer_bit(1, false)
+	set_visibility_layer_bit(2, true)
+
+
 func _process(_delta: float) -> void:
 	var player : Player = Global.get_player()
 	if player.global_position.distance_to(global_position) > despawn_distance and can_despawn:

@@ -123,6 +123,7 @@ states/walking/position = Vector2(443, 154)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ud8yl"), "idle", "walking", SubResource("AnimationNodeStateMachineTransition_p8q6b"), "walking", "idle", SubResource("AnimationNodeStateMachineTransition_j2li6")]
 
 [node name="BowSkeleton" type="CharacterBody2D" unique_id=151111762]
+visibility_layer = 2
 collision_layer = 2272
 collision_mask = 197
 motion_mode = 1

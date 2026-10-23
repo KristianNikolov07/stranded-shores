@@ -1,0 +1,50 @@
+{
+    "components": [
+        {
+            "category": "",
+            "contact": "https://linktr.ee/yukipixels",
+            "copyright": [
+                "Yūki Pixels"
+            ],
+            "description": "",
+            "id": "",
+            "licenses": [
+                {
+                    "file": "res://Assets/Fonts/license.txt",
+                    "identifier": "",
+                    "name": "Creative Commons Attribution ShareAlike v4.0 International",
+                    "text": "",
+                    "web": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+                }
+            ],
+            "name": "BoldPixels",
+            "paths": [],
+            "version": "",
+            "web": "https://yukipixels.itch.io/boldpixels"
+        },
+        {
+            "category": "",
+            "contact": "",
+            "copyright": [
+                "Iceflower S"
+            ],
+            "description": "Manage license and copyright for third party graphics, software or libraries.",
+            "id": "",
+            "licenses": [
+                {
+                    "file": "res://addons/licenses/LICENSE.md",
+                    "identifier": "",
+                    "name": "MIT",
+                    "text": "",
+                    "web": ""
+                }
+            ],
+            "name": "License Manager",
+            "paths": [
+                "res://addons/licenses"
+            ],
+            "version": "1.11.2",
+            "web": ""
+        }
+    ]
+}

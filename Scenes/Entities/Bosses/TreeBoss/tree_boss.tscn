@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fphqg")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -34,6 +34,7 @@ size = Vector2(28, 200)
 size = Vector2(201, 340)
 
 [node name="TreeBoss" type="CharacterBody2D" unique_id=599881269]
+visibility_layer = 2
 z_index = 6
 collision_layer = 2144
 collision_mask = 0

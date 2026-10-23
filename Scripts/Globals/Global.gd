@@ -21,6 +21,10 @@ func toggle_fullscreen() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 
+func get_world_size() -> float:
+	return TILEMAP_SCALE * TILEMAP_SIZE * TILE_SIZE
+
+
 func tilemap_coords_to_global_coords(tilemap_coords : Vector2) -> Vector2:
 	@warning_ignore("integer_division")
 	var x = tilemap_coords.x * TILE_SIZE * TILEMAP_SCALE + TILE_SIZE / 2

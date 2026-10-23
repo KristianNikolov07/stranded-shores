@@ -36,6 +36,8 @@ var chest_menu : Area2D
 var respawn_point : Vector2
 ## The currently used tool. Null if a tool isn't being used
 var tool : Node2D = null
+## Whether or not the player is no the death screen
+var is_dead : bool = false
 
 ## The current amount of speed
 @onready var speed = base_speed
@@ -48,6 +50,7 @@ var tool : Node2D = null
 @onready var hp_bar = $UI/Stats/HP
 @onready var hunger_and_thirst = $HungerAndThirst
 @onready var objectives = $UI/Objectives
+@onready var radar = $UI/Radar
 
 func _ready() -> void:
 	$Stamina.max_value = max_stamina
@@ -188,10 +191,12 @@ func set_hp(_hp : int) -> void:
 
 ## Drops all of the player's items and shows the death screen
 func kill() -> void:
-	inventory.drop_inventory()
-	can_move = false
-	hide()
-	$UI/DeathScreen.start()
+	if is_dead == false:
+		is_dead = true
+		inventory.drop_inventory()
+		can_move = false
+		hide()
+		$UI/DeathScreen.start()
 
 
 ## Sets the player's position to its respawn_point

@@ -8,7 +8,7 @@
 [ext_resource type="Theme" uid="uid://5uq80ele5x1b" path="res://Assets/main_theme.tres" id="5_jfwrg"]
 [ext_resource type="PackedScene" uid="uid://coic25r1tt4j3" path="res://Scenes/Menu/objectives.tscn" id="7_duuxe"]
 [ext_resource type="PackedScene" uid="uid://bfru26xs7uhmj" path="res://Scenes/Menu/pause_menu.tscn" id="9_mbl0m"]
-[ext_resource type="PackedScene" uid="uid://iajyou5xcxvh" path="res://Scenes/Other/map.tscn" id="9_s3gqk"]
+[ext_resource type="PackedScene" uid="uid://iajyou5xcxvh" path="res://Scenes/Other/radar.tscn" id="9_s3gqk"]
 
 [node name="UI" type="CanvasLayer" unique_id=188560535]
 
@@ -126,4 +126,4 @@ visible = false
 
 [node name="Objectives" parent="." unique_id=1487976689 instance=ExtResource("7_duuxe")]
 
-[node name="Map" parent="." unique_id=516500520 instance=ExtResource("9_s3gqk")]
+[node name="Radar" parent="." unique_id=516500520 instance=ExtResource("9_s3gqk")]

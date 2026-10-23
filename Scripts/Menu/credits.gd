@@ -1,5 +1,7 @@
 extends PanelContainer
 
+@export var licenses_menu : Control
+
 signal closed
 
 func _ready() -> void:
@@ -16,3 +18,8 @@ func _input(event: InputEvent) -> void:
 func _on_back_pressed() -> void:
 	hide()
 	closed.emit()
+
+
+func _on_licenses_pressed() -> void:
+	hide()
+	licenses_menu.show()

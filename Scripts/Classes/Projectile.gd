@@ -23,6 +23,8 @@ var direction : Vector2
 var projectile_owner : CharacterBody2D
 
 func _ready() -> void:
+	set_visibility_layer_bit(1, false)
+	set_visibility_layer_bit(2, true)
 	if body_entered.is_connected(_on_body_entered) == false:
 		body_entered.connect(_on_body_entered)
 	direction = global_position.direction_to(target)
