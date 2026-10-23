@@ -1,10 +1,11 @@
 extends PanelContainer
 
+@export var licenses_menu : Control
+
 signal closed
 
 func _ready() -> void:
 	hide()
-	add_godot_license()
 
 
 func _input(event: InputEvent) -> void:
@@ -19,5 +20,6 @@ func _on_back_pressed() -> void:
 	closed.emit()
 
 
-func add_godot_license() -> void:
-	%Godot.text = Engine.get_license_text()
+func _on_licenses_pressed() -> void:
+	hide()
+	licenses_menu.show()

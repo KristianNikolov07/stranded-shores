@@ -70,6 +70,10 @@ jobs:
           set -euo pipefail
           mkdir -p "${EXPORT_DIR}/web"
           godot --headless --export-release "Web" "${EXPORT_DIR}/web/index.html"
+      
+      - name : Export pck
+        run: |
+          godot --headless --export-pack "Windows" "${EXPORT_DIR}/mod_template.pck"
 
       - name: Zip Windows build
         run: |
@@ -103,6 +107,7 @@ jobs:
             ${{ env.EXPORT_DIR }}/LinuxBinary.zip
             ${{ env.EXPORT_DIR }}/Web.zip
             ${{ env.EXPORT_DIR }}/Appimage.zip
+            ${{ env.EXPORT_DIR }}/mod_template.pck"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

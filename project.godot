@@ -37,7 +37,7 @@ run/main_run_args="debug"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/appimage-export/plugin.cfg", "res://addons/mod-export/plugin.cfg")
+enabled=PackedStringArray("res://addons/appimage-export/plugin.cfg", "res://addons/licenses/plugin.cfg", "res://addons/mod-export/plugin.cfg")
 
 [file_customization]
 
